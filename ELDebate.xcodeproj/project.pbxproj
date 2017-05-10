@@ -74,6 +74,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8C1917F81EC357CB00519DC8 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		8C78D3FA1EC350C400BDF7EB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +102,7 @@
 		8C85D84E1EC34FC100C5BAE7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8C1917F81EC357CB00519DC8 /* Mocks */,
 				8C85D84F1EC34FC100C5BAE7 /* ELDebateTests.swift */,
 				8C85D8501EC34FC100C5BAE7 /* Info.plist */,
 			);
@@ -139,6 +147,7 @@
 			buildConfigurationList = 8CAD34FC1EC34F5E00468C87 /* Build configuration list for PBXNativeTarget "ELDebate" */;
 			buildPhases = (
 				BF521D377CA1F178E3C4E792 /* [CP] Check Pods Manifest.lock */,
+				8C1917F71EC356BA00519DC8 /* Sourcery Generate Mocks */,
 				8CAD34DB1EC34F5E00468C87 /* Sources */,
 				8CAD34DC1EC34F5E00468C87 /* Frameworks */,
 				8CAD34DD1EC34F5E00468C87 /* Resources */,
@@ -298,6 +307,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8C1917F71EC356BA00519DC8 /* Sourcery Generate Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Sourcery Generate Mocks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --sources Sources/ --templates Templates/AutoMockable.stencil --output Tests/Mocks";
 		};
 		8C78D3FE1EC352AF00BDF7EB /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -510,7 +533,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19E287EA4ED2A64F83F5A9CB /* Pods-ELDebateTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = H5QFB36W2F;
 				INFOPLIST_FILE = ELDebateTests/Info.plist;
@@ -526,7 +548,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 503584F6E31E132E68AE9835 /* Pods-ELDebateTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = H5QFB36W2F;
 				INFOPLIST_FILE = ELDebateTests/Info.plist;

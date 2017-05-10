@@ -1,0 +1,57 @@
+@testable import ELDebate
+import Foundation
+import UIKit
+
+{% macro methodReceivedParameters method %}
+    {%if method.parameters.count == 1 %}
+        {{ method.shortName }}Received{% for param in method.parameters %}{{ param.name|upperFirst }} = {{ param.name }}{% endfor %}
+    {% else %}
+    {% if not method.parameters.count == 0 %}
+        {{ method.shortName }}ReceivedArguments = ({% for param in method.parameters %}{{ param.name }}: {{ param.name }}{% if not forloop.last%}, {% endif %}{% endfor %})
+    {% endif %}
+    {% endif %}
+{% endmacro %}
+
+{% macro methodCalledVariableName method %}
+{{ method.shortName }}Called
+{% endmacro %}
+
+{% macro methodReturnValueVariableName method %}
+{{ method.shortName }}ReturnValue
+{% endmacro %}
+
+{% for type in types.based.AutoMockable %}{% if type.kind == 'protocol' %}
+{% if not type.name == "AutoMockable" %}
+class {{ type.name }}Mock: {{ type.name }} {
+
+    {% for variable in type.allVariables %}
+    var {{ variable.name }}: {{ variable.typeName }}{% if not variable.isOptional %}{% if variable.isArray %} = []{% endif %}{% if variable.isDictionary %} = [:]{% endif %}{% endif %}
+    {% endfor %}
+
+{% for method in type.allMethods %}
+    //MARK: - {{ method.shortName }}
+
+    {% if not method.isInitializer %}var {% call methodCalledVariableName method %} = false{% endif %}
+    {% if method.parameters.count == 1 %}
+    var {{ method.shortName }}Received{% for param in method.parameters %}{{ param.name|upperFirst }}: {{ param.typeName.unwrappedTypeName }}?{% endfor %}
+    {% else %}{% if not method.parameters.count == 0 %}
+    var {{ method.shortName }}ReceivedArguments: ({% for param in method.parameters %}{{ param.name }}: {% if param.typeAttributes.escaping %}{{ param.unwrappedTypeName }}{% else %}{{ param.typeName }}{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %})?
+    {% endif %}{% endif %}
+    {% if not method.returnTypeName.isVoid and not method.isInitializer %}var {% call methodReturnValueVariableName method %}: {{ method.returnTypeName }}!{% endif %}
+
+{% if method.isInitializer %}
+    required {{ method.name }} {
+        {% call methodReceivedParameters method %}
+    }
+{% else %}
+    func {{ method.name }}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
+
+        {% call methodCalledVariableName method %} = true
+        {% call methodReceivedParameters method %}
+        {% if not method.returnTypeName.isVoid %}return {% call methodReturnValueVariableName method %}{% endif %}
+    }
+{% endif %}
+{% endfor %}
+}
+{% endif %}{% endif %}
+{% endfor %}
