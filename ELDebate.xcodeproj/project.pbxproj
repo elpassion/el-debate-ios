@@ -10,11 +10,14 @@
 		501E951C7F5419BDDB3C45B8 /* Pods_ELDebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */; };
 		8C1917FE1EC3600F00519DC8 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1917FD1EC3600F00519DC8 /* Route.swift */; };
 		8C1918001EC3602A00519DC8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1917FF1EC3602A00519DC8 /* Router.swift */; };
+		8C63FA061EC371170080FFF9 /* MainWindowFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */; };
+		8C63FA091EC3755C0080FFF9 /* MainWindowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */; };
+		8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */; };
+		8C63FA101EC379D20080FFF9 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA0E1EC379B90080FFF9 /* AutoMockable.swift */; };
+		8C63FA121EC379F30080FFF9 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */; };
 		8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */; };
 		8C85D8521EC34FC100C5BAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */; };
 		8C85D8531EC34FC100C5BAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8481EC34FC100C5BAE7 /* LaunchScreen.storyboard */; };
-		8CAD32461EC3695C00830E72 /* UINavigationController+ControllerNavigating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAD32451EC3695C00830E72 /* UINavigationController+ControllerNavigating.swift */; };
-		8CAD324A1EC36AA600830E72 /* ControllerNavigating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAD32491EC36AA600830E72 /* ControllerNavigating.swift */; };
 		8CAD324D1EC36B5F00830E72 /* PinEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */; };
 		8CB3AF5C1EC36EA7005EEDC7 /* RouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1918011EC360F100519DC8 /* RouterSpec.swift */; };
 		AB2A8D469E4277C68D64F2AE /* Pods_ELDebateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DCA5AB659775BB4F7FD239 /* Pods_ELDebateTests.framework */; };
@@ -40,13 +43,16 @@
 		8C1917FD1EC3600F00519DC8 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8C1917FF1EC3602A00519DC8 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8C1918011EC360F100519DC8 /* RouterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterSpec.swift; sourceTree = "<group>"; };
+		8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowFactorySpec.swift; sourceTree = "<group>"; };
+		8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowFactory.swift; sourceTree = "<group>"; };
+		8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateSpec.swift; sourceTree = "<group>"; };
+		8C63FA0E1EC379B90080FFF9 /* AutoMockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
+		8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C85D8491EC34FC100C5BAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C85D84C1EC34FC100C5BAE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C85D8501EC34FC100C5BAE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CAD32451EC3695C00830E72 /* UINavigationController+ControllerNavigating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UINavigationController+ControllerNavigating.swift"; path = "Routing/UINavigationController+ControllerNavigating.swift"; sourceTree = "<group>"; };
-		8CAD32491EC36AA600830E72 /* ControllerNavigating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerNavigating.swift; sourceTree = "<group>"; };
 		8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryViewController.swift; sourceTree = "<group>"; };
 		8CAD34DF1EC34F5E00468C87 /* ELDebate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELDebate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB3AF521EC36E92005EEDC7 /* ELDebateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELDebateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +92,7 @@
 		8C1917F81EC357CB00519DC8 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -98,6 +105,22 @@
 			);
 			name = Navigation;
 			path = Routing;
+			sourceTree = "<group>";
+		};
+		8C63FA0C1EC3776A0080FFF9 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */,
+			);
+			name = "Business Logic";
+			sourceTree = "<group>";
+		};
+		8C63FA0D1EC379AE0080FFF9 /* Common Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				8C63FA0E1EC379B90080FFF9 /* AutoMockable.swift */,
+			);
+			name = "Common Interfaces";
 			sourceTree = "<group>";
 		};
 		8C78D3FA1EC350C400BDF7EB /* Resources */ = {
@@ -113,9 +136,9 @@
 		8C85D8451EC34FC100C5BAE7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8CAD32471EC369AC00830E72 /* Common Interfaces */,
+				8C63FA0C1EC3776A0080FFF9 /* Business Logic */,
+				8C63FA0D1EC379AE0080FFF9 /* Common Interfaces */,
 				8CAD324B1EC36B5200830E72 /* Controllers */,
-				8CAD32481EC36A9400830E72 /* Extensions */,
 				8C1917FC1EC3600400519DC8 /* Navigation */,
 				8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */,
 			);
@@ -126,26 +149,12 @@
 			isa = PBXGroup;
 			children = (
 				8C1917F81EC357CB00519DC8 /* Mocks */,
+				8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */,
+				8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */,
 				8C1918011EC360F100519DC8 /* RouterSpec.swift */,
 				8C85D8501EC34FC100C5BAE7 /* Info.plist */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		8CAD32471EC369AC00830E72 /* Common Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-				8CAD32491EC36AA600830E72 /* ControllerNavigating.swift */,
-			);
-			name = "Common Interfaces";
-			sourceTree = "<group>";
-		};
-		8CAD32481EC36A9400830E72 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				8CAD32451EC3695C00830E72 /* UINavigationController+ControllerNavigating.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 		8CAD324B1EC36B5200830E72 /* Controllers */ = {
@@ -420,11 +429,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */,
+				8C63FA091EC3755C0080FFF9 /* MainWindowFactory.swift in Sources */,
 				8C1918001EC3602A00519DC8 /* Router.swift in Sources */,
-				8CAD324A1EC36AA600830E72 /* ControllerNavigating.swift in Sources */,
 				8CAD324D1EC36B5F00830E72 /* PinEntryViewController.swift in Sources */,
+				8C63FA101EC379D20080FFF9 /* AutoMockable.swift in Sources */,
 				8C1917FE1EC3600F00519DC8 /* Route.swift in Sources */,
-				8CAD32461EC3695C00830E72 /* UINavigationController+ControllerNavigating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +441,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */,
 				8CB3AF5C1EC36EA7005EEDC7 /* RouterSpec.swift in Sources */,
+				8C63FA061EC371170080FFF9 /* MainWindowFactorySpec.swift in Sources */,
+				8C63FA121EC379F30080FFF9 /* AutoMockable.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

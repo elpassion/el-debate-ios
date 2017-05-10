@@ -3,6 +3,4 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
-import UIKit
-
-extension UINavigationController: ControllerNavigating { }
+protocol AutoMockable { }

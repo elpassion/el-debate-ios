@@ -25,5 +25,4 @@ class RouterSpec: QuickSpec {
             }
         }
     }
-
 }

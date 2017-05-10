@@ -7,15 +7,17 @@ import UIKit
 
 protocol Routing {
 
+    var navigator: UINavigationController { get }
+
     func go(to route: Route)
 
 }
 
 class Router: Routing {
 
-    private let navigator: ControllerNavigating
+    let navigator: UINavigationController
 
-    init(navigator: ControllerNavigating) {
+    init(navigator: UINavigationController) {
         self.navigator = navigator
     }
 
