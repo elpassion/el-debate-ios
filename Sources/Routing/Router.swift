@@ -13,9 +13,9 @@ protocol Routing {
 
 class Router: Routing {
 
-    private let navigator: UINavigationController
+    private let navigator: ControllerNavigating
 
-    init(navigator: UINavigationController) {
+    init(navigator: ControllerNavigating) {
         self.navigator = navigator
     }
 

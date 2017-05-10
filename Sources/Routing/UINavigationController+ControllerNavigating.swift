@@ -5,4 +5,4 @@
 
 import UIKit
 
-//extension UINavigationController: ControllerNavigating { }
+extension UINavigationController: ControllerNavigating { }
