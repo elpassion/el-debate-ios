@@ -10,11 +10,14 @@ import Quick
 class AppDelegateSpec: QuickSpec {
 
     override func spec() {
+        var router: RouterMock!
         var appDelegate: AppDelegate!
 
         describe("AppDelegate") {
             beforeEach {
+                router = RouterMock()
                 appDelegate = AppDelegate()
+                appDelegate.router = router
             }
 
             describe("starting application") {
@@ -24,6 +27,10 @@ class AppDelegateSpec: QuickSpec {
 
                 it("should set window") {
                     expect(appDelegate.window).toNot(beNil())
+                }
+
+                it("should start router") {
+                    expect(router.lastRoute).to(equal(Route.pinEntry))
                 }
             }
         }

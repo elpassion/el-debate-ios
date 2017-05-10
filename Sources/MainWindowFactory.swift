@@ -5,13 +5,13 @@
 
 import UIKit
 
-protocol MainWindowFactoryCreating {
+protocol MainWindowCreating {
 
     func makeMainWindow(with navigationController: UINavigationController) -> UIWindow
 
 }
 
-class MainWindowFactory: MainWindowFactoryCreating {
+class MainWindowFactory: MainWindowCreating {
 
     private let screenBounds: CGRect
 

@@ -7,6 +7,8 @@ target 'ELDebate' do
   pod 'Anchorage', '~> 3.0'
   pod 'Sourcery', '~> 0.6'
   pod 'SwiftLint', '~> 0.18'
+  pod 'Swinject', '~> 2.0'
+  pod 'SwinjectAutoregistration', '~> 2.0'
 
   target 'ELDebateTests' do
     inherit! :search_paths

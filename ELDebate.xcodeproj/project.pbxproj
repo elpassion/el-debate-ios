@@ -15,6 +15,9 @@
 		8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */; };
 		8C63FA101EC379D20080FFF9 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA0E1EC379B90080FFF9 /* AutoMockable.swift */; };
 		8C63FA121EC379F30080FFF9 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */; };
+		8C63FA151EC37BF90080FFF9 /* Assembler+Assemblies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */; };
+		8C63FA171EC37C1D0080FFF9 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */; };
+		8C63FA1A1EC383890080FFF9 /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA181EC382820080FFF9 /* RouterMock.swift */; };
 		8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */; };
 		8C85D8521EC34FC100C5BAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */; };
 		8C85D8531EC34FC100C5BAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8481EC34FC100C5BAE7 /* LaunchScreen.storyboard */; };
@@ -48,6 +51,9 @@
 		8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateSpec.swift; sourceTree = "<group>"; };
 		8C63FA0E1EC379B90080FFF9 /* AutoMockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
+		8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assembler+Assemblies.swift"; sourceTree = "<group>"; };
+		8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
+		8C63FA181EC382820080FFF9 /* RouterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterMock.swift; sourceTree = "<group>"; };
 		8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C85D8491EC34FC100C5BAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
+				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -123,6 +130,15 @@
 			name = "Common Interfaces";
 			sourceTree = "<group>";
 		};
+		8C63FA131EC37BE70080FFF9 /* Dependency Injection */ = {
+			isa = PBXGroup;
+			children = (
+				8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */,
+				8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */,
+			);
+			name = "Dependency Injection";
+			sourceTree = "<group>";
+		};
 		8C78D3FA1EC350C400BDF7EB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +154,7 @@
 			children = (
 				8C63FA0C1EC3776A0080FFF9 /* Business Logic */,
 				8C63FA0D1EC379AE0080FFF9 /* Common Interfaces */,
+				8C63FA131EC37BE70080FFF9 /* Dependency Injection */,
 				8CAD324B1EC36B5200830E72 /* Controllers */,
 				8C1917FC1EC3600400519DC8 /* Navigation */,
 				8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */,
@@ -430,8 +447,10 @@
 			files = (
 				8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */,
 				8C63FA091EC3755C0080FFF9 /* MainWindowFactory.swift in Sources */,
+				8C63FA171EC37C1D0080FFF9 /* MainAssembly.swift in Sources */,
 				8C1918001EC3602A00519DC8 /* Router.swift in Sources */,
 				8CAD324D1EC36B5F00830E72 /* PinEntryViewController.swift in Sources */,
+				8C63FA151EC37BF90080FFF9 /* Assembler+Assemblies.swift in Sources */,
 				8C63FA101EC379D20080FFF9 /* AutoMockable.swift in Sources */,
 				8C1917FE1EC3600F00519DC8 /* Route.swift in Sources */,
 			);
@@ -441,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C63FA1A1EC383890080FFF9 /* RouterMock.swift in Sources */,
 				8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */,
 				8CB3AF5C1EC36EA7005EEDC7 /* RouterSpec.swift in Sources */,
 				8C63FA061EC371170080FFF9 /* MainWindowFactorySpec.swift in Sources */,

@@ -4,6 +4,9 @@ PODS:
   - Quick (1.1.0)
   - Sourcery (0.6.0)
   - SwiftLint (0.18.1)
+  - Swinject (2.0.0)
+  - SwinjectAutoregistration (2.0.1):
+    - Swinject (~> 2.0.0)
 
 DEPENDENCIES:
   - Anchorage (~> 3.0)
@@ -11,6 +14,8 @@ DEPENDENCIES:
   - Quick (~> 1.1)
   - Sourcery (~> 0.6)
   - SwiftLint (~> 0.18)
+  - Swinject (~> 2.0)
+  - SwinjectAutoregistration (~> 2.0)
 
 SPEC CHECKSUMS:
   Anchorage: 1444bbd32c4495b32d41c0be9f66efcb0862fe8a
@@ -18,7 +23,9 @@ SPEC CHECKSUMS:
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   Sourcery: b3a93fcdf9c256feeb16e85f4d1bbf46baa42464
   SwiftLint: b467d08f5b25dc3b3cfed243d8e1b74b91714c67
+  Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
+  SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
 
-PODFILE CHECKSUM: 99e7cdf7177bab78d03e5819ab56c814cc023f17
+PODFILE CHECKSUM: 3ce368cdce695e4937adefabf6fa015af36baf04
 
 COCOAPODS: 1.2.1

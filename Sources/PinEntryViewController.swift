@@ -17,6 +17,12 @@ class PinEntryViewController: UIViewController {
         view = UIView()
     }
 
+    // MARK: - View did load
+
+    override func viewDidLoad() {
+        self.title = "The title"
+    }
+
     // MARK: - Required initializer
 
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
