@@ -100,6 +100,7 @@
 				6EA7E2931EC466F6002DF55E /* ApiClientSpec.swift */,
 			);
 			name = Networking;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		7AFE4545D2D4ECC51308BFA5 /* Pods */ = {
@@ -117,8 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
-				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
+				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -130,7 +131,7 @@
 				8C1917FF1EC3602A00519DC8 /* Router.swift */,
 			);
 			name = Navigation;
-			path = Routing;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		8C63FA0C1EC3776A0080FFF9 /* Business Logic */ = {
@@ -139,6 +140,7 @@
 				8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */,
 			);
 			name = "Business Logic";
+			path = "Business Logic";
 			sourceTree = "<group>";
 		};
 		8C63FA0D1EC379AE0080FFF9 /* Common Interfaces */ = {
@@ -147,6 +149,7 @@
 				8C63FA0E1EC379B90080FFF9 /* AutoMockable.swift */,
 			);
 			name = "Common Interfaces";
+			path = "Common Interfaces";
 			sourceTree = "<group>";
 		};
 		8C63FA131EC37BE70080FFF9 /* Dependency Injection */ = {
@@ -156,16 +159,18 @@
 				8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */,
 			);
 			name = "Dependency Injection";
+			path = "Dependency Injection";
 			sourceTree = "<group>";
 		};
 		8C664A101EC45FDC0017687F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				6EA7E2901EC466E3002DF55E /* ApiClient.swift */,
 				8C664A111EC45FFD0017687F /* JSONResponseProviding.swift */,
 				8C664A131EC464130017687F /* RequestExecuting.swift */,
-				6EA7E2901EC466E3002DF55E /* ApiClient.swift */,
 			);
 			name = Networking;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		8C78D3FA1EC350C400BDF7EB /* Resources */ = {
@@ -181,12 +186,12 @@
 		8C85D8451EC34FC100C5BAE7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8C664A101EC45FDC0017687F /* Networking */,
 				8C63FA0C1EC3776A0080FFF9 /* Business Logic */,
 				8C63FA0D1EC379AE0080FFF9 /* Common Interfaces */,
-				8C63FA131EC37BE70080FFF9 /* Dependency Injection */,
 				8CAD324B1EC36B5200830E72 /* Controllers */,
+				8C63FA131EC37BE70080FFF9 /* Dependency Injection */,
 				8C1917FC1EC3600400519DC8 /* Navigation */,
+				8C664A101EC45FDC0017687F /* Networking */,
 				8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */,
 			);
 			path = Sources;
@@ -195,12 +200,12 @@
 		8C85D84E1EC34FC100C5BAE7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6EA7E2921EC466EC002DF55E /* Networking */,
 				8C1917F81EC357CB00519DC8 /* Mocks */,
+				6EA7E2921EC466EC002DF55E /* Networking */,
 				8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */,
+				8C85D8501EC34FC100C5BAE7 /* Info.plist */,
 				8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */,
 				8C1918011EC360F100519DC8 /* RouterSpec.swift */,
-				8C85D8501EC34FC100C5BAE7 /* Info.plist */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
 			);
 			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		8CAD34D61EC34F5E00468C87 = {

@@ -3,6 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+import PromiseKit
 import UIKit
 
 protocol Routing {

@@ -6,6 +6,7 @@ target 'ELDebate' do
 
   pod 'Alamofire', '~> 4.4'
   pod 'Anchorage', '~> 3.0'
+  pod 'AwaitKit', '~> 3.0'
   pod 'Sourcery', '~> 0.6'
   pod 'SwiftLint', '~> 0.18'
   pod 'Swinject', '~> 2.0'
