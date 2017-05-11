@@ -21,8 +21,10 @@ class AppDelegateSpec: QuickSpec {
             }
 
             describe("starting application") {
+                var launchReturnValue: Bool!
+
                 beforeEach {
-                    _ = appDelegate.application(.shared, didFinishLaunchingWithOptions: nil)
+                    launchReturnValue = appDelegate.application(.shared, didFinishLaunchingWithOptions: nil)
                 }
 
                 it("should set window") {
@@ -31,6 +33,10 @@ class AppDelegateSpec: QuickSpec {
 
                 it("should start router") {
                     expect(router.lastRoute).to(equal(Route.pinEntry))
+                }
+
+                it("should return true") {
+                    expect(launchReturnValue).to(beTrue())
                 }
             }
         }
