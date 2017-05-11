@@ -1,6 +1,7 @@
 @testable import ELDebate
 import Foundation
 import UIKit
+import Alamofire
 
 {% macro methodReceivedParameters method %}
     {%if method.parameters.count == 1 %}
