@@ -10,3 +10,12 @@ protocol JSONResponseProviding {
     func json(completionHandler: @escaping (Any?) -> Void)
 
 }
+
+extension DataRequest: JSONResponseProviding {
+
+    func json(completionHandler: @escaping (Any?) -> Void) {
+        responseJSON { dataRequest in
+            completionHandler(dataRequest.value)
+        }
+    }
+}

@@ -5,24 +5,15 @@
 
 import Alamofire
 
-protocol RequestExecuting {
+protocol RequestExecuting: AutoMockable {
 
-    func post(url: URL, body: Parameters?) -> JSONResponseProviding
+    func post(url: URLConvertible, body: Parameters?) -> JSONResponseProviding
 
 }
 
-extension DataRequest: JSONResponseProviding {
-
-    func json(completionHandler: @escaping (Any?) -> Void) {
-        responseJSON { dataRequest in
-            completionHandler(dataRequest.value)
-        }
-    }
-}
 
 class RequestExecutor: RequestExecuting {
-
-    func post(url: URL, body: Parameters?) -> JSONResponseProviding {
+    func post(url: URLConvertible, body: Parameters?) -> JSONResponseProviding {
         return Alamofire.request(url, method: .post, parameters: body, encoding: JSONEncoding.default).validate()
     }
 }
