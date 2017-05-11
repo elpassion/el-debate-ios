@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.4.0)
   - Anchorage (3.3.0)
   - Nimble (6.1.0)
   - Quick (1.1.0)
@@ -9,6 +10,7 @@ PODS:
     - Swinject (~> 2.0.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.4)
   - Anchorage (~> 3.0)
   - Nimble (~> 6.1)
   - Quick (~> 1.1)
@@ -18,6 +20,7 @@ DEPENDENCIES:
   - SwinjectAutoregistration (~> 2.0)
 
 SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Anchorage: 1444bbd32c4495b32d41c0be9f66efcb0862fe8a
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
@@ -26,6 +29,6 @@ SPEC CHECKSUMS:
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
 
-PODFILE CHECKSUM: 3ce368cdce695e4937adefabf6fa015af36baf04
+PODFILE CHECKSUM: 26aaee2dc048a8c6943672cbf24e88563eab4322
 
 COCOAPODS: 1.2.1
