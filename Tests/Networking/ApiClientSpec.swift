@@ -20,12 +20,12 @@ class ApiClientSpec: QuickSpec {
             }
 
             describe("login") {
-                it("returns the authToken") { 
+                it("returns the authToken") {
                     var authToken: String? = nil
                     apiClient.login(pinCode: "654321") { authTokenResult in
                         authToken = authTokenResult
                     }
-                    
+
                     expect(authToken).toEventually(equal("123456"))
                 }
             }

@@ -11,9 +11,10 @@ protocol RequestExecuting: AutoMockable {
 
 }
 
-
 class RequestExecutor: RequestExecuting {
+
     func post(url: URLConvertible, body: Parameters?) -> JSONResponseProviding {
         return Alamofire.request(url, method: .post, parameters: body, encoding: JSONEncoding.default).validate()
     }
+
 }

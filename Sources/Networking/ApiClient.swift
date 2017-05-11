@@ -9,6 +9,7 @@
 import Foundation
 
 class ApiClient {
+
     private let requestExecutor: RequestExecuting
 
     init(requestExecutor: RequestExecuting = RequestExecutor()) {
@@ -32,4 +33,5 @@ class ApiClient {
             completionHandler(authToken)
         }
     }
+
 }
