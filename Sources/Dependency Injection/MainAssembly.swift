@@ -4,12 +4,17 @@
 //
 
 import Swinject
+import SwinjectAutoregistration
 
 class MainAssembly: Assembly {
 
     func assemble(container: Container) {
         container.register(MainWindowCreating.self) { _ in MainWindowFactory(screenBounds: UIScreen.main.bounds) }
-        container.register(Routing.self) { _ in Router(navigator: UINavigationController()) }
+        container.register(ControllerCreating.self) { resolver in ControllerFactory(resolver: resolver) }
+        container.register(Routing.self) { resolver in
+            Router(navigator: UINavigationController(), controllerFactory: resolver ~> ControllerCreating.self)
+        }
+
     }
 
 }

@@ -14,12 +14,14 @@ class RouterSpec: QuickSpec {
             describe("routing to pin entry screen") {
                 it("should push view controller on stack") {
                     let navigationController = UINavigationController()
-                    let sut = Router(navigator: navigationController)
+                    let controllerFactory = ControllerFactoryMock()
+                    let sut = Router(navigator: navigationController, controllerFactory: controllerFactory)
 
                     sut.go(to: .pinEntry)
 
+                    expect(controllerFactory.lastType).to(equal(ControllerType.pinEntry))
                     expect(navigationController.viewControllers).to(containElementSatisfying({ controller in
-                        controller.isKind(of: PinEntryViewController.self)
+                        controller == controllerFactory.provider.controller
                     }))
                 }
             }

@@ -5,11 +5,15 @@
 
 import UIKit
 
-class PinEntryViewController: UIViewController {
+class PinEntryViewController: UIViewController, ControllerProviding {
+
+    private let apiClient: ApiClient
 
     // MARK: - Initializer
 
-    init() {
+    init(apiClient: ApiClient) {
+        self.apiClient = apiClient
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -22,6 +26,10 @@ class PinEntryViewController: UIViewController {
     override func viewDidLoad() {
         self.title = "The title"
     }
+
+    // MARK: - Controller providing
+
+    var controller: UIViewController { return self }
 
     // MARK: - Required initializer
 

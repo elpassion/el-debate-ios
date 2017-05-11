@@ -17,13 +17,16 @@ protocol Routing {
 class Router: Routing {
 
     let navigator: UINavigationController
+    private let controllerFactory: ControllerCreating
 
-    init(navigator: UINavigationController) {
+    init(navigator: UINavigationController, controllerFactory: ControllerCreating) {
         self.navigator = navigator
+        self.controllerFactory = controllerFactory
     }
 
     func go(to route: Route) {
-        navigator.pushViewController(PinEntryViewController(), animated: true)
+        let pinEntryController = controllerFactory.makeController(of: .pinEntry)
+        navigator.pushViewController(pinEntryController.controller, animated: true)
     }
 
 }
