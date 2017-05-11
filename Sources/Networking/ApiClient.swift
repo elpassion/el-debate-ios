@@ -11,26 +11,22 @@ import Foundation
 class ApiClient {
 
     private let requestExecutor: RequestExecuting
+    private let authTokenDeserializer: Deserializer<String>
 
-    init(requestExecutor: RequestExecuting = RequestExecutor()) {
+    init(requestExecutor: RequestExecuting,
+         authTokenDeserializer: Deserializer<String>) {
         self.requestExecutor = requestExecutor
+        self.authTokenDeserializer = authTokenDeserializer
     }
 
-    func login(pinCode: String, completionHandler: @escaping (String) -> Void) {
+    func login(pinCode: String, completionHandler: @escaping (String?) -> Void) {
         let jsonResponse =  requestExecutor.post(
             url: "https://el-debate.herokuapp.com/api/login", body: ["code": pinCode]
         )
 
-        jsonResponse.json { jsonResponse in
-            guard let dict = jsonResponse as? [String: Any] else {
-                fatalError("invalidResponse")
-            }
-
-            guard let authToken = dict["auth_token"] as? String else {
-                fatalError("missing auth token in json response")
-            }
-
-            completionHandler(authToken)
+        jsonResponse.json { [weak self] jsonResponse in
+            guard let `self` = self else { return }
+            completionHandler(try? self.authTokenDeserializer.deserialize(json: jsonResponse))
         }
     }
 

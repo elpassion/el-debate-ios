@@ -15,7 +15,7 @@ class Deserializer<Result>: Deserializing {
 
     private let _deserialize: ((Any?) throws -> Result)
 
-    required init<D: Deserializing>(deserializer: D) where D.Result == Result {
+    required init<D: Deserializing>(_ deserializer: D) where D.Result == Result {
         _deserialize = deserializer.deserialize
     }
 
