@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = mainWindowFactory.makeMainWindow(with: router.navigator)
-        router.go(to: .pinEntry)
+        router.go(to: .answer)
 
         return true
     }

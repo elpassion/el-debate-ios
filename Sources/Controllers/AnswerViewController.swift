@@ -15,7 +15,7 @@ class AnswerViewController: UIViewController, ControllerProviding {
     }
 
     override func loadView() {
-        view = UIView()
+        view = AnswerView()
     }
 
     // MARK: - ControllerProviding
