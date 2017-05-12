@@ -13,12 +13,16 @@ class RouterSpec: QuickSpec {
         describe("Router") {
             var navigationController: UINavigationController!
             var controllerFactory: ControllerFactoryMock!
+            var controllerConfigurator: ControllerConfiguringMock!
             var sut: Router!
 
             beforeEach {
                 navigationController = UINavigationController()
                 controllerFactory = ControllerFactoryMock()
-                sut = Router(navigator: navigationController, controllerFactory: controllerFactory)
+                controllerConfigurator = ControllerConfiguringMock()
+                sut = Router(navigator: navigationController,
+                             controllerFactory: controllerFactory,
+                             controllerConfigurator: controllerConfigurator)
             }
 
             describe("routing to pin entry screen") {
@@ -30,15 +34,32 @@ class RouterSpec: QuickSpec {
                         controller == controllerFactory.pinEntryProvider.controller
                     }))
                 }
-            }
 
-            describe("login action on pin entry screen") {
-                it("should navigate to answer screen") {
+                it("should configure controller") {
                     sut.go(to: .pinEntry)
 
-                    controllerFactory.pinEntryProvider.onSuccessfulLogin?("auth_token")
+                    expect(controllerConfigurator.configureReceivedArguments?.controller).to(be(
+                        controllerFactory.pinEntryProvider))
+                    expect(controllerConfigurator.configureReceivedArguments?.router).to(be(sut))
+                }
+            }
 
-                    expect(navigationController.viewControllers.count).toEventually(equal(2))
+            describe("routing to answer screen") {
+                it("should push answer view controller on stack") {
+                    sut.go(to: .answer)
+
+                    expect(controllerFactory.lastType).to(equal(ControllerType.answer))
+                    expect(navigationController.viewControllers).to(containElementSatisfying({ controller in
+                        controller == controllerFactory.answerProvider.controller
+                    }))
+                }
+
+                it("should configure controller") {
+                    sut.go(to: .answer)
+
+                    expect(controllerConfigurator.configureReceivedArguments?.controller).to(be(
+                        controllerFactory.answerProvider))
+                    expect(controllerConfigurator.configureReceivedArguments?.router).to(be(sut))
                 }
             }
         }

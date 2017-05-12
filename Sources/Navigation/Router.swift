@@ -18,10 +18,13 @@ class Router: Routing {
 
     let navigator: UINavigationController
     private let controllerFactory: ControllerCreating
+    private let controllerConfigurator: ControllerConfiguring
 
-    init(navigator: UINavigationController, controllerFactory: ControllerCreating) {
+    init(navigator: UINavigationController, controllerFactory: ControllerCreating,
+         controllerConfigurator: ControllerConfiguring) {
         self.navigator = navigator
         self.controllerFactory = controllerFactory
+        self.controllerConfigurator = controllerConfigurator
     }
 
     func go(to route: Route) {
@@ -33,19 +36,22 @@ class Router: Routing {
         }
     }
 
+    // MARK: - Routing methods
+
     private func goToPinEntry() {
-        guard let pinEntryController = controllerFactory.makeController(of: .pinEntry) as? PinEntryControllerProviding else { fatalError() }
-        pinEntryController.onSuccessfulLogin = { _ in
-            self.go(to: .answer)
+        guard let provider = controllerFactory.makeController(of: .pinEntry) as? PinEntryControllerProviding else {
+            fatalError("Expected built provider to be of class PinEntryControllerProviding")
         }
 
-        navigator.pushViewController(pinEntryController.controller, animated: true)
+        controllerConfigurator.configure(controller: provider, with: self)
+        navigator.pushViewController(provider.controller, animated: true)
     }
 
     private func goToAnswer() {
-        let answerViewController = controllerFactory.makeController(of: .answer)
+        let provider = controllerFactory.makeController(of: .answer)
+        controllerConfigurator.configure(controller: provider, with: self)
 
-        navigator.pushViewController(answerViewController.controller, animated: true)
+        navigator.pushViewController(provider.controller, animated: true)
     }
 
 }

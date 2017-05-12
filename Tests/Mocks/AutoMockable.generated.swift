@@ -9,6 +9,23 @@ import Alamofire
 
 
 
+class ControllerConfiguringMock: ControllerConfiguring {
+
+
+    //MARK: - configure
+
+    var 
+configureCalled
+ = false
+    var configureReceivedArguments: (controller: ControllerProviding, router: Router)?
+
+    func configure(controller: ControllerProviding, with router: Router) {
+
+configureCalled
+ = true
+        configureReceivedArguments = (controller: controller, router: router)
+    }
+}
 class RequestExecutingMock: RequestExecuting {
 
 
