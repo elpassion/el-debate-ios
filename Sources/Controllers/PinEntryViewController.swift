@@ -18,13 +18,21 @@ class PinEntryViewController: UIViewController, ControllerProviding {
     }
 
     override func loadView() {
-        view = UIView()
+        view = PinEntryView()
+    }
+
+    private var pinEntryView: PinEntryView {
+        guard let pinEntryView = view as? PinEntryView else {
+            fatalError("Expected to handle view of type PinEntryView, got \(type(of: view)) instead")
+        }
+
+        return pinEntryView
     }
 
     // MARK: - View did load
 
     override func viewDidLoad() {
-        self.title = "The title"
+        title = "The title"
     }
 
     // MARK: - Controller providing
