@@ -18,15 +18,40 @@ class Router: Routing {
 
     let navigator: UINavigationController
     private let controllerFactory: ControllerCreating
+    private let controllerConfigurator: ControllerConfiguring
 
-    init(navigator: UINavigationController, controllerFactory: ControllerCreating) {
+    init(navigator: UINavigationController, controllerFactory: ControllerCreating,
+         controllerConfigurator: ControllerConfiguring) {
         self.navigator = navigator
         self.controllerFactory = controllerFactory
+        self.controllerConfigurator = controllerConfigurator
     }
 
     func go(to route: Route) {
-        let pinEntryController = controllerFactory.makeController(of: .pinEntry)
-        navigator.pushViewController(pinEntryController.controller, animated: true)
+        switch route {
+        case .pinEntry:
+            goToPinEntry()
+        case .answer:
+            goToAnswer()
+        }
+    }
+
+    // MARK: - Routing methods
+
+    private func goToPinEntry() {
+        guard let provider = controllerFactory.makeController(of: .pinEntry) as? PinEntryControllerProviding else {
+            fatalError("Expected built provider to be of class PinEntryControllerProviding")
+        }
+
+        controllerConfigurator.configure(controller: provider, with: self)
+        navigator.pushViewController(provider.controller, animated: true)
+    }
+
+    private func goToAnswer() {
+        let provider = controllerFactory.makeController(of: .answer)
+        controllerConfigurator.configure(controller: provider, with: self)
+
+        navigator.pushViewController(provider.controller, animated: true)
     }
 
 }

@@ -9,34 +9,21 @@ import Alamofire
 
 
 
-class APIProvidingMock: APIProviding {
+class ControllerConfiguringMock: ControllerConfiguring {
 
 
-    //MARK: - login
-
-    var 
-loginCalled
- = false
-    var loginReceivedArguments: (pinCode: String, completionHandler: (String?) -> Void)?
-
-    func login(pinCode: String, completionHandler: @escaping (String?) -> Void) {
-
-loginCalled
- = true
-        loginReceivedArguments = (pinCode: pinCode, completionHandler: completionHandler)
-    }
-    //MARK: - fetchDebate
+    //MARK: - configure
 
     var 
-fetchDebateCalled
+configureCalled
  = false
-    var fetchDebateReceivedArguments: (authToken: String, completionHandler: (Debate?) -> Void)?
+    var configureReceivedArguments: (controller: ControllerProviding, router: Routing)?
 
-    func fetchDebate(authToken: String, completionHandler: @escaping (Debate?) -> Void) {
+    func configure(controller: ControllerProviding, with router: Routing) {
 
-fetchDebateCalled
+configureCalled
  = true
-        fetchDebateReceivedArguments = (authToken: authToken, completionHandler: completionHandler)
+        configureReceivedArguments = (controller: controller, router: router)
     }
 }
 class RequestExecutingMock: RequestExecuting {

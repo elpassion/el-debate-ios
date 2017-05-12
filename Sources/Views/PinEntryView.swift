@@ -25,6 +25,13 @@ class PinEntryView: UIView {
         setUpGestureRecognition()
     }
 
+    // MARK: - Public API
+
+    var pinCode: String {
+        get { return codeField.pinCode }
+        set { codeField.pinCode = newValue }
+    }
+
     // MARK: - Subviews
 
     private func setUpSubviews() {

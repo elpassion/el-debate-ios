@@ -16,7 +16,7 @@ extension Assembler {
     }
 
     private static var defaultAssemblies: [Assembly] {
-        return [MainAssembly(), PinEntryAssembly()]
+        return [MainAssembly(), PinEntryAssembly(), AnswerAssembly()]
     }
 
 }
