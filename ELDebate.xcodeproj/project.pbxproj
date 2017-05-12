@@ -219,9 +219,9 @@
 				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
 				8C127C821EC49B2900E9B5FD /* ControllerFactoryMock.swift */,
 				8C6DA0421EC59D7F00D31E76 /* CurrentYearCalculatorMock.swift */,
+				6E9119B71EC5B6F400B4B14B /* FetchDebateResponseJSONMock.swift */,
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
-				6E9119B71EC5B6F400B4B14B /* FetchDebateResponseJSONMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -238,14 +238,13 @@
 		8C63FA0C1EC3776A0080FFF9 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				6EA7E29B1EC4AF75002DF55E /* Answer.swift */,
 				8C0D62FE1EC5C8A400421B89 /* ControllerConfigurator.swift */,
 				8C127C7A1EC4941000E9B5FD /* ControllerFactory.swift */,
 				8C6DA03C1EC59B3800D31E76 /* CurrentYearCalculator.swift */,
+				6EA7E2991EC4AF09002DF55E /* Debate.swift */,
 				8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */,
 				8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */,
-				6EA7E2991EC4AF09002DF55E /* Debate.swift */,
-				6EA7E29B1EC4AF75002DF55E /* Answer.swift */,
-				8C0D62FE1EC5C8A400421B89 /* ControllerConfigurator.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -286,10 +285,10 @@
 		8C664A151EC48F240017687F /* Deserialization */ = {
 			isa = PBXGroup;
 			children = (
-				8C664A1A1EC490820017687F /* AuthTokenDeserializer.swift */,
-				8C664A161EC48F370017687F /* Deserializer.swift */,
-				6EA7E29D1EC4B115002DF55E /* DebateDeserializer.swift */,
 				6EA7E29F1EC4B11F002DF55E /* AnswerDeserializer.swift */,
+				8C664A1A1EC490820017687F /* AuthTokenDeserializer.swift */,
+				6EA7E29D1EC4B115002DF55E /* DebateDeserializer.swift */,
+				8C664A161EC48F370017687F /* Deserializer.swift */,
 			);
 			path = Deserialization;
 			sourceTree = "<group>";
@@ -297,9 +296,9 @@
 		8C664A1C1EC490A00017687F /* Deserialization */ = {
 			isa = PBXGroup;
 			children = (
+				6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */,
 				8C664A1D1EC490B60017687F /* AuthTokenDeserializerSpec.swift */,
 				6EA7E2A11EC4B13F002DF55E /* DebateDeserializerSpec.swift */,
-				6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */,
 			);
 			path = Deserialization;
 			sourceTree = "<group>";
