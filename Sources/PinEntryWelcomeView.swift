@@ -16,16 +16,11 @@ class PinEntryWelcomeView: UIView {
     init() {
         super.init(frame: .zero)
 
-        setUpSubviews()
         addSubviews()
         setUpLayout()
     }
 
     // MARK: - Subviews
-
-    private func setUpSubviews() {
-        
-    }
 
     private func addSubviews() {
         container.addArrangedSubview(welcomeLabel)

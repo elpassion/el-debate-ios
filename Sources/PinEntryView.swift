@@ -69,7 +69,6 @@ class PinEntryView: UIView {
 
     private func setUpGestureRecognition() {
         tapGestureRecognizer.addTarget(self, action: #selector(didTapBackground))
-
         addGestureRecognizer(tapGestureRecognizer)
     }
 

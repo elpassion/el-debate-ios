@@ -7,12 +7,14 @@ import UIKit
 
 class PinEntryViewController: UIViewController, ControllerProviding {
 
-    private let apiClient: ApiClient
+    private let apiClient: APIProviding
+    private let yearCalculator: CurrentYearCalculating
 
     // MARK: - Initializer
 
-    init(apiClient: ApiClient) {
+    init(apiClient: APIProviding, yearCalculator: CurrentYearCalculating) {
         self.apiClient = apiClient
+        self.yearCalculator = yearCalculator
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,7 +34,7 @@ class PinEntryViewController: UIViewController, ControllerProviding {
     // MARK: - View did load
 
     override func viewDidLoad() {
-        title = "The title"
+        title = "EL Debate \(yearCalculator.year)"
     }
 
     // MARK: - Controller providing

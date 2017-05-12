@@ -8,7 +8,13 @@
 
 import Foundation
 
-class ApiClient {
+protocol APIProviding: AutoMockable {
+
+    func login(pinCode: String, completionHandler: @escaping (String?) -> Void)
+
+}
+
+class ApiClient: APIProviding {
 
     private let requestExecutor: RequestExecuting
     private let authTokenDeserializer: Deserializer<String>

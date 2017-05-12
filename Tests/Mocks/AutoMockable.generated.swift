@@ -9,6 +9,23 @@ import Alamofire
 
 
 
+class APIProvidingMock: APIProviding {
+
+
+    //MARK: - login
+
+    var 
+loginCalled
+ = false
+    var loginReceivedArguments: (pinCode: String, completionHandler: (String?) -> Void)?
+
+    func login(pinCode: String, completionHandler: @escaping (String?) -> Void) {
+
+loginCalled
+ = true
+        loginReceivedArguments = (pinCode: pinCode, completionHandler: completionHandler)
+    }
+}
 class RequestExecutingMock: RequestExecuting {
 
 
