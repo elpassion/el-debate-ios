@@ -32,7 +32,7 @@ class ControllerFactory: ControllerCreating {
         case .pinEntry:
             return resolver ~> PinEntryViewController.self
         case .answer:
-            fatalError("")
+            return resolver ~> AnswerViewController.self
         }
     }
 

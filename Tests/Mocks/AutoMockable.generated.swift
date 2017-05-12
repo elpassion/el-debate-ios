@@ -17,9 +17,9 @@ class ControllerConfiguringMock: ControllerConfiguring {
     var 
 configureCalled
  = false
-    var configureReceivedArguments: (controller: ControllerProviding, router: Router)?
+    var configureReceivedArguments: (controller: ControllerProviding, router: Routing)?
 
-    func configure(controller: ControllerProviding, with router: Router) {
+    func configure(controller: ControllerProviding, with router: Routing) {
 
 configureCalled
  = true
