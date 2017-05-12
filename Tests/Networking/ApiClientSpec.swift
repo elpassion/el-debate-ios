@@ -15,12 +15,17 @@ class ApiClientSpec: QuickSpec {
             var requestExecutor: RequestExecutingMock!
             beforeEach {
                 requestExecutor = RequestExecutingMock()
-                requestExecutor.postReturnValue = LoginResponseJSONMock()
                 apiClient = ApiClient(requestExecutor: requestExecutor,
-                                      authTokenDeserializer: Deserializer(AuthTokenDeserializer()))
+                                      authTokenDeserializer: Deserializer(AuthTokenDeserializer()),
+                                      debateDeserializer: DebateDeserializer.build()
+                                      )
             }
 
             describe("login") {
+                beforeEach {
+                    requestExecutor.postReturnValue = LoginResponseJSONMock()
+                }
+
                 it("returns the authToken") {
                     var authToken: String? = nil
                     apiClient.login(pinCode: "654321") { authTokenResult in
@@ -28,6 +33,21 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     expect(authToken).toEventually(equal("123456"))
+                }
+            }
+
+            describe("fetchDebate") {
+                beforeEach {
+                    requestExecutor.getReturnValue = FetchDebateResponseJSONMock()
+                }
+
+                it("returns deserialized Debate object") {
+                    var debate: Debate? = nil
+                    apiClient.fetchDebate(authToken: "auth_token_value") { debateResult in
+                        debate = debateResult
+                    }
+
+                    expect(debate?.topic).toEventually(equal("debate_topic"))
                 }
             }
         }

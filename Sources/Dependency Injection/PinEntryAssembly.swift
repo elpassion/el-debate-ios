@@ -19,8 +19,17 @@ class PinEntryAssembly: Assembly {
         container.register(APIProviding.self) { resolver in
             let requestExecutor = resolver ~> RequestExecuting.self
             let authTokenDeserializer = resolver ~> (Deserializer<String>.self, name: "AuthTokenDeserializer")
+            let debateDeserializer = resolver ~> (Deserializer<Debate>.self, name: "DebateDeserializer")
 
-            return ApiClient(requestExecutor: requestExecutor, authTokenDeserializer: authTokenDeserializer)
+            return ApiClient(
+                requestExecutor: requestExecutor,
+                authTokenDeserializer: authTokenDeserializer,
+                debateDeserializer: debateDeserializer
+            )
+        }
+
+        container.register(Deserializer<Debate>.self, name: "DebateDeserializer") { _ in
+            return DebateDeserializer.build()
         }
     }
 
