@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol APIProviding: AutoMockable {
+protocol APIProviding {
 
     func login(pinCode: String, completionHandler: @escaping (String?) -> Void)
     func fetchDebate(authToken: String, completionHandler: @escaping (Debate?) -> Void)

@@ -11,13 +11,15 @@ class PinEntryControllerSpec: QuickSpec {
 
     override func spec() {
         describe("PinEntryViewController") {
+            var apiStub: APIProviderStub!
             var yearCalculator: CurrentYearCalculatorMock!
             var controller: PinEntryViewController!
 
             beforeEach {
+                apiStub = APIProviderStub()
                 yearCalculator = CurrentYearCalculatorMock()
                 yearCalculator.year = "2023"
-                controller = PinEntryViewController(apiClient: APIProvidingMock(),
+                controller = PinEntryViewController(apiClient: apiStub,
                                                     yearCalculator: yearCalculator)
             }
 
@@ -28,6 +30,33 @@ class PinEntryControllerSpec: QuickSpec {
 
                 it("should set title") {
                     expect(controller.title).to(equal("EL Debate 2023"))
+                }
+            }
+
+            describe("log in button press") {
+                beforeEach {
+                    apiStub.authenticationToken = "auth_token"
+                    apiStub.pinCode = nil
+                }
+
+                it("should trigger successful login callback with correct authentication token") {
+                    var authenticationToken: String?
+
+                    controller.onSuccessfulLogin = { authToken in
+                        authenticationToken = authToken
+                    }
+
+                    controller.pinEntryView.onLoginButtonTapped?()
+
+                    expect(authenticationToken).toEventually(equal("auth_token"))
+                }
+
+                it("should pass pin from view") {
+                    controller.pinEntryView.pinCode = "99999"
+
+                    controller.pinEntryView.onLoginButtonTapped?()
+
+                    expect(apiStub.pinCode).toEventually(equal("99999"))
                 }
             }
         }

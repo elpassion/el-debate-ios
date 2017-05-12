@@ -23,6 +23,13 @@ class PinEntryCodeField: UIView {
         setUpLayout()
     }
 
+    // MARK: - Public API
+
+    var pinCode: String {
+        get { return codeInput.text ?? "" }
+        set { codeInput.text = newValue }
+    }
+
     // MARK: - Subviews
 
     private func setUpSubviews() {

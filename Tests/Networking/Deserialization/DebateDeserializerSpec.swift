@@ -27,7 +27,7 @@ class DebateDeserializerSpec: QuickSpec {
                         "answers": [
                             "positive": ["id": 122, "value": "yes"],
                             "negative": ["id": 123, "value": "no"],
-                            "neutral":  ["id": 124, "value": "maybe"]
+                            "neutral": ["id": 124, "value": "maybe"]
                         ]
                     ]
 

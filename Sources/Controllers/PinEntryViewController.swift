@@ -5,10 +5,12 @@
 
 import UIKit
 
-class PinEntryViewController: UIViewController, ControllerProviding {
+class PinEntryViewController: UIViewController, PinEntryControllerProviding {
 
     private let apiClient: APIProviding
     private let yearCalculator: CurrentYearCalculating
+
+    var onSuccessfulLogin: ((String) -> Void)?
 
     // MARK: - Initializer
 
@@ -23,7 +25,7 @@ class PinEntryViewController: UIViewController, ControllerProviding {
         view = PinEntryView()
     }
 
-    private var pinEntryView: PinEntryView {
+    var pinEntryView: PinEntryView {
         guard let pinEntryView = view as? PinEntryView else {
             fatalError("Expected to handle view of type PinEntryView, got \(type(of: view)) instead")
         }
@@ -35,6 +37,14 @@ class PinEntryViewController: UIViewController, ControllerProviding {
 
     override func viewDidLoad() {
         title = "EL Debate \(yearCalculator.year)"
+        pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
+    }
+
+    private func onLoginButtonTapped() {
+        apiClient.login(pinCode: pinEntryView.pinCode) { [weak self] authToken in
+            guard let authToken = authToken else { return }
+            self?.onSuccessfulLogin?(authToken)
+        }
     }
 
     // MARK: - Controller providing
