@@ -215,8 +215,8 @@
 		8C1917F81EC357CB00519DC8 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
 				8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */,
+				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
 				8C127C821EC49B2900E9B5FD /* ControllerFactoryMock.swift */,
 				8C6DA0421EC59D7F00D31E76 /* CurrentYearCalculatorMock.swift */,
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
@@ -238,6 +238,7 @@
 		8C63FA0C1EC3776A0080FFF9 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				8C0D62FE1EC5C8A400421B89 /* ControllerConfigurator.swift */,
 				8C127C7A1EC4941000E9B5FD /* ControllerFactory.swift */,
 				8C6DA03C1EC59B3800D31E76 /* CurrentYearCalculator.swift */,
 				8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */,
@@ -262,10 +263,10 @@
 		8C63FA131EC37BE70080FFF9 /* Dependency Injection */ = {
 			isa = PBXGroup;
 			children = (
+				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
 				8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */,
 				8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */,
 				8C127C7C1EC4965E00E9B5FD /* PinEntryAssembly.swift */,
-				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
 			);
 			path = "Dependency Injection";
 			sourceTree = "<group>";
@@ -314,8 +315,8 @@
 		8C6DA03E1EC59B6100D31E76 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				8C6DA03F1EC59B7100D31E76 /* CurrentYearCalculatorSpec.swift */,
 				8C0D63001EC5DACE00421B89 /* ControllerConfiguratorSpec.swift */,
+				8C6DA03F1EC59B7100D31E76 /* CurrentYearCalculatorSpec.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -366,9 +367,9 @@
 		8CAD324B1EC36B5200830E72 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
 				8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */,
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
-				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
