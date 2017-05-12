@@ -16,3 +16,11 @@ class LoginResponseJSONMock: JSONResponseProviding {
     }
 
 }
+
+class LoginResponseErrorMock: JSONResponseProviding {
+
+    func json(completionHandler: @escaping (Any?) -> Void) {
+        completionHandler(["error" : "auth_error"])
+    }
+
+}

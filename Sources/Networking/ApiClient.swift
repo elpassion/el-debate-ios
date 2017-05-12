@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import PromiseKit
 
 protocol APIProviding {
 
-    func login(pinCode: String, completionHandler: @escaping (String?) -> Void)
-    func fetchDebate(authToken: String, completionHandler: @escaping (Debate?) -> Void)
+    func login(pinCode: String) -> Promise<String>
+    func fetchDebate(authToken: String) -> Promise<Debate>
 
 }
 
@@ -30,25 +31,40 @@ class ApiClient: APIProviding {
         self.debateDeserializer = debateDeserializer
     }
 
-    func login(pinCode: String, completionHandler: @escaping (String?) -> Void) {
+    func login(pinCode: String) -> Promise<String> {
         let jsonResponse = requestExecutor.post(
             url: "\(apiHost)/api/login", body: ["code": pinCode]
         )
 
-        jsonResponse.json { [weak self] jsonData in
-            guard let `self` = self else { return }
-            completionHandler(try? self.authTokenDeserializer.deserialize(json: jsonData))
+        return Promise { fulfill, reject in
+            jsonResponse.json { [weak self] jsonData in
+                guard let `self` = self else { fatalError("This should never happen") }
+
+                do {
+                    let authToken = try self.authTokenDeserializer.deserialize(json: jsonData)
+                    fulfill(authToken)
+                } catch let error {
+                    reject(error)
+                }
+            }
         }
     }
 
-    func fetchDebate(authToken: String, completionHandler: @escaping (Debate?) -> Void) {
+    func fetchDebate(authToken: String) -> Promise<Debate> {
         let jsonResponse =  requestExecutor.get(
             url: "\(apiHost)/api/debate", headers: ["Authorization": authToken]
         )
 
-        jsonResponse.json { [weak self] jsonData in
-            guard let `self` = self else { return }
-            completionHandler(try? self.debateDeserializer.deserialize(json: jsonData))
+        return Promise { fulfill, reject in
+            jsonResponse.json { [weak self] jsonData in
+                guard let `self` = self else { fatalError("This should never happen") }
+                do {
+                    let debate = try self.debateDeserializer.deserialize(json: jsonData)
+                    fulfill(debate)
+                } catch let error {
+                    reject(error)
+                }
+            }
         }
     }
 }

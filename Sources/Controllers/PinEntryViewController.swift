@@ -41,9 +41,10 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
     }
 
     private func onLoginButtonTapped() {
-        apiClient.login(pinCode: pinEntryView.pinCode) { [weak self] authToken in
-            guard let authToken = authToken else { return }
+        apiClient.login(pinCode: pinEntryView.pinCode).then { [weak self] authToken in
             self?.onSuccessfulLogin?(authToken)
+        }.catch { error in
+            fatalError(error.localizedDescription)
         }
     }
 
