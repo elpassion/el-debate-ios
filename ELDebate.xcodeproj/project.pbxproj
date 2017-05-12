@@ -40,6 +40,7 @@
 		8C6DA0301EC58E5500D31E76 /* UIImage+Predefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */; };
 		8C6DA0321EC590E500D31E76 /* NavigationControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */; };
 		8C6DA0351EC5915800D31E76 /* NavigationControllerFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */; };
+		8C6DA0371EC5943400D31E76 /* PinEntryCodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0361EC5943400D31E76 /* PinEntryCodeField.swift */; };
 		8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */; };
 		8C85D8521EC34FC100C5BAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */; };
 		8C85D8531EC34FC100C5BAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8481EC34FC100C5BAE7 /* LaunchScreen.storyboard */; };
@@ -98,6 +99,7 @@
 		8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Predefined.swift"; sourceTree = "<group>"; };
 		8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactory.swift; sourceTree = "<group>"; };
 		8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactorySpec.swift; sourceTree = "<group>"; };
+		8C6DA0361EC5943400D31E76 /* PinEntryCodeField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryCodeField.swift; sourceTree = "<group>"; };
 		8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C85D8491EC34FC100C5BAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		8C127C851EC4A06100E9B5FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8C6DA0361EC5943400D31E76 /* PinEntryCodeField.swift */,
 				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
 				8C127C891EC4A0D100E9B5FD /* PinEntryWelcomeView.swift */,
 			);
@@ -584,6 +587,7 @@
 				8C1918001EC3602A00519DC8 /* Router.swift in Sources */,
 				8CAD324D1EC36B5F00830E72 /* PinEntryViewController.swift in Sources */,
 				8C127C7D1EC4965E00E9B5FD /* PinEntryAssembly.swift in Sources */,
+				8C6DA0371EC5943400D31E76 /* PinEntryCodeField.swift in Sources */,
 				8C664A141EC464130017687F /* RequestExecuting.swift in Sources */,
 				8C664A191EC48F7A0017687F /* RequestError.swift in Sources */,
 				8C63FA151EC37BF90080FFF9 /* Assembler+Assemblies.swift in Sources */,

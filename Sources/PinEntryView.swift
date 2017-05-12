@@ -11,6 +11,8 @@ class PinEntryView: UIView {
     private let welcomeView = PinEntryWelcomeView()
     private let background = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
     private let loginButton = UIButton(type: .custom)
+    private let codeField = PinEntryCodeField()
+    private let tapGestureRecognizer = UITapGestureRecognizer()
 
     var onLoginButtonTapped: (() -> Void)?
 
@@ -20,12 +22,13 @@ class PinEntryView: UIView {
         setUpSubviews()
         addSubviews()
         setUpLayout()
+        setUpGestureRecognition()
     }
 
     // MARK: - Subviews
 
     private func setUpSubviews() {
-        backgroundColor = UIColor(predefined: .screenBackgroundColor)
+        backgroundColor = UIColor(predefined: .screenBackground)
 
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         loginButton.setBackgroundImage(UIImage(predefined: .loginButtonBackground), for: .normal)
@@ -38,6 +41,7 @@ class PinEntryView: UIView {
         addSubview(background)
         addSubview(welcomeView)
         addSubview(loginButton)
+        addSubview(codeField)
     }
 
     // MARK: - Layout
@@ -55,12 +59,30 @@ class PinEntryView: UIView {
         loginButton.centerXAnchor == centerXAnchor
         loginButton.bottomAnchor == bottomAnchor - 15
         loginButton.widthAnchor == widthAnchor * 0.9
+
+        codeField.widthAnchor == loginButton.widthAnchor
+        codeField.bottomAnchor == background.topAnchor - 20
+        codeField.centerXAnchor == centerXAnchor
+    }
+
+    // MARK: - Gesture recognition
+
+    private func setUpGestureRecognition() {
+        tapGestureRecognizer.addTarget(self, action: #selector(didTapBackground))
+
+        addGestureRecognizer(tapGestureRecognizer)
     }
 
     // MARK: - Login button tap
 
     @objc private func didTapLoginButton() {
         onLoginButtonTapped?()
+    }
+
+    // MARK: - Background tap
+
+    @objc private func didTapBackground() {
+        endEditing(true)
     }
 
     // MARK: - Required initializer

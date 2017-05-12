@@ -7,7 +7,8 @@ import UIKit
 
 enum Color: String {
 
-    case screenBackgroundColor = "#F8FAF8"
+    case screenBackground = "#F8FAF8"
     case navigationBar = "#4CC359"
+    case pin = "#C0C0C0"
 
 }
