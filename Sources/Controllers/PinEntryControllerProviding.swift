@@ -5,7 +5,7 @@
 
 import UIKit
 
-protocol PinEntryControllerProviding: ControllerProviding {
+protocol PinEntryControllerProviding: class, ControllerProviding {
 
     var onSuccessfulLogin: ((String) -> Void)? { get set }
 

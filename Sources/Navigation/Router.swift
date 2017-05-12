@@ -25,8 +25,27 @@ class Router: Routing {
     }
 
     func go(to route: Route) {
-        let pinEntryController = controllerFactory.makeController(of: .pinEntry)
+        switch route {
+        case .pinEntry:
+            goToPinEntry()
+        case .answer:
+            goToAnswer()
+        }
+    }
+
+    private func goToPinEntry() {
+        guard let pinEntryController = controllerFactory.makeController(of: .pinEntry) as? PinEntryControllerProviding else { fatalError() }
+        pinEntryController.onSuccessfulLogin = { _ in
+            self.go(to: .answer)
+        }
+
         navigator.pushViewController(pinEntryController.controller, animated: true)
+    }
+
+    private func goToAnswer() {
+        let answerViewController = controllerFactory.makeController(of: .answer)
+
+        navigator.pushViewController(answerViewController.controller, animated: true)
     }
 
 }

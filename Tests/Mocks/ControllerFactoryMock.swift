@@ -8,12 +8,20 @@ import UIKit
 
 class ControllerFactoryMock: ControllerCreating {
 
-    let provider = ControllerMockProvider()
+    let pinEntryProvider = PinEntryControllerMockProvider()
+    let answerProvider = ControllerMockProvider()
+
     var lastType: ControllerType?
 
     func makeController(of type: ControllerType) -> ControllerProviding {
         lastType = type
-        return provider
+
+        switch type {
+        case .pinEntry:
+            return pinEntryProvider
+        case .answer:
+            return answerProvider
+        }
     }
 
 }
@@ -22,4 +30,12 @@ class ControllerMockProvider: ControllerProviding  {
 
     let controller = UIViewController()
 
+}
+
+class PinEntryControllerMockProvider: PinEntryControllerProviding {
+
+    let controller = UIViewController()
+
+    var onSuccessfulLogin: ((String) -> Void)?
+    
 }

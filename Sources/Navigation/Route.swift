@@ -6,5 +6,6 @@
 enum Route {
 
     case pinEntry
+    case answer
 
 }
