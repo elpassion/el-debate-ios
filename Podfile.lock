@@ -21,6 +21,7 @@ PODS:
   - Swinject (2.0.0)
   - SwinjectAutoregistration (2.0.1):
     - Swinject (~> 2.0.0)
+  - UIColor_Hex_Swift (3.0.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - SwiftLint (~> 0.18)
   - Swinject (~> 2.0)
   - SwinjectAutoregistration (~> 2.0)
+  - UIColor_Hex_Swift (~> 3.0.2)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -44,7 +46,8 @@ SPEC CHECKSUMS:
   SwiftLint: b467d08f5b25dc3b3cfed243d8e1b74b91714c67
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
+  UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: 757be6a352723be5fbee2fd46263aee9cbd35694
+PODFILE CHECKSUM: a12f082806401f25821eda1e903a64b3de5bfc3c
 
 COCOAPODS: 1.2.1

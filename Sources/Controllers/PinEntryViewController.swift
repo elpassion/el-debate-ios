@@ -7,24 +7,34 @@ import UIKit
 
 class PinEntryViewController: UIViewController, ControllerProviding {
 
-    private let apiClient: ApiClient
+    private let apiClient: APIProviding
+    private let yearCalculator: CurrentYearCalculating
 
     // MARK: - Initializer
 
-    init(apiClient: ApiClient) {
+    init(apiClient: APIProviding, yearCalculator: CurrentYearCalculating) {
         self.apiClient = apiClient
+        self.yearCalculator = yearCalculator
 
         super.init(nibName: nil, bundle: nil)
     }
 
     override func loadView() {
-        view = UIView()
+        view = PinEntryView()
+    }
+
+    private var pinEntryView: PinEntryView {
+        guard let pinEntryView = view as? PinEntryView else {
+            fatalError("Expected to handle view of type PinEntryView, got \(type(of: view)) instead")
+        }
+
+        return pinEntryView
     }
 
     // MARK: - View did load
 
     override func viewDidLoad() {
-        self.title = "The title"
+        title = "EL Debate \(yearCalculator.year)"
     }
 
     // MARK: - Controller providing
