@@ -8,7 +8,7 @@ import Alamofire
 protocol RequestExecuting: AutoMockable {
 
     func post(url: URLConvertible, body: Parameters?) -> JSONResponseProviding
-
+    func get(url: URLConvertible, headers: HTTPHeaders?) -> JSONResponseProviding
 }
 
 class RequestExecutor: RequestExecuting {
@@ -17,4 +17,9 @@ class RequestExecutor: RequestExecuting {
         return Alamofire.request(url, method: .post, parameters: body, encoding: JSONEncoding.default).validate()
     }
 
+    func get(url: URLConvertible, headers: HTTPHeaders?) -> JSONResponseProviding {
+        return Alamofire.request(
+            url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers
+        ).validate()
+    }
 }
