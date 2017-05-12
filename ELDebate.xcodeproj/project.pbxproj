@@ -166,15 +166,17 @@
 				8C127C891EC4A0D100E9B5FD /* PinEntryWelcomeView.swift */,
 			);
 			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8C127C8D1EC4A23200E9B5FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8C127C8E1EC4A23D00E9B5FD /* Image.swift */,
 				8C6DA02B1EC58CFA00D31E76 /* Color.swift */,
+				8C127C8E1EC4A23D00E9B5FD /* Image.swift */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8C127C901EC4AFE700E9B5FD /* Extensions */ = {
@@ -184,6 +186,7 @@
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8C1917F81EC357CB00519DC8 /* Mocks */ = {
@@ -191,9 +194,9 @@
 			children = (
 				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
 				8C127C821EC49B2900E9B5FD /* ControllerFactoryMock.swift */,
+				8C6DA0421EC59D7F00D31E76 /* CurrentYearCalculatorMock.swift */,
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
-				8C6DA0421EC59D7F00D31E76 /* CurrentYearCalculatorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */,
 			);
 			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		8C6DA03E1EC59B6100D31E76 /* Business Logic */ = {
@@ -281,6 +285,7 @@
 				8C6DA03F1EC59B7100D31E76 /* CurrentYearCalculatorSpec.swift */,
 			);
 			name = "Business Logic";
+			path = "Business Logic";
 			sourceTree = "<group>";
 		};
 		8C78D3FA1EC350C400BDF7EB /* Resources */ = {
