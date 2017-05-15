@@ -3,6 +3,8 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+// swiftlint:disable function_body_length
+
 @testable import ELDebate
 import Nimble
 import Quick
