@@ -9,5 +9,6 @@ enum Image: String {
     case loginBackground = "login_background"
     case loginButtonBackground = "login_button_background"
     case keyIcon = "key_icon"
+    case thumbsUp = "thumbs_up"
 
 }

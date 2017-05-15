@@ -7,7 +7,7 @@
 import Nimble
 import Quick
 
-class PinEntryControllerSpec: QuickSpec {
+class PinEntryViewControllerSpec: QuickSpec {
 
     override func spec() {
         describe("PinEntryViewController") {
@@ -21,6 +21,13 @@ class PinEntryControllerSpec: QuickSpec {
                 yearCalculator.year = "2023"
                 controller = PinEntryViewController(apiClient: apiStub,
                                                     yearCalculator: yearCalculator)
+            }
+
+            it("should initialize back bar button item") {
+                expect(controller.navigationItem.backBarButtonItem?.title).to(equal(""))
+                expect(controller.navigationItem.backBarButtonItem?.style).to(equal(UIBarButtonItemStyle.plain))
+                expect(controller.navigationItem.backBarButtonItem?.action).to(beNil())
+                expect(controller.navigationItem.backBarButtonItem?.target).to(beNil())
             }
 
             describe("after view is loaded") {

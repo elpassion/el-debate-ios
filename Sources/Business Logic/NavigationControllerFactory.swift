@@ -19,6 +19,7 @@ class NavigationControllerFactory: NavigationControllerCreating {
         controller.navigationBar.barTintColor = UIColor(predefined: .navigationBar)
         controller.navigationBar.barStyle = .black
         controller.navigationBar.isTranslucent = false
+        controller.navigationBar.tintColor = UIColor.white
         controller.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.white
         ]

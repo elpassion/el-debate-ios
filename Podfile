@@ -5,14 +5,14 @@ target 'ELDebate' do
   use_frameworks!
 
   pod 'Alamofire', '~> 4.4'
-  pod 'Anchorage', '~> 3.0'
-  pod 'PromiseKit', "~> 4.0"
+  pod 'Anchorage', '~> 4.0'
+  pod 'KeychainAccess', '~> 3.0'
+  pod 'PromiseKit', '~> 4.0'
   pod 'Sourcery', '~> 0.6'
   pod 'SwiftLint', '~> 0.18'
   pod 'Swinject', '~> 2.0'
   pod 'SwinjectAutoregistration', '~> 2.0'
   pod 'UIColor_Hex_Swift', '~> 3.0.2'
-  pod 'KeychainAccess', '~> 3.0'
 
   target 'ELDebateTests' do
     inherit! :search_paths

@@ -8,14 +8,24 @@ import UIKit
 
 class AnswerViewController: UIViewController, ControllerProviding {
 
+    private let yearCalculator: CurrentYearCalculating
+
     // MARK: - Initializer
 
-    init() {
+    init(yearCalculator: CurrentYearCalculating) {
+        self.yearCalculator = yearCalculator
+
         super.init(nibName: nil, bundle: nil)
     }
 
     override func loadView() {
-        view = UIView()
+        view = AnswerView()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        title = "EL Debate \(yearCalculator.year)"
     }
 
     // MARK: - ControllerProviding

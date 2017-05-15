@@ -19,6 +19,8 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
         self.yearCalculator = yearCalculator
 
         super.init(nibName: nil, bundle: nil)
+
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     override func loadView() {
@@ -36,6 +38,8 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
     // MARK: - View did load
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         title = "EL Debate \(yearCalculator.year)"
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
     }
