@@ -5,21 +5,22 @@
 
 @testable import ELDebate
 import Nimble
+import PromiseKit
 import Quick
 
 class PinEntryViewControllerSpec: QuickSpec {
 
     override func spec() {
         describe("PinEntryViewController") {
-            var apiStub: APIProviderStub!
+            var loginActionHandlingMock: LoginActionHandlingMock!
             var yearCalculator: CurrentYearCalculatorMock!
             var controller: PinEntryViewController!
 
             beforeEach {
-                apiStub = APIProviderStub()
+                loginActionHandlingMock = LoginActionHandlingMock()
                 yearCalculator = CurrentYearCalculatorMock()
                 yearCalculator.year = "2023"
-                controller = PinEntryViewController(apiClient: apiStub,
+                controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
                                                     yearCalculator: yearCalculator)
             }
 
@@ -42,8 +43,8 @@ class PinEntryViewControllerSpec: QuickSpec {
 
             describe("log in button press") {
                 beforeEach {
-                    apiStub.authenticationToken = "auth_token"
-                    apiStub.pinCode = nil
+                    loginActionHandlingMock.loginReturnValue = Promise(value: "auth_token")
+                    loginActionHandlingMock.loginReceivedPinCode = nil
                 }
 
                 it("should trigger successful login callback with correct authentication token") {
@@ -63,7 +64,7 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                     controller.pinEntryView.onLoginButtonTapped?()
 
-                    expect(apiStub.pinCode).toEventually(equal("99999"))
+                    expect(loginActionHandlingMock.loginReceivedPinCode).toEventually(equal("99999"))
                 }
             }
         }

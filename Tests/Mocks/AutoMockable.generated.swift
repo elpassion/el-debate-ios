@@ -27,6 +27,28 @@ configureCalled
         configureReceivedArguments = (controller: controller, router: router)
     }
 }
+class LoginActionHandlingMock: LoginActionHandling {
+
+
+    //MARK: - login
+
+    var 
+loginCalled
+ = false
+    var loginReceivedPinCode: String?
+    var 
+loginReturnValue
+: Promise<String>!
+
+    func login(withPinCode pinCode: String) -> Promise<String> {
+
+loginCalled
+ = true
+        loginReceivedPinCode = pinCode
+        return 
+loginReturnValue
+    }
+}
 class RequestExecutingMock: RequestExecuting {
 
 

@@ -9,12 +9,15 @@
 import Foundation
 
 protocol AuthTokenStoring {
+
     func save(token authToken: String, forPinCode pinCode: String) throws
     func getToken(forPinCode pinCode: String) -> String?
     func hasToken(forPinCode pinCode: String) -> Bool
+
 }
 
 class AuthTokenStorage: AuthTokenStoring {
+
     let keychain: KeychainStoring
     let kAuthToken = "kAuthToken"
 
@@ -47,4 +50,5 @@ class AuthTokenStorage: AuthTokenStoring {
             return false
         }
     }
+
 }

@@ -16,6 +16,7 @@ class PinEntryAssembly: Assembly {
         container.register(Deserializer<String>.self, name: "AuthTokenDeserializer") { _ in
             return Deserializer(AuthTokenDeserializer())
         }
+
         container.register(APIProviding.self) { resolver in
             let requestExecutor = resolver ~> RequestExecuting.self
             let authTokenDeserializer = resolver ~> (Deserializer<String>.self, name: "AuthTokenDeserializer")
@@ -31,6 +32,8 @@ class PinEntryAssembly: Assembly {
         container.register(Deserializer<Debate>.self, name: "DebateDeserializer") { _ in
             return DebateDeserializer.build()
         }
+
+        container.autoregister(LoginActionHandling.self, initializer: LoginActionHandler.init)
     }
 
 }
