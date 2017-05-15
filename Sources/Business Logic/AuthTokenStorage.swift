@@ -9,9 +9,9 @@
 import Foundation
 
 protocol AuthTokenStoring {
-    func saveToken(_ value: String) throws
-    func getToken() -> String?
-    func hasToken() -> Bool
+    func save(token authToken: String, forPinCode pinCode: String) throws
+    func getToken(forPinCode pinCode: String) -> String?
+    func hasToken(forPinCode pinCode: String) -> Bool
 }
 
 class AuthTokenStorage: AuthTokenStoring {
@@ -22,24 +22,26 @@ class AuthTokenStorage: AuthTokenStoring {
         self.keychain = keychain
     }
 
-    func saveToken(_ value: String) throws {
-        try keychain.set(value, key: kAuthToken)
+    func save(token authToken: String, forPinCode pinCode: String) throws {
+        try keychain.set(authToken, key: key(forPinCode: pinCode))
     }
 
-    func getToken() -> String? {
+    func getToken(forPinCode pinCode: String) -> String? {
         do {
-            if let token = try keychain.get(kAuthToken) {
+            if let token = try keychain.get(key(forPinCode: pinCode)) {
                 return token
-            } else {
-                return nil
             }
-        } catch {
-            return nil
-        }
+        } catch { }
+
+        return nil
     }
 
-    func hasToken() -> Bool {
-        if getToken() != nil {
+    private func key(forPinCode pinCode: String) -> String {
+        return "\(kAuthToken):\(pinCode)"
+    }
+
+    func hasToken(forPinCode pinCode: String) -> Bool {
+        if getToken(forPinCode: pinCode) != nil {
             return true
         } else {
             return false
