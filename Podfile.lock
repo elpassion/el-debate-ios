@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.4.0)
   - Anchorage (3.3.0)
+  - KeychainAccess (3.0.2)
   - Nimble (6.1.0)
   - PromiseKit (4.2.0):
     - PromiseKit/Foundation (= 4.2.0)
@@ -24,6 +25,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - Anchorage (~> 3.0)
+  - KeychainAccess (~> 3.0)
   - Nimble (~> 6.1)
   - PromiseKit (~> 4.0)
   - Quick (~> 1.1)
@@ -36,6 +38,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Anchorage: 1444bbd32c4495b32d41c0be9f66efcb0862fe8a
+  KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59
   PromiseKit: '08dfb783c161ddcd95b7912421f14c5113fd8318'
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
@@ -45,6 +48,6 @@ SPEC CHECKSUMS:
   SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: a66bb88a7e7f8a7fd3ecce09fcea6792b23b4317
+PODFILE CHECKSUM: 04a36c0ff1468dd1b2af9d2c30c6cf126c0b2452
 
 COCOAPODS: 1.2.1
