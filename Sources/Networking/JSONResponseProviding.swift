@@ -7,15 +7,16 @@ import Alamofire
 
 protocol JSONResponseProviding {
 
-    func json(completionHandler: @escaping (Any?) -> Void)
+    func json(completionHandler: @escaping (ApiResponse) -> Void)
 
 }
 
 extension DataRequest: JSONResponseProviding {
 
-    func json(completionHandler: @escaping (Any?) -> Void) {
+    func json(completionHandler: @escaping (ApiResponse) -> Void) {
         responseJSON { dataRequest in
-            completionHandler(dataRequest.value)
+            let apiResponse = ApiResponse(json: dataRequest.value, error: dataRequest.error)
+            completionHandler(apiResponse)
         }
     }
 }

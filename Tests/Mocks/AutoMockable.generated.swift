@@ -35,16 +35,16 @@ class RequestExecutingMock: RequestExecuting {
     var 
 postCalled
  = false
-    var postReceivedArguments: (url: URLConvertible, body: Parameters?)?
+    var postReceivedArguments: (url: URLConvertible, body: Parameters?, headers: HTTPHeaders?)?
     var 
 postReturnValue
 : JSONResponseProviding!
 
-    func post(url: URLConvertible, body: Parameters?) -> JSONResponseProviding {
+    func post(url: URLConvertible, body: Parameters?, headers: HTTPHeaders?) -> JSONResponseProviding {
 
 postCalled
  = true
-        postReceivedArguments = (url: url, body: body)
+        postReceivedArguments = (url: url, body: body, headers: headers)
         return 
 postReturnValue
     }

@@ -11,16 +11,17 @@ import Foundation
 
 class FetchDebateResponseJSONMock: JSONResponseProviding {
 
-    func json(completionHandler: @escaping (Any?) -> Void) {
-        completionHandler(
-            [
+    func json(completionHandler: @escaping (ApiResponse) -> Void) {
+        let apiResponse = ApiResponse(
+            json: [
                 "topic": "debate_topic",
                 "answers": [
                     "positive": ["id": 122, "value": "yes"],
                     "negative": ["id": 123, "value": "no"],
                     "neutral":  ["id": 124, "value": "maybe"]
                 ]
-            ]
-        )
+            ], error: nil)
+            
+        completionHandler(apiResponse)
     }
 }

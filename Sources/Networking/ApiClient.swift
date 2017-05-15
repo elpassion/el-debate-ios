@@ -33,15 +33,19 @@ class ApiClient: APIProviding {
 
     func login(pinCode: String) -> Promise<String> {
         let jsonResponse = requestExecutor.post(
-            url: "\(apiHost)/api/login", body: ["code": pinCode]
+            url: "\(apiHost)/api/login", body: ["code": pinCode], headers: nil
         )
 
         return Promise { fulfill, reject in
-            jsonResponse.json { [weak self] jsonData in
+            jsonResponse.json { [weak self] apiResponse in
                 guard let `self` = self else { fatalError("This should never happen") }
+                if let error = apiResponse.error {
+                    reject(error)
+                    return
+                }
 
                 do {
-                    let authToken = try self.authTokenDeserializer.deserialize(json: jsonData)
+                    let authToken = try self.authTokenDeserializer.deserialize(json: apiResponse.json)
                     fulfill(authToken)
                 } catch let error {
                     reject(error)
@@ -56,14 +60,36 @@ class ApiClient: APIProviding {
         )
 
         return Promise { fulfill, reject in
-            jsonResponse.json { [weak self] jsonData in
+            jsonResponse.json { [weak self] apiResponse in
                 guard let `self` = self else { fatalError("This should never happen") }
+                if let error = apiResponse.error {
+                    reject(error)
+                    return
+                }
+
                 do {
-                    let debate = try self.debateDeserializer.deserialize(json: jsonData)
+                    let debate = try self.debateDeserializer.deserialize(json: apiResponse.json)
                     fulfill(debate)
                 } catch let error {
                     reject(error)
                 }
+            }
+        }
+    }
+
+    func vote(authToken: String, answer: Answer) -> Promise<Bool> {
+        let response =  requestExecutor.post(
+            url: "\(apiHost)/api/vote", body: ["id": answer.identifier], headers: ["Authorization": authToken]
+        )
+
+        return Promise { fulfill, reject in
+            response.json { apiResponse in
+                if let error = apiResponse.error {
+                    reject(error)
+                    return
+                }
+
+                fulfill(true)
             }
         }
     }
