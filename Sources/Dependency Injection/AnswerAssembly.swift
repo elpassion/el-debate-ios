@@ -9,7 +9,11 @@ import SwinjectAutoregistration
 class AnswerAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.autoregister(AnswerViewController.self, initializer: AnswerViewController.init)
+        container.register(AnswerViewController.self) { (resolver: Resolver, debate: Debate) in
+            let yearCalculator = resolver ~> CurrentYearCalculating.self
+
+            return AnswerViewController(yearCalculator: yearCalculator, debate: debate)
+        }
     }
 
 }

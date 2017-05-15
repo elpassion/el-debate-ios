@@ -3,6 +3,8 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+// swiftlint:disable function_body_length
+
 @testable import ELDebate
 import Nimble
 import Quick
@@ -27,9 +29,15 @@ class RouterSpec: QuickSpec {
 
             describe("routing to pin entry screen") {
                 it("should push view controller on stack") {
+                    var hasCreatedPinEntryController = false
+
                     sut.go(to: .pinEntry)
 
-                    expect(controllerFactory.lastType).to(equal(ControllerType.pinEntry))
+                    if case .some(.pinEntry) = controllerFactory.lastType {
+                        hasCreatedPinEntryController = true
+                    }
+
+                    expect(hasCreatedPinEntryController).to(beTrue())
                     expect(navigationController.viewControllers).to(containElementSatisfying({ controller in
                         controller == controllerFactory.pinEntryProvider.controller
                     }))
@@ -45,17 +53,29 @@ class RouterSpec: QuickSpec {
             }
 
             describe("routing to answer screen") {
-                it("should push answer view controller on stack") {
-                    sut.go(to: .answer)
+                it("should create a view controller passing debate") {
+                    var debateForAnswerController: Debate?
 
-                    expect(controllerFactory.lastType).to(equal(ControllerType.answer))
+                    sut.go(to: .answer(debate: Debate.testDefault))
+
+                    if case let .some(.answer(debate)) = controllerFactory.lastType {
+                        debateForAnswerController = debate
+                    }
+
+                    expect(debateForAnswerController).toNot(beNil())
+                    expect(debateForAnswerController?.topic).to(equal("test_debate_topic"))
+                }
+
+                it("should push answer view controller on stack") {
+                    sut.go(to: .answer(debate: Debate.testDefault))
+
                     expect(navigationController.viewControllers).to(containElementSatisfying({ controller in
                         controller == controllerFactory.answerProvider.controller
                     }))
                 }
 
                 it("should configure controller") {
-                    sut.go(to: .answer)
+                    sut.go(to: .answer(debate: Debate.testDefault))
 
                     expect(controllerConfigurator.configureReceivedArguments?.controller).to(be(
                         controllerFactory.answerProvider))
