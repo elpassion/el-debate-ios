@@ -12,6 +12,7 @@ target 'ELDebate' do
   pod 'Swinject', '~> 2.0'
   pod 'SwinjectAutoregistration', '~> 2.0'
   pod 'UIColor_Hex_Swift', '~> 3.0.2'
+  pod 'KeychainAccess', '~> 3.0'
 
   target 'ELDebateTests' do
     inherit! :search_paths

@@ -5,6 +5,7 @@
 
 import Swinject
 import SwinjectAutoregistration
+import KeychainAccess
 
 class MainAssembly: Assembly {
 
@@ -21,6 +22,9 @@ class MainAssembly: Assembly {
                           controllerConfigurator: resolver ~> ControllerConfiguring.self)
         }
 
+        container.register(AuthTokenStoring.self) { resolver in
+            let keychain = Keychain(service: "com.herokuapp.el-debate.auth_token")
+            return AuthTokenStorage(keychain: keychain)
+        }
     }
-
 }
