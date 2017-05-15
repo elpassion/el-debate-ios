@@ -10,15 +10,9 @@ class AnswerView: UIView {
 
     private let scrollView = UIScrollView(frame: .zero)
     private let verticalStack = Views.stack(axis: .vertical, distribution: .equalSpacing, alignment: .fill,
-                                            spacing: 10.0)
-    private let aboutLabel = Views.label(size: 16.0, color: UIColor(predefined: .pin), alignment: .left,
-                                         numberOfLines: 0)
+                                            spacing: 50.0)
     private let questionView = QuestionView()
-    private let chooseSideLabel = Views.label(size: 16.0, color: UIColor(predefined: .pin), alignment: .left,
-                                              numberOfLines: 0)
-    private let answerOptionsView = AnswerOptionsView()
-    private let changeMindLabel = Views.label(size: 16.0, color: UIColor(predefined: .pin), alignment: .left,
-                                              numberOfLines: 0)
+    private let answersListView = AnswersListView()
     private let background = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
 
     init() {
@@ -33,20 +27,11 @@ class AnswerView: UIView {
 
     private func setUpSubviews() {
         backgroundColor = UIColor(predefined: .screenBackground)
-
-        aboutLabel.text = "Our debate at is about:"
-
-        chooseSideLabel.text = "Choose your side with one of the following:"
-
-        changeMindLabel.text = "Remember that you can change your mind before debate ends, thats why we are here!"
     }
 
     private func addSubviews() {
-        verticalStack.addArrangedSubview(aboutLabel)
         verticalStack.addArrangedSubview(questionView)
-        verticalStack.addArrangedSubview(chooseSideLabel)
-        verticalStack.addArrangedSubview(answerOptionsView)
-        verticalStack.addArrangedSubview(changeMindLabel)
+        verticalStack.addArrangedSubview(answersListView)
 
         scrollView.addSubview(verticalStack)
 
@@ -57,7 +42,7 @@ class AnswerView: UIView {
     // MARK: - Layout
 
     private func setUpLayout() {
-        let stackInsets = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
+        let stackInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 0.0, right: 20.0)
 
         scrollView.edgeAnchors == edgeAnchors
 

@@ -6,19 +6,21 @@
 import Anchorage
 import UIKit
 
-class AnswerOptionsView: UIView {
+class AnswerPicker: UIView {
 
     private let verticalStack = Views.stack(axis: .vertical, distribution: .equalSpacing,
-                                            alignment: .fill, spacing: 20.0)
+                                            alignment: .fill, spacing: 14.0)
     private let yesAnswer = SingleAnswerView(color: UIColor(predefined: .yes), text: "I think yes")
     private let noAnswer = SingleAnswerView(color: UIColor(predefined: .no), text: "I think no")
     private let undecidedAnswer = SingleAnswerView(color: UIColor(predefined: .undecided), text: "I’m undecided")
+    private let tapGestureRecognizer = UITapGestureRecognizer()
 
     init() {
         super.init(frame: .zero)
 
         addSubviews()
         setUpLayout()
+        setUpGestureRecognition()
     }
 
     // MARK: - Subviews
@@ -36,9 +38,33 @@ class AnswerOptionsView: UIView {
     private func setUpLayout() {
         verticalStack.edgeAnchors == edgeAnchors
 
-        yesAnswer.heightAnchor == 50
+        yesAnswer.heightAnchor == 45
         noAnswer.heightAnchor == yesAnswer.heightAnchor
         undecidedAnswer.heightAnchor == noAnswer.heightAnchor
+    }
+
+    // MARK: - Gesture recognition
+
+    private func setUpGestureRecognition() {
+        tapGestureRecognizer.addTarget(self, action: #selector(didTapAnswer(with:)))
+        addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    @objc private func didTapAnswer(with gestureRecognizer: UITapGestureRecognizer) {
+        guard let answer = tappedAnswerView(with: gestureRecognizer) else { return }
+
+        let views: [SingleAnswerView] = [yesAnswer, noAnswer, undecidedAnswer]
+
+        views.forEach { (view) in
+            view.selected = view == answer
+        }
+    }
+
+    private func tappedAnswerView(with gestureRegognizer: UITapGestureRecognizer) -> SingleAnswerView? {
+        let views: [SingleAnswerView] = [yesAnswer, noAnswer, undecidedAnswer]
+        let tapLocation = gestureRegognizer.location(in: self)
+
+        return views.filter { $0.frame.contains(tapLocation) }.first
     }
 
     // MARK: - Required initializer

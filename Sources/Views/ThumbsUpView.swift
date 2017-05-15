@@ -10,15 +10,25 @@ class ThumbsUpView: UIView {
 
     private let thumbsUpIcon = Views.image(image: .thumbsUp, contentMode: .scaleAspectFit)
     private let highlightColor: UIColor
+    private let defaultColor: UIColor
 
     init(highlightColor: UIColor) {
         self.highlightColor = highlightColor
+        self.defaultColor = UIColor(predefined: .unselected)
 
         super.init(frame: .zero)
 
         setUpSubviews()
         addSubviews()
         setUpLayout()
+    }
+
+    // MARK: - Public API
+
+    var selected: Bool = false {
+        didSet {
+            backgroundColor = selected ? highlightColor : defaultColor
+        }
     }
 
     // MARK: - Layout subviews (corner radius)
@@ -35,7 +45,7 @@ class ThumbsUpView: UIView {
     // MARK: - Subviews
 
     private func setUpSubviews() {
-        backgroundColor = highlightColor
+        backgroundColor = defaultColor
     }
 
     private func addSubviews() {
@@ -45,7 +55,7 @@ class ThumbsUpView: UIView {
     // MARK: - Layout
 
     private func setUpLayout() {
-        thumbsUpIcon.edgeAnchors == self.edgeAnchors + UIEdgeInsets(top: 7, left: 9, bottom: 10, right: 9)
+        thumbsUpIcon.edgeAnchors == self.edgeAnchors + UIEdgeInsets(top: 5, left: 5, bottom: 9, right: 5)
     }
 
     // MARK: - Required initializer

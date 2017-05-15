@@ -8,10 +8,9 @@ import UIKit
 
 class QuestionView: UIView {
 
-    private let container = UIView(frame: .zero)
-    private let question = Views.label(size: 24.0, color: UIColor(predefined: .question),
-                                       alignment: .center, numberOfLines: 0,
-                                       text: "Lorem ipsum dolor sit amet consectetur?")
+    private let stack = Views.stack(axis: .vertical, distribution: .equalSpacing, alignment: .fill, spacing: 10.0)
+    private let title = Views.label(size: 13.0, color: UIColor(predefined: .pin), alignment: .left, numberOfLines: 0)
+    private let questionFrame = QuestionFrameView()
 
     init() {
         super.init(frame: .zero)
@@ -21,43 +20,23 @@ class QuestionView: UIView {
         setUpLayout()
     }
 
-    // MARK: - Layout subviews (shadow)
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        makeDropShadow()
-    }
-
-    private func makeDropShadow() {
-        let shadowRectangle = container.bounds.insetBy(dx: -1.0, dy: -1.0)
-        let shadowPath = UIBezierPath(roundedRect: shadowRectangle, cornerRadius: container.layer.cornerRadius)
-
-        container.layer.masksToBounds = false
-        container.layer.shadowColor = UIColor.black.cgColor
-        container.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        container.layer.shadowOpacity = 0.4
-        container.layer.shadowPath = shadowPath.cgPath
-    }
-
     // MARK: - Subviews
 
     private func setUpSubviews() {
-        container.backgroundColor = UIColor.white
-        container.layer.cornerRadius = 5.0
+        title.text = "Our debate at is about:"
     }
 
     private func addSubviews() {
-        container.addSubview(question)
+        stack.addArrangedSubview(title)
+        stack.addArrangedSubview(questionFrame)
 
-        addSubview(container)
+        addSubview(stack)
     }
 
     // MARK: - Layout
 
     private func setUpLayout() {
-        container.edgeAnchors == edgeAnchors
-
-        question.edgeAnchors == edgeAnchors + UIEdgeInsets(top: 25.0, left: 15.0, bottom: 25.0, right: 15.0)
+        stack.edgeAnchors == edgeAnchors
     }
 
     // MARK: - Required initializer

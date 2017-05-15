@@ -42,6 +42,10 @@ class NavigationControllerFactorySpec: QuickSpec {
                 it("should set make status bar white") {
                     expect(navigationController.navigationBar.barStyle).to(equal(UIBarStyle.black))
                 }
+
+                it("should set tint color to white") {
+                    expect(navigationController.navigationBar.tintColor).to(equal(UIColor.white))
+                }
             }
         }
     }

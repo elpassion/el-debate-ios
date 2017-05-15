@@ -11,6 +11,7 @@ enum Color: String {
     case navigationBar = "#4CC359"
     case pin = "#C0C0C0"
     case question = "#4A4A4A"
+    case unselected = "#EAEAEA"
     case yes = "#0098E3"
     case undecided = "#8F8F8F"
     // swiftlint:disable identifier_name

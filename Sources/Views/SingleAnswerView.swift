@@ -12,9 +12,13 @@ class SingleAnswerView: UIView {
     private let horizontalStack = Views.stack(axis: .horizontal, distribution: .fill, alignment: .fill, spacing: 10.0)
     private let answerLabel: UILabel
     private let thumbsUp: ThumbsUpView
+    private let highlightColor: UIColor
+    private let defaultColor: UIColor
 
     init(color: UIColor, text: String) {
-        self.answerLabel = Views.label(size: 16.0, color: color, alignment: .left, numberOfLines: 0, text: text)
+        self.highlightColor = color
+        self.defaultColor = UIColor(predefined: .unselected)
+        self.answerLabel = Views.label(size: 16.0, color: defaultColor, alignment: .left, numberOfLines: 0, text: text)
         self.thumbsUp = ThumbsUpView(highlightColor: color)
 
         super.init(frame: .zero)
@@ -22,6 +26,15 @@ class SingleAnswerView: UIView {
         setUpSubviews()
         addSubviews()
         setUpLayout()
+    }
+
+    // MARK: - Public API
+
+    var selected: Bool = false {
+        didSet {
+            thumbsUp.selected = selected
+            answerLabel.textColor = selected ? highlightColor : defaultColor
+        }
     }
 
     // MARK: - Layout subviews (shadow)
