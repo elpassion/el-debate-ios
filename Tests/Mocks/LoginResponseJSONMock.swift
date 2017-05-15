@@ -11,16 +11,19 @@ import Foundation
 
 class LoginResponseJSONMock: JSONResponseProviding {
 
-    func json(completionHandler: @escaping (Any?) -> Void) {
-        completionHandler(["auth_token" : "123456"])
+    func json(completionHandler: @escaping (ApiResponse) -> Void) {
+        let apiResponse = ApiResponse(json: ["auth_token" : "123456"], statusCode: 200)
+        completionHandler(apiResponse)
     }
 
 }
 
 class LoginResponseErrorMock: JSONResponseProviding {
 
-    func json(completionHandler: @escaping (Any?) -> Void) {
-        completionHandler(["error" : "auth_error"])
+    func json(completionHandler: @escaping (ApiResponse) -> Void) {
+        let apiResponse = ApiResponse(json: ["error" : "auth_error"], statusCode: 401)
+
+        completionHandler(apiResponse)
     }
 
 }

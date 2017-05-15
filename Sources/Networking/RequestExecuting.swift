@@ -7,14 +7,16 @@ import Alamofire
 
 protocol RequestExecuting: AutoMockable {
 
-    func post(url: URLConvertible, body: Parameters?) -> JSONResponseProviding
+    func post(url: URLConvertible, body: Parameters?, headers: HTTPHeaders?) -> JSONResponseProviding
     func get(url: URLConvertible, headers: HTTPHeaders?) -> JSONResponseProviding
 }
 
 class RequestExecutor: RequestExecuting {
 
-    func post(url: URLConvertible, body: Parameters?) -> JSONResponseProviding {
-        return Alamofire.request(url, method: .post, parameters: body, encoding: JSONEncoding.default).validate()
+    func post(url: URLConvertible, body: Parameters?, headers: HTTPHeaders?) -> JSONResponseProviding {
+        return Alamofire.request(
+            url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers
+        ).validate()
     }
 
     func get(url: URLConvertible, headers: HTTPHeaders?) -> JSONResponseProviding {

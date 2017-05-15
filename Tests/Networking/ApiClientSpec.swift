@@ -74,6 +74,41 @@ class ApiClientSpec: QuickSpec {
                     }
                 }
             }
+
+            describe("vote") {
+                let answer = Answer(identifier: 12, value: "Yes")
+
+                context("api request success") {
+                    beforeEach {
+                        requestExecutor.postReturnValue = VoteResponseJSONMock()
+                    }
+
+                    it("executes the success block") {
+                        var success: Bool? = nil
+                        _ = apiClient.vote(authToken: "token", answer: answer).then { successResult in
+                            success = successResult
+                        }
+
+                        expect(success).toEventually(equal(true))
+                    }
+                }
+
+                context("api request error") {
+                    beforeEach {
+                        requestExecutor.postReturnValue = VoteResponseErrorMock()
+                    }
+                    
+                    it("executes the error block") {
+                        var error: Error? = nil
+
+                        apiClient.vote(authToken: "token", answer: answer).catch { errorResult in
+                            error = errorResult
+                        }
+                        expect(error).toNotEventually(beNil())
+                    }
+                }
+
+            }
         }
     }
 }
