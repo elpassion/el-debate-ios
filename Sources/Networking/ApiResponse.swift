@@ -10,9 +10,5 @@ import Foundation
 
 struct ApiResponse {
     let json: Any?
-    let statusCode: Int
-
-    var success: Bool {
-        return statusCode > 199 && statusCode < 300
-    }
+    let error: Error?
 }

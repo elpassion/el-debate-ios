@@ -2,6 +2,7 @@
 //  Created by Jakub Turek on 10.05.2017.
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
+// swiftlint:disable function_body_length
 
 @testable import ELDebate
 import Nimble
@@ -97,7 +98,7 @@ class ApiClientSpec: QuickSpec {
                     beforeEach {
                         requestExecutor.postReturnValue = VoteResponseErrorMock()
                     }
-                    
+
                     it("executes the error block") {
                         var error: Error? = nil
 

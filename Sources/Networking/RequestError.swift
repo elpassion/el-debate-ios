@@ -8,6 +8,6 @@ import Foundation
 enum RequestError: Error {
 
     case deserializationError(reason: String)
-    case apiError(response: ApiResponse)
+    case apiError(statusCode: Int)
 
 }

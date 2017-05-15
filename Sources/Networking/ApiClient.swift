@@ -39,8 +39,8 @@ class ApiClient: APIProviding {
         return Promise { fulfill, reject in
             jsonResponse.json { [weak self] apiResponse in
                 guard let `self` = self else { fatalError("This should never happen") }
-                guard apiResponse.success else {
-                    reject(RequestError.apiError(response: apiResponse))
+                if let error = apiResponse.error {
+                    reject(error)
                     return
                 }
 
@@ -62,9 +62,8 @@ class ApiClient: APIProviding {
         return Promise { fulfill, reject in
             jsonResponse.json { [weak self] apiResponse in
                 guard let `self` = self else { fatalError("This should never happen") }
-                
-                guard apiResponse.success else {
-                    reject(RequestError.apiError(response: apiResponse))
+                if let error = apiResponse.error {
+                    reject(error)
                     return
                 }
 
@@ -84,9 +83,9 @@ class ApiClient: APIProviding {
         )
 
         return Promise { fulfill, reject in
-            response.json() { apiResponse in
-                guard apiResponse.success else {
-                    reject(RequestError.apiError(response: apiResponse))
+            response.json { apiResponse in
+                if let error = apiResponse.error {
+                    reject(error)
                     return
                 }
 

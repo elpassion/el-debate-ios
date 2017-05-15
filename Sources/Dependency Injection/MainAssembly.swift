@@ -3,9 +3,9 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+import KeychainAccess
 import Swinject
 import SwinjectAutoregistration
-import KeychainAccess
 
 class MainAssembly: Assembly {
 

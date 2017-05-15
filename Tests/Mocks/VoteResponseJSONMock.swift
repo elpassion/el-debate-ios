@@ -12,8 +12,9 @@ import Foundation
 class VoteResponseJSONMock: JSONResponseProviding {
 
     func json(completionHandler: @escaping (ApiResponse) -> Void) {
-        let apiResponse = ApiResponse(json: "", statusCode: 201)
+        let apiResponse = ApiResponse(json: "", error: nil)
         completionHandler(apiResponse)
+
     }
     
 }
@@ -21,7 +22,8 @@ class VoteResponseJSONMock: JSONResponseProviding {
 class VoteResponseErrorMock: JSONResponseProviding {
 
     func json(completionHandler: @escaping (ApiResponse) -> Void) {
-        let apiResponse = ApiResponse(json: ["error" : "debate_not_found"], statusCode: 404)
+        let error = RequestError.apiError(statusCode: 404)
+        let apiResponse = ApiResponse(json: ["error" : "debate_not_found"], error: error)
         completionHandler(apiResponse)
     }
     

@@ -20,7 +20,7 @@ class FetchDebateResponseJSONMock: JSONResponseProviding {
                     "negative": ["id": 123, "value": "no"],
                     "neutral":  ["id": 124, "value": "maybe"]
                 ]
-            ], statusCode: 200)
+            ], error: nil)
             
         completionHandler(apiResponse)
     }

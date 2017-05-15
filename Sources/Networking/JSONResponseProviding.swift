@@ -15,9 +15,7 @@ extension DataRequest: JSONResponseProviding {
 
     func json(completionHandler: @escaping (ApiResponse) -> Void) {
         responseJSON { dataRequest in
-            guard let response = dataRequest.response else { fatalError("Missing api response") }
-
-            let apiResponse = ApiResponse(json: dataRequest.value, statusCode: response.statusCode)
+            let apiResponse = ApiResponse(json: dataRequest.value, error: dataRequest.error)
             completionHandler(apiResponse)
         }
     }
