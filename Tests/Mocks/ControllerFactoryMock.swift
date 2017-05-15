@@ -36,6 +36,6 @@ class PinEntryControllerMockProvider: PinEntryControllerProviding {
 
     let controller = UIViewController()
 
-    var onDebateLoaded: ((Debate) -> Void)?
+    var onVoteContextLoaded: ((VoteContext) -> Void)?
     
 }

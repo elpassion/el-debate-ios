@@ -54,20 +54,20 @@ class RouterSpec: QuickSpec {
 
             describe("routing to answer screen") {
                 it("should create a view controller passing debate") {
-                    var debateForAnswerController: Debate?
+                    var voteContextForAnswerController: VoteContext?
 
-                    sut.go(to: .answer(debate: Debate.testDefault))
+                    sut.go(to: .answer(voteContext: VoteContext.testDefault))
 
-                    if case let .some(.answer(debate)) = controllerFactory.lastType {
-                        debateForAnswerController = debate
+                    if case let .some(.answer(voteContext)) = controllerFactory.lastType {
+                        voteContextForAnswerController = voteContext
                     }
 
-                    expect(debateForAnswerController).toNot(beNil())
-                    expect(debateForAnswerController?.topic).to(equal("test_debate_topic"))
+                    expect(voteContextForAnswerController).toNot(beNil())
+                    expect(voteContextForAnswerController?.debate.topic).to(equal("test_debate_topic"))
                 }
 
                 it("should push answer view controller on stack") {
-                    sut.go(to: .answer(debate: Debate.testDefault))
+                    sut.go(to: .answer(voteContext: VoteContext.testDefault))
 
                     expect(navigationController.viewControllers).to(containElementSatisfying({ controller in
                         controller == controllerFactory.answerProvider.controller
@@ -75,7 +75,7 @@ class RouterSpec: QuickSpec {
                 }
 
                 it("should configure controller") {
-                    sut.go(to: .answer(debate: Debate.testDefault))
+                    sut.go(to: .answer(voteContext: VoteContext.testDefault))
 
                     expect(controllerConfigurator.configureReceivedArguments?.controller).to(be(
                         controllerFactory.answerProvider))

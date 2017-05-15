@@ -16,6 +16,10 @@ class LoginResponseJSONMock: JSONResponseProviding {
         completionHandler(apiResponse)
     }
 
+    func maybeJson(completionHandler: @escaping (ApiResponse) -> Void) {
+        json(completionHandler: completionHandler)
+    }
+
 }
 
 class LoginResponseErrorMock: JSONResponseProviding {
@@ -25,6 +29,10 @@ class LoginResponseErrorMock: JSONResponseProviding {
         let apiResponse = ApiResponse(json: ["error" : "auth_error"], error: error)
 
         completionHandler(apiResponse)
+    }
+    
+    func maybeJson(completionHandler: @escaping (ApiResponse) -> Void) {
+        json(completionHandler: completionHandler)
     }
 
 }

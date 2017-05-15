@@ -6,7 +6,11 @@
 import Anchorage
 import UIKit
 
-class AnswerView: UIView {
+protocol AnswerViewProviding {
+    func config(debateTitle: String, yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String)
+}
+
+class AnswerView: UIView, AnswerViewProviding {
 
     private let scrollView = UIScrollView(frame: .zero)
     private let verticalStack = Views.stack(axis: .vertical, distribution: .equalSpacing, alignment: .fill,
@@ -15,12 +19,31 @@ class AnswerView: UIView {
     private let answersListView = AnswersListView()
     private let background = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
 
+    var onAnswerSelected: ((AnswerType) -> Void)? {
+        get {
+           return answersListView.onAnswerSelected
+        }
+
+        set {
+            answersListView.onAnswerSelected = newValue
+        }
+    }
+
     init() {
         super.init(frame: .zero)
 
         setUpSubviews()
         addSubviews()
         setUpLayout()
+    }
+
+    func config(debateTitle: String, yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String) {
+        questionView.setText(debateTitle)
+        answersListView.config(
+            yesAnswerText: yesAnswerText,
+            undecidedAnswerText: undecidedAnswerText,
+            noAnswerText: noAnswerText
+        )
     }
 
     // MARK: - Subviews

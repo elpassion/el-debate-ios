@@ -38,9 +38,9 @@ loginCalled
     var loginReceivedPinCode: String?
     var 
 loginReturnValue
-: Promise<Debate>!
+: Promise<VoteContext>!
 
-    func login(withPinCode pinCode: String) -> Promise<Debate> {
+    func login(withPinCode pinCode: String) -> Promise<VoteContext> {
 
 loginCalled
  = true

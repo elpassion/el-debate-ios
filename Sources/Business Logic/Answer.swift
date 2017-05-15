@@ -14,6 +14,16 @@ enum AnswerType: String {
     case negative
 }
 
+extension AnswerType {
+    static var allTypes: [AnswerType] {
+        return [
+            .positive,
+            .neutral,
+            .negative
+        ]
+    }
+}
+
 struct Answer {
     let identifier: Int
     let value: String

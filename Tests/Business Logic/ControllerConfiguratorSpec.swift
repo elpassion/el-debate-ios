@@ -22,18 +22,18 @@ class ControllerConfiguratorSpec: QuickSpec {
             describe("configure method") {
                 context("when configuring pin controller") {
                     it("should navigate to answer passing debate") {
-                        var passedDebate: Debate?
+                        var passedVoteContext: VoteContext?
                         let pinControllerProvider = PinEntryControllerMockProvider()
 
                         sut.configure(controller: pinControllerProvider, with: routerMock)
-                        pinControllerProvider.onDebateLoaded?(Debate.testDefault)
+                        pinControllerProvider.onVoteContextLoaded?(VoteContext.testDefault)
 
-                        if case let .some(.answer(debate)) = routerMock.lastRoute {
-                            passedDebate = debate
+                        if case let .some(.answer(voteContext)) = routerMock.lastRoute {
+                            passedVoteContext = voteContext
                         }
 
-                        expect(passedDebate).toNot(beNil())
-                        expect(passedDebate?.topic).to(equal("test_debate_topic"))
+                        expect(passedVoteContext).toNot(beNil())
+                        expect(passedVoteContext?.debate.topic).to(equal("test_debate_topic"))
                     }
                 }
             }

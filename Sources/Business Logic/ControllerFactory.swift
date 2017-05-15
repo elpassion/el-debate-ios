@@ -9,7 +9,7 @@ import SwinjectAutoregistration
 enum ControllerType {
 
     case pinEntry
-    case answer(debate: Debate)
+    case answer(voteContext: VoteContext)
 
 }
 

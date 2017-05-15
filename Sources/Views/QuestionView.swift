@@ -20,6 +20,12 @@ class QuestionView: UIView {
         setUpLayout()
     }
 
+    // MARK: - Public API
+
+    func setText(_ text: String) {
+        questionFrame.setText(text)
+    }
+
     // MARK: - Subviews
 
     private func setUpSubviews() {

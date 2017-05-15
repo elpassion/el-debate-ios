@@ -15,12 +15,20 @@ class AnswerPicker: UIView {
     private let undecidedAnswer = SingleAnswerView(color: UIColor(predefined: .undecided), text: "I’m undecided")
     private let tapGestureRecognizer = UITapGestureRecognizer()
 
+    var onAnswerSelected: ((AnswerType) -> Void)?
+
     init() {
         super.init(frame: .zero)
 
         addSubviews()
         setUpLayout()
         setUpGestureRecognition()
+    }
+
+    func config(yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String) {
+        yesAnswer.setText(yesAnswerText)
+        undecidedAnswer.setText(undecidedAnswerText)
+        noAnswer.setText(noAnswerText)
     }
 
     // MARK: - Subviews
@@ -54,6 +62,12 @@ class AnswerPicker: UIView {
         guard let answer = tappedAnswerView(with: gestureRecognizer) else { return }
 
         let views: [SingleAnswerView] = [yesAnswer, noAnswer, undecidedAnswer]
+
+        guard let tappedViewIndex = views.index(of: answer) else {
+            fatalError("Invalid tapped view index")
+        }
+
+        onAnswerSelected?(AnswerType.allTypes[tappedViewIndex])
 
         views.forEach { (view) in
             view.selected = view == answer

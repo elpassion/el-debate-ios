@@ -16,6 +16,10 @@ class VoteResponseJSONMock: JSONResponseProviding {
         completionHandler(apiResponse)
 
     }
+
+    func maybeJson(completionHandler: @escaping (ApiResponse) -> Void) {
+        json(completionHandler: completionHandler)
+    }
     
 }
 
@@ -25,6 +29,10 @@ class VoteResponseErrorMock: JSONResponseProviding {
         let error = RequestError.apiError(statusCode: 404)
         let apiResponse = ApiResponse(json: ["error" : "debate_not_found"], error: error)
         completionHandler(apiResponse)
+    }
+    
+    func maybeJson(completionHandler: @escaping (ApiResponse) -> Void) {
+        json(completionHandler: completionHandler)
     }
     
 }
