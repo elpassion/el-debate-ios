@@ -86,7 +86,7 @@
 		6EA7E2901EC466E3002DF55E /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		6EA7E2931EC466F6002DF55E /* ApiClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientSpec.swift; sourceTree = "<group>"; };
 		6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseJSONMock.swift; sourceTree = "<group>"; };
-		6EA7E2991EC4AF09002DF55E /* Debate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debate.swift; sourceTree = "<group>"; };
+		6EA7E2991EC4AF09002DF55E /* Debate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Debate.swift; path = "../Business Logic/Debate.swift"; sourceTree = "<group>"; };
 		6EA7E29B1EC4AF75002DF55E /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		6EA7E29D1EC4B115002DF55E /* DebateDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebateDeserializer.swift; sourceTree = "<group>"; };
 		6EA7E29F1EC4B11F002DF55E /* AnswerDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerDeserializer.swift; sourceTree = "<group>"; };
@@ -197,6 +197,7 @@
 		8C127C8D1EC4A23200E9B5FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6EA7E2991EC4AF09002DF55E /* Debate.swift */,
 				8C6DA02B1EC58CFA00D31E76 /* Color.swift */,
 				8C127C8E1EC4A23D00E9B5FD /* Image.swift */,
 			);
@@ -242,7 +243,6 @@
 				8C0D62FE1EC5C8A400421B89 /* ControllerConfigurator.swift */,
 				8C127C7A1EC4941000E9B5FD /* ControllerFactory.swift */,
 				8C6DA03C1EC59B3800D31E76 /* CurrentYearCalculator.swift */,
-				6EA7E2991EC4AF09002DF55E /* Debate.swift */,
 				8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */,
 				8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */,
 			);
