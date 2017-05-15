@@ -15,7 +15,7 @@ class ControllerConfigurator: ControllerConfiguring {
 
     func configure(controller: ControllerProviding, with router: Routing) {
         if let controller = controller as? PinEntryControllerProviding {
-            controller.onSuccessfulLogin = { _ in router.go(to: .answer) }
+            controller.onDebateLoaded = { _ in router.go(to: .answer) }
         }
     }
 

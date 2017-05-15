@@ -26,7 +26,7 @@ class ControllerConfiguratorSpec: QuickSpec {
                         let pinControllerProvider = PinEntryControllerMockProvider()
 
                         sut.configure(controller: pinControllerProvider, with: routerMock)
-                        pinControllerProvider.onSuccessfulLogin?("auth_token")
+                        pinControllerProvider.onDebateLoaded?(Debate.testDefault)
 
                         if case .some(.answer) = routerMock.lastRoute {
                             navigatedToAnswer = true

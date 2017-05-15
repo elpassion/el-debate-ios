@@ -45,6 +45,7 @@
 		8C6127ED1EC9E520003472A3 /* LoginActionHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127EB1EC9E516003472A3 /* LoginActionHandlerSpec.swift */; };
 		8C6127EF1EC9E71B003472A3 /* LoginActionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127EE1EC9E71B003472A3 /* LoginActionHandler.swift */; };
 		8C6127F21EC9E904003472A3 /* AuthTokenStorageStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */; };
+		8C6127F61EC9F7B7003472A3 /* Debate+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127F41EC9F7A5003472A3 /* Debate+Default.swift */; };
 		8C63FA061EC371170080FFF9 /* MainWindowFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */; };
 		8C63FA091EC3755C0080FFF9 /* MainWindowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */; };
 		8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */; };
@@ -138,6 +139,7 @@
 		8C6127EB1EC9E516003472A3 /* LoginActionHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginActionHandlerSpec.swift; sourceTree = "<group>"; };
 		8C6127EE1EC9E71B003472A3 /* LoginActionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginActionHandler.swift; sourceTree = "<group>"; };
 		8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTokenStorageStub.swift; sourceTree = "<group>"; };
+		8C6127F41EC9F7A5003472A3 /* Debate+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Debate+Default.swift"; sourceTree = "<group>"; };
 		8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowFactorySpec.swift; sourceTree = "<group>"; };
 		8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowFactory.swift; sourceTree = "<group>"; };
 		8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateSpec.swift; sourceTree = "<group>"; };
@@ -281,6 +283,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		8C6127F31EC9F79A003472A3 /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				8C6127F41EC9F7A5003472A3 /* Debate+Default.swift */,
+			);
+			name = "Test Data";
+			sourceTree = "<group>";
+		};
 		8C63FA0C1EC3776A0080FFF9 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +411,7 @@
 		8C85D84E1EC34FC100C5BAE7 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8C6127F31EC9F79A003472A3 /* Test Data */,
 				8C6DA03E1EC59B6100D31E76 /* Business Logic */,
 				8C6DA0381EC599CE00D31E76 /* Controllers */,
 				8C1917F81EC357CB00519DC8 /* Mocks */,
@@ -745,6 +756,7 @@
 				6EA7E2A31EC4B383002DF55E /* DebateDeserializerSpec.swift in Sources */,
 				8C63FA1A1EC383890080FFF9 /* RouterMock.swift in Sources */,
 				8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */,
+				8C6127F61EC9F7B7003472A3 /* Debate+Default.swift in Sources */,
 				8C6DA0441EC59D8500D31E76 /* CurrentYearCalculatorMock.swift in Sources */,
 				6EA7E2951EC467B1002DF55E /* ApiClientSpec.swift in Sources */,
 				8C6DA0411EC59B7F00D31E76 /* CurrentYearCalculatorSpec.swift in Sources */,

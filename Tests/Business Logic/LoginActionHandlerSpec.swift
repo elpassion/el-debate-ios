@@ -31,13 +31,10 @@ class LoginActionHandlerSpec: QuickSpec {
                         tokenStorage.getTokenReturnValue = "auth_token_from_storage"
                     }
 
-                    it("should return token from storage") {
-                        var authToken: String? = nil
-                        _ = loginActionHandler.login(withPinCode: "in_storage").then { authTokenResult in
-                            authToken = authTokenResult
-                        }
+                    it("should use token from storage") {
+                        _ = loginActionHandler.login(withPinCode: "in_storage")
 
-                        expect(authToken).toEventually(equal("auth_token_from_storage"))
+                        expect(apiProviderStub.debateAuthToken).toEventually(equal("auth_token_from_storage"))
                     }
                 }
 
@@ -47,13 +44,10 @@ class LoginActionHandlerSpec: QuickSpec {
                         tokenStorage.getTokenReturnValue = nil
                     }
 
-                    it("should return token from service") {
-                        var authToken: String? = nil
-                        _ = loginActionHandler.login(withPinCode: "not_in_storage").then { authTokenResult in
-                            authToken = authTokenResult
-                        }
+                    it("should use token from service") {
+                        _ = loginActionHandler.login(withPinCode: "not_in_storage")
 
-                        expect(authToken).toEventually(equal("auth_token_from_service"))
+                        expect(apiProviderStub.debateAuthToken).toEventually(equal("auth_token_from_service"))
                     }
 
                     it("should store pin and auth code in storage") {
@@ -75,12 +69,22 @@ class LoginActionHandlerSpec: QuickSpec {
                     it("should propagate it") {
                         var error: Error?
 
-                        _ = loginActionHandler.login(withPinCode: "pin_code").catch {
-                            error = $0
+                        _ = loginActionHandler.login(withPinCode: "pin_code").catch { loginError in
+                            error = loginError
                         }
 
                         expect(error).toEventuallyNot(beNil())
                     }
+                }
+
+                it("should return debate from API client") {
+                    var debate: Debate?
+
+                    _ = loginActionHandler.login(withPinCode: "pin_code").then { result in
+                        debate = result
+                    }
+
+                    expect(debate?.topic).toEventually(equal("whatever"))
                 }
             }
         }

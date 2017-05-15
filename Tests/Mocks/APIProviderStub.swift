@@ -10,6 +10,7 @@ class APIProviderStub: APIProviding {
 
     var pinCode: String?
     var authenticationToken = "12"
+    var debateAuthToken: String?
 
     func login(pinCode: String) -> Promise<String> {
         self.pinCode = pinCode
@@ -19,6 +20,8 @@ class APIProviderStub: APIProviding {
     }
 
     func fetchDebate(authToken: String) -> Promise<Debate> {
+        debateAuthToken = authToken
+
         let debate = Debate(
             topic: "whatever",
             positiveAnswer: Answer(identifier: 123, value: "yes"),

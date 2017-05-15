@@ -36,6 +36,6 @@ class PinEntryControllerMockProvider: PinEntryControllerProviding {
 
     let controller = UIViewController()
 
-    var onSuccessfulLogin: ((String) -> Void)?
+    var onDebateLoaded: ((Debate) -> Void)?
     
 }

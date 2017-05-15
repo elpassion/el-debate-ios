@@ -7,7 +7,7 @@ import PromiseKit
 
 protocol LoginActionHandling: AutoMockable {
 
-    func login(withPinCode pinCode: String) -> Promise<String>
+    func login(withPinCode pinCode: String) -> Promise<Debate>
 
 }
 
@@ -21,7 +21,13 @@ class LoginActionHandler: LoginActionHandling {
         self.tokenStorage = tokenStorage
     }
 
-    func login(withPinCode pinCode: String) -> Promise<String> {
+    func login(withPinCode pinCode: String) -> Promise<Debate> {
+        return fetchAuthToken(forPinCode: pinCode).then { [unowned self] authToken in
+            return self.apiClient.fetchDebate(authToken: authToken)
+        }
+    }
+
+    private func fetchAuthToken(forPinCode pinCode: String) -> Promise<String> {
         if let authToken = tokenStorage.getToken(forPinCode: pinCode) {
             return Promise(value: authToken)
         } else {
