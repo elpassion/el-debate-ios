@@ -10,11 +10,13 @@ class SingleAnswerView: UIView {
 
     private let container = UIView(frame: .zero)
     private let horizontalStack = Views.stack(axis: .horizontal, distribution: .fill, alignment: .fill, spacing: 10.0)
-    private let answerLabel = Views.label(size: 16.0, color: UIColor.red, alignment: .left, numberOfLines: 0,
-                                          text: "I think yes")
-    private let thumbsUp = ThumbsUpView()
+    private let answerLabel: UILabel
+    private let thumbsUp: ThumbsUpView
 
-    init() {
+    init(color: UIColor, text: String) {
+        self.answerLabel = Views.label(size: 16.0, color: color, alignment: .left, numberOfLines: 0, text: text)
+        self.thumbsUp = ThumbsUpView(highlightColor: color)
+
         super.init(frame: .zero)
 
         setUpSubviews()

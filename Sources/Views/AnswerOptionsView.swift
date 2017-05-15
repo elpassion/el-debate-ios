@@ -10,9 +10,9 @@ class AnswerOptionsView: UIView {
 
     private let verticalStack = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                             alignment: .fill, spacing: 20.0)
-    private let yesAnswer = SingleAnswerView()
-    private let noAnswer = SingleAnswerView()
-    private let maybeAnswer = SingleAnswerView()
+    private let yesAnswer = SingleAnswerView(color: UIColor(predefined: .yes), text: "I think yes")
+    private let noAnswer = SingleAnswerView(color: UIColor(predefined: .no), text: "I think no")
+    private let undecidedAnswer = SingleAnswerView(color: UIColor(predefined: .undecided), text: "I’m undecided")
 
     init() {
         super.init(frame: .zero)
@@ -26,7 +26,7 @@ class AnswerOptionsView: UIView {
     private func addSubviews() {
         verticalStack.addArrangedSubview(yesAnswer)
         verticalStack.addArrangedSubview(noAnswer)
-        verticalStack.addArrangedSubview(maybeAnswer)
+        verticalStack.addArrangedSubview(undecidedAnswer)
 
         addSubview(verticalStack)
     }
@@ -38,7 +38,7 @@ class AnswerOptionsView: UIView {
 
         yesAnswer.heightAnchor == 50
         noAnswer.heightAnchor == yesAnswer.heightAnchor
-        maybeAnswer.heightAnchor == noAnswer.heightAnchor
+        undecidedAnswer.heightAnchor == noAnswer.heightAnchor
     }
 
     // MARK: - Required initializer

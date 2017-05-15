@@ -9,8 +9,11 @@ import UIKit
 class ThumbsUpView: UIView {
 
     private let thumbsUpIcon = Views.image(image: .thumbsUp, contentMode: .scaleAspectFit)
+    private let highlightColor: UIColor
 
-    init() {
+    init(highlightColor: UIColor) {
+        self.highlightColor = highlightColor
+
         super.init(frame: .zero)
 
         setUpSubviews()
@@ -32,7 +35,7 @@ class ThumbsUpView: UIView {
     // MARK: - Subviews
 
     private func setUpSubviews() {
-        backgroundColor = UIColor.red
+        backgroundColor = highlightColor
     }
 
     private func addSubviews() {
