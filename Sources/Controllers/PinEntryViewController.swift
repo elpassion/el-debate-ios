@@ -10,7 +10,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
     private let loginActionHandler: LoginActionHandling
     private let yearCalculator: CurrentYearCalculating
 
-    var onDebateLoaded: ((Debate) -> Void)?
+    var onVoteContextLoaded: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
@@ -45,8 +45,8 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
     }
 
     private func onLoginButtonTapped() {
-        loginActionHandler.login(withPinCode: pinEntryView.pinCode).then { [weak self] debate in
-            self?.onDebateLoaded?(debate)
+        loginActionHandler.login(withPinCode: pinEntryView.pinCode).then { [weak self] voteContext -> Void in
+            self?.onVoteContextLoaded?(voteContext)
         }.catch { error in
             fatalError(error.localizedDescription)
         }

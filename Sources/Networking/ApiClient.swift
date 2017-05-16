@@ -13,6 +13,7 @@ protocol APIProviding {
 
     func login(pinCode: String) -> Promise<String>
     func fetchDebate(authToken: String) -> Promise<Debate>
+    func vote(authToken: String, answer: Answer) -> Promise<Bool>
 
 }
 
@@ -83,7 +84,7 @@ class ApiClient: APIProviding {
         )
 
         return Promise { fulfill, reject in
-            response.json { apiResponse in
+            response.maybeJson { apiResponse in
                 if let error = apiResponse.error {
                     reject(error)
                     return

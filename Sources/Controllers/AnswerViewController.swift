@@ -8,14 +8,27 @@ import UIKit
 
 class AnswerViewController: UIViewController, ControllerProviding {
 
+    private var answerView: AnswerView {
+        guard let answerView = view as? AnswerView else {
+            fatalError("Failed casting UIView to AnswerView")
+        }
+
+        return answerView
+    }
+
     private let yearCalculator: CurrentYearCalculating
-    private let debate: Debate
+    private let voteContext: VoteContext
+    private let answerViewPresenter: AnswerViewPresenter
+    private let apiClient: APIProviding
 
     // MARK: - Initializer
 
-    init(yearCalculator: CurrentYearCalculating, debate: Debate) {
+    init(yearCalculator: CurrentYearCalculating, voteContext: VoteContext,
+         answerViewPresenter: AnswerViewPresenter, apiClient: APIProviding) {
         self.yearCalculator = yearCalculator
-        self.debate = debate
+        self.voteContext = voteContext
+        self.answerViewPresenter = answerViewPresenter
+        self.apiClient = apiClient
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,6 +41,20 @@ class AnswerViewController: UIViewController, ControllerProviding {
         super.viewDidLoad()
 
         title = "EL Debate \(yearCalculator.year)"
+
+        answerView.onAnswerSelected = { [weak self] answerType in
+            guard let `self` = self else { return }
+            self.apiClient.vote(
+                authToken: self.voteContext.authToken,
+                answer: self.voteContext.answer(for: answerType)
+            ).then { _ in
+                print("voting was successful")
+            }.catch { error in
+                fatalError(error.localizedDescription)
+            }
+        }
+
+        answerViewPresenter.present(debate: self.voteContext.debate, answerView: self.answerView)
     }
 
     // MARK: - ControllerProviding

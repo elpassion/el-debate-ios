@@ -43,20 +43,20 @@ class PinEntryViewControllerSpec: QuickSpec {
 
             describe("log in button press") {
                 beforeEach {
-                    loginActionHandlingMock.loginReturnValue = Promise(value: Debate.testDefault)
+                    loginActionHandlingMock.loginReturnValue = Promise(value: VoteContext.testDefault)
                     loginActionHandlingMock.loginReceivedPinCode = nil
                 }
 
                 it("should trigger successful login callback with correct authentication token") {
-                    var fetchedDebate: Debate?
+                    var fetchedVoteContext: VoteContext?
 
-                    controller.onDebateLoaded = { debate in
-                        fetchedDebate = debate
+                    controller.onVoteContextLoaded = { voteContext in
+                        fetchedVoteContext = voteContext
                     }
 
                     controller.pinEntryView.onLoginButtonTapped?()
 
-                    expect(fetchedDebate?.topic).toEventually(equal("test_debate_topic"))
+                    expect(fetchedVoteContext?.debate.topic).toEventually(equal("test_debate_topic"))
                 }
 
                 it("should pass pin from view") {

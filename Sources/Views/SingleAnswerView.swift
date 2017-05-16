@@ -30,6 +30,10 @@ class SingleAnswerView: UIView {
 
     // MARK: - Public API
 
+    func setText(_ text: String) {
+        answerLabel.text = text
+    }
+
     var selected: Bool = false {
         didSet {
             thumbsUp.selected = selected

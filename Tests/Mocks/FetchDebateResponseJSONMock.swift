@@ -24,4 +24,8 @@ class FetchDebateResponseJSONMock: JSONResponseProviding {
             
         completionHandler(apiResponse)
     }
+    
+    func maybeJson(completionHandler: @escaping (ApiResponse) -> Void) {
+        json(completionHandler: completionHandler)
+    }
 }

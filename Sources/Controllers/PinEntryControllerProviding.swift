@@ -7,6 +7,6 @@ import UIKit
 
 protocol PinEntryControllerProviding: class, ControllerProviding {
 
-    var onDebateLoaded: ((Debate) -> Void)? { get set }
+    var onVoteContextLoaded: ((VoteContext) -> Void)? { get set }
 
 }

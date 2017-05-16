@@ -21,6 +21,10 @@ class QuestionFrameView: UIView {
         setUpLayout()
     }
 
+    func setText(_ text: String) {
+        question.text = text
+    }
+
     // MARK: - Layout subviews (shadow)
 
     override func layoutSubviews() {

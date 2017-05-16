@@ -33,5 +33,8 @@ class APIProviderStub: APIProviding {
             fulfill(debate)
         }
     }
-
+    
+    func vote(authToken: String, answer: Answer) -> Promise<Bool> {
+        return Promise(value: true)
+    }
 }

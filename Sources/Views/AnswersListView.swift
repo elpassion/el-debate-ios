@@ -15,12 +15,31 @@ class AnswersListView: UIView {
     private let changeMindLabel = Views.label(size: 13.0, color: UIColor(predefined: .pin), alignment: .left,
                                               numberOfLines: 0)
 
+    var onAnswerSelected: ((AnswerType) -> Void)? {
+        get {
+            return answerPicker.onAnswerSelected
+        }
+
+        set {
+            answerPicker.onAnswerSelected = newValue
+        }
+    }
+
     init() {
         super.init(frame: .zero)
 
         setUpSubviews()
         addSubviews()
         setUpLayout()
+    }
+
+    func config(yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String) {
+      answerPicker.config(
+                          yesAnswerText: yesAnswerText,
+                          undecidedAnswerText: undecidedAnswerText,
+                          noAnswerText: noAnswerText
+                         )
+
     }
 
     // MARK: - Subviews

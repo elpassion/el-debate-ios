@@ -77,14 +77,14 @@ class LoginActionHandlerSpec: QuickSpec {
                     }
                 }
 
-                it("should return debate from API client") {
-                    var debate: Debate?
+                it("should return VoteContext from API client") {
+                    var voteContext: VoteContext?
 
                     _ = loginActionHandler.login(withPinCode: "pin_code").then { result in
-                        debate = result
+                        voteContext = result
                     }
 
-                    expect(debate?.topic).toEventually(equal("whatever"))
+                    expect(voteContext?.debate.topic).toEventually(equal("whatever"))
                 }
             }
         }

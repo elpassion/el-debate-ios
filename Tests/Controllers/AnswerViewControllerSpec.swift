@@ -17,7 +17,12 @@ class AnswerViewControllerSpec: QuickSpec {
             beforeEach {
                 yearCalculator = CurrentYearCalculatorMock()
                 yearCalculator.year = "2012"
-                controller = AnswerViewController(yearCalculator: yearCalculator, debate: Debate.testDefault)
+                controller = AnswerViewController(
+                    yearCalculator: yearCalculator,
+                    voteContext: VoteContext.testDefault,
+                    answerViewPresenter: AnswerViewPresenter(),
+                    apiClient: APIProviderStub()
+                )
             }
 
             describe("after view is loaded") {
