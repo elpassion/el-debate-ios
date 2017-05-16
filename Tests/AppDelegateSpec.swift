@@ -32,7 +32,13 @@ class AppDelegateSpec: QuickSpec {
                 }
 
                 it("should start router") {
-                    expect(router.lastRoute).to(equal(Route.pinEntry))
+                    var navigatedToPinEntry = false
+
+                    if case .some(.pinEntry) = router.lastRoute {
+                        navigatedToPinEntry = true
+                    }
+
+                    expect(navigatedToPinEntry).to(beTrue())
                 }
 
                 it("should return true") {

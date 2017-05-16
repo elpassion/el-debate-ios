@@ -9,11 +9,13 @@ import UIKit
 class AnswerViewController: UIViewController, ControllerProviding {
 
     private let yearCalculator: CurrentYearCalculating
+    private let debate: Debate
 
     // MARK: - Initializer
 
-    init(yearCalculator: CurrentYearCalculating) {
+    init(yearCalculator: CurrentYearCalculating, debate: Debate) {
         self.yearCalculator = yearCalculator
+        self.debate = debate
 
         super.init(nibName: nil, bundle: nil)
     }

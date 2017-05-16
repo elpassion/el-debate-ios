@@ -31,8 +31,8 @@ class Router: Routing {
         switch route {
         case .pinEntry:
             goToPinEntry()
-        case .answer:
-            goToAnswer()
+        case let .answer(debate):
+            goToAnswer(for: debate)
         }
     }
 
@@ -47,8 +47,8 @@ class Router: Routing {
         navigator.pushViewController(provider.controller, animated: true)
     }
 
-    private func goToAnswer() {
-        let provider = controllerFactory.makeController(of: .answer)
+    private func goToAnswer(for debate: Debate) {
+        let provider = controllerFactory.makeController(of: .answer(debate: debate))
         controllerConfigurator.configure(controller: provider, with: self)
 
         navigator.pushViewController(provider.controller, animated: true)

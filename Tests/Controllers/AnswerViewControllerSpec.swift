@@ -17,7 +17,7 @@ class AnswerViewControllerSpec: QuickSpec {
             beforeEach {
                 yearCalculator = CurrentYearCalculatorMock()
                 yearCalculator.year = "2012"
-                controller = AnswerViewController(yearCalculator: yearCalculator)
+                controller = AnswerViewController(yearCalculator: yearCalculator, debate: Debate.testDefault)
             }
 
             describe("after view is loaded") {

@@ -9,7 +9,7 @@ import SwinjectAutoregistration
 enum ControllerType {
 
     case pinEntry
-    case answer
+    case answer(debate: Debate)
 
 }
 
@@ -31,8 +31,8 @@ class ControllerFactory: ControllerCreating {
         switch type {
         case .pinEntry:
             return resolver ~> PinEntryViewController.self
-        case .answer:
-            return resolver ~> AnswerViewController.self
+        case let .answer(debate):
+            return resolver ~> (AnswerViewController.self, argument: debate)
         }
     }
 

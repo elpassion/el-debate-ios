@@ -7,6 +7,6 @@ import UIKit
 
 protocol PinEntryControllerProviding: class, ControllerProviding {
 
-    var onSuccessfulLogin: ((String) -> Void)? { get set }
+    var onDebateLoaded: ((Debate) -> Void)? { get set }
 
 }

@@ -24,8 +24,8 @@ class AuthTokenStorageSpec: QuickSpec {
                 context("the authToken was not saved before") {
                     it("saves the value") {
                         do {
-                            try sut.saveToken("token_value")
-                            expect(sut.getToken()).to(equal("token_value"))
+                            try sut.save(token: "token_value", forPinCode: "12345")
+                            expect(sut.getToken(forPinCode: "12345")).to(equal("token_value"))
                         } catch {
                             fatalError("Error saving token")
                         }
@@ -37,20 +37,18 @@ class AuthTokenStorageSpec: QuickSpec {
                 context("the authToken value is there") {
                     beforeEach {
                         do {
-                            try sut.saveToken("token_value")
+                            try sut.save(token: "token_value", forPinCode: "12345")
                         } catch {
                             fatalError("Error saving token")
                         }
                     }
 
-                    it("returns true") {
-                        expect(sut.hasToken()).to(equal(true))
+                    it("returns true for the matching pin code") {
+                        expect(sut.hasToken(forPinCode: "12345")).to(beTrue())
                     }
-                }
 
-                context("the authToken value is not there") {
-                    it("returns false") {
-                        expect(sut.hasToken()).to(equal(false))
+                    it("returns false for different pin code") {
+                        expect(sut.hasToken(forPinCode: "67890")).to(beFalse())
                     }
                 }
             }
@@ -59,20 +57,18 @@ class AuthTokenStorageSpec: QuickSpec {
                 context("the authToken value is there") {
                     beforeEach {
                         do {
-                            try sut.saveToken("token_value")
+                            try sut.save(token: "token_value", forPinCode: "12345")
                         } catch {
                             fatalError("Error saving token")
                         }
                     }
 
-                    it("returns the authToken") {
-                        expect(sut.getToken()).to(equal("token_value"))
+                    it("returns the authToken for the matching pin code") {
+                        expect(sut.getToken(forPinCode: "12345")).to(equal("token_value"))
                     }
-                }
 
-                context("the authToken value is not there") {
-                    it("returns nil") {
-                        expect(sut.getToken()).to(beNil())
+                    it("does not return authToken for different pin code") {
+                        expect(sut.getToken(forPinCode: "67890")).to(beNil())
                     }
                 }
             }

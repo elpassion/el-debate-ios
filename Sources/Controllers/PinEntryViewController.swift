@@ -7,15 +7,15 @@ import UIKit
 
 class PinEntryViewController: UIViewController, PinEntryControllerProviding {
 
-    private let apiClient: APIProviding
+    private let loginActionHandler: LoginActionHandling
     private let yearCalculator: CurrentYearCalculating
 
-    var onSuccessfulLogin: ((String) -> Void)?
+    var onDebateLoaded: ((Debate) -> Void)?
 
     // MARK: - Initializer
 
-    init(apiClient: APIProviding, yearCalculator: CurrentYearCalculating) {
-        self.apiClient = apiClient
+    init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating) {
+        self.loginActionHandler = loginActionHandler
         self.yearCalculator = yearCalculator
 
         super.init(nibName: nil, bundle: nil)
@@ -45,8 +45,8 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
     }
 
     private func onLoginButtonTapped() {
-        apiClient.login(pinCode: pinEntryView.pinCode).then { [weak self] authToken in
-            self?.onSuccessfulLogin?(authToken)
+        loginActionHandler.login(withPinCode: pinEntryView.pinCode).then { [weak self] debate in
+            self?.onDebateLoaded?(debate)
         }.catch { error in
             fatalError(error.localizedDescription)
         }
