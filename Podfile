@@ -22,3 +22,10 @@ target 'ELDebate' do
   end
 
 end
+
+target 'FeatureTests' do
+  use_frameworks!
+  inherit! :search_paths
+
+  pod 'EarlGrey', '~> 1.9'
+end
