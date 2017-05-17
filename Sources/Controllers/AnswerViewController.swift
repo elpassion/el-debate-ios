@@ -47,7 +47,8 @@ class AnswerViewController: UIViewController, ControllerProviding {
             self.apiClient.vote(
                 authToken: self.voteContext.authToken,
                 answer: self.voteContext.answer(for: answerType)
-            ).then { _ in
+            ).then { [weak self] answer -> Void in
+                self?.answerView.selectAnswer(type: answer.type)
                 print("voting was successful")
             }.catch { error in
                 fatalError(error.localizedDescription)

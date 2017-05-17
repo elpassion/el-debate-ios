@@ -37,6 +37,8 @@ class AnswerView: UIView, AnswerViewProviding {
         setUpLayout()
     }
 
+    // MARK: Public API
+
     func config(debateTitle: String, yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String) {
         questionView.setText(debateTitle)
         answersListView.config(
@@ -44,6 +46,10 @@ class AnswerView: UIView, AnswerViewProviding {
             undecidedAnswerText: undecidedAnswerText,
             noAnswerText: noAnswerText
         )
+    }
+
+    func selectAnswer(type answerType: AnswerType) {
+        answersListView.selectAnswer(type: answerType)
     }
 
     // MARK: - Subviews

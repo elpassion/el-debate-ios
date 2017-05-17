@@ -43,13 +43,15 @@ class DebateDeserializer: Deserializing {
         try answersData.forEach { answerTypeRaw, answerJSON in
             guard let answerType = AnswerType(rawValue: answerTypeRaw) else { return }
 
+            let processedAnswerJSON = answerJSON.merge(["answer_type": answerTypeRaw])
+
             switch answerType {
             case .positive:
-                positiveAnswer = try answerDeserializer.deserialize(json: answerJSON)
+                positiveAnswer = try answerDeserializer.deserialize(json: processedAnswerJSON)
             case .neutral:
-                neutralAnswer = try answerDeserializer.deserialize(json: answerJSON)
+                neutralAnswer = try answerDeserializer.deserialize(json: processedAnswerJSON)
             case .negative:
-                negativeAnswer = try answerDeserializer.deserialize(json: answerJSON)
+                negativeAnswer = try answerDeserializer.deserialize(json: processedAnswerJSON)
             }
         }
 

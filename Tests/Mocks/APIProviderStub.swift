@@ -23,7 +23,7 @@ class APIProviderStub: APIProviding {
         return Promise(value: Debate.testDefault)
     }
     
-    func vote(authToken: String, answer: Answer) -> Promise<Bool> {
-        return Promise(value: true)
+    func vote(authToken: String, answer: Answer) -> Promise<Answer> {
+        return Promise(value: Answer.testDefault)
     }
 }

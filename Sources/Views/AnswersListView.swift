@@ -33,6 +33,8 @@ class AnswersListView: UIView {
         setUpLayout()
     }
 
+    // MARK: Public API
+
     func config(yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String) {
       answerPicker.config(
                           yesAnswerText: yesAnswerText,
@@ -40,6 +42,10 @@ class AnswersListView: UIView {
                           noAnswerText: noAnswerText
                          )
 
+    }
+
+    func selectAnswer(type answerType: AnswerType) {
+        answerPicker.selectAnswer(type: answerType)
     }
 
     // MARK: - Subviews
