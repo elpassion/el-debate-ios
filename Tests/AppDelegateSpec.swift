@@ -45,6 +45,22 @@ class AppDelegateSpec: QuickSpec {
                     expect(launchReturnValue).to(beTrue())
                 }
             }
+
+            describe("reset") {
+                beforeEach {
+                    appDelegate.reset()
+                }
+
+                it("should reset router to pin entry screen") {
+                    var resetToPinEntry = false
+
+                    if case .some(.pinEntry) = router.lastResetToRoute {
+                        resetToPinEntry = true
+                    }
+
+                    expect(resetToPinEntry).to(beTrue())
+                }
+            }
         }
     }
 }

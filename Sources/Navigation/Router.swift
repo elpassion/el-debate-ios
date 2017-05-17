@@ -11,6 +11,7 @@ protocol Routing {
     var navigator: UINavigationController { get }
 
     func go(to route: Route)
+    func reset(to route: Route)
 
 }
 
@@ -28,30 +29,41 @@ class Router: Routing {
     }
 
     func go(to route: Route) {
-        switch route {
-        case .pinEntry:
-            goToPinEntry()
-        case let .answer(voteContext):
-            goToAnswer(for: voteContext)
-        }
+        let provider = makeProvider(for: route)
+        navigator.pushViewController(provider.controller, animated: true)
+    }
+
+    func reset(to route: Route) {
+        let provider = makeProvider(for: route)
+        navigator.setViewControllers([provider.controller], animated: true)
     }
 
     // MARK: - Routing methods
 
-    private func goToPinEntry() {
+    private func makeProvider(for route: Route) -> ControllerProviding {
+        switch route {
+        case .pinEntry:
+            return makePinEntryProvider()
+        case let .answer(voteContext):
+            return makeAnswerProvider(for: voteContext)
+        }
+    }
+
+    private func makePinEntryProvider() -> ControllerProviding {
         guard let provider = controllerFactory.makeController(of: .pinEntry) as? PinEntryControllerProviding else {
             fatalError("Expected built provider to be of class PinEntryControllerProviding")
         }
 
         controllerConfigurator.configure(controller: provider, with: self)
-        navigator.pushViewController(provider.controller, animated: true)
+
+        return provider
     }
 
-    private func goToAnswer(for voteContext: VoteContext) {
+    private func makeAnswerProvider(for voteContext: VoteContext) -> ControllerProviding {
         let provider = controllerFactory.makeController(of: .answer(voteContext: voteContext))
         controllerConfigurator.configure(controller: provider, with: self)
 
-        navigator.pushViewController(provider.controller, animated: true)
+        return provider
     }
 
 }

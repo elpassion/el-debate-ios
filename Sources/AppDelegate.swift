@@ -29,4 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func reset() {
+        router.reset(to: .pinEntry)
+    }
+
 }
