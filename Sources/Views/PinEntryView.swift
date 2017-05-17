@@ -31,6 +31,10 @@ class PinEntryView: UIView {
         get { return codeField.pinCode }
         set { codeField.pinCode = newValue }
     }
+    
+    func setLoginButton(isEnabled: Bool) {
+        loginButton.isEnabled = isEnabled
+    }
 
     // MARK: - Subviews
 

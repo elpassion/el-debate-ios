@@ -45,10 +45,13 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
     }
 
     private func onLoginButtonTapped() {
+        pinEntryView.setLoginButton(isEnabled: false)
         loginActionHandler.login(withPinCode: pinEntryView.pinCode).then { [weak self] voteContext -> Void in
             self?.onVoteContextLoaded?(voteContext)
         }.catch { error in
             fatalError(error.localizedDescription)
+        }.always { [weak self] in
+            self?.pinEntryView.setLoginButton(isEnabled: true)
         }
     }
 
