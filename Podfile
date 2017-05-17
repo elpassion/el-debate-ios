@@ -17,8 +17,9 @@ target 'ELDebate' do
   target 'ELDebateTests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 1.1'
+    pod 'Nimble-Snapshots'
     pod 'Nimble', '~> 6.1'
+    pod 'Quick', '~> 1.1'
   end
 
 end
