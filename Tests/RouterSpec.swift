@@ -29,15 +29,8 @@ class RouterSpec: QuickSpec {
 
             describe("routing to pin entry screen") {
                 it("should push view controller on stack") {
-                    var hasCreatedPinEntryController = false
-
                     sut.go(to: .pinEntry)
 
-                    if case .some(.pinEntry) = controllerFactory.lastType {
-                        hasCreatedPinEntryController = true
-                    }
-
-                    expect(hasCreatedPinEntryController).to(beTrue())
                     expect(navigationController.viewControllers).to(containElementSatisfying({ controller in
                         controller == controllerFactory.pinEntryProvider.controller
                     }))
@@ -80,6 +73,22 @@ class RouterSpec: QuickSpec {
                     expect(controllerConfigurator.configureReceivedArguments?.controller).to(be(
                         controllerFactory.answerProvider))
                     expect(controllerConfigurator.configureReceivedArguments?.router).to(be(sut))
+                }
+            }
+
+            describe("reset") {
+                beforeEach {
+                    let controllers: [UIViewController] = [UIViewController(), UIViewController(), UIViewController()]
+                    navigationController.setViewControllers(controllers, animated: false)
+                }
+
+                it("should reset navigation controller stack") {
+                    sut.reset(to: .pinEntry)
+
+                    expect(sut.navigator.viewControllers.count).toEventually(equal(1))
+                    expect(sut.navigator.viewControllers).toEventually(containElementSatisfying({ controller in
+                        controller == controllerFactory.pinEntryProvider.controller
+                    }))
                 }
             }
         }
