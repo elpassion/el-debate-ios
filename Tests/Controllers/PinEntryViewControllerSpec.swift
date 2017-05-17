@@ -2,6 +2,7 @@
 //  Created by Jakub Turek on 12.05.2017.
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
+// swiftlint:disable function_body_length
 
 @testable import ELDebate
 import Nimble
@@ -14,14 +15,16 @@ class PinEntryViewControllerSpec: QuickSpec {
         describe("PinEntryViewController") {
             var loginActionHandlingMock: LoginActionHandlingMock!
             var yearCalculator: CurrentYearCalculatorMock!
+            var alertViewMock: AlertViewMock!
             var controller: PinEntryViewController!
 
             beforeEach {
                 loginActionHandlingMock = LoginActionHandlingMock()
                 yearCalculator = CurrentYearCalculatorMock()
                 yearCalculator.year = "2023"
+                alertViewMock = AlertViewMock()
                 controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
-                                                    yearCalculator: yearCalculator)
+                                                    yearCalculator: yearCalculator, alertView: alertViewMock)
             }
 
             it("should initialize back bar button item") {
@@ -42,29 +45,44 @@ class PinEntryViewControllerSpec: QuickSpec {
             }
 
             describe("log in button press") {
-                beforeEach {
-                    loginActionHandlingMock.loginReturnValue = Promise(value: VoteContext.testDefault)
-                    loginActionHandlingMock.loginReceivedPinCode = nil
-                }
-
-                it("should trigger successful login callback with correct authentication token") {
-                    var fetchedVoteContext: VoteContext?
-
-                    controller.onVoteContextLoaded = { voteContext in
-                        fetchedVoteContext = voteContext
+                context("action was successful") {
+                    beforeEach {
+                        loginActionHandlingMock.loginReturnValue = Promise(value: VoteContext.testDefault)
+                        loginActionHandlingMock.loginReceivedPinCode = nil
                     }
 
-                    controller.pinEntryView.onLoginButtonTapped?()
+                    it("should trigger successful login callback with correct authentication token") {
+                        var fetchedVoteContext: VoteContext?
 
-                    expect(fetchedVoteContext?.debate.topic).toEventually(equal("test_debate_topic"))
+                        controller.onVoteContextLoaded = { voteContext in
+                            fetchedVoteContext = voteContext
+                        }
+
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(fetchedVoteContext?.debate.topic).toEventually(equal("test_debate_topic"))
+                    }
+
+                    it("should pass pin from view") {
+                        controller.pinEntryView.pinCode = "99999"
+
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(loginActionHandlingMock.loginReceivedPinCode).toEventually(equal("99999"))
+                    }
                 }
 
-                it("should pass pin from view") {
-                    controller.pinEntryView.pinCode = "99999"
+                context("there was a problem") {
+                    beforeEach {
+                        loginActionHandlingMock.loginReturnValue = Promise(
+                            error: RequestError.apiError(statusCode: 500)
+                        )
+                    }
 
-                    controller.pinEntryView.onLoginButtonTapped?()
-
-                    expect(loginActionHandlingMock.loginReceivedPinCode).toEventually(equal("99999"))
+                    it("shows an error alert") {
+                        controller.onLoginButtonTapped()
+                        expect(alertViewMock.wasShown).toEventually(equal(true))
+                    }
                 }
             }
         }
