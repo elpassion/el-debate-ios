@@ -19,9 +19,17 @@ class AnswerDeserializer: Deserializing {
         }
 
         guard let value = dict["value"] as? String else {
-            throw RequestError.deserializationError(reason: "Response does not contain answers value")
+            throw RequestError.deserializationError(reason: "Response does not contain answer value")
         }
 
-        return Answer(identifier: identifier, value: value)
+        guard let rawAnswerType = dict["answer_type"] as? String else {
+            throw RequestError.deserializationError(reason: "Response does not contain correct answer type")
+        }
+
+        guard let answerType = AnswerType(rawValue: rawAnswerType) else {
+            throw RequestError.deserializationError(reason: "Response does not contain correct answer type")
+        }
+
+        return Answer(identifier: identifier, value: value, type: answerType)
     }
 }

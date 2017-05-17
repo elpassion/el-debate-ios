@@ -24,13 +24,15 @@ class AnswerDeserializerSpec: QuickSpec {
                 it("should deserialize Answer correctly") {
                     let response: Any? = [
                         "id": 123,
-                        "value": "uważam że tak"
+                        "value": "uważam że tak",
+                        "answer_type": "positive"
                     ]
 
                     let result: Answer? = try? deserializer.deserialize(json: response)
 
                     expect(result?.identifier).to(equal(123))
                     expect(result?.value).to(equal("uważam że tak"))
+                    expect(result?.type).to(equal(AnswerType.positive))
                 }
 
                 it("should throw deserialization error if response is not a dictionary") {
