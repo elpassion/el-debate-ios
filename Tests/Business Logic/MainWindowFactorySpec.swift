@@ -14,7 +14,7 @@ class MainWindowFactorySpec: QuickSpec {
 
         describe("MainWindowFactory") {
             beforeEach {
-                mainWindowFactory = MainWindowFactory(screenBounds: .zero)
+                mainWindowFactory = MainWindowFactory(screenBounds: UIScreen.main.bounds)
             }
 
             describe("makeMainWindow") {
