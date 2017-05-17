@@ -49,7 +49,6 @@ class AnswerViewController: UIViewController, ControllerProviding {
                 answer: self.voteContext.answer(for: answerType)
             ).then { [weak self] answer -> Void in
                 self?.answerView.selectAnswer(type: answer.type)
-                print("voting was successful")
             }.catch { error in
                 fatalError(error.localizedDescription)
             }

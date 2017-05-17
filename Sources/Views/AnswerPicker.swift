@@ -77,14 +77,6 @@ class AnswerPicker: UIView {
         onAnswerSelected?(answer.answerType)
     }
 
-    private func tappedViewIndex(of answerView: SingleAnswerView) -> Int {
-        guard let index = answerViews.index(of: answerView) else {
-            fatalError("Invalid tapped view index")
-        }
-
-        return index
-    }
-
     private func tappedAnswerView(with gestureRegognizer: UITapGestureRecognizer) -> SingleAnswerView? {
         let tapLocation = gestureRegognizer.location(in: self)
 
