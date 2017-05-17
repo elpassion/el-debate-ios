@@ -8,6 +8,7 @@ import UIKit
 
 class SingleAnswerView: UIView {
 
+    let answerType: AnswerType
     private let container = UIView(frame: .zero)
     private let horizontalStack = Views.stack(axis: .horizontal, distribution: .fill, alignment: .fill, spacing: 10.0)
     private let answerLabel: UILabel
@@ -15,10 +16,11 @@ class SingleAnswerView: UIView {
     private let highlightColor: UIColor
     private let defaultColor: UIColor
 
-    init(color: UIColor, text: String) {
-        self.highlightColor = color
+    init(color: Color, type: AnswerType) {
+        self.answerType = type
+        self.highlightColor = UIColor(predefined: color)
         self.defaultColor = UIColor(predefined: .unselected)
-        self.answerLabel = Views.label(size: 16.0, color: defaultColor, alignment: .left, numberOfLines: 0, text: text)
+        self.answerLabel = Views.label(size: 16.0, color: defaultColor, alignment: .left, numberOfLines: 0)
         self.thumbsUp = ThumbsUpView(highlightColor: color)
 
         super.init(frame: .zero)
