@@ -46,7 +46,7 @@ class AnswerScreenTests: XCTestCase {
             .perform(grey_tap())
             .assert(grey_sufficientlyVisible())
 
-        EarlGrey.select(elementWithMatcher: grey_text("Our debate at is about:"))
+        EarlGrey.select(elementWithMatcher: grey_text("Our debate is about:"))
             .assert(grey_sufficientlyVisible())
     }
     
