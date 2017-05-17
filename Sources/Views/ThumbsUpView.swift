@@ -12,8 +12,8 @@ class ThumbsUpView: UIView {
     private let highlightColor: UIColor
     private let defaultColor: UIColor
 
-    init(highlightColor: UIColor) {
-        self.highlightColor = highlightColor
+    init(highlightColor: Color) {
+        self.highlightColor = UIColor(predefined: highlightColor)
         self.defaultColor = UIColor(predefined: .unselected)
 
         super.init(frame: .zero)

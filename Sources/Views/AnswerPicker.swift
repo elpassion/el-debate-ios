@@ -10,9 +10,9 @@ class AnswerPicker: UIView {
 
     private let verticalStack = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                             alignment: .fill, spacing: 14.0)
-    private let yesAnswer = SingleAnswerView(color: UIColor(predefined: .yes), text: "I think yes")
-    private let noAnswer = SingleAnswerView(color: UIColor(predefined: .no), text: "I think no")
-    private let undecidedAnswer = SingleAnswerView(color: UIColor(predefined: .undecided), text: "I’m undecided")
+    private let yesAnswer = SingleAnswerView(color: .yes, type: .positive)
+    private let noAnswer = SingleAnswerView(color: .no, type: .negative)
+    private let undecidedAnswer = SingleAnswerView(color: .undecided, type: .neutral)
     private let tapGestureRecognizer = UITapGestureRecognizer()
 
     var onAnswerSelected: ((AnswerType) -> Void)?
@@ -61,17 +61,12 @@ class AnswerPicker: UIView {
     @objc private func didTapAnswer(with gestureRecognizer: UITapGestureRecognizer) {
         guard let answer = tappedAnswerView(with: gestureRecognizer) else { return }
 
-        let views: [SingleAnswerView] = [yesAnswer, noAnswer, undecidedAnswer]
+        onAnswerSelected?(answer.answerType)
+        updateSelection(with: answer)
+    }
 
-        guard let tappedViewIndex = views.index(of: answer) else {
-            fatalError("Invalid tapped view index")
-        }
-
-        onAnswerSelected?(AnswerType.allTypes[tappedViewIndex])
-
-        views.forEach { (view) in
-            view.selected = view == answer
-        }
+    private func updateSelection(with view: SingleAnswerView) {
+        [yesAnswer, noAnswer, undecidedAnswer].forEach { $0.selected = $0 == view }
     }
 
     private func tappedAnswerView(with gestureRegognizer: UITapGestureRecognizer) -> SingleAnswerView? {
