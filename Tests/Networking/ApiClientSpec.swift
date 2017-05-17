@@ -77,7 +77,7 @@ class ApiClientSpec: QuickSpec {
             }
 
             describe("vote") {
-                let answer = Answer(identifier: 12, value: "Yes")
+                let answer = Answer(identifier: 12, value: "Yes", type: .positive)
 
                 context("api request success") {
                     beforeEach {
@@ -85,12 +85,12 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("executes the success block") {
-                        var success: Bool? = nil
-                        _ = apiClient.vote(authToken: "token", answer: answer).then { successResult in
-                            success = successResult
+                        var answerParam: Answer? = nil
+                        _ = apiClient.vote(authToken: "token", answer: answer).then { answerResult in
+                            answerParam = answerResult
                         }
 
-                        expect(success).toEventually(equal(true))
+                        expect(answerParam).toEventuallyNot(beNil())
                     }
                 }
 

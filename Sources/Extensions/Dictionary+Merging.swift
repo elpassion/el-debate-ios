@@ -1,12 +1,13 @@
 //
 //  Created by Jakub Turek on 17.05.2017.
+//  Dictionary+Merging.swift
+//  ELDebate
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
 import Foundation
 
 extension Dictionary {
-
     func merge(_ otherDictionary: [Key: Value]) -> [Key: Value] {
         var result: [Key: Value] = [:]
 
@@ -20,5 +21,4 @@ extension Dictionary {
 
         return result
     }
-
 }

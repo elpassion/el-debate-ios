@@ -4,6 +4,7 @@
 //
 
 import Anchorage
+import PromiseKit
 import UIKit
 
 class AnswerPicker: UIView {
@@ -17,12 +18,24 @@ class AnswerPicker: UIView {
 
     var onAnswerSelected: ((AnswerType) -> Void)?
 
+    private var answerViews: [SingleAnswerView] {
+        return [yesAnswer, noAnswer, undecidedAnswer]
+    }
+
     init() {
         super.init(frame: .zero)
 
         addSubviews()
         setUpLayout()
         setUpGestureRecognition()
+    }
+
+    // MARK: Public API
+
+    func selectAnswer(type answerType: AnswerType) {
+        answerViews.forEach { (view) in
+            view.selected = view.answerType == answerType
+        }
     }
 
     func config(yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String) {
@@ -62,18 +75,12 @@ class AnswerPicker: UIView {
         guard let answer = tappedAnswerView(with: gestureRecognizer) else { return }
 
         onAnswerSelected?(answer.answerType)
-        updateSelection(with: answer)
-    }
-
-    private func updateSelection(with view: SingleAnswerView) {
-        [yesAnswer, noAnswer, undecidedAnswer].forEach { $0.selected = $0 == view }
     }
 
     private func tappedAnswerView(with gestureRegognizer: UITapGestureRecognizer) -> SingleAnswerView? {
-        let views: [SingleAnswerView] = [yesAnswer, noAnswer, undecidedAnswer]
         let tapLocation = gestureRegognizer.location(in: self)
 
-        return views.filter { $0.frame.contains(tapLocation) }.first
+        return answerViews.filter { $0.frame.contains(tapLocation) }.first
     }
 
     // MARK: - Required initializer

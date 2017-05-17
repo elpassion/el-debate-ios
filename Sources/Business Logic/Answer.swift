@@ -27,4 +27,5 @@ extension AnswerType {
 struct Answer {
     let identifier: Int
     let value: String
+    let type: AnswerType
 }
