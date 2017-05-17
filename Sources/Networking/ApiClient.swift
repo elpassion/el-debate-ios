@@ -34,64 +34,36 @@ class ApiClient: APIProviding {
 
     func login(pinCode: String) -> Promise<String> {
         let jsonResponse = requestExecutor.post(
-            url: "\(apiHost)/api/login", body: ["code": pinCode], headers: nil
+            url: "\(apiHost)/api/login",
+            body: ["code": pinCode],
+            headers: nil
         )
 
-        return Promise { fulfill, reject in
-            jsonResponse.json { [weak self] apiResponse in
-                guard let `self` = self else { fatalError("This should never happen") }
-                if let error = apiResponse.error {
-                    reject(error)
-                    return
-                }
-
-                do {
-                    let authToken = try self.authTokenDeserializer.deserialize(json: apiResponse.json)
-                    fulfill(authToken)
-                } catch let error {
-                    reject(error)
-                }
-            }
-        }
+        return Promise(requestExecutor: jsonResponse.json, processor: { [weak self] apiResponse in
+            guard let `self` = self else { throw RequestError.deallocatedClientError }
+            return try self.authTokenDeserializer.deserialize(json: apiResponse.json)
+        })
     }
 
     func fetchDebate(authToken: String) -> Promise<Debate> {
         let jsonResponse =  requestExecutor.get(
-            url: "\(apiHost)/api/debate", headers: ["Authorization": authToken]
+            url: "\(apiHost)/api/debate",
+            headers: ["Authorization": authToken]
         )
 
-        return Promise { fulfill, reject in
-            jsonResponse.json { [weak self] apiResponse in
-                guard let `self` = self else { fatalError("This should never happen") }
-                if let error = apiResponse.error {
-                    reject(error)
-                    return
-                }
-
-                do {
-                    let debate = try self.debateDeserializer.deserialize(json: apiResponse.json)
-                    fulfill(debate)
-                } catch let error {
-                    reject(error)
-                }
-            }
-        }
+        return Promise(requestExecutor: jsonResponse.json, processor: { [weak self] apiResponse in
+            guard let `self` = self else { throw RequestError.deallocatedClientError }
+            return try self.debateDeserializer.deserialize(json: apiResponse.json)
+        })
     }
 
     func vote(authToken: String, answer: Answer) -> Promise<Bool> {
         let response =  requestExecutor.post(
-            url: "\(apiHost)/api/vote", body: ["id": answer.identifier], headers: ["Authorization": authToken]
+            url: "\(apiHost)/api/vote",
+            body: ["id": answer.identifier],
+            headers: ["Authorization": authToken]
         )
 
-        return Promise { fulfill, reject in
-            response.maybeJson { apiResponse in
-                if let error = apiResponse.error {
-                    reject(error)
-                    return
-                }
-
-                fulfill(true)
-            }
-        }
+        return Promise(requestExecutor: response.maybeJson, processor: { _ in true })
     }
 }
