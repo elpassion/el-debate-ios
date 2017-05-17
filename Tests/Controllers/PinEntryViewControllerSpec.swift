@@ -47,7 +47,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                 it("should have a valid snapshot") {
                     controller.view.frame = UIScreen.main.bounds
 
-                    expect(controller.view).to(haveValidSnapshot())
+                    expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
                 }
             }
 

@@ -20,13 +20,6 @@ class APIProviderStub: APIProviding {
     func fetchDebate(authToken: String) -> Promise<Debate> {
         debateAuthToken = authToken
 
-        let debate = Debate(
-            topic: "whatever",
-            positiveAnswer: Answer(identifier: 123, value: "yes"),
-            neutralAnswer: Answer(identifier: 124, value: "maybe"),
-            negativeAnswer: Answer(identifier: 125, value: "no")
-        )
-
         return Promise(value: Debate.testDefault)
     }
     

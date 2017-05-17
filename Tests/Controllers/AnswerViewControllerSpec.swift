@@ -38,7 +38,7 @@ class AnswerViewControllerSpec: QuickSpec {
                 it("should have a valid snaphot") {
                     controller.view.frame = UIScreen.main.bounds
 
-                    expect(controller.view).to(haveValidSnapshot())
+                    expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
                 }
             }
         }
