@@ -9,14 +9,16 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
 
     private let loginActionHandler: LoginActionHandling
     private let yearCalculator: CurrentYearCalculating
+    private let alertView: AlertShowing
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating) {
+    init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating, alertView: AlertShowing) {
         self.loginActionHandler = loginActionHandler
         self.yearCalculator = yearCalculator
+        self.alertView = alertView
 
         super.init(nibName: nil, bundle: nil)
 
@@ -44,12 +46,13 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
     }
 
-    private func onLoginButtonTapped() {
+    func onLoginButtonTapped() {
         pinEntryView.setLoginButton(isEnabled: false)
         loginActionHandler.login(withPinCode: pinEntryView.pinCode).then { [weak self] voteContext -> Void in
             self?.onVoteContextLoaded?(voteContext)
-        }.catch { error in
-            fatalError(error.localizedDescription)
+        }.catch { [weak self] _ in
+            guard let `self` = self else { return }
+            self.alertView.show(in: self, title: "Error", message: "Could not find a debate for a given pin code")
         }.always { [weak self] in
             self?.pinEntryView.setLoginButton(isEnabled: true)
         }
