@@ -9,15 +9,8 @@
 import Foundation
 
 class DebateDeserializer: Deserializing {
-    let answerDeserializer: Deserializer<Answer>
 
-    static func build() -> Deserializer<Debate> {
-        return Deserializer(
-            DebateDeserializer(
-                answerDeserializer: Deserializer(AnswerDeserializer())
-            )
-        )
-    }
+    private let answerDeserializer: Deserializer<Answer>
 
     init(answerDeserializer: Deserializer<Answer>) {
         self.answerDeserializer = answerDeserializer
@@ -36,34 +29,36 @@ class DebateDeserializer: Deserializing {
             throw RequestError.deserializationError(reason: "Response does not contain answers data")
         }
 
-        var positiveAnswer: Answer?
-        var neutralAnswer: Answer?
-        var negativeAnswer: Answer?
-
-        try answersData.forEach { answerTypeRaw, answerJSON in
-            guard let answerType = AnswerType(rawValue: answerTypeRaw) else { return }
-
-            let processedAnswerJSON = answerJSON.merge(["answer_type": answerTypeRaw])
-
-            switch answerType {
-            case .positive:
-                positiveAnswer = try answerDeserializer.deserialize(json: processedAnswerJSON)
-            case .neutral:
-                neutralAnswer = try answerDeserializer.deserialize(json: processedAnswerJSON)
-            case .negative:
-                negativeAnswer = try answerDeserializer.deserialize(json: processedAnswerJSON)
-            }
+        let parsedAnswers = try answersData.mapDictionary { (type, answerJSON) in
+            return (type, answerJSON.merge(["answer_type": type]))
+        }.map { (_, answerJSON) in
+            try answerDeserializer.deserialize(json: answerJSON)
         }
 
-        guard let positive = positiveAnswer, let neutral = neutralAnswer, let negative = negativeAnswer else {
-            throw RequestError.deserializationError(reason: "Response does not contain answers data")
+        return Debate(topic: topic,
+                      positiveAnswer: answer(from: parsedAnswers, ofType: .positive),
+                      neutralAnswer: answer(from: parsedAnswers, ofType: .neutral),
+                      negativeAnswer: answer(from: parsedAnswers, ofType: .negative))
+    }
+
+    private func answer(from answers: [Answer], ofType type: AnswerType) -> Answer {
+        guard let answer = answers.first(where: { $0.type == type }) else {
+            fatalError("Response does not contain \(type.rawValue) answer data")
         }
 
-        return Debate(
-            topic: topic,
-            positiveAnswer: positive,
-            neutralAnswer:  neutral,
-            negativeAnswer: negative
+        return answer
+    }
+
+}
+
+extension DebateDeserializer {
+
+    static func build() -> Deserializer<Debate> {
+        return Deserializer(
+            DebateDeserializer(
+                answerDeserializer: Deserializer(AnswerDeserializer())
+            )
         )
     }
+
 }
