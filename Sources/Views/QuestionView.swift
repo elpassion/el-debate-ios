@@ -29,7 +29,7 @@ class QuestionView: UIView {
     // MARK: - Subviews
 
     private func setUpSubviews() {
-        title.text = "Our debate at is about:"
+        title.text = "Our debate is about:"
     }
 
     private func addSubviews() {

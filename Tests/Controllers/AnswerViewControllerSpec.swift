@@ -5,6 +5,7 @@
 
 @testable import ELDebate
 import Nimble
+import Nimble_Snapshots
 import Quick
 
 class AnswerViewControllerSpec: QuickSpec {
@@ -32,6 +33,12 @@ class AnswerViewControllerSpec: QuickSpec {
 
                 it("should set title") {
                     expect(controller.title).to(equal("EL Debate 2012"))
+                }
+
+                it("should have a valid snaphot") {
+                    controller.view.frame = UIScreen.main.bounds
+
+                    expect(controller.view).to(haveValidSnapshot())
                 }
             }
         }

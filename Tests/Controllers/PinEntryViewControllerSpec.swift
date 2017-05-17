@@ -6,6 +6,7 @@
 
 @testable import ELDebate
 import Nimble
+import Nimble_Snapshots
 import PromiseKit
 import Quick
 
@@ -41,6 +42,12 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                 it("should set title") {
                     expect(controller.title).to(equal("EL Debate 2023"))
+                }
+
+                it("should have a valid snapshot") {
+                    controller.view.frame = UIScreen.main.bounds
+
+                    expect(controller.view).to(haveValidSnapshot())
                 }
             }
 
