@@ -83,7 +83,7 @@ class LoginActionHandlerSpec: QuickSpec {
                         voteContext = result
                     }
 
-                    expect(voteContext?.debate.topic).toEventually(equal("whatever"))
+                    expect(voteContext?.debate.topic).toEventually(equal("test_debate_topic"))
                 }
             }
         }

@@ -14,9 +14,7 @@ class APIProviderStub: APIProviding {
 
     func login(pinCode: String) -> Promise<String> {
         self.pinCode = pinCode
-        return Promise { fulfill, reject in
-            fulfill(authenticationToken)
-        }
+        return Promise(value: authenticationToken)
     }
 
     func fetchDebate(authToken: String) -> Promise<Debate> {
@@ -29,9 +27,7 @@ class APIProviderStub: APIProviding {
             negativeAnswer: Answer(identifier: 125, value: "no")
         )
 
-        return Promise { fulfill, reject in
-            fulfill(debate)
-        }
+        return Promise(value: Debate.testDefault)
     }
     
     func vote(authToken: String, answer: Answer) -> Promise<Bool> {
