@@ -1,7 +1,10 @@
 PODS:
   - Alamofire (4.4.0)
   - Anchorage (4.0.0)
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
   - EarlGrey (1.9.2)
+  - Fabric (1.6.11)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
@@ -38,7 +41,9 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - Anchorage (~> 4.0)
+  - Crashlytics (~> 3.8)
   - EarlGrey (~> 1.9)
+  - Fabric (~> 1.6)
   - FBSnapshotTestCase (~> 2.1)
   - KeychainAccess (~> 3.0)
   - Nimble (~> 6.1)
@@ -55,7 +60,9 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Anchorage: fe50dca4e20846b8cb15c859d26fec5132b41577
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
   EarlGrey: b78a93bd5fddba9a79a8e5ec5ae8a7718453ca40
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59
@@ -69,6 +76,6 @@ SPEC CHECKSUMS:
   SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: 37a0d13f634b187029457cf3bbcbe779b1e67e3b
+PODFILE CHECKSUM: 6ca998fdf96fb2ea1d1a9531bbd2b4969521e6e1
 
 COCOAPODS: 1.2.1
