@@ -72,9 +72,11 @@ class AnswerPicker: UIView {
     }
 
     @objc private func didTapAnswer(with gestureRecognizer: UITapGestureRecognizer) {
-        guard let answer = tappedAnswerView(with: gestureRecognizer) else { return }
-
-        onAnswerSelected?(answer.answerType)
+        guard let answerView = tappedAnswerView(with: gestureRecognizer) else { return }
+        if !answerView.selected {
+            answerView.animateSpinner()
+            onAnswerSelected?(answerView.answerType)
+        }
     }
 
     private func tappedAnswerView(with gestureRegognizer: UITapGestureRecognizer) -> SingleAnswerView? {
