@@ -1201,7 +1201,7 @@
 				DEVELOPMENT_TEAM = H5QFB36W2F;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.ELDebate;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ELDebate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1215,7 +1215,7 @@
 				DEVELOPMENT_TEAM = H5QFB36W2F;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.ELDebate;
+				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ELDebate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
