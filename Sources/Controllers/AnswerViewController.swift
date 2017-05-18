@@ -52,7 +52,8 @@ class AnswerViewController: UIViewController, ControllerProviding {
             ).then { [weak self] answer -> Void in
                 self?.answerView.selectAnswer(type: answer.type)
             }.catch { [weak self] _ in
-                self?.alertView.show(in: self, title: "Error", message: "There was a problem submitting your vote")
+                guard let `self` = self else { return }
+                self.alertView.show(in: self, title: "Error", message: "There was a problem submitting your vote")
             }.always { [weak self] in
                 self?.answerView.stopSpinners()
             }
