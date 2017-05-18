@@ -15,6 +15,7 @@ class SingleAnswerView: UIView {
     private let thumbsUp: ThumbsUpView
     private let highlightColor: UIColor
     private let defaultColor: UIColor
+    private let spinner: UIActivityIndicatorView
 
     init(color: Color, type: AnswerType) {
         self.answerType = type
@@ -22,6 +23,7 @@ class SingleAnswerView: UIView {
         self.defaultColor = UIColor(predefined: .unselected)
         self.answerLabel = Views.label(size: 16.0, color: defaultColor, alignment: .left, numberOfLines: 0)
         self.thumbsUp = ThumbsUpView(highlightColor: color)
+        self.spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
         super.init(frame: .zero)
 
@@ -36,10 +38,15 @@ class SingleAnswerView: UIView {
         answerLabel.text = text
     }
 
+    func animateSpinner() {
+        spinner.startAnimating()
+    }
+
     var selected: Bool = false {
         didSet {
             thumbsUp.selected = selected
             answerLabel.textColor = selected ? highlightColor : defaultColor
+            spinner.stopAnimating()
         }
     }
 
@@ -70,10 +77,10 @@ class SingleAnswerView: UIView {
 
     private func addSubviews() {
         horizontalStack.addArrangedSubview(answerLabel)
+        horizontalStack.addArrangedSubview(spinner)
         horizontalStack.addArrangedSubview(thumbsUp)
 
         container.addSubview(horizontalStack)
-
         addSubview(container)
     }
 
@@ -87,6 +94,7 @@ class SingleAnswerView: UIView {
 
         answerLabel.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
         thumbsUp.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        spinner.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
 
         thumbsUp.widthAnchor == thumbsUp.heightAnchor
     }
