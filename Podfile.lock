@@ -26,6 +26,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.2.0):
     - PromiseKit/CorePromise
+  - PySwiftyRegex (1.0.0)
   - Quick (1.1.0)
   - Sourcery (0.6.0)
   - SwiftLint (0.18.1)
@@ -38,10 +39,12 @@ DEPENDENCIES:
   - Alamofire (~> 4.4)
   - Anchorage (~> 4.0)
   - EarlGrey (~> 1.9)
+  - FBSnapshotTestCase (~> 2.1)
   - KeychainAccess (~> 3.0)
   - Nimble (~> 6.1)
   - Nimble-Snapshots
   - PromiseKit (~> 4.0)
+  - PySwiftyRegex (~> 1.0.0)
   - Quick (~> 1.1)
   - Sourcery (~> 0.6)
   - SwiftLint (~> 0.18)
@@ -58,6 +61,7 @@ SPEC CHECKSUMS:
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59
   Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
   PromiseKit: '08dfb783c161ddcd95b7912421f14c5113fd8318'
+  PySwiftyRegex: 9f53cc95dcc4b5c91f050487d6dba3e4aac298ed
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   Sourcery: b3a93fcdf9c256feeb16e85f4d1bbf46baa42464
   SwiftLint: b467d08f5b25dc3b3cfed243d8e1b74b91714c67
@@ -65,6 +69,6 @@ SPEC CHECKSUMS:
   SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: 751c598717c2883aa018dbd1e85231c77dcc3043
+PODFILE CHECKSUM: 37a0d13f634b187029457cf3bbcbe779b1e67e3b
 
 COCOAPODS: 1.2.1

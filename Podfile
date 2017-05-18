@@ -29,4 +29,6 @@ target 'FeatureTests' do
   inherit! :search_paths
 
   pod 'EarlGrey', '~> 1.9'
+  pod 'FBSnapshotTestCase', '~> 2.1'
+  pod 'PySwiftyRegex', '~> 1.0.0'
 end

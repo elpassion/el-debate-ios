@@ -35,6 +35,36 @@ class AnswerScreenTests: XCTestCase {
             .assert(grey_sufficientlyVisible())
     }
 
+    func testPositiveVoteWorks() {
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(SingleAnswerView.self))
+            .atIndex(0)
+            .perform(grey_tap())
+            .assert(grey_sufficientlyVisible())
+
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(AnswerPicker.self))
+            .perform(grey_verifySnapshot(name))
+    }
+
+    func testNegativeVoteWorks() {
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(SingleAnswerView.self))
+            .atIndex(1)
+            .perform(grey_tap())
+            .assert(grey_sufficientlyVisible())
+
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(AnswerPicker.self))
+            .perform(grey_verifySnapshot(name))
+    }
+
+    func testNeutralVoteWorks() {
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(SingleAnswerView.self))
+            .atIndex(2)
+            .perform(grey_tap())
+            .assert(grey_sufficientlyVisible())
+
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(AnswerPicker.self))
+            .perform(grey_verifySnapshot(name))
+    }
+
     private func navigateToAnswerScreen() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
             .perform(grey_typeText("13160"))

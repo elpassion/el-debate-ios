@@ -45,4 +45,9 @@ class PinEntryScreenTests: XCTestCase {
             .assert(grey_sufficientlyVisible())
     }
 
+    func testWelcomeViewMatches() {
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(PinEntryWelcomeView.self))
+            .perform(grey_verifySnapshot(name))
+    }
+
 }
