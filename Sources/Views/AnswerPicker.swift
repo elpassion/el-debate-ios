@@ -44,6 +44,12 @@ class AnswerPicker: UIView {
         noAnswer.setText(noAnswerText)
     }
 
+    func stopSpinners() {
+        yesAnswer.stopSpinner()
+        noAnswer.stopSpinner()
+        undecidedAnswer.stopSpinner()
+    }
+
     // MARK: - Subviews
 
     private func addSubviews() {
@@ -74,7 +80,7 @@ class AnswerPicker: UIView {
     @objc private func didTapAnswer(with gestureRecognizer: UITapGestureRecognizer) {
         guard let answerView = tappedAnswerView(with: gestureRecognizer) else { return }
         if !answerView.selected {
-            answerView.animateSpinner()
+            answerView.startSpinner()
             onAnswerSelected?(answerView.answerType)
         }
     }

@@ -20,15 +20,17 @@ class AnswerViewController: UIViewController, ControllerProviding {
     private let voteContext: VoteContext
     private let answerViewPresenter: AnswerViewPresenter
     private let apiClient: APIProviding
+    private let alertView: AlertShowing
 
     // MARK: - Initializer
 
     init(yearCalculator: CurrentYearCalculating, voteContext: VoteContext,
-         answerViewPresenter: AnswerViewPresenter, apiClient: APIProviding) {
+         answerViewPresenter: AnswerViewPresenter, apiClient: APIProviding, alertView: AlertShowing) {
         self.yearCalculator = yearCalculator
         self.voteContext = voteContext
         self.answerViewPresenter = answerViewPresenter
         self.apiClient = apiClient
+        self.alertView = alertView
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -49,8 +51,10 @@ class AnswerViewController: UIViewController, ControllerProviding {
                 answer: self.voteContext.answer(for: answerType)
             ).then { [weak self] answer -> Void in
                 self?.answerView.selectAnswer(type: answer.type)
-            }.catch { error in
-                fatalError(error.localizedDescription)
+            }.catch { [weak self] _ in
+                self?.alertView.show(in: self, title: "Error", message: "There was a problem submitting your vote")
+            }.always { [weak self] in
+                self?.answerView.stopSpinners()
             }
         }
 
