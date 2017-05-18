@@ -665,6 +665,7 @@
 				8C78D3FE1EC352AF00BDF7EB /* SwiftLint */,
 				38923F83422368976D5B85FD /* [CP] Embed Pods Frameworks */,
 				827448BEBEF799B2B69D5432 /* [CP] Copy Pods Resources */,
+				8C24463E1ECDE29A00E87DB1 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -882,6 +883,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --sources Sources/ --templates Templates/AutoMockable.stencil --output Tests/Mocks";
+		};
+		8C24463E1ECDE29A00E87DB1 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4fb6504551d9582cf1d2a1b3cd181e74a6b932fd a548a049d3e5ca6c1cea1bec687fa3d529d6e8189235c6b20e8b0d89f5910489";
 		};
 		8C78D3FE1EC352AF00BDF7EB /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1200,6 +1215,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dariusz Rybicki (KB57E8RV46)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dariusz Rybicki (KB57E8RV46)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = H5QFB36W2F;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

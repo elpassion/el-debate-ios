@@ -3,6 +3,8 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+import Crashlytics
+import Fabric
 import Swinject
 import SwinjectAutoregistration
 import UIKit
@@ -23,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
         window = mainWindowFactory.makeMainWindow(with: router.navigator)
         router.go(to: .pinEntry)
 

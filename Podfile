@@ -6,6 +6,8 @@ target 'ELDebate' do
 
   pod 'Alamofire', '~> 4.4'
   pod 'Anchorage', '~> 4.0'
+  pod 'Crashlytics', '~> 3.8'
+  pod 'Fabric', '~> 1.6'
   pod 'KeychainAccess', '~> 3.0'
   pod 'PromiseKit', '~> 4.0'
   pod 'Sourcery', '~> 0.6'
