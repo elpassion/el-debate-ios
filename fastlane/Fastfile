@@ -24,15 +24,15 @@ platform :ios do
 
   desc "Runs all the tests"
   lane :test do
-    scan
+    scan(scheme: "ELDebate")
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    scan
+    scan(scheme: "ELDebate")
     match(type: "appstore")
-    gym
+    gym(scheme: "ELDebate")
     pilot
   end
 
