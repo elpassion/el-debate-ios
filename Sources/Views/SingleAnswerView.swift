@@ -38,15 +38,18 @@ class SingleAnswerView: UIView {
         answerLabel.text = text
     }
 
-    func animateSpinner() {
+    func startSpinner() {
         spinner.startAnimating()
+    }
+
+    func stopSpinner() {
+        spinner.stopAnimating()
     }
 
     var selected: Bool = false {
         didSet {
             thumbsUp.selected = selected
             answerLabel.textColor = selected ? highlightColor : defaultColor
-            spinner.stopAnimating()
         }
     }
 

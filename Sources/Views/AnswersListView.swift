@@ -48,6 +48,10 @@ class AnswersListView: UIView {
         answerPicker.selectAnswer(type: answerType)
     }
 
+    func stopSpinners() {
+        answerPicker.stopSpinners()
+    }
+
     // MARK: - Subviews
 
     private func setUpSubviews() {

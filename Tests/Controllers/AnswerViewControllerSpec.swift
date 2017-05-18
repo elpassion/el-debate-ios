@@ -22,7 +22,8 @@ class AnswerViewControllerSpec: QuickSpec {
                     yearCalculator: yearCalculator,
                     voteContext: VoteContext.testDefault,
                     answerViewPresenter: AnswerViewPresenter(),
-                    apiClient: APIProviderStub()
+                    apiClient: APIProviderStub(),
+                    alertView: AlertViewMock()
                 )
             }
 

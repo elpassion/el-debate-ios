@@ -52,6 +52,10 @@ class AnswerView: UIView, AnswerViewProviding {
         answersListView.selectAnswer(type: answerType)
     }
 
+    func stopSpinners() {
+        answersListView.stopSpinners()
+    }
+
     // MARK: - Subviews
 
     private func setUpSubviews() {
