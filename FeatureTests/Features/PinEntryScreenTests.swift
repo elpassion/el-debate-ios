@@ -5,6 +5,7 @@
 
 @testable import ELDebate
 import EarlGrey
+import EarlGreySnapshots
 import XCTest
 
 class PinEntryScreenTests: XCTestCase {
@@ -47,7 +48,7 @@ class PinEntryScreenTests: XCTestCase {
 
     func testWelcomeViewMatches() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(PinEntryWelcomeView.self))
-            .perform(grey_verifySnapshot(name))
+            .perform(grey_verifyDeviceAgnosticSnapshot())
     }
 
 }

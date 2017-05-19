@@ -32,5 +32,5 @@ target 'FeatureTests' do
 
   pod 'EarlGrey', '~> 1.9'
   pod 'FBSnapshotTestCase', '~> 2.1'
-  pod 'PySwiftyRegex', '~> 1.0.0'
+  pod 'EarlGreySnapshots', :git => 'https://github.com/elpassion/EarlGreySnapshots.git', :branch => 'master'
 end
