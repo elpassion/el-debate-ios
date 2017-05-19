@@ -11,7 +11,7 @@ class PinEntryAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(PinEntryViewController.self, initializer: PinEntryViewController.init)
         container.autoregister(RequestExecuting.self, initializer: RequestExecutor.init)
-        container.autoregister(AlertShowing.self, initializer: ErrorAlertController.init)
+        container.autoregister(AlertShowing.self, initializer: AlertPresenter.init)
 
         container.register(CurrentYearCalculating.self) { _ in CurrentYearCalculator(currentDateProvider: { Date() }) }
         container.register(Deserializer<String>.self, name: "AuthTokenDeserializer") { _ in

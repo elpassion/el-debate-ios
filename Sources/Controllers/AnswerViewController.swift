@@ -6,7 +6,7 @@
 import Anchorage
 import UIKit
 
-class AnswerViewController: UIViewController, ControllerProviding {
+class AnswerViewController: UIViewController, AnswerControllerProviding {
 
     private var answerView: AnswerView {
         guard let answerView = view as? AnswerView else {
@@ -22,6 +22,8 @@ class AnswerViewController: UIViewController, ControllerProviding {
     private let apiClient: APIProviding
     private let alertView: AlertShowing
 
+    var onCommentButtonTapped: ((String) -> Void)?
+
     // MARK: - Initializer
 
     init(yearCalculator: CurrentYearCalculating, voteContext: VoteContext,
@@ -33,6 +35,7 @@ class AnswerViewController: UIViewController, ControllerProviding {
         self.alertView = alertView
 
         super.init(nibName: nil, bundle: nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     override func loadView() {
@@ -41,6 +44,11 @@ class AnswerViewController: UIViewController, ControllerProviding {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        answerView.onCommentButtonTapped = { [weak self] in
+            guard let `self` = self else { return }
+            self.onCommentButtonTapped?(self.voteContext.authToken)
+        }
 
         title = "EL Debate \(yearCalculator.year)"
 

@@ -10,6 +10,7 @@ class ControllerFactoryMock: ControllerCreating {
 
     let pinEntryProvider = PinEntryControllerMockProvider()
     let answerProvider = ControllerMockProvider()
+    let commentProvider = ControllerMockProvider()
 
     var lastType: ControllerType?
 
@@ -21,6 +22,8 @@ class ControllerFactoryMock: ControllerCreating {
             return pinEntryProvider
         case .answer:
             return answerProvider
+        case .comment:
+            return commentProvider
         }
     }
 
@@ -39,3 +42,4 @@ class PinEntryControllerMockProvider: PinEntryControllerProviding {
     var onVoteContextLoaded: ((VoteContext) -> Void)?
     
 }
+

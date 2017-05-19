@@ -17,6 +17,16 @@ class ControllerConfigurator: ControllerConfiguring {
         if let controller = controller as? PinEntryControllerProviding {
             controller.onVoteContextLoaded = { voteContext in router.go(to: .answer(voteContext: voteContext)) }
         }
+
+        if let controller = controller as? AnswerControllerProviding {
+            controller.onCommentButtonTapped = { authToken in router.go(to: .comment(authToken: authToken)) }
+        }
+
+        if let controller = controller as? CommentControllerProviding {
+            controller.onCommentSubmitted = {
+                router.goBack()
+            }
+        }
     }
 
 }

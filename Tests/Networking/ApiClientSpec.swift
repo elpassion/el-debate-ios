@@ -108,8 +108,43 @@ class ApiClientSpec: QuickSpec {
                         expect(error).toNotEventually(beNil())
                     }
                 }
+            }
 
+            describe("comment") {
+                context("comment was submitted") {
+                    beforeEach {
+                        requestExecutor.postReturnValue = CommentResponseJSONMock()
+                    }
+
+                    it("executes success callback") {
+                        var success: Bool?
+                        _ = apiClient.comment(authToken: "token", text: "Uważam że...")
+                        .then { successValue in
+                            success = successValue
+                        }
+
+                        expect(success).toEventuallyNot(beNil())
+                    }
+                }
+
+                context("there was a problem submitting a comment") {
+                    beforeEach {
+                        requestExecutor.postReturnValue = CommentResponseErrorMock()
+                    }
+
+                    it("executes error callback") {
+                        var error: Error?
+
+                        apiClient.comment(authToken: "token", text: "Uważam że...")
+                        .catch { errorValue in
+                            error = errorValue
+                        }
+
+                        expect(error).toEventuallyNot(beNil())
+                    }
+                }
             }
         }
+
     }
 }

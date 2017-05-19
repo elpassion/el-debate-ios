@@ -8,11 +8,13 @@
 
 @testable import ELDebate
 import UIKit
+import PromiseKit
 
 class AlertViewMock: AlertShowing {
     var wasShown: Bool = false
 
-    func show(in controller: UIViewController, title: String, message: String)  {
+    @discardableResult func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool>  {
         wasShown = true
+        return Promise(value: true)
     }
 }

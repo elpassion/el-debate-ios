@@ -15,6 +15,7 @@ class PinEntryView: UIView {
     private let tapGestureRecognizer = UITapGestureRecognizer()
 
     var onLoginButtonTapped: (() -> Void)?
+    var onCommentButtonTapped: (() -> Void)?
 
     init() {
         super.init(frame: .zero)
@@ -42,7 +43,7 @@ class PinEntryView: UIView {
         backgroundColor = UIColor(predefined: .screenBackground)
 
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
-        loginButton.setBackgroundImage(UIImage(predefined: .loginButtonBackground), for: .normal)
+        loginButton.setBackgroundImage(UIImage(predefined: .buttonBackground), for: .normal)
         loginButton.setTitle("Log in", for: .normal)
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 5.0, right: 0.0)

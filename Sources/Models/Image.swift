@@ -7,7 +7,7 @@ enum Image: String {
 
     case logo = "el_debate_logo"
     case loginBackground = "login_background"
-    case loginButtonBackground = "login_button_background"
+    case buttonBackground = "button_background"
     case keyIcon = "key_icon"
     case thumbsUp = "thumbs_up"
 
