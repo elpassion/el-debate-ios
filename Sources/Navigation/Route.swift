@@ -7,5 +7,6 @@ enum Route {
 
     case pinEntry
     case answer(voteContext: VoteContext)
+    case comment(authToken: String)
 
 }

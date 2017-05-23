@@ -46,7 +46,7 @@ class RouterSpec: QuickSpec {
             }
 
             describe("routing to answer screen") {
-                it("should create a view controller passing debate") {
+                it("should create a view controller passing a vote context") {
                     var voteContextForAnswerController: VoteContext?
 
                     sut.go(to: .answer(voteContext: VoteContext.testDefault))
@@ -73,6 +73,20 @@ class RouterSpec: QuickSpec {
                     expect(controllerConfigurator.configureReceivedArguments?.controller).to(be(
                         controllerFactory.answerProvider))
                     expect(controllerConfigurator.configureReceivedArguments?.router).to(be(sut))
+                }
+            }
+
+            describe("routing to comment screen") {
+                it("should create a view controller passing auth_token") {
+                    var authTokenForCommentController: String?
+
+                    sut.go(to: .comment(authToken: "123456"))
+
+                    if case let .some(.comment(authToken)) = controllerFactory.lastType {
+                        authTokenForCommentController = authToken
+                    }
+
+                    expect(authTokenForCommentController).to(equal("123456"))
                 }
             }
 

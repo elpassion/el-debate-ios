@@ -12,6 +12,7 @@ protocol Routing {
 
     func go(to route: Route)
     func reset(to route: Route)
+    func goBack()
 
 }
 
@@ -38,6 +39,10 @@ class Router: Routing {
         navigator.setViewControllers([provider.controller], animated: true)
     }
 
+    func goBack() {
+        navigator.popViewController(animated: true)
+    }
+
     // MARK: - Routing methods
 
     private func makeProvider(for route: Route) -> ControllerProviding {
@@ -46,6 +51,8 @@ class Router: Routing {
             return makePinEntryProvider()
         case let .answer(voteContext):
             return makeAnswerProvider(for: voteContext)
+        case let .comment(authToken):
+            return makeCommentProvider(for: authToken)
         }
     }
 
@@ -61,6 +68,13 @@ class Router: Routing {
 
     private func makeAnswerProvider(for voteContext: VoteContext) -> ControllerProviding {
         let provider = controllerFactory.makeController(of: .answer(voteContext: voteContext))
+        controllerConfigurator.configure(controller: provider, with: self)
+
+        return provider
+    }
+
+    private func makeCommentProvider(for authToken: String) -> ControllerProviding {
+        let provider = controllerFactory.makeController(of: .comment(authToken: authToken))
         controllerConfigurator.configure(controller: provider, with: self)
 
         return provider

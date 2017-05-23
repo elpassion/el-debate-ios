@@ -18,6 +18,9 @@ class AnswerView: UIView, AnswerViewProviding {
     private let questionView = QuestionView()
     private let answersListView = AnswersListView()
     private let background = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
+    private let commentButton = UIButton(type: .custom)
+
+    var onCommentButtonTapped: (() -> Void)?
 
     var onAnswerSelected: ((AnswerType) -> Void)? {
         get {
@@ -60,6 +63,12 @@ class AnswerView: UIView, AnswerViewProviding {
 
     private func setUpSubviews() {
         backgroundColor = UIColor(predefined: .screenBackground)
+
+        commentButton.addTarget(self, action: #selector(didTapCommentButton), for: .touchUpInside)
+        commentButton.setBackgroundImage(UIImage(predefined: .buttonBackground), for: .normal)
+        commentButton.setTitle("Comment", for: .normal)
+        commentButton.setTitleColor(.white, for: .normal)
+        commentButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 5.0, right: 0.0)
     }
 
     private func addSubviews() {
@@ -70,6 +79,13 @@ class AnswerView: UIView, AnswerViewProviding {
 
         addSubview(background)
         addSubview(scrollView)
+        addSubview(commentButton)
+    }
+
+    // MARK: - Comment button tap
+
+    @objc private func didTapCommentButton() {
+        onCommentButtonTapped?()
     }
 
     // MARK: - Layout
@@ -86,6 +102,10 @@ class AnswerView: UIView, AnswerViewProviding {
         background.bottomAnchor == bottomAnchor - 20
         background.widthAnchor == widthAnchor * 0.95
         background.heightAnchor == background.widthAnchor * 0.75
+
+        commentButton.centerXAnchor == centerXAnchor
+        commentButton.bottomAnchor == bottomAnchor - 15
+        commentButton.widthAnchor == widthAnchor * 0.9
     }
 
     // MARK: - Required initializer
