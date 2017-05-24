@@ -18,7 +18,6 @@ class AnswerViewController: UIViewController, AnswerControllerProviding {
 
     private let yearCalculator: CurrentYearCalculating
     private let voteContext: VoteContext
-    private let answerViewPresenter: AnswerViewPresenter
     private let apiClient: APIProviding
     private let alertView: AlertShowing
 
@@ -27,10 +26,9 @@ class AnswerViewController: UIViewController, AnswerControllerProviding {
     // MARK: - Initializer
 
     init(yearCalculator: CurrentYearCalculating, voteContext: VoteContext,
-         answerViewPresenter: AnswerViewPresenter, apiClient: APIProviding, alertView: AlertShowing) {
+         apiClient: APIProviding, alertView: AlertShowing) {
         self.yearCalculator = yearCalculator
         self.voteContext = voteContext
-        self.answerViewPresenter = answerViewPresenter
         self.apiClient = apiClient
         self.alertView = alertView
 
@@ -67,7 +65,13 @@ class AnswerViewController: UIViewController, AnswerControllerProviding {
             }
         }
 
-        answerViewPresenter.present(debate: self.voteContext.debate, answerView: self.answerView)
+        let debate = voteContext.debate
+        answerView.config(
+            debateTitle: debate.topic,
+            yesAnswerText: debate.positiveAnswer.value,
+            undecidedAnswerText: debate.neutralAnswer.value,
+            noAnswerText: debate.negativeAnswer.value
+        )
     }
 
     // MARK: - ControllerProviding

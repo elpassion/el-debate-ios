@@ -31,8 +31,6 @@
 		6EADF5591ECC493400488057 /* AlertViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADF5571ECC491B00488057 /* AlertViewMock.swift */; };
 		6EADF55C1ECC813A00488057 /* Answer+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADF55A1ECC813500488057 /* Answer+Default.swift */; };
 		6EADF55E1ECC843A00488057 /* Dictionary+Merging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADF55D1ECC843A00488057 /* Dictionary+Merging.swift */; };
-		6EDF433C1ECAEF42004B92BD /* AnswerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF433B1ECAEF42004B92BD /* AnswerViewPresenter.swift */; };
-		6EDF433F1ECAEF83004B92BD /* AnswerViewPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF433D1ECAEF77004B92BD /* AnswerViewPresenterSpec.swift */; };
 		6EDF43411ECAF5E5004B92BD /* AnswerViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF43401ECAF5E5004B92BD /* AnswerViewMock.swift */; };
 		6EDF43481ECB1173004B92BD /* VoteContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF43471ECB1173004B92BD /* VoteContext.swift */; };
 		6EDF434C1ECB11B0004B92BD /* VoteContextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDF434A1ECB11A9004B92BD /* VoteContextSpec.swift */; };
@@ -174,8 +172,6 @@
 		6EADF5571ECC491B00488057 /* AlertViewMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewMock.swift; sourceTree = "<group>"; };
 		6EADF55A1ECC813500488057 /* Answer+Default.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Answer+Default.swift"; sourceTree = "<group>"; };
 		6EADF55D1ECC843A00488057 /* Dictionary+Merging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Merging.swift"; sourceTree = "<group>"; };
-		6EDF433B1ECAEF42004B92BD /* AnswerViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewPresenter.swift; sourceTree = "<group>"; };
-		6EDF433D1ECAEF77004B92BD /* AnswerViewPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewPresenterSpec.swift; sourceTree = "<group>"; };
 		6EDF43401ECAF5E5004B92BD /* AnswerViewMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewMock.swift; sourceTree = "<group>"; };
 		6EDF43471ECB1173004B92BD /* VoteContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteContext.swift; sourceTree = "<group>"; };
 		6EDF434A1ECB11A9004B92BD /* VoteContextSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteContextSpec.swift; sourceTree = "<group>"; };
@@ -326,7 +322,6 @@
 		8C127C851EC4A06100E9B5FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8C75049E1ECC4CA90012B499 /* Presenters */,
 				8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */,
 				8C464F091EC5E537009DD7BF /* AnswerView.swift */,
 				8C6127E81EC9BF8E003472A3 /* AnswersListView.swift */,
@@ -508,30 +503,6 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		8C75049E1ECC4CA90012B499 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				6EDF433B1ECAEF42004B92BD /* AnswerViewPresenter.swift */,
-			);
-			path = Presenters;
-			sourceTree = "<group>";
-		};
-		8C75049F1ECC4CB20012B499 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8C7504A01ECC4CB60012B499 /* Presenters */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8C7504A01ECC4CB60012B499 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				6EDF433D1ECAEF77004B92BD /* AnswerViewPresenterSpec.swift */,
-			);
-			path = Presenters;
-			sourceTree = "<group>";
-		};
 		8C78D3FA1EC350C400BDF7EB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,7 +541,6 @@
 				8C75049D1ECC4C7A0012B499 /* Navigation */,
 				6EA7E2921EC466EC002DF55E /* Networking */,
 				8C6127F31EC9F79A003472A3 /* Test Data */,
-				8C75049F1ECC4CB20012B499 /* Views */,
 				8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */,
 				8C85D8501EC34FC100C5BAE7 /* Info.plist */,
 			);
@@ -1023,7 +993,6 @@
 				6E39C9911ED3054600E2B096 /* LoadingViewPresenter.swift in Sources */,
 				8C127C8F1EC4A23D00E9B5FD /* Image.swift in Sources */,
 				6EADF55E1ECC843A00488057 /* Dictionary+Merging.swift in Sources */,
-				6EDF433C1ECAEF42004B92BD /* AnswerViewPresenter.swift in Sources */,
 				6EF036591EC98E1F00198F01 /* AuthTokenStorage.swift in Sources */,
 				6EF036651EC9BDAD00198F01 /* ApiResponse.swift in Sources */,
 				6EDF43411ECAF5E5004B92BD /* AnswerViewMock.swift in Sources */,
@@ -1069,7 +1038,6 @@
 				8C6DA0441EC59D8500D31E76 /* CurrentYearCalculatorMock.swift in Sources */,
 				8CD5F6501ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift in Sources */,
 				6EA7E2951EC467B1002DF55E /* ApiClientSpec.swift in Sources */,
-				6EDF433F1ECAEF83004B92BD /* AnswerViewPresenterSpec.swift in Sources */,
 				8C6DA0411EC59B7F00D31E76 /* CurrentYearCalculatorSpec.swift in Sources */,
 				6EF036631EC9B8FA00198F01 /* VoteResponseJSONMock.swift in Sources */,
 				8C664A1F1EC490BB0017687F /* AuthTokenDeserializerSpec.swift in Sources */,
