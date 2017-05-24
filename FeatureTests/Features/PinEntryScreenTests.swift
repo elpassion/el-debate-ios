@@ -48,7 +48,7 @@ class PinEntryScreenTests: XCTestCase {
 
     func testWelcomeViewMatches() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(PinEntryWelcomeView.self))
-            .perform(grey_verifyDeviceAgnosticSnapshot())
+            .assert(grey_verifyDeviceAgnosticSnapshot())
     }
 
 }

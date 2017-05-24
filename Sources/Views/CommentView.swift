@@ -55,7 +55,6 @@ class CommentView: UIView {
         contentTextField.layer.borderWidth = 1.0
         contentTextField.font = UIFont.systemFont(ofSize: 35)
 
-
         verticalStack.edgeAnchors == edgeAnchors
         verticalStack.widthAnchor == widthAnchor
         contentTextField.heightAnchor == verticalStack.heightAnchor * 0.5

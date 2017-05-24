@@ -43,7 +43,7 @@ class AnswerScreenTests: XCTestCase {
             .assert(grey_sufficientlyVisible())
 
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(AnswerPicker.self))
-            .perform(grey_verifyDeviceAgnosticSnapshot())
+            .assert(grey_verifyDeviceAgnosticSnapshot())
     }
 
     func testNegativeVoteWorks() {
@@ -53,7 +53,7 @@ class AnswerScreenTests: XCTestCase {
             .assert(grey_sufficientlyVisible())
 
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(AnswerPicker.self))
-            .perform(grey_verifyDeviceAgnosticSnapshot())
+            .assert(grey_verifyDeviceAgnosticSnapshot())
     }
 
     func testNeutralVoteWorks() {
@@ -63,7 +63,7 @@ class AnswerScreenTests: XCTestCase {
             .assert(grey_sufficientlyVisible())
 
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(AnswerPicker.self))
-            .perform(grey_verifyDeviceAgnosticSnapshot())
+            .assert(grey_verifyDeviceAgnosticSnapshot())
     }
 
     private func navigateToAnswerScreen() {
