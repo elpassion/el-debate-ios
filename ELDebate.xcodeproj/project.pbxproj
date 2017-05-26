@@ -363,10 +363,10 @@
 				6EADF55D1ECC843A00488057 /* Dictionary+Merging.swift */,
 				8C3E8F091ED836E3009DB7ED /* ForceCast.swift */,
 				6EF0365F1EC9A43D00198F01 /* Keychain+KeychainStoring.swift */,
+				8C3E8F101ED83ABF009DB7ED /* NotificationCenter+StrongTyping.swift */,
 				8CD5F6481ECC77720067BFC7 /* Promise+APIResponse.swift */,
 				8C6DA02D1EC58D9200D31E76 /* UIColor+Predefined.swift */,
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
-				8C3E8F101ED83ABF009DB7ED /* NotificationCenter+StrongTyping.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -408,6 +408,7 @@
 				8C3E8F121ED83C22009DB7ED /* Notifications.swift */,
 			);
 			name = Notifications;
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		8C6127F31EC9F79A003472A3 /* Test Data */ = {
