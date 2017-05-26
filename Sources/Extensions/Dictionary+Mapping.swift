@@ -7,14 +7,6 @@ import Foundation
 
 extension Dictionary {
 
-    init(_ elements: [Element]) {
-        self.init()
-
-        elements.forEach { (key, value) in
-            self[key] = value
-        }
-    }
-
     func mapValues<T>(_ mapper: (Value) -> T) -> [Key: T] {
         var result: [Key: T] = [:]
 
