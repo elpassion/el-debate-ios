@@ -5,11 +5,11 @@
 
 import UIKit
 
-class PinEntryViewController: UIViewController, PinEntryControllerProviding {
+class PinEntryViewController: UIViewController, PinEntryControllerProviding, AlertPresentingController {
 
     private let loginActionHandler: LoginActionHandling
     private let yearCalculator: CurrentYearCalculating
-    private let alertView: AlertShowing
+    let alertPresenter: AlertShowing
     private let codeFieldAnimationRatio: CGFloat = 3.4
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
@@ -19,7 +19,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
     init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating, alertView: AlertShowing) {
         self.loginActionHandler = loginActionHandler
         self.yearCalculator = yearCalculator
-        self.alertView = alertView
+        self.alertPresenter = alertView
 
         super.init(nibName: nil, bundle: nil)
 
@@ -30,13 +30,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
         view = PinEntryView()
     }
 
-    var pinEntryView: PinEntryView {
-        guard let pinEntryView = view as? PinEntryView else {
-            fatalError("Expected to handle view of type PinEntryView, got \(type(of: view)) instead")
-        }
-
-        return pinEntryView
-    }
+    var pinEntryView: PinEntryView { return forceCast(view) }
 
     // MARK: - View did load
 
@@ -50,14 +44,15 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
 
     func onLoginButtonTapped() {
         pinEntryView.setLoginButton(isEnabled: false)
-        loginActionHandler.login(withPinCode: pinEntryView.pinCode).then { [weak self] voteContext -> Void in
-            self?.onVoteContextLoaded?(voteContext)
-        }.catch { [weak self] _ in
-            guard let `self` = self else { return }
-            self.alertView.show(in: self, title: "Error", message: "Could not find a debate for a given pin code")
-        }.always { [weak self] in
-            self?.pinEntryView.setLoginButton(isEnabled: true)
-        }
+
+        loginActionHandler.login(withPinCode: pinEntryView.pinCode)
+            .then { [weak self] voteContext -> Void in
+                self?.onVoteContextLoaded?(voteContext)
+            }.catch { [weak self] _ in
+                presentAlert(in: self, title: "Error", message: "Could not find a debate for a given pin code")
+            }.always { [weak self] in
+                self?.pinEntryView.setLoginButton(isEnabled: true)
+            }
     }
 
     private func setupKeyboardNotifications() {

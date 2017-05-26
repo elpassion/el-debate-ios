@@ -1,7 +1,5 @@
 //
 //  Created by Jakub Turek on 17.05.2017.
-//  Dictionary+Merging.swift
-//  ELDebate
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 

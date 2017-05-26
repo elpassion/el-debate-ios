@@ -23,3 +23,19 @@ class AlertPresenter: AlertShowing {
         }
     }
 }
+
+protocol AlertPresentingController {
+
+    var alertPresenter: AlertShowing { get }
+    var controller: UIViewController { get }
+
+}
+
+@discardableResult
+func presentAlert(in alertPresenting: AlertPresentingController?, title: String?, message: String?) -> Promise<Bool> {
+    guard let alertPresenting = alertPresenting else { return Promise(error: RequestError.deallocatedClientError) }
+
+    return alertPresenting.alertPresenter.show(in: alertPresenting.controller,
+                                               title: title ?? "",
+                                               message: message ?? "")
+}

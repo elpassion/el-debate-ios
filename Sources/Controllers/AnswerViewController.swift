@@ -6,7 +6,7 @@
 import Anchorage
 import UIKit
 
-class AnswerViewController: UIViewController, AnswerControllerProviding {
+class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPresentingController {
 
     private var answerView: AnswerView {
         guard let answerView = view as? AnswerView else {
@@ -19,7 +19,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding {
     private let yearCalculator: CurrentYearCalculating
     private let voteContext: VoteContext
     private let apiClient: APIProviding
-    private let alertView: AlertShowing
+    let alertPresenter: AlertShowing
 
     var onCommentButtonTapped: ((String) -> Void)?
 
@@ -30,7 +30,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding {
         self.yearCalculator = yearCalculator
         self.voteContext = voteContext
         self.apiClient = apiClient
-        self.alertView = alertView
+        self.alertPresenter = alertView
 
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -43,27 +43,10 @@ class AnswerViewController: UIViewController, AnswerControllerProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        answerView.onCommentButtonTapped = { [weak self] in
-            guard let `self` = self else { return }
-            self.onCommentButtonTapped?(self.voteContext.authToken)
-        }
+        answerView.onCommentButtonTapped = { [weak self] in self?.didTapComment() }
+        answerView.onAnswerSelected = { [weak self] in self?.didSelectAnswer(with: $0) }
 
         title = "EL Debate \(yearCalculator.year)"
-
-        answerView.onAnswerSelected = { [weak self] answerType in
-            guard let `self` = self else { return }
-            self.apiClient.vote(
-                authToken: self.voteContext.authToken,
-                answer: self.voteContext.answer(for: answerType)
-            ).then { [weak self] answer -> Void in
-                self?.answerView.selectAnswer(type: answer.type)
-            }.catch { [weak self] _ in
-                guard let `self` = self else { return }
-                self.alertView.show(in: self, title: "Error", message: "There was a problem submitting your vote")
-            }.always { [weak self] in
-                self?.answerView.stopSpinners()
-            }
-        }
 
         let debate = voteContext.debate
         answerView.config(
@@ -72,6 +55,24 @@ class AnswerViewController: UIViewController, AnswerControllerProviding {
             undecidedAnswerText: debate.neutralAnswer.value,
             noAnswerText: debate.negativeAnswer.value
         )
+    }
+
+    private func didSelectAnswer(with answerType: AnswerType) {
+        let authToken = voteContext.authToken
+        let answer = voteContext.answer(for: answerType)
+
+        apiClient.vote(authToken: authToken, answer: answer)
+            .then { [weak self] answer -> Void in
+                self?.answerView.selectAnswer(type: answer.type)
+            }.catch { [weak self] _ in
+                presentAlert(in: self, title: "Error", message: "There was a problem submitting your vote")
+            }.always { [weak self] in
+                self?.answerView.stopSpinners()
+            }
+    }
+
+    private func didTapComment() {
+        onCommentButtonTapped?(voteContext.authToken)
     }
 
     // MARK: - ControllerProviding
