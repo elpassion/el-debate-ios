@@ -30,6 +30,9 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
+    ensure_git_status_clean
+    increment_build_number
+    commit_version_bump
     scan(scheme: "ELDebate")
     match(type: "appstore")
     gym(scheme: "ELDebate")
