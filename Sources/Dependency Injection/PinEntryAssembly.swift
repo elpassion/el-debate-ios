@@ -9,7 +9,6 @@ import SwinjectAutoregistration
 class PinEntryAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.autoregister(PinEntryViewController.self, initializer: PinEntryViewController.init)
         container.autoregister(RequestExecuting.self, initializer: RequestExecutor.init)
         container.autoregister(AlertShowing.self, initializer: AlertPresenter.init)
 
@@ -35,6 +34,17 @@ class PinEntryAssembly: Assembly {
         }
 
         container.autoregister(LoginActionHandling.self, initializer: LoginActionHandler.init)
+
+        container.register(PinEntryViewController.self) { resolver in
+            let loginActionHandler = resolver ~> LoginActionHandling.self
+            let yearCalculator = resolver ~> CurrentYearCalculating.self
+            let alertView = resolver ~> AlertShowing.self
+
+            return PinEntryViewController(loginActionHandler: loginActionHandler,
+                                          yearCalculator: yearCalculator,
+                                          alertView: alertView,
+                                          notificationCenter: NotificationCenter.default)
+        }
     }
 
 }

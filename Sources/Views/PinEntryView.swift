@@ -13,6 +13,7 @@ class PinEntryView: UIView {
     private let loginButton = UIButton(type: .custom)
     private let codeField = PinEntryCodeField()
     private let tapGestureRecognizer = UITapGestureRecognizer()
+    private let codeFieldAnimationRatio: CGFloat = 3.4
 
     var buttonBottomBase: CGFloat!
     var codeFieldBottomBase: CGFloat!
@@ -39,6 +40,12 @@ class PinEntryView: UIView {
 
     func setLoginButton(isEnabled: Bool) {
         loginButton.isEnabled = isEnabled
+    }
+
+    func playKeyboardAnimation(height: CGFloat) {
+        buttonBottom.constant = buttonBottomBase - height
+        codeFieldBottom.constant = codeFieldBottomBase - (height / codeFieldAnimationRatio)
+        layoutIfNeeded()
     }
 
     // MARK: - Subviews

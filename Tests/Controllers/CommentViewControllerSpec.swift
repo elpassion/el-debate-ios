@@ -46,7 +46,7 @@ class CommentViewControllerSpec: QuickSpec {
             }
 
             it("should have a correct comment view loaded") {
-                expect(controller.commentView).to(beAKindOf(CommentView.self))
+                expect(controller.view).to(beAKindOf(CommentView.self))
             }
         }
 

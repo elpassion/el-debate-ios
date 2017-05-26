@@ -5,21 +5,23 @@
 
 import UIKit
 
-class PinEntryViewController: UIViewController, PinEntryControllerProviding {
+class PinEntryViewController: UIViewController, PinEntryControllerProviding, AlertPresentingController {
 
     private let loginActionHandler: LoginActionHandling
     private let yearCalculator: CurrentYearCalculating
-    private let alertView: AlertShowing
-    private let codeFieldAnimationRatio: CGFloat = 3.4
+    let alertPresenter: AlertShowing
+    private let notificationCenter: NotificationCenter
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating, alertView: AlertShowing) {
+    init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating,
+         alertView: AlertShowing, notificationCenter: NotificationCenter) {
         self.loginActionHandler = loginActionHandler
         self.yearCalculator = yearCalculator
-        self.alertView = alertView
+        self.alertPresenter = alertView
+        self.notificationCenter = notificationCenter
 
         super.init(nibName: nil, bundle: nil)
 
@@ -30,13 +32,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
         view = PinEntryView()
     }
 
-    var pinEntryView: PinEntryView {
-        guard let pinEntryView = view as? PinEntryView else {
-            fatalError("Expected to handle view of type PinEntryView, got \(type(of: view)) instead")
-        }
-
-        return pinEntryView
-    }
+    var pinEntryView: PinEntryView { return forceCast(view) }
 
     // MARK: - View did load
 
@@ -50,41 +46,29 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
 
     func onLoginButtonTapped() {
         pinEntryView.setLoginButton(isEnabled: false)
-        loginActionHandler.login(withPinCode: pinEntryView.pinCode).then { [weak self] voteContext -> Void in
-            self?.onVoteContextLoaded?(voteContext)
-        }.catch { [weak self] _ in
-            guard let `self` = self else { return }
-            self.alertView.show(in: self, title: "Error", message: "Could not find a debate for a given pin code")
-        }.always { [weak self] in
-            self?.pinEntryView.setLoginButton(isEnabled: true)
-        }
+
+        loginActionHandler.login(withPinCode: pinEntryView.pinCode)
+            .then { [weak self] voteContext -> Void in
+                self?.onVoteContextLoaded?(voteContext)
+            }.catch { [weak self] _ in
+                presentAlert(in: self, title: "Error", message: "Could not find a debate for a given pin code")
+            }.always { [weak self] in
+                self?.pinEntryView.setLoginButton(isEnabled: true)
+            }
     }
 
     private func setupKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow),
-                                               name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide),
-                                               name: .UIKeyboardWillHide, object: nil)
-    }
-
-    @objc private func keyboardDidShow(payload: NSNotification) {
-        guard let height = (payload.userInfo?["UIKeyboardFrameEndUserInfoKey"] as? NSValue)?.cgRectValue.height  else {
-            return
+        notificationCenter.addObserver(for: TypedNotification.keyboardWillShow) { [weak self] payload in
+            self?.pinEntryView.playKeyboardAnimation(height: payload.height)
         }
 
-        pinEntryView.buttonBottom.constant = pinEntryView.buttonBottomBase - height
-        pinEntryView.codeFieldBottom.constant = pinEntryView.codeFieldBottomBase - (height / codeFieldAnimationRatio)
-        pinEntryView.layoutIfNeeded()
-    }
-
-    @objc private func keyboardDidHide(payload: NSNotification) {
-        pinEntryView.buttonBottom.constant = pinEntryView.buttonBottomBase
-        pinEntryView.codeFieldBottom.constant = pinEntryView.codeFieldBottomBase
-        pinEntryView.layoutIfNeeded()
+        notificationCenter.addObserver(for: TypedNotification.keyboardWillHide) { [weak self] _ in
+            self?.pinEntryView.playKeyboardAnimation(height: 0.0)
+        }
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self)
+        notificationCenter.removeObserver(self)
     }
 
     // MARK: - Controller providing

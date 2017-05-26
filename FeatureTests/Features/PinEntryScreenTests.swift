@@ -35,9 +35,6 @@ class PinEntryScreenTests: XCTestCase {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
             .perform(grey_typeText("13160"))
 
-        EarlGrey.select(elementWithMatcher: grey_text("Welcome to"))
-            .perform(grey_tap())
-
         EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
             .perform(grey_tap())
             .assert(grey_sufficientlyVisible())
@@ -49,6 +46,14 @@ class PinEntryScreenTests: XCTestCase {
     func testWelcomeViewMatches() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(PinEntryWelcomeView.self))
             .assert(grey_verifyDeviceAgnosticSnapshot())
+    }
+
+    func testLoginButtonSlidesUpWhenEnteringPin() {
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
+            .perform(grey_typeText("12345"))
+
+        EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
+            .assert(grey_sufficientlyVisible())
     }
 
 }
