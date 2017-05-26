@@ -15,12 +15,14 @@ class CommentAssembly: Assembly {
             let apiClient = resolver ~> APIProviding.self
             let alertView = resolver ~> AlertShowing.self
             let loadingView = resolver ~> LoadingViewShowing.self
+            let notificationCenter = NotificationCenter.default
 
             return CommentViewController(
                 authToken: authToken,
                 apiClient: apiClient,
                 alertView: alertView,
-                loadingView: loadingView
+                loadingView: loadingView,
+                notificationCenter: notificationCenter
             )
         }
     }

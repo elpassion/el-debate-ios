@@ -15,16 +15,20 @@ class CommentViewController: UIViewController, CommentControllerProviding, Alert
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
     private let loadingView: LoadingViewShowing
+    private let notificationCenter: NotificationCenter
 
     var onCommentSubmitted: (() -> Void)?
 
-    init(authToken: String, apiClient: APIProviding, alertView: AlertShowing, loadingView: LoadingViewShowing) {
+    init(authToken: String, apiClient: APIProviding, alertView: AlertShowing,
+         loadingView: LoadingViewShowing, notificationCenter: NotificationCenter) {
         self.authToken = authToken
         self.apiClient = apiClient
         self.alertPresenter = alertView
         self.loadingView = loadingView
+        self.notificationCenter = notificationCenter
 
         super.init(nibName: nil, bundle: nil)
+        setupKeyboardNotifications()
     }
 
     override func loadView() {
@@ -53,6 +57,20 @@ class CommentViewController: UIViewController, CommentControllerProviding, Alert
             }.always { [weak self] in
                 self?.loadingView.hide()
             }
+    }
+
+    private func setupKeyboardNotifications() {
+        notificationCenter.addObserver(for: TypedNotification.keyboardWillShow) { [weak self] payload in
+            self?.commentView.playKeyboardAnimation(height: payload.height)
+        }
+
+        notificationCenter.addObserver(for: TypedNotification.keyboardWillHide) { [weak self] _ in
+            self?.commentView.playKeyboardAnimation(height: 0.0)
+        }
+    }
+
+    deinit {
+        notificationCenter.removeObserver(self)
     }
 
     // MARK: - ControllerProviding

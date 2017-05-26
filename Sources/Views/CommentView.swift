@@ -12,9 +12,9 @@ import UIKit
 class CommentView: UIView {
     private let submitButton = UIButton(type: .custom)
     private let contentTextField = UITextView(frame: .zero)
-    private let verticalStack = Views.stack(axis: .vertical, distribution: .equalSpacing, alignment: .fill,
-                                              spacing: 20.0)
     private let viewTapGestureRecognizer = UITapGestureRecognizer()
+    private var buttonBottom: NSLayoutConstraint!
+    private var buttonBottomBase: CGFloat!
 
     var onSubmitButtonTapped: (() -> Void)?
 
@@ -43,9 +43,8 @@ class CommentView: UIView {
     }
 
     private func addSubviews() {
-        verticalStack.addArrangedSubview(contentTextField)
-        verticalStack.addArrangedSubview(submitButton)
-        addSubview(verticalStack)
+        addSubview(contentTextField)
+        addSubview(submitButton)
     }
 
     private func setupLayout() {
@@ -53,11 +52,22 @@ class CommentView: UIView {
         contentTextField.layer.masksToBounds = true
         contentTextField.layer.borderColor = UIColor.lightGray.cgColor
         contentTextField.layer.borderWidth = 1.0
-        contentTextField.font = UIFont.systemFont(ofSize: 35)
+        contentTextField.font = UIFont.systemFont(ofSize: 30)
 
-        verticalStack.edgeAnchors == edgeAnchors
-        verticalStack.widthAnchor == widthAnchor
-        contentTextField.heightAnchor == verticalStack.heightAnchor * 0.5
+        contentTextField.topAnchor == topAnchor + 10
+        contentTextField.centerXAnchor == centerXAnchor
+        contentTextField.heightAnchor == heightAnchor * 0.45
+        contentTextField.widthAnchor == widthAnchor * 0.95
+
+        submitButton.widthAnchor == widthAnchor * 0.95
+        submitButton.centerXAnchor == centerXAnchor
+        buttonBottom = submitButton.bottomAnchor == bottomAnchor
+        buttonBottomBase = buttonBottom.constant
+    }
+
+    func playKeyboardAnimation(height: CGFloat) {
+        buttonBottom.constant = buttonBottomBase - height
+        layoutIfNeeded()
     }
 
     @objc private func hideKeyboard() {
