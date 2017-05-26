@@ -14,16 +14,14 @@ class SingleAnswerView: UIView {
     private let answerLabel: UILabel
     private let thumbsUp: ThumbsUpView
     private let highlightColor: UIColor
-    private let defaultColor: UIColor
-    private let spinner: UIActivityIndicatorView
+    private let defaultColor = UIColor(predefined: .unselected)
+    private let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
     init(color: Color, type: AnswerType) {
         self.answerType = type
         self.highlightColor = UIColor(predefined: color)
-        self.defaultColor = UIColor(predefined: .unselected)
         self.answerLabel = Views.label(size: 16.0, color: defaultColor, alignment: .left, numberOfLines: 0)
         self.thumbsUp = ThumbsUpView(highlightColor: color)
-        self.spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
         super.init(frame: .zero)
 
@@ -57,18 +55,7 @@ class SingleAnswerView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        makeDropShadow()
-    }
-
-    private func makeDropShadow() {
-        let shadowRectangle = container.bounds.insetBy(dx: -1.0, dy: -1.0)
-        let shadowPath = UIBezierPath(roundedRect: shadowRectangle, cornerRadius: container.layer.cornerRadius)
-
-        container.layer.masksToBounds = false
-        container.layer.shadowColor = UIColor.black.cgColor
-        container.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        container.layer.shadowOpacity = 0.4
-        container.layer.shadowPath = shadowPath.cgPath
+        container.dropShadow()
     }
 
     // MARK: - Subviews

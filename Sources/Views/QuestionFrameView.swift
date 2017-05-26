@@ -29,18 +29,7 @@ class QuestionFrameView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        makeDropShadow()
-    }
-
-    private func makeDropShadow() {
-        let shadowRectangle = container.bounds.insetBy(dx: -1.0, dy: -1.0)
-        let shadowPath = UIBezierPath(roundedRect: shadowRectangle, cornerRadius: container.layer.cornerRadius)
-
-        container.layer.masksToBounds = false
-        container.layer.shadowColor = UIColor.black.cgColor
-        container.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        container.layer.shadowOpacity = 0.4
-        container.layer.shadowPath = shadowPath.cgPath
+        container.dropShadow()
     }
 
     // MARK: - Subviews
