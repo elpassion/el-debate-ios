@@ -325,6 +325,7 @@
 				8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */,
 				8C464F091EC5E537009DD7BF /* AnswerView.swift */,
 				8C6127E81EC9BF8E003472A3 /* AnswersListView.swift */,
+				6E1EA10D1ECF185C008C19EF /* CommentView.swift */,
 				8C6DA0361EC5943400D31E76 /* PinEntryCodeField.swift */,
 				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
 				8C127C891EC4A0D100E9B5FD /* PinEntryWelcomeView.swift */,
@@ -332,7 +333,6 @@
 				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
 				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
 				8CD371AA1EC5EDDF00203620 /* ThumbsUpView.swift */,
-				6E1EA10D1ECF185C008C19EF /* CommentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -352,12 +352,11 @@
 			isa = PBXGroup;
 			children = (
 				8CD5F64A1ECC85DC0067BFC7 /* Dictionary+Mapping.swift */,
-				8CD5F6511ECC8DB20067BFC7 /* Dictionary+Merging.swift */,
+				6EADF55D1ECC843A00488057 /* Dictionary+Merging.swift */,
 				6EF0365F1EC9A43D00198F01 /* Keychain+KeychainStoring.swift */,
 				8CD5F6481ECC77720067BFC7 /* Promise+APIResponse.swift */,
 				8C6DA02D1EC58D9200D31E76 /* UIColor+Predefined.swift */,
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
-				6EADF55D1ECC843A00488057 /* Dictionary+Merging.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -366,7 +365,11 @@
 			isa = PBXGroup;
 			children = (
 				8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */,
+				6EADF5571ECC491B00488057 /* AlertViewMock.swift */,
+				6EDF43401ECAF5E5004B92BD /* AnswerViewMock.swift */,
+				8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */,
 				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
+				6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */,
 				8C127C821EC49B2900E9B5FD /* ControllerFactoryMock.swift */,
 				8C6DA0421EC59D7F00D31E76 /* CurrentYearCalculatorMock.swift */,
 				6E9119B71EC5B6F400B4B14B /* FetchDebateResponseJSONMock.swift */,
@@ -374,10 +377,6 @@
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
-				8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */,
-				6EDF43401ECAF5E5004B92BD /* AnswerViewMock.swift */,
-				6EADF5571ECC491B00488057 /* AlertViewMock.swift */,
-				6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -394,9 +393,9 @@
 		8C6127F31EC9F79A003472A3 /* Test Data */ = {
 			isa = PBXGroup;
 			children = (
+				6EADF55A1ECC813500488057 /* Answer+Default.swift */,
 				8C6127F41EC9F7A5003472A3 /* Debate+Default.swift */,
 				6EDF434D1ECB181F004B92BD /* VoteContext+Default.swift */,
-				6EADF55A1ECC813500488057 /* Answer+Default.swift */,
 			);
 			path = "Test Data";
 			sourceTree = "<group>";
@@ -431,9 +430,9 @@
 			children = (
 				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
 				8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */,
+				6E1EA1091ECF029A008C19EF /* CommentAssembly.swift */,
 				8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */,
 				8C127C7C1EC4965E00E9B5FD /* PinEntryAssembly.swift */,
-				6E1EA1091ECF029A008C19EF /* CommentAssembly.swift */,
 			);
 			path = "Dependency Injection";
 			sourceTree = "<group>";
@@ -476,8 +475,8 @@
 			isa = PBXGroup;
 			children = (
 				8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */,
-				8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */,
 				6E1EA1071ECEDBAC008C19EF /* CommentViewControllerSpec.swift */,
+				8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -550,14 +549,14 @@
 		8CAD324B1EC36B5200830E72 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6EADF5551ECC48BB00488057 /* AlertPresenter.swift */,
+				6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */,
 				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
+				6EF682071ED3205200B6CA5A /* CommentControllerProviding.swift */,
+				6E1EA1051ECEDB98008C19EF /* CommentViewController.swift */,
+				6E39C9901ED3054600E2B096 /* LoadingViewPresenter.swift */,
 				8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */,
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
-				6EADF5551ECC48BB00488057 /* AlertPresenter.swift */,
-				6E1EA1051ECEDB98008C19EF /* CommentViewController.swift */,
-				6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */,
-				6E39C9901ED3054600E2B096 /* LoadingViewPresenter.swift */,
-				6EF682071ED3205200B6CA5A /* CommentControllerProviding.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -593,6 +592,7 @@
 				8CD5F64F1ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift */,
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8CDF21741ECAFB91002B4FA4 /* FeatureTests */ = {
