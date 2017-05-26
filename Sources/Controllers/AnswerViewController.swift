@@ -8,14 +8,6 @@ import UIKit
 
 class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPresentingController {
 
-    private var answerView: AnswerView {
-        guard let answerView = view as? AnswerView else {
-            fatalError("Failed casting UIView to AnswerView")
-        }
-
-        return answerView
-    }
-
     private let yearCalculator: CurrentYearCalculating
     private let voteContext: VoteContext
     private let apiClient: APIProviding
@@ -39,6 +31,8 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     override func loadView() {
         view = AnswerView()
     }
+
+    private var answerView: AnswerView { return forceCast(view) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
