@@ -10,16 +10,19 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     private let loginActionHandler: LoginActionHandling
     private let yearCalculator: CurrentYearCalculating
     let alertPresenter: AlertShowing
+    private let notificationCenter: NotificationCenter
     private let codeFieldAnimationRatio: CGFloat = 3.4
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating, alertView: AlertShowing) {
+    init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating,
+         alertView: AlertShowing, notificationCenter: NotificationCenter) {
         self.loginActionHandler = loginActionHandler
         self.yearCalculator = yearCalculator
         self.alertPresenter = alertView
+        self.notificationCenter = notificationCenter
 
         super.init(nibName: nil, bundle: nil)
 
@@ -56,30 +59,29 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     }
 
     private func setupKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow),
-                                               name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide),
-                                               name: .UIKeyboardWillHide, object: nil)
-    }
-
-    @objc private func keyboardDidShow(payload: NSNotification) {
-        guard let height = (payload.userInfo?["UIKeyboardFrameEndUserInfoKey"] as? NSValue)?.cgRectValue.height  else {
-            return
+        notificationCenter.addObserver(for: TypedNotification.keyboardWillShow) { [weak self] payload in
+            self?.keyboardWillShow(withHeight: payload.height)
         }
 
+        notificationCenter.addObserver(for: TypedNotification.keyboardWillHide) { [weak self] _ in
+            self?.keyboardWillHide()
+        }
+    }
+
+    private func keyboardWillShow(withHeight height: CGFloat) {
         pinEntryView.buttonBottom.constant = pinEntryView.buttonBottomBase - height
         pinEntryView.codeFieldBottom.constant = pinEntryView.codeFieldBottomBase - (height / codeFieldAnimationRatio)
         pinEntryView.layoutIfNeeded()
     }
 
-    @objc private func keyboardDidHide(payload: NSNotification) {
+    private func keyboardWillHide() {
         pinEntryView.buttonBottom.constant = pinEntryView.buttonBottomBase
         pinEntryView.codeFieldBottom.constant = pinEntryView.codeFieldBottomBase
         pinEntryView.layoutIfNeeded()
     }
 
     deinit {
-        NotificationCenter.default.removeObserver(self)
+        notificationCenter.removeObserver(self)
     }
 
     // MARK: - Controller providing

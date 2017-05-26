@@ -25,7 +25,9 @@ class PinEntryViewControllerSpec: QuickSpec {
                 yearCalculator.year = "2023"
                 alertViewMock = AlertViewMock()
                 controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
-                                                    yearCalculator: yearCalculator, alertView: alertViewMock)
+                                                    yearCalculator: yearCalculator,
+                                                    alertView: alertViewMock,
+                                                    notificationCenter: NotificationCenter.default)
             }
 
             it("should initialize back bar button item") {

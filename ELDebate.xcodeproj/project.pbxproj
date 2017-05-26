@@ -59,6 +59,10 @@
 		8C1917FE1EC3600F00519DC8 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1917FD1EC3600F00519DC8 /* Route.swift */; };
 		8C1918001EC3602A00519DC8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1917FF1EC3602A00519DC8 /* Router.swift */; };
 		8C3E8F0A1ED836E3009DB7ED /* ForceCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F091ED836E3009DB7ED /* ForceCast.swift */; };
+		8C3E8F0D1ED83934009DB7ED /* KeyboardWillShowPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F0C1ED83934009DB7ED /* KeyboardWillShowPayload.swift */; };
+		8C3E8F0F1ED83A2A009DB7ED /* NotificationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F0E1ED83A2A009DB7ED /* NotificationDescriptor.swift */; };
+		8C3E8F111ED83ABF009DB7ED /* NotificationCenter+StrongTyping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F101ED83ABF009DB7ED /* NotificationCenter+StrongTyping.swift */; };
+		8C3E8F131ED83C23009DB7ED /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F121ED83C22009DB7ED /* Notifications.swift */; };
 		8C464F0A1EC5E537009DD7BF /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C464F091EC5E537009DD7BF /* AnswerView.swift */; };
 		8C6127E51EC9AED9003472A3 /* AnswerViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */; };
 		8C6127E71EC9BEA6003472A3 /* QuestionFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */; };
@@ -201,6 +205,10 @@
 		8C1917FF1EC3602A00519DC8 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8C1918011EC360F100519DC8 /* RouterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterSpec.swift; sourceTree = "<group>"; };
 		8C3E8F091ED836E3009DB7ED /* ForceCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForceCast.swift; sourceTree = "<group>"; };
+		8C3E8F0C1ED83934009DB7ED /* KeyboardWillShowPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowPayload.swift; sourceTree = "<group>"; };
+		8C3E8F0E1ED83A2A009DB7ED /* NotificationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDescriptor.swift; sourceTree = "<group>"; };
+		8C3E8F101ED83ABF009DB7ED /* NotificationCenter+StrongTyping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+StrongTyping.swift"; sourceTree = "<group>"; };
+		8C3E8F121ED83C22009DB7ED /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		8C464F091EC5E537009DD7BF /* AnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewControllerSpec.swift; sourceTree = "<group>"; };
 		8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionFrameView.swift; sourceTree = "<group>"; };
@@ -358,6 +366,7 @@
 				8CD5F6481ECC77720067BFC7 /* Promise+APIResponse.swift */,
 				8C6DA02D1EC58D9200D31E76 /* UIColor+Predefined.swift */,
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
+				8C3E8F101ED83ABF009DB7ED /* NotificationCenter+StrongTyping.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -389,6 +398,16 @@
 				8C1917FF1EC3602A00519DC8 /* Router.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		8C3E8F0B1ED83909009DB7ED /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8C3E8F0C1ED83934009DB7ED /* KeyboardWillShowPayload.swift */,
+				8C3E8F0E1ED83A2A009DB7ED /* NotificationDescriptor.swift */,
+				8C3E8F121ED83C22009DB7ED /* Notifications.swift */,
+			);
+			name = Notifications;
 			sourceTree = "<group>";
 		};
 		8C6127F31EC9F79A003472A3 /* Test Data */ = {
@@ -524,6 +543,7 @@
 				8C127C8D1EC4A23200E9B5FD /* Models */,
 				8C1917FC1EC3600400519DC8 /* Navigation */,
 				8C664A101EC45FDC0017687F /* Networking */,
+				8C3E8F0B1ED83909009DB7ED /* Notifications */,
 				8C127C851EC4A06100E9B5FD /* Views */,
 				8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */,
 			);
@@ -970,6 +990,7 @@
 				8C6DA02C1EC58CFA00D31E76 /* Color.swift in Sources */,
 				8CD371A91EC5EAC500203620 /* SingleAnswerView.swift in Sources */,
 				6EDF43481ECB1173004B92BD /* VoteContext.swift in Sources */,
+				8C3E8F131ED83C23009DB7ED /* Notifications.swift in Sources */,
 				6EF682081ED3205200B6CA5A /* CommentControllerProviding.swift in Sources */,
 				8CB42CF11EC5F34F007E61F6 /* AnswerPicker.swift in Sources */,
 				8C127C811EC49A4800E9B5FD /* ControllerProviding.swift in Sources */,
@@ -983,6 +1004,7 @@
 				6EA7E29A1EC4AF09002DF55E /* Debate.swift in Sources */,
 				6EA7E29C1EC4AF75002DF55E /* Answer.swift in Sources */,
 				8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */,
+				8C3E8F0D1ED83934009DB7ED /* KeyboardWillShowPayload.swift in Sources */,
 				8C6127EF1EC9E71B003472A3 /* LoginActionHandler.swift in Sources */,
 				6E1EA10C1ECF0F26008C19EF /* AnswerControllerProviding.swift in Sources */,
 				8C63FA091EC3755C0080FFF9 /* MainWindowFactory.swift in Sources */,
@@ -999,7 +1021,9 @@
 				6EDF43411ECAF5E5004B92BD /* AnswerViewMock.swift in Sources */,
 				6EA7E2A01EC4B11F002DF55E /* AnswerDeserializer.swift in Sources */,
 				8C127C7B1EC4941000E9B5FD /* ControllerFactory.swift in Sources */,
+				8C3E8F111ED83ABF009DB7ED /* NotificationCenter+StrongTyping.swift in Sources */,
 				8C127C8C1EC4A0DE00E9B5FD /* Views.swift in Sources */,
+				8C3E8F0F1ED83A2A009DB7ED /* NotificationDescriptor.swift in Sources */,
 				6E1EA10E1ECF185C008C19EF /* CommentView.swift in Sources */,
 				8C63FA171EC37C1D0080FFF9 /* MainAssembly.swift in Sources */,
 				8C1918001EC3602A00519DC8 /* Router.swift in Sources */,
