@@ -11,7 +11,6 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     private let yearCalculator: CurrentYearCalculating
     let alertPresenter: AlertShowing
     private let notificationCenter: NotificationCenter
-    private let codeFieldAnimationRatio: CGFloat = 3.4
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
@@ -60,24 +59,12 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
     private func setupKeyboardNotifications() {
         notificationCenter.addObserver(for: TypedNotification.keyboardWillShow) { [weak self] payload in
-            self?.keyboardWillShow(withHeight: payload.height)
+            self?.pinEntryView.playKeyboardAnimation(height: payload.height)
         }
 
         notificationCenter.addObserver(for: TypedNotification.keyboardWillHide) { [weak self] _ in
-            self?.keyboardWillHide()
+            self?.pinEntryView.playKeyboardAnimation(height: 0.0)
         }
-    }
-
-    private func keyboardWillShow(withHeight height: CGFloat) {
-        pinEntryView.buttonBottom.constant = pinEntryView.buttonBottomBase - height
-        pinEntryView.codeFieldBottom.constant = pinEntryView.codeFieldBottomBase - (height / codeFieldAnimationRatio)
-        pinEntryView.layoutIfNeeded()
-    }
-
-    private func keyboardWillHide() {
-        pinEntryView.buttonBottom.constant = pinEntryView.buttonBottomBase
-        pinEntryView.codeFieldBottom.constant = pinEntryView.codeFieldBottomBase
-        pinEntryView.layoutIfNeeded()
     }
 
     deinit {
