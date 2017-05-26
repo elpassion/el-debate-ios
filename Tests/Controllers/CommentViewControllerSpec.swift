@@ -18,17 +18,20 @@ class CommentViewControllerSpec: QuickSpec {
         var apiClient: APIProviderStub!
         var alertView: AlertViewMock!
         var loadingView: LoadingViewShowing!
+        var notificationCenter: NotificationCenter!
 
         beforeEach {
             apiClient = APIProviderStub()
             alertView = AlertViewMock()
             loadingView = LoadingViewPresenter()
+            notificationCenter = NotificationCenter.default
 
             controller = CommentViewController(
                 authToken: authToken,
                 apiClient: apiClient,
                 alertView: alertView,
-                loadingView: loadingView
+                loadingView: loadingView,
+                notificationCenter: notificationCenter
             )
         }
 
