@@ -14,6 +14,10 @@ class PinEntryView: UIView {
     private let codeField = PinEntryCodeField()
     private let tapGestureRecognizer = UITapGestureRecognizer()
 
+    var buttonBottomBase: CGFloat!
+    var codeFieldBottomBase: CGFloat!
+    var buttonBottom: NSLayoutConstraint!
+    var codeFieldBottom: NSLayoutConstraint!
     var onLoginButtonTapped: (() -> Void)?
     var onCommentButtonTapped: (() -> Void)?
 
@@ -69,11 +73,13 @@ class PinEntryView: UIView {
         background.heightAnchor == background.widthAnchor * 0.75
 
         loginButton.centerXAnchor == centerXAnchor
-        loginButton.bottomAnchor == bottomAnchor - 15
+        buttonBottom = loginButton.bottomAnchor == bottomAnchor - 15
+        buttonBottomBase = buttonBottom?.constant
         loginButton.widthAnchor == widthAnchor * 0.9
 
         codeField.widthAnchor == loginButton.widthAnchor
-        codeField.bottomAnchor == background.topAnchor - 20
+        codeFieldBottom = codeField.bottomAnchor == background.topAnchor - 20
+        codeFieldBottomBase = codeFieldBottom?.constant
         codeField.centerXAnchor == centerXAnchor
     }
 

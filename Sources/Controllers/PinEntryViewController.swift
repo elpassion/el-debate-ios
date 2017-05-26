@@ -10,6 +10,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
     private let loginActionHandler: LoginActionHandling
     private let yearCalculator: CurrentYearCalculating
     private let alertView: AlertShowing
+    private let codeFieldAnimationRatio: CGFloat = 3.4
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
@@ -44,6 +45,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
 
         title = "EL Debate \(yearCalculator.year)"
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
+        setupKeyboardNotifications()
     }
 
     func onLoginButtonTapped() {
@@ -56,6 +58,33 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding {
         }.always { [weak self] in
             self?.pinEntryView.setLoginButton(isEnabled: true)
         }
+    }
+
+    private func setupKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow),
+                                               name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide),
+                                               name: .UIKeyboardWillHide, object: nil)
+    }
+
+    @objc private func keyboardDidShow(payload: NSNotification) {
+        guard let height = (payload.userInfo?["UIKeyboardFrameEndUserInfoKey"] as? NSValue)?.cgRectValue.height  else {
+            return
+        }
+
+        pinEntryView.buttonBottom.constant = pinEntryView.buttonBottomBase - height
+        pinEntryView.codeFieldBottom.constant = pinEntryView.codeFieldBottomBase - (height / codeFieldAnimationRatio)
+        pinEntryView.layoutIfNeeded()
+    }
+
+    @objc private func keyboardDidHide(payload: NSNotification) {
+        pinEntryView.buttonBottom.constant = pinEntryView.buttonBottomBase
+        pinEntryView.codeFieldBottom.constant = pinEntryView.codeFieldBottomBase
+        pinEntryView.layoutIfNeeded()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Controller providing
