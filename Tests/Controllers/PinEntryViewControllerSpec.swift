@@ -17,6 +17,7 @@ class PinEntryViewControllerSpec: QuickSpec {
             var loginActionHandlingMock: LoginActionHandlingMock!
             var yearCalculator: CurrentYearCalculatorMock!
             var alertViewMock: AlertViewMock!
+            var keyboardHandler: KeyboardWillShowHandlerMock!
             var controller: PinEntryViewController!
 
             beforeEach {
@@ -24,10 +25,11 @@ class PinEntryViewControllerSpec: QuickSpec {
                 yearCalculator = CurrentYearCalculatorMock()
                 yearCalculator.year = "2023"
                 alertViewMock = AlertViewMock()
+                keyboardHandler = KeyboardWillShowHandlerMock()
                 controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
                                                     yearCalculator: yearCalculator,
                                                     alertView: alertViewMock,
-                                                    notificationCenter: NotificationCenter.default)
+                                                    keyboardHandling: keyboardHandler)
             }
 
             it("should initialize back bar button item") {
@@ -92,6 +94,18 @@ class PinEntryViewControllerSpec: QuickSpec {
                         controller.onLoginButtonTapped()
                         expect(alertViewMock.wasShown).toEventually(equal(true))
                     }
+                }
+            }
+
+            describe("keyboard event") {
+                beforeEach {
+                    controller.viewDidLoad()
+                }
+
+                it("should play the animation with keyboard height") {
+                    keyboardHandler.onKeyboardHeightChanged?(CGFloat(250.0))
+
+                    expect(controller.pinEntryView.buttonBottomConstraint?.constant).to(equal(-265.0))
                 }
             }
         }

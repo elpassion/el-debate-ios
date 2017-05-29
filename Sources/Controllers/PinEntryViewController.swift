@@ -10,18 +10,18 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     private let loginActionHandler: LoginActionHandling
     private let yearCalculator: CurrentYearCalculating
     let alertPresenter: AlertShowing
-    private let notificationCenter: NotificationCenter
+    private let keyboardHandling: KeyboardWillShowHandling
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
     init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating,
-         alertView: AlertShowing, notificationCenter: NotificationCenter) {
+         alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling) {
         self.loginActionHandler = loginActionHandler
         self.yearCalculator = yearCalculator
         self.alertPresenter = alertView
-        self.notificationCenter = notificationCenter
+        self.keyboardHandling = keyboardHandling
 
         super.init(nibName: nil, bundle: nil)
 
@@ -58,17 +58,9 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     }
 
     private func setupKeyboardNotifications() {
-        notificationCenter.addObserver(for: TypedNotification.keyboardWillShow) { [weak self] payload in
-            self?.pinEntryView.playKeyboardAnimation(height: payload.height)
+        keyboardHandling.onKeyboardHeightChanged = { [weak self] height in
+            self?.pinEntryView.playKeyboardAnimation(height: height)
         }
-
-        notificationCenter.addObserver(for: TypedNotification.keyboardWillHide) { [weak self] _ in
-            self?.pinEntryView.playKeyboardAnimation(height: 0.0)
-        }
-    }
-
-    deinit {
-        notificationCenter.removeObserver(self)
     }
 
     // MARK: - Controller providing

@@ -5,7 +5,7 @@
 
 import UIKit
 
-protocol KeyboardWillShowHandling {
+protocol KeyboardWillShowHandling: class {
 
     var onKeyboardHeightChanged: ((CGFloat) -> Void)? { get set }
 

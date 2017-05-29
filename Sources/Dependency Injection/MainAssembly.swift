@@ -3,6 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+import Foundation
 import KeychainAccess
 import Swinject
 import SwinjectAutoregistration
@@ -15,6 +16,9 @@ class MainAssembly: Assembly {
         container.autoregister(LoadingViewShowing.self, initializer: LoadingViewPresenter.init)
         container.register(MainWindowCreating.self) { _ in MainWindowFactory(screenBounds: UIScreen.main.bounds) }
         container.register(ControllerCreating.self) { resolver in ControllerFactory(resolver: resolver) }
+        container.register(KeyboardWillShowHandling.self) { _ in
+            KeyboardWillShowHandler(notificationManager: NotificationCenter.default)
+        }
 
         container.register(Routing.self) { resolver in
             let navigatorFactory = resolver ~> NavigationControllerCreating.self

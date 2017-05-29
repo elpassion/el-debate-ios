@@ -18,8 +18,8 @@ class PinEntryView: UIView {
     private let codeFieldConstraintValue = CGFloat(-20.0)
     private let codeFieldAnimationRatio = CGFloat(3.4)
 
-    private var codeFieldBottomConstraint: NSLayoutConstraint?
-    private var buttonBottomConstraint: NSLayoutConstraint?
+    var codeFieldBottomConstraint: NSLayoutConstraint?
+    var buttonBottomConstraint: NSLayoutConstraint?
 
     var onLoginButtonTapped: (() -> Void)?
     var onCommentButtonTapped: (() -> Void)?
