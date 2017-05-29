@@ -5,7 +5,7 @@
 
 import Foundation
 
-extension NotificationCenter {
+extension NotificationManaging {
 
     @discardableResult
     func addObserver<T>(for descriptor: NotificationDescriptor<T>, object: Any?,
