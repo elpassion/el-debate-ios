@@ -9,8 +9,8 @@ import UIKit
 class ControllerFactoryMock: ControllerCreating {
 
     let pinEntryProvider = PinEntryControllerMockProvider()
-    let answerProvider = ControllerMockProvider()
-    let commentProvider = ControllerMockProvider()
+    let answerProvider = AnswerControllerMockProvider()
+    let commentProvider = CommentControllerMockProvider()
 
     var lastType: ControllerType?
 
@@ -43,3 +43,18 @@ class PinEntryControllerMockProvider: PinEntryControllerProviding {
     
 }
 
+class AnswerControllerMockProvider: AnswerControllerProviding {
+
+    let controller = UIViewController()
+
+    var onCommentButtonTapped: ((String) -> Void)?
+
+}
+
+class CommentControllerMockProvider: CommentControllerProviding {
+
+    let controller = UIViewController()
+
+    var onCommentSubmitted: (() -> Void)?
+
+}
