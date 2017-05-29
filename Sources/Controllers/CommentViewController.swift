@@ -15,33 +15,34 @@ class CommentViewController: UIViewController, CommentControllerProviding, Alert
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
     private let loadingView: LoadingViewShowing
-    private let notificationCenter: NotificationCenter
+    private let keyboardHandling: KeyboardWillShowHandling
 
     var onCommentSubmitted: (() -> Void)?
 
     init(authToken: String, apiClient: APIProviding, alertView: AlertShowing,
-         loadingView: LoadingViewShowing, notificationCenter: NotificationCenter) {
+         loadingView: LoadingViewShowing, keyboardHandling: KeyboardWillShowHandling) {
         self.authToken = authToken
         self.apiClient = apiClient
         self.alertPresenter = alertView
         self.loadingView = loadingView
-        self.notificationCenter = notificationCenter
+        self.keyboardHandling = keyboardHandling
 
         super.init(nibName: nil, bundle: nil)
-        setupKeyboardNotifications()
     }
 
     override func loadView() {
         view = CommentView()
     }
 
-    private var commentView: CommentView { return forceCast(view) }
+    var commentView: CommentView { return forceCast(view) }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         definesPresentationContext = true
         title = "Comment"
         commentView.onSubmitButtonTapped = { [weak self] in self?.onSubmitButtonTapped() }
+
+        setupKeyboardNotifications()
     }
 
     func onSubmitButtonTapped() {
@@ -60,19 +61,10 @@ class CommentViewController: UIViewController, CommentControllerProviding, Alert
     }
 
     private func setupKeyboardNotifications() {
-        notificationCenter.addObserver(for: TypedNotification.keyboardWillShow) { [weak self] payload in
-            self?.commentView.playKeyboardAnimation(height: payload.height)
-        }
-
-        notificationCenter.addObserver(for: TypedNotification.keyboardWillHide) { [weak self] _ in
-            self?.commentView.playKeyboardAnimation(height: 0.0)
+        keyboardHandling.onKeyboardHeightChanged = { [weak self] height in
+            self?.commentView.playKeyboardAnimation(height: height)
         }
     }
-
-    deinit {
-        notificationCenter.removeObserver(self)
-    }
-
     // MARK: - ControllerProviding
 
     var controller: UIViewController { return self }

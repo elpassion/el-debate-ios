@@ -10,20 +10,11 @@ import Swinject
 import SwinjectAutoregistration
 
 class CommentAssembly: Assembly {
-    func assemble(container: Container) {
-        container.register(CommentViewController.self) { (resolver: Resolver, authToken: String) in
-            let apiClient = resolver ~> APIProviding.self
-            let alertView = resolver ~> AlertShowing.self
-            let loadingView = resolver ~> LoadingViewShowing.self
-            let notificationCenter = NotificationCenter.default
 
-            return CommentViewController(
-                authToken: authToken,
-                apiClient: apiClient,
-                alertView: alertView,
-                loadingView: loadingView,
-                notificationCenter: notificationCenter
-            )
-        }
+    func assemble(container: Container) {
+        container.autoregister(CommentViewController.self,
+                               argument: String.self,
+                               initializer: CommentViewController.init)
     }
+
 }

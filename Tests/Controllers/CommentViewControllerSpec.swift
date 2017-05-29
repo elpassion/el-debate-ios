@@ -10,6 +10,7 @@
 import Nimble
 import PromiseKit
 import Quick
+import UIKit
 
 class CommentViewControllerSpec: QuickSpec {
     override func spec() {
@@ -18,20 +19,20 @@ class CommentViewControllerSpec: QuickSpec {
         var apiClient: APIProviderStub!
         var alertView: AlertViewMock!
         var loadingView: LoadingViewShowing!
-        var notificationCenter: NotificationCenter!
+        var keyboardHandler: KeyboardWillShowHandlerMock!
 
         beforeEach {
             apiClient = APIProviderStub()
             alertView = AlertViewMock()
             loadingView = LoadingViewPresenter()
-            notificationCenter = NotificationCenter.default
+            keyboardHandler = KeyboardWillShowHandlerMock()
 
             controller = CommentViewController(
                 authToken: authToken,
                 apiClient: apiClient,
                 alertView: alertView,
                 loadingView: loadingView,
-                notificationCenter: notificationCenter
+                keyboardHandling: keyboardHandler
             )
         }
 
@@ -62,6 +63,18 @@ class CommentViewControllerSpec: QuickSpec {
                     controller.onSubmitButtonTapped()
                     expect(alertView.wasShown).toEventually(equal(true))
                 }
+            }
+        }
+
+        describe("keyboard event") {
+            beforeEach {
+                controller.viewDidLoad()
+            }
+
+            it("should play the animation with keyboard height") {
+                keyboardHandler.onKeyboardHeightChanged?(242.0)
+
+                expect(controller.commentView.buttonBottom?.constant).to(equal(CGFloat(-242.0)))
             }
         }
     }

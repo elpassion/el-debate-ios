@@ -10,11 +10,12 @@ import Anchorage
 import UIKit
 
 class CommentView: UIView {
+
     private let submitButton = UIButton(type: .custom)
     private let contentTextField = UITextView(frame: .zero)
     private let viewTapGestureRecognizer = UITapGestureRecognizer()
-    private var buttonBottom: NSLayoutConstraint!
-    private var buttonBottomBase: CGFloat!
+
+    var buttonBottom: NSLayoutConstraint?
 
     var onSubmitButtonTapped: (() -> Void)?
 
@@ -62,11 +63,10 @@ class CommentView: UIView {
         submitButton.widthAnchor == widthAnchor * 0.95
         submitButton.centerXAnchor == centerXAnchor
         buttonBottom = submitButton.bottomAnchor == bottomAnchor
-        buttonBottomBase = buttonBottom.constant
     }
 
     func playKeyboardAnimation(height: CGFloat) {
-        buttonBottom.constant = buttonBottomBase - height
+        buttonBottom?.constant = -height
         layoutIfNeeded()
     }
 
