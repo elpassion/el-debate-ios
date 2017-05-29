@@ -9,12 +9,12 @@ import UIKit
 
 class AnswerPicker: UIView {
 
-    private let verticalStack = Views.stack(axis: .vertical, distribution: .equalSpacing,
-                                            alignment: .fill, spacing: 14.0)
-    private let yesAnswer = SingleAnswerView(color: .yes, type: .positive)
-    private let noAnswer = SingleAnswerView(color: .no, type: .negative)
-    private let undecidedAnswer = SingleAnswerView(color: .undecided, type: .neutral)
-    private let tapGestureRecognizer = UITapGestureRecognizer()
+    private let verticalStack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
+                                                         alignment: .fill, spacing: 14.0)
+    private let yesAnswer: SingleAnswerView = SingleAnswerView(color: .yes, type: .positive)
+    private let noAnswer: SingleAnswerView = SingleAnswerView(color: .no, type: .negative)
+    private let undecidedAnswer: SingleAnswerView = SingleAnswerView(color: .undecided, type: .neutral)
+    private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
     var onAnswerSelected: ((AnswerType) -> Void)?
 
@@ -77,8 +77,12 @@ class AnswerPicker: UIView {
         addGestureRecognizer(tapGestureRecognizer)
     }
 
-    @objc private func didTapAnswer(with gestureRecognizer: UITapGestureRecognizer) {
-        guard let answerView = tappedAnswerView(with: gestureRecognizer) else { return }
+    @objc
+    private func didTapAnswer(with gestureRecognizer: UITapGestureRecognizer) {
+        guard let answerView = tappedAnswerView(with: gestureRecognizer) else {
+            return
+        }
+
         if !answerView.selected {
             answerView.startSpinner()
             onAnswerSelected?(answerView.answerType)
@@ -88,7 +92,9 @@ class AnswerPicker: UIView {
     private func tappedAnswerView(with gestureRegognizer: UITapGestureRecognizer) -> SingleAnswerView? {
         let tapLocation = gestureRegognizer.location(in: self)
 
-        return answerViews.filter { $0.frame.contains(tapLocation) }.first
+        return answerViews.first {
+            $0.frame.contains(tapLocation)
+        }
     }
 
     // MARK: - Required initializer

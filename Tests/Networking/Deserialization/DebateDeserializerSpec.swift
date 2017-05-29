@@ -34,13 +34,13 @@ class DebateDeserializerSpec: QuickSpec {
 
                     let result: Debate? = try? deserializer.deserialize(json: response)
 
-                    expect(result?.topic).to(equal("debate_topic"))
+                    expect(result?.topic) == "debate_topic"
                     expect(result?.positiveAnswer).notTo(beNil())
                     expect(result?.neutralAnswer).notTo(beNil())
                     expect(result?.negativeAnswer).notTo(beNil())
-                    expect(result?.positiveAnswer.identifier).to(equal(122))
-                    expect(result?.negativeAnswer.identifier).to(equal(123))
-                    expect(result?.neutralAnswer.identifier).to(equal(124))
+                    expect(result?.positiveAnswer.identifier) == 122
+                    expect(result?.negativeAnswer.identifier) == 123
+                    expect(result?.neutralAnswer.identifier) == 124
                 }
 
                 it("should throw deserialization error if response is not a dictionary") {
@@ -70,7 +70,7 @@ class DebateDeserializerSpec: QuickSpec {
 
                     let error = errorMessage(deserializer: deserializer, json: response)
 
-                    expect(error).to(equal("Response does not contain positive answer data"))
+                    expect(error) == "Response does not contain positive answer data"
                 }
 
                 it("should throw deserialization error if negative answer is not in a dictionary") {
@@ -84,7 +84,7 @@ class DebateDeserializerSpec: QuickSpec {
 
                     let error = errorMessage(deserializer: deserializer, json: response)
 
-                    expect(error).to(equal("Response does not contain negative answer data"))
+                    expect(error) == "Response does not contain negative answer data"
                 }
 
                 it("should throw deserialization error if neutral answer is not in a dictionary") {
@@ -98,7 +98,7 @@ class DebateDeserializerSpec: QuickSpec {
 
                     let error = errorMessage(deserializer: deserializer, json: response)
 
-                    expect(error).to(equal("Response does not contain neutral answer data"))
+                    expect(error) == "Response does not contain neutral answer data"
                 }
             }
         }

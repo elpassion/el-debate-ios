@@ -33,7 +33,10 @@ class AuthTokenStorage: AuthTokenStoring {
     }
 
     func getToken(forPinCode pinCode: String) -> String? {
-        guard let token = try? keychain.get(key(forPinCode: pinCode)) else { return nil }
+        guard let token = try? keychain.get(key(forPinCode: pinCode)) else {
+            return nil
+        }
+
         return token
     }
 
@@ -43,7 +46,7 @@ class AuthTokenStorage: AuthTokenStoring {
 
     // MARK: - Utility
 
-    private let keychainEntryPrefix = "kAuthToken"
+    private let keychainEntryPrefix: String = "kAuthToken"
 
     private func key(forPinCode pinCode: String) -> String {
         return "\(keychainEntryPrefix):\(pinCode)"

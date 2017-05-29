@@ -33,7 +33,7 @@ class ControllerConfiguratorSpec: QuickSpec {
                         }
 
                         expect(passedVoteContext).toNot(beNil())
-                        expect(passedVoteContext?.debate.topic).to(equal("test_debate_topic"))
+                        expect(passedVoteContext?.debate.topic) == "test_debate_topic"
                     }
                 }
 
@@ -49,7 +49,7 @@ class ControllerConfiguratorSpec: QuickSpec {
                             passedAuthToken = authToken
                         }
 
-                        expect(passedAuthToken).to(equal("TheAuthToken!"))
+                        expect(passedAuthToken) == "TheAuthToken!"
                     }
                 }
 

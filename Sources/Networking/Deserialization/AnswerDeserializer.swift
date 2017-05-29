@@ -23,22 +23,11 @@ class AnswerDeserializer: Deserializing {
             throw RequestError.deserializationError(reason: "Response does not contain answer value")
         }
 
-        guard let answerType = dict["answer_type"].flatMap(AnswerType.init(rawAnswerType:)) else {
+        guard let answerType = dict["answer_type"].flatMap(AnswerType.init(rawType:)) else {
             throw RequestError.deserializationError(reason: "Response does not contain correct answer type")
         }
 
         return Answer(identifier: identifier, value: value, type: answerType)
-    }
-
-}
-
-private extension AnswerType {
-
-    init?(rawAnswerType: Any?) {
-        guard let rawAnswerType = rawAnswerType as? String else { return nil }
-        guard let answerType = AnswerType(rawValue: rawAnswerType) else { return nil }
-
-        self = answerType
     }
 
 }

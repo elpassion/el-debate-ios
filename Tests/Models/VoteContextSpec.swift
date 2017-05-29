@@ -24,7 +24,7 @@ class VoteContextSpec: QuickSpec {
                 }
 
                 it("returns the correct id for a given AnswerType") {
-                    expect(sut.answer(for: .positive).identifier).to(equal(1))
+                    expect(sut.answer(for: .positive).identifier) == 1
                 }
             }
         }

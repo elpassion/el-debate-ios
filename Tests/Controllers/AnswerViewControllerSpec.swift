@@ -34,7 +34,7 @@ class AnswerViewControllerSpec: QuickSpec {
                 }
 
                 it("should set title") {
-                    expect(controller.title).to(equal("EL Debate 2012"))
+                    expect(controller.title) == "EL Debate 2012"
                 }
 
                 it("should have a valid snaphot") {

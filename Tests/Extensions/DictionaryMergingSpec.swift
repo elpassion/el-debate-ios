@@ -18,7 +18,7 @@ class DictionaryMergingSpec: QuickSpec {
 
                     let merged = first.merge(second)
 
-                    expect(merged).to(equal(["A": 1, "B": 3, "C": 4]))
+                    expect(merged) == ["A": 1, "B": 3, "C": 4]
                 }
             }
         }

@@ -25,14 +25,13 @@ class NavigationControllerFactorySpec: QuickSpec {
                 }
 
                 it("should set bar tint color") {
-                    expect(navigationController.navigationBar.barTintColor).to(equal(
-                        UIColor(predefined: .navigationBar)))
+                    expect(navigationController.navigationBar.barTintColor) == UIColor(predefined: .navigationBar)
                 }
 
                 it("should set title color") {
                     let attributes = navigationController.navigationBar.titleTextAttributes
 
-                    expect(attributes?[NSForegroundColorAttributeName] as? UIColor).to(equal(UIColor.white))
+                    expect(attributes?[NSForegroundColorAttributeName] as? UIColor) == UIColor.white
                 }
 
                 it("should disable translucent navigation bar") {
@@ -40,11 +39,11 @@ class NavigationControllerFactorySpec: QuickSpec {
                 }
 
                 it("should set make status bar white") {
-                    expect(navigationController.navigationBar.barStyle).to(equal(UIBarStyle.black))
+                    expect(navigationController.navigationBar.barStyle) == UIBarStyle.black
                 }
 
                 it("should set tint color to white") {
-                    expect(navigationController.navigationBar.tintColor).to(equal(UIColor.white))
+                    expect(navigationController.navigationBar.tintColor) == UIColor.white
                 }
             }
         }

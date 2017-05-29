@@ -8,7 +8,7 @@ import UIKit
 
 class ThumbsUpView: UIView {
 
-    private let thumbsUpIcon = Views.image(image: .thumbsUp, contentMode: .scaleAspectFit)
+    private let thumbsUpIcon: UIImageView = Views.image(image: .thumbsUp, contentMode: .scaleAspectFit)
     private let highlightColor: UIColor
     private let defaultColor: UIColor
 

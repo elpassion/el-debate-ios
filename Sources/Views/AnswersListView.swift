@@ -8,12 +8,13 @@ import UIKit
 
 class AnswersListView: UIView {
 
-    private let stack = Views.stack(axis: .vertical, distribution: .equalSpacing, alignment: .fill, spacing: 20.0)
-    private let chooseSideLabel = Views.label(size: 13.0, color: UIColor(predefined: .pin), alignment: .left,
-                                              numberOfLines: 0)
-    private let answerPicker = AnswerPicker()
-    private let changeMindLabel = Views.label(size: 13.0, color: UIColor(predefined: .pin), alignment: .left,
-                                              numberOfLines: 0)
+    private let stack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
+                                                 alignment: .fill, spacing: 20.0)
+    private let chooseSideLabel: UILabel = Views.label(size: 13.0, color: UIColor(predefined: .pin),
+                                                       alignment: .left, numberOfLines: 0)
+    private let answerPicker: AnswerPicker = AnswerPicker()
+    private let changeMindLabel: UILabel = Views.label(size: 13.0, color: UIColor(predefined: .pin),
+                                                       alignment: .left, numberOfLines: 0)
 
     var onAnswerSelected: ((AnswerType) -> Void)? {
         get {
@@ -36,12 +37,9 @@ class AnswersListView: UIView {
     // MARK: Public API
 
     func config(yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String) {
-      answerPicker.config(
-                          yesAnswerText: yesAnswerText,
+      answerPicker.config(yesAnswerText: yesAnswerText,
                           undecidedAnswerText: undecidedAnswerText,
-                          noAnswerText: noAnswerText
-                         )
-
+                          noAnswerText: noAnswerText)
     }
 
     func selectAnswer(type answerType: AnswerType) {

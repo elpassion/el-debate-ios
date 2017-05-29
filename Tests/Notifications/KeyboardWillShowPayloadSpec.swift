@@ -35,7 +35,7 @@ class KeyboardWillShowPayloadSpec: QuickSpec {
 
                     let result = KeyboardWillShowPayload(userInfo: userInfo)
 
-                    expect(result?.height).to(equal(55.0))
+                    expect(result?.height) == 55.0
                 }
             }
         }

@@ -8,10 +8,10 @@ import UIKit
 
 class QuestionFrameView: UIView {
 
-    private let container = UIView(frame: .zero)
-    private let question = Views.label(size: 24.0, color: UIColor(predefined: .question),
-                                       alignment: .center, numberOfLines: 0,
-                                       text: "Lorem ipsum dolor sit amet consectetur?")
+    private let container: UIView = UIView(frame: .zero)
+    private let question: UILabel = Views.label(size: 24.0, color: UIColor(predefined: .question),
+                                                alignment: .center, numberOfLines: 0,
+                                                text: "Lorem ipsum dolor sit amet consectetur?")
 
     init() {
         super.init(frame: .zero)

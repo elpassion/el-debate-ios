@@ -8,15 +8,15 @@ import UIKit
 
 class PinEntryView: UIView {
 
-    private let welcomeView = PinEntryWelcomeView()
-    private let background = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
-    private let loginButton = UIButton(type: .custom)
-    private let codeField = PinEntryCodeField()
-    private let tapGestureRecognizer = UITapGestureRecognizer()
+    private let welcomeView: PinEntryWelcomeView = PinEntryWelcomeView()
+    private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
+    private let loginButton: UIButton = UIButton(type: .custom)
+    private let codeField: PinEntryCodeField = PinEntryCodeField()
+    private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
-    private let buttonConstraintValue = CGFloat(-15.0)
-    private let codeFieldConstraintValue = CGFloat(-20.0)
-    private let codeFieldAnimationRatio = CGFloat(3.4)
+    private let buttonConstraintValue: CGFloat = CGFloat(-15.0)
+    private let codeFieldConstraintValue: CGFloat = CGFloat(-20.0)
+    private let codeFieldAnimationRatio: CGFloat = CGFloat(3.4)
 
     private var codeFieldBottomConstraint: NSLayoutConstraint?
     var buttonBottomConstraint: NSLayoutConstraint?
@@ -103,13 +103,15 @@ class PinEntryView: UIView {
 
     // MARK: - Login button tap
 
-    @objc private func didTapLoginButton() {
+    @objc
+    private func didTapLoginButton() {
         onLoginButtonTapped?()
     }
 
     // MARK: - Background tap
 
-    @objc private func didTapBackground() {
+    @objc
+    private func didTapBackground() {
         endEditing(true)
     }
 

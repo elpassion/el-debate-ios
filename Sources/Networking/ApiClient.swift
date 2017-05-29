@@ -23,7 +23,7 @@ class ApiClient: APIProviding {
     private let requestExecutor: RequestExecuting
     private let authTokenDeserializer: Deserializer<String>
     private let debateDeserializer: Deserializer<Debate>
-    private let apiHost = "https://el-debate.herokuapp.com"
+    private let apiHost: String = "https://el-debate.herokuapp.com"
 
     init(requestExecutor: RequestExecuting,
          authTokenDeserializer: Deserializer<String>,
@@ -47,7 +47,7 @@ class ApiClient: APIProviding {
     }
 
     func fetchDebate(authToken: String) -> Promise<Debate> {
-        let jsonResponse =  requestExecutor.get(
+        let jsonResponse = requestExecutor.get(
             url: "\(apiHost)/api/debate",
             headers: ["Authorization": authToken]
         )
@@ -59,7 +59,7 @@ class ApiClient: APIProviding {
     }
 
     func vote(authToken: String, answer: Answer) -> Promise<Answer> {
-        let response =  requestExecutor.post(
+        let response = requestExecutor.post(
             url: "\(apiHost)/api/vote",
             body: ["id": answer.identifier],
             headers: ["Authorization": authToken]

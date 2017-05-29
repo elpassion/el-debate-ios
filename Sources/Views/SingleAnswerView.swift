@@ -9,13 +9,14 @@ import UIKit
 class SingleAnswerView: UIView {
 
     let answerType: AnswerType
-    private let container = UIView(frame: .zero)
-    private let horizontalStack = Views.stack(axis: .horizontal, distribution: .fill, alignment: .fill, spacing: 10.0)
+    private let container: UIView = UIView(frame: .zero)
+    private let horizontalStack: UIStackView = Views.stack(axis: .horizontal, distribution: .fill,
+                                                           alignment: .fill, spacing: 10.0)
     private let answerLabel: UILabel
     private let thumbsUp: ThumbsUpView
     private let highlightColor: UIColor
-    private let defaultColor = UIColor(predefined: .unselected)
-    private let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    private let defaultColor: UIColor = UIColor(predefined: .unselected)
+    private let spinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
     init(color: Color, type: AnswerType) {
         self.answerType = type

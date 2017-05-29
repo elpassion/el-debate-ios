@@ -33,8 +33,8 @@ class PinEntryViewControllerSpec: QuickSpec {
             }
 
             it("should initialize back bar button item") {
-                expect(controller.navigationItem.backBarButtonItem?.title).to(equal(""))
-                expect(controller.navigationItem.backBarButtonItem?.style).to(equal(UIBarButtonItemStyle.plain))
+                expect(controller.navigationItem.backBarButtonItem?.title) == ""
+                expect(controller.navigationItem.backBarButtonItem?.style) == UIBarButtonItemStyle.plain
                 expect(controller.navigationItem.backBarButtonItem?.action).to(beNil())
                 expect(controller.navigationItem.backBarButtonItem?.target).to(beNil())
             }
@@ -45,7 +45,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                 }
 
                 it("should set title") {
-                    expect(controller.title).to(equal("EL Debate 2023"))
+                    expect(controller.title) == "EL Debate 2023"
                 }
 
                 it("should have a valid snapshot") {
@@ -105,7 +105,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                 it("should play the animation with keyboard height") {
                     keyboardHandler.onKeyboardHeightChanged?(CGFloat(250.0))
 
-                    expect(controller.pinEntryView.buttonBottomConstraint?.constant).to(equal(-265.0))
+                    expect(controller.pinEntryView.buttonBottomConstraint?.constant) == -265.0
                 }
             }
         }

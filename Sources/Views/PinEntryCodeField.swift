@@ -8,12 +8,13 @@ import UIKit
 
 class PinEntryCodeField: UIView {
 
-    private let verticalStack = Views.stack(axis: .vertical, distribution: .equalSpacing, alignment: .center,
-                                            spacing: 4.0)
-    private let horizontalStack = Views.stack(axis: .horizontal, distribution: .fill, alignment: .fill, spacing: 25.0)
-    private let separator = UIView(frame: .zero)
-    private let keyIcon = Views.image(image: .keyIcon, contentMode: .scaleAspectFit)
-    private let codeInput = UITextField(frame: .zero)
+    private let verticalStack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
+                                                         alignment: .center, spacing: 4.0)
+    private let horizontalStack: UIStackView = Views.stack(axis: .horizontal, distribution: .fill,
+                                                           alignment: .fill, spacing: 25.0)
+    private let separator: UIView = UIView(frame: .zero)
+    private let keyIcon: UIImageView = Views.image(image: .keyIcon, contentMode: .scaleAspectFit)
+    private let codeInput: UITextField = UITextField(frame: .zero)
 
     init() {
         super.init(frame: .zero)

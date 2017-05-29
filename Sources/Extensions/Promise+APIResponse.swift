@@ -13,8 +13,8 @@ extension Promise {
     convenience init(requestExecutor: @escaping ApiRequestExecutor, processor: @escaping ApiRequestProcessor) {
         self.init { fulfill, reject in
             requestExecutor { response in
-                guard response.error == nil else {
-                    reject(response.error!)
+                if let error = response.error {
+                    reject(error)
                     return
                 }
 

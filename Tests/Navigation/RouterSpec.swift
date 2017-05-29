@@ -57,7 +57,7 @@ class RouterSpec: QuickSpec {
                     }
 
                     expect(voteContextForAnswerController).toNot(beNil())
-                    expect(voteContextForAnswerController?.debate.topic).to(equal("test_debate_topic"))
+                    expect(voteContextForAnswerController?.debate.topic) == "test_debate_topic"
                 }
 
                 it("should push answer view controller on stack") {
@@ -87,7 +87,7 @@ class RouterSpec: QuickSpec {
                         authTokenForCommentController = authToken
                     }
 
-                    expect(authTokenForCommentController).to(equal("123456"))
+                    expect(authTokenForCommentController) == "123456"
                 }
             }
 

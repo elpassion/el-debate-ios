@@ -27,7 +27,7 @@ class MainWindowFactorySpec: QuickSpec {
                 }
 
                 it("should create window with white background") {
-                    expect(window.backgroundColor).to(equal(UIColor.white))
+                    expect(window.backgroundColor) == UIColor.white
                 }
 
                 it("should create key window") {

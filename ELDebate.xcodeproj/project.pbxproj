@@ -63,6 +63,7 @@
 		8C364DE91EDC1D82007D4EA6 /* NotificationManagingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */; };
 		8C364DEB1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */; };
 		8C364DED1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */; };
+		8C364DEF1EDC52C7007D4EA6 /* AnswerType+RawType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DEE1EDC52C7007D4EA6 /* AnswerType+RawType.swift */; };
 		8C3E8F0A1ED836E3009DB7ED /* ForceCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F091ED836E3009DB7ED /* ForceCast.swift */; };
 		8C3E8F0D1ED83934009DB7ED /* KeyboardWillShowPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F0C1ED83934009DB7ED /* KeyboardWillShowPayload.swift */; };
 		8C3E8F0F1ED83A2A009DB7ED /* NotificationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F0E1ED83A2A009DB7ED /* NotificationDescriptor.swift */; };
@@ -216,6 +217,7 @@
 		8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagingMock.swift; sourceTree = "<group>"; };
 		8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowHandlerSpec.swift; sourceTree = "<group>"; };
 		8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowHandlerMock.swift; sourceTree = "<group>"; };
+		8C364DEE1EDC52C7007D4EA6 /* AnswerType+RawType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnswerType+RawType.swift"; sourceTree = "<group>"; };
 		8C3E8F091ED836E3009DB7ED /* ForceCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForceCast.swift; sourceTree = "<group>"; };
 		8C3E8F0C1ED83934009DB7ED /* KeyboardWillShowPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowPayload.swift; sourceTree = "<group>"; };
 		8C3E8F0E1ED83A2A009DB7ED /* NotificationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDescriptor.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		8C127C901EC4AFE700E9B5FD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8C364DEE1EDC52C7007D4EA6 /* AnswerType+RawType.swift */,
 				8CD5F64A1ECC85DC0067BFC7 /* Dictionary+Mapping.swift */,
 				6EADF55D1ECC843A00488057 /* Dictionary+Merging.swift */,
 				8C3E8F091ED836E3009DB7ED /* ForceCast.swift */,
@@ -1071,6 +1074,7 @@
 				8C664A191EC48F7A0017687F /* RequestError.swift in Sources */,
 				6EF036601EC9A43D00198F01 /* Keychain+KeychainStoring.swift in Sources */,
 				8C63FA151EC37BF90080FFF9 /* Assembler+Assemblies.swift in Sources */,
+				8C364DEF1EDC52C7007D4EA6 /* AnswerType+RawType.swift in Sources */,
 				6EF0365E1EC9916200198F01 /* KeychainMock.swift in Sources */,
 				8C127C8A1EC4A0D100E9B5FD /* PinEntryWelcomeView.swift in Sources */,
 				8C0D63091EC5DD4100421B89 /* AnswerAssembly.swift in Sources */,

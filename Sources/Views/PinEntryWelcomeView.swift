@@ -8,10 +8,11 @@ import UIKit
 
 class PinEntryWelcomeView: UIView {
 
-    private let container = Views.stack(axis: .vertical, distribution: .equalSpacing, alignment: .fill, spacing: 10.0)
-    private let welcomeLabel = Views.label(size: 20.0, color: .black, alignment: .center, numberOfLines: 0,
-                                           text: "Welcome to")
-    private let logo = Views.image(image: .logo, contentMode: .scaleAspectFit)
+    private let container: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
+                                                     alignment: .fill, spacing: 10.0)
+    private let welcomeLabel: UILabel = Views.label(size: 20.0, color: .black, alignment: .center,
+                                                    numberOfLines: 0, text: "Welcome to")
+    private let logo: UIImageView = Views.image(image: .logo, contentMode: .scaleAspectFit)
 
     init() {
         super.init(frame: .zero)

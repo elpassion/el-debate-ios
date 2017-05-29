@@ -22,7 +22,7 @@ class AuthTokenDeserializerSpec: QuickSpec {
                     let response: Any? = ["auth_token": "auth_token_value"]
                     let result = try? deserializer.deserialize(json: response)
 
-                    expect(result).to(equal("auth_token_value"))
+                    expect(result) == "auth_token_value"
                 }
 
                 it("should throw deserialization error if response is not a dictionary") {

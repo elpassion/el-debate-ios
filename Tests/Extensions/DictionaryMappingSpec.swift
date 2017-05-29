@@ -17,7 +17,7 @@ class DictionaryMappingSpec: QuickSpec {
 
                     let mapped = dictionary.mapValues { "\($0)" }
 
-                    expect(mapped).to(equal(["A": "1", "B": "2", "C": "3"]))
+                    expect(mapped) == ["A": "1", "B": "2", "C": "3"]
                 }
             }
 
@@ -27,7 +27,7 @@ class DictionaryMappingSpec: QuickSpec {
 
                     let mapped = dictionary.mapDictionary { (key, value) in (value, key) }
 
-                    expect(mapped).to(equal([1: "A", 2: "B", 3: "C"]))
+                    expect(mapped) == [1: "A", 2: "B", 3: "C"]
                 }
             }
         }
