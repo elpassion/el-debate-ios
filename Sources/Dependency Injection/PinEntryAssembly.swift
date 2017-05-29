@@ -34,17 +34,7 @@ class PinEntryAssembly: Assembly {
         }
 
         container.autoregister(LoginActionHandling.self, initializer: LoginActionHandler.init)
-
-        container.register(PinEntryViewController.self) { resolver in
-            let loginActionHandler = resolver ~> LoginActionHandling.self
-            let yearCalculator = resolver ~> CurrentYearCalculating.self
-            let alertView = resolver ~> AlertShowing.self
-
-            return PinEntryViewController(loginActionHandler: loginActionHandler,
-                                          yearCalculator: yearCalculator,
-                                          alertView: alertView,
-                                          notificationCenter: NotificationCenter.default)
-        }
+        container.autoregister(PinEntryViewController.self, initializer: PinEntryViewController.init)
     }
 
 }

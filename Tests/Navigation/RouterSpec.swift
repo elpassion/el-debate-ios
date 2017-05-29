@@ -8,6 +8,7 @@
 @testable import ELDebate
 import Nimble
 import Quick
+import UIKit
 
 class RouterSpec: QuickSpec {
 
@@ -102,6 +103,26 @@ class RouterSpec: QuickSpec {
                     expect(sut.navigator.viewControllers.count).toEventually(equal(1))
                     expect(sut.navigator.viewControllers).toEventually(containElementSatisfying({ controller in
                         controller == controllerFactory.pinEntryProvider.controller
+                    }))
+                }
+            }
+
+            describe("routing back") {
+                var firstController: UIViewController!
+                var secondController: UIViewController!
+
+                beforeEach {
+                    firstController = UIViewController()
+                    secondController = UIViewController()
+                    navigationController.setViewControllers([firstController, secondController], animated: false)
+                }
+
+                it("should pop last controller from stack") {
+                    sut.goBack()
+
+                    expect(sut.navigator.viewControllers.count).toEventually(equal(1))
+                    expect(sut.navigator.viewControllers).toEventually(containElementSatisfying({ controller in
+                        controller == firstController
                     }))
                 }
             }

@@ -11,6 +11,10 @@ class APIProviderStub: APIProviding {
     var pinCode: String?
     var authenticationToken = "12"
     var debateAuthToken: String?
+    var votingAuthToken: String?
+    var votingAnswer: Answer?
+    var commentAuthToken: String?
+    var commentText: String?
 
     var commentReturnValue: Promise<Bool>?
 
@@ -26,10 +30,16 @@ class APIProviderStub: APIProviding {
     }
     
     func vote(authToken: String, answer: Answer) -> Promise<Answer> {
+        votingAuthToken = authToken
+        votingAnswer = answer
+        
         return Promise(value: Answer.testDefault)
     }
     
     func comment(authToken: String, text: String) -> Promise<Bool> {
+        commentAuthToken = authToken
+        commentText = text
+
         if let commentValue = commentReturnValue {
             return commentValue
         } else {

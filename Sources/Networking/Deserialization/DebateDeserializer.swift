@@ -29,21 +29,26 @@ class DebateDeserializer: Deserializing {
             throw RequestError.deserializationError(reason: "Response does not contain answers data")
         }
 
-        let parsedAnswers = try answersData.mapDictionary { (type, answerJSON) in
-            return (type, answerJSON.merge(["answer_type": type]))
-        }.map { (_, answerJSON) in
-            try answerDeserializer.deserialize(json: answerJSON)
-        }
+        let answers = try answersWithTypes(answersData)
+            .map { try answerDeserializer.deserialize(json: $0) }
 
         return Debate(topic: topic,
-                      positiveAnswer: answer(from: parsedAnswers, ofType: .positive),
-                      neutralAnswer: answer(from: parsedAnswers, ofType: .neutral),
-                      negativeAnswer: answer(from: parsedAnswers, ofType: .negative))
+                      positiveAnswer: try answer(from: answers, ofType: .positive),
+                      neutralAnswer: try answer(from: answers, ofType: .neutral),
+                      negativeAnswer: try answer(from: answers, ofType: .negative))
     }
 
-    private func answer(from answers: [Answer], ofType type: AnswerType) -> Answer {
+    private func answersWithTypes(_ answersJSON: [String: [String: Any?]]) -> [[String: Any?]] {
+        let mappedAnswersJSON = answersJSON.mapDictionary { (typeKey, singleAnswerJSON) in
+            (typeKey, singleAnswerJSON.merge(["answer_type": typeKey]))
+        }
+
+        return Array(mappedAnswersJSON.values)
+    }
+
+    private func answer(from answers: [Answer], ofType type: AnswerType) throws -> Answer {
         guard let answer = answers.first(where: { $0.type == type }) else {
-            fatalError("Response does not contain \(type.rawValue) answer data")
+            throw RequestError.deserializationError(reason: "Response does not contain \(type.rawValue) answer data")
         }
 
         return answer

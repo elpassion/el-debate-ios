@@ -9,6 +9,7 @@
 import Foundation
 
 class AnswerDeserializer: Deserializing {
+
     func deserialize(json: Any?) throws -> Answer {
         guard let dict = json as? [String: Any] else {
             throw RequestError.deserializationError(reason: "Response is not a dictionary")
@@ -22,14 +23,22 @@ class AnswerDeserializer: Deserializing {
             throw RequestError.deserializationError(reason: "Response does not contain answer value")
         }
 
-        guard let rawAnswerType = dict["answer_type"] as? String else {
-            throw RequestError.deserializationError(reason: "Response does not contain correct answer type")
-        }
-
-        guard let answerType = AnswerType(rawValue: rawAnswerType) else {
+        guard let answerType = dict["answer_type"].flatMap(AnswerType.init(rawAnswerType:)) else {
             throw RequestError.deserializationError(reason: "Response does not contain correct answer type")
         }
 
         return Answer(identifier: identifier, value: value, type: answerType)
     }
+
+}
+
+private extension AnswerType {
+
+    init?(rawAnswerType: Any?) {
+        guard let rawAnswerType = rawAnswerType as? String else { return nil }
+        guard let answerType = AnswerType(rawValue: rawAnswerType) else { return nil }
+
+        self = answerType
+    }
+
 }

@@ -57,10 +57,7 @@ class Router: Routing {
     }
 
     private func makePinEntryProvider() -> ControllerProviding {
-        guard let provider = controllerFactory.makeController(of: .pinEntry) as? PinEntryControllerProviding else {
-            fatalError("Expected built provider to be of class PinEntryControllerProviding")
-        }
-
+        let provider = controllerFactory.makeController(of: .pinEntry)
         controllerConfigurator.configure(controller: provider, with: self)
 
         return provider

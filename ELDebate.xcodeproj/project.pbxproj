@@ -58,6 +58,11 @@
 		8C127C8F1EC4A23D00E9B5FD /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C127C8E1EC4A23D00E9B5FD /* Image.swift */; };
 		8C1917FE1EC3600F00519DC8 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1917FD1EC3600F00519DC8 /* Route.swift */; };
 		8C1918001EC3602A00519DC8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1917FF1EC3602A00519DC8 /* Router.swift */; };
+		8C364DE51EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DE41EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift */; };
+		8C364DE71EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DE61EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift */; };
+		8C364DE91EDC1D82007D4EA6 /* NotificationManagingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */; };
+		8C364DEB1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */; };
+		8C364DED1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */; };
 		8C3E8F0A1ED836E3009DB7ED /* ForceCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F091ED836E3009DB7ED /* ForceCast.swift */; };
 		8C3E8F0D1ED83934009DB7ED /* KeyboardWillShowPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F0C1ED83934009DB7ED /* KeyboardWillShowPayload.swift */; };
 		8C3E8F0F1ED83A2A009DB7ED /* NotificationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F0E1ED83A2A009DB7ED /* NotificationDescriptor.swift */; };
@@ -114,6 +119,7 @@
 		8CDF217E1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF217D1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift */; };
 		8CDF21811ECB11EB002B4FA4 /* HasPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF21801ECB11EB002B4FA4 /* HasPlaceholder.swift */; };
 		8CF071D61ED871A700F73D57 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */; };
+		8CF071D91ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF071D81ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift */; };
 		AB2A8D469E4277C68D64F2AE /* Pods_ELDebateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DCA5AB659775BB4F7FD239 /* Pods_ELDebateTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -205,6 +211,11 @@
 		8C1917FD1EC3600F00519DC8 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8C1917FF1EC3602A00519DC8 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8C1918011EC360F100519DC8 /* RouterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterSpec.swift; sourceTree = "<group>"; };
+		8C364DE41EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Protocol.swift"; sourceTree = "<group>"; };
+		8C364DE61EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowHandler.swift; sourceTree = "<group>"; };
+		8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagingMock.swift; sourceTree = "<group>"; };
+		8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowHandlerSpec.swift; sourceTree = "<group>"; };
+		8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowHandlerMock.swift; sourceTree = "<group>"; };
 		8C3E8F091ED836E3009DB7ED /* ForceCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForceCast.swift; sourceTree = "<group>"; };
 		8C3E8F0C1ED83934009DB7ED /* KeyboardWillShowPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowPayload.swift; sourceTree = "<group>"; };
 		8C3E8F0E1ED83A2A009DB7ED /* NotificationDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDescriptor.swift; sourceTree = "<group>"; };
@@ -266,6 +277,7 @@
 		8CDF217D1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryScreenTests.swift; sourceTree = "<group>"; };
 		8CDF21801ECB11EB002B4FA4 /* HasPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasPlaceholder.swift; sourceTree = "<group>"; };
 		8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		8CF071D81ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowPayloadSpec.swift; sourceTree = "<group>"; };
 		996F3224CAB84F5F195967B0 /* Pods-FeatureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatureTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeatureTests/Pods-FeatureTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F279745FDA64037BEE9E67EC /* Pods-FeatureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatureTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatureTests/Pods-FeatureTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -365,6 +377,7 @@
 				6EADF55D1ECC843A00488057 /* Dictionary+Merging.swift */,
 				8C3E8F091ED836E3009DB7ED /* ForceCast.swift */,
 				6EF0365F1EC9A43D00198F01 /* Keychain+KeychainStoring.swift */,
+				8C364DE41EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift */,
 				8C3E8F101ED83ABF009DB7ED /* NotificationCenter+StrongTyping.swift */,
 				8CD5F6481ECC77720067BFC7 /* Promise+APIResponse.swift */,
 				8C6DA02D1EC58D9200D31E76 /* UIColor+Predefined.swift */,
@@ -388,8 +401,10 @@
 				6E9119B71EC5B6F400B4B14B /* FetchDebateResponseJSONMock.swift */,
 				6EF0365D1EC9916200198F01 /* KeychainMock.swift */,
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
+				8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
+				8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -431,6 +446,7 @@
 				8C0D62FE1EC5C8A400421B89 /* ControllerConfigurator.swift */,
 				8C127C7A1EC4941000E9B5FD /* ControllerFactory.swift */,
 				8C6DA03C1EC59B3800D31E76 /* CurrentYearCalculator.swift */,
+				8C364DE61EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift */,
 				8C6127EE1EC9E71B003472A3 /* LoginActionHandler.swift */,
 				8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */,
 				8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */,
@@ -513,6 +529,7 @@
 				8C6127EB1EC9E516003472A3 /* LoginActionHandlerSpec.swift */,
 				8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */,
 				8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */,
+				8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -563,6 +580,7 @@
 				6EDF43491ECB119F004B92BD /* Models */,
 				8C75049D1ECC4C7A0012B499 /* Navigation */,
 				6EA7E2921EC466EC002DF55E /* Networking */,
+				8CF071D71ED8793A00F73D57 /* Notifications */,
 				8C6127F31EC9F79A003472A3 /* Test Data */,
 				8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */,
 				8C85D8501EC34FC100C5BAE7 /* Info.plist */,
@@ -644,6 +662,14 @@
 				8CDF217D1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		8CF071D71ED8793A00F73D57 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8CF071D81ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		ECA6FADB8E61D4022744061E /* Frameworks */ = {
@@ -1010,6 +1036,7 @@
 				8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */,
 				8C3E8F0D1ED83934009DB7ED /* KeyboardWillShowPayload.swift in Sources */,
 				8C6127EF1EC9E71B003472A3 /* LoginActionHandler.swift in Sources */,
+				8C364DE71EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift in Sources */,
 				6E1EA10C1ECF0F26008C19EF /* AnswerControllerProviding.swift in Sources */,
 				8C63FA091EC3755C0080FFF9 /* MainWindowFactory.swift in Sources */,
 				8C664A171EC48F370017687F /* Deserializer.swift in Sources */,
@@ -1020,6 +1047,7 @@
 				6E39C9911ED3054600E2B096 /* LoadingViewPresenter.swift in Sources */,
 				8C127C8F1EC4A23D00E9B5FD /* Image.swift in Sources */,
 				6EADF55E1ECC843A00488057 /* Dictionary+Merging.swift in Sources */,
+				8C364DE51EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift in Sources */,
 				6EF036591EC98E1F00198F01 /* AuthTokenStorage.swift in Sources */,
 				6EF036651EC9BDAD00198F01 /* ApiResponse.swift in Sources */,
 				6EDF43411ECAF5E5004B92BD /* AnswerViewMock.swift in Sources */,
@@ -1063,16 +1091,20 @@
 				6EADF5591ECC493400488057 /* AlertViewMock.swift in Sources */,
 				8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */,
 				6EDF434C1ECB11B0004B92BD /* VoteContextSpec.swift in Sources */,
+				8C364DE91EDC1D82007D4EA6 /* NotificationManagingMock.swift in Sources */,
+				8C364DEB1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift in Sources */,
 				8C6127F61EC9F7B7003472A3 /* Debate+Default.swift in Sources */,
 				8C6DA0441EC59D8500D31E76 /* CurrentYearCalculatorMock.swift in Sources */,
 				8CD5F6501ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift in Sources */,
 				6EA7E2951EC467B1002DF55E /* ApiClientSpec.swift in Sources */,
 				8C6DA0411EC59B7F00D31E76 /* CurrentYearCalculatorSpec.swift in Sources */,
 				6EF036631EC9B8FA00198F01 /* VoteResponseJSONMock.swift in Sources */,
+				8C364DED1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift in Sources */,
 				8C664A1F1EC490BB0017687F /* AuthTokenDeserializerSpec.swift in Sources */,
 				8C6127F21EC9E904003472A3 /* AuthTokenStorageStub.swift in Sources */,
 				6EADF55C1ECC813A00488057 /* Answer+Default.swift in Sources */,
 				8C6127ED1EC9E520003472A3 /* LoginActionHandlerSpec.swift in Sources */,
+				8CF071D91ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift in Sources */,
 				6EDF434F1ECB186F004B92BD /* VoteContext+Default.swift in Sources */,
 				6EA7E2981EC46906002DF55E /* LoginResponseJSONMock.swift in Sources */,
 				8CD5F64E1ECC86500067BFC7 /* DictionaryMappingSpec.swift in Sources */,

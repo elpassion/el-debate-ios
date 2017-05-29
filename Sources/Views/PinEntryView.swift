@@ -13,12 +13,14 @@ class PinEntryView: UIView {
     private let loginButton = UIButton(type: .custom)
     private let codeField = PinEntryCodeField()
     private let tapGestureRecognizer = UITapGestureRecognizer()
-    private let codeFieldAnimationRatio: CGFloat = 3.4
 
-    var buttonBottomBase: CGFloat!
-    var codeFieldBottomBase: CGFloat!
-    var buttonBottom: NSLayoutConstraint!
-    var codeFieldBottom: NSLayoutConstraint!
+    private let buttonConstraintValue = CGFloat(-15.0)
+    private let codeFieldConstraintValue = CGFloat(-20.0)
+    private let codeFieldAnimationRatio = CGFloat(3.4)
+
+    private var codeFieldBottomConstraint: NSLayoutConstraint?
+    var buttonBottomConstraint: NSLayoutConstraint?
+
     var onLoginButtonTapped: (() -> Void)?
     var onCommentButtonTapped: (() -> Void)?
 
@@ -43,8 +45,8 @@ class PinEntryView: UIView {
     }
 
     func playKeyboardAnimation(height: CGFloat) {
-        buttonBottom.constant = buttonBottomBase - height
-        codeFieldBottom.constant = codeFieldBottomBase - (height / codeFieldAnimationRatio)
+        buttonBottomConstraint?.constant = buttonConstraintValue - height
+        codeFieldBottomConstraint?.constant = codeFieldConstraintValue - (height / codeFieldAnimationRatio)
         layoutIfNeeded()
     }
 
@@ -80,13 +82,11 @@ class PinEntryView: UIView {
         background.heightAnchor == background.widthAnchor * 0.75
 
         loginButton.centerXAnchor == centerXAnchor
-        buttonBottom = loginButton.bottomAnchor == bottomAnchor - 15
-        buttonBottomBase = buttonBottom?.constant
+        buttonBottomConstraint = loginButton.bottomAnchor == bottomAnchor + buttonConstraintValue
         loginButton.widthAnchor == widthAnchor * 0.9
 
         codeField.widthAnchor == loginButton.widthAnchor
-        codeFieldBottom = codeField.bottomAnchor == background.topAnchor - 20
-        codeFieldBottomBase = codeFieldBottom?.constant
+        codeFieldBottomConstraint = codeField.bottomAnchor == background.topAnchor + codeFieldConstraintValue
         codeField.centerXAnchor == centerXAnchor
     }
 

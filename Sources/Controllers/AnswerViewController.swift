@@ -32,7 +32,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
         view = AnswerView()
     }
 
-    private var answerView: AnswerView { return forceCast(view) }
+    var answerView: AnswerView { return forceCast(view) }
 
     override func viewDidLoad() {
         super.viewDidLoad()

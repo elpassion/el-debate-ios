@@ -11,6 +11,7 @@ class RouterMock: Routing {
     var navigator = UINavigationController()
     var lastRoute: Route?
     var lastResetToRoute: Route?
+    var goneBack = false
 
     func go(to route: Route) {
         lastRoute = route
@@ -20,6 +21,8 @@ class RouterMock: Routing {
         lastResetToRoute = route
     }
 
-    func goBack() {}
+    func goBack() {
+        goneBack = true
+    }
 
 }
