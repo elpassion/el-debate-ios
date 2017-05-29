@@ -44,6 +44,24 @@ class AnswerDeserializerSpec: QuickSpec {
 
                     expect { try deserializer.deserialize(json: response) }.to(throwError())
                 }
+
+                it("should throw deserialization error if there is no value") {
+                    let response: [String: Any] = ["id": 5, "answer_type": "positive"]
+
+                    expect { try deserializer.deserialize(json: response) }.to(throwError())
+                }
+
+                it("should throw deserialization error if there is no answer_type") {
+                    let response: [String: Any] = ["id": 10, "value": "The answer"]
+
+                    expect { try deserializer.deserialize(json: response) }.to(throwError())
+                }
+
+                it("should throw deserialization error if answer_type is not supported") {
+                    let response: [String: Any] = ["id": 34, "value": "Answer", "answer_type": "unknown"]
+
+                    expect { try deserializer.deserialize(json: response) }.to(throwError())
+                }
             }
         }
     }
