@@ -2,7 +2,6 @@
 //  Created by Jakub Turek on 10.05.2017.
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
-// swiftlint:disable function_body_length
 
 @testable import ELDebate
 import Nimble
@@ -11,6 +10,7 @@ import Quick
 
 class ApiClientSpec: QuickSpec {
 
+    // swiftlint:disable function_body_length
     override func spec() {
         describe("ApiClient") {
             var apiClient: ApiClient!

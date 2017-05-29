@@ -18,28 +18,38 @@ protocol AuthTokenStoring {
 
 class AuthTokenStorage: AuthTokenStoring {
 
-    let keychain: KeychainStoring
-    let kAuthToken = "kAuthToken"
+    private let keychain: KeychainStoring
+
+    // MARK: - Initialization
 
     init(keychain: KeychainStoring) {
         self.keychain = keychain
     }
+
+    // MARK: - Public API
 
     func save(token authToken: String, forPinCode pinCode: String) throws {
         try keychain.set(authToken, key: key(forPinCode: pinCode))
     }
 
     func getToken(forPinCode pinCode: String) -> String? {
-        guard let token = try? keychain.get(key(forPinCode: pinCode)) else { return nil }
-        return token
-    }
+        guard let token = try? keychain.get(key(forPinCode: pinCode)) else {
+            return nil
+        }
 
-    private func key(forPinCode pinCode: String) -> String {
-        return "\(kAuthToken):\(pinCode)"
+        return token
     }
 
     func hasToken(forPinCode pinCode: String) -> Bool {
         return getToken(forPinCode: pinCode) != nil
+    }
+
+    // MARK: - Utility
+
+    private let keychainEntryPrefix: String = "kAuthToken"
+
+    private func key(forPinCode pinCode: String) -> String {
+        return "\(keychainEntryPrefix):\(pinCode)"
     }
 
 }

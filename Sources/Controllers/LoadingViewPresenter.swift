@@ -25,9 +25,13 @@ class LoadingViewPresenter: LoadingViewShowing {
         return controller
     }()
 
+    // MARK: - Initialization
+
     init() {
         setupView()
     }
+
+    // MARK: - Public API
 
     func show(in target: UIViewController) {
         target.present(controller, animated: true, completion: nil)
@@ -36,6 +40,8 @@ class LoadingViewPresenter: LoadingViewShowing {
     func hide() {
         controller.dismiss(animated: true, completion: nil)
     }
+
+    // MARK: - Utility
 
     private func setupView() {
         controller.view.backgroundColor = .clear
@@ -51,4 +57,5 @@ class LoadingViewPresenter: LoadingViewShowing {
         spinner.centerAnchors == cover.centerAnchors
         spinner.startAnimating()
     }
+
 }

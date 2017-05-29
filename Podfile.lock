@@ -3,7 +3,7 @@ PODS:
   - Anchorage (4.0.0)
   - Crashlytics (3.8.4):
     - Fabric (~> 1.6.3)
-  - EarlGrey (1.9.2)
+  - EarlGrey (1.9.3)
   - EarlGreySnapshots (0.0.2):
     - EarlGrey (~> 1.9)
     - FBSnapshotTestCase (~> 2.1)
@@ -33,8 +33,8 @@ PODS:
   - PromiseKit/UIKit (4.2.2):
     - PromiseKit/CorePromise
   - Quick (1.1.0)
-  - Sourcery (0.6.0)
-  - SwiftLint (0.18.1)
+  - Sourcery (0.6.1)
+  - SwiftLint (0.19.0)
   - Swinject (2.0.0)
   - SwinjectAutoregistration (2.0.1):
     - Swinject (~> 2.0.0)
@@ -63,7 +63,7 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Anchorage: fe50dca4e20846b8cb15c859d26fec5132b41577
   Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
-  EarlGrey: b78a93bd5fddba9a79a8e5ec5ae8a7718453ca40
+  EarlGrey: d6238c7f1eccf211b23e1589d99c909330ac1cd4
   EarlGreySnapshots: ce423ad576f1bae4315cd9ca313175d5d99be065
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
@@ -72,8 +72,8 @@ SPEC CHECKSUMS:
   Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
   PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
-  Sourcery: b3a93fcdf9c256feeb16e85f4d1bbf46baa42464
-  SwiftLint: b467d08f5b25dc3b3cfed243d8e1b74b91714c67
+  Sourcery: 1426fbb5fe2d53f1e03845e989a89b6b67ce4e33
+  SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d

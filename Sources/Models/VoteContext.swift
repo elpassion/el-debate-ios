@@ -14,6 +14,7 @@ struct VoteContext {
 }
 
 extension VoteContext {
+
     func answer(for answerType: AnswerType) -> Answer {
         switch answerType {
         case .positive:
@@ -24,4 +25,5 @@ extension VoteContext {
             return debate.negativeAnswer
         }
     }
+
 }

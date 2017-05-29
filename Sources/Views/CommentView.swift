@@ -11,17 +11,21 @@ import UIKit
 
 class CommentView: UIView {
 
-    private let submitButton = UIButton(type: .custom)
-    private let contentTextField = UITextView(frame: .zero)
-    private let viewTapGestureRecognizer = UITapGestureRecognizer()
+    private let submitButton: UIButton = UIButton(type: .custom)
+    private let contentTextField: UITextView = UITextView(frame: .zero)
+    private let viewTapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
     var buttonBottom: NSLayoutConstraint?
 
     var onSubmitButtonTapped: (() -> Void)?
 
     var commentText: String {
-        get { return contentTextField.text }
-        set { contentTextField.text = newValue }
+        get {
+            return contentTextField.text
+        }
+        set {
+            contentTextField.text = newValue
+        }
     }
 
     init() {
@@ -41,7 +45,6 @@ class CommentView: UIView {
         submitButton.setTitle("Comment", for: .normal)
         submitButton.setTitleColor(.white, for: .normal)
         submitButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 5.0, right: 0.0)
-
     }
 
     private func addSubviews() {
@@ -71,14 +74,20 @@ class CommentView: UIView {
         layoutIfNeeded()
     }
 
-    @objc private func hideKeyboard() {
+    @objc
+    private func hideKeyboard() {
         endEditing(true)
     }
 
-    @objc private func didTapSubmitButton() {
+    @objc
+    private func didTapSubmitButton() {
         onSubmitButtonTapped?()
     }
 
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    // MARK: - Required initializer
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }

@@ -14,16 +14,19 @@ class CurrentYearCalculatorSpec: QuickSpec {
             var yearCalculator: CurrentYearCalculator!
 
             beforeEach {
-                yearCalculator = CurrentYearCalculator(currentDateProvider: { Date(timeIntervalSince1970: 631843200) })
+                yearCalculator = CurrentYearCalculator(currentDateProvider: {
+                    Date(timeIntervalSince1970: 631_843_200)
+                })
             }
 
             describe("year") {
                 it("should provide correct value") {
                     let year = yearCalculator.year
 
-                    expect(year).to(equal("1990"))
+                    expect(year) == "1990"
                 }
             }
         }
     }
+
 }

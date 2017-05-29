@@ -25,7 +25,7 @@ class AuthTokenStorageSpec: QuickSpec {
                     it("saves the value") {
                         do {
                             try sut.save(token: "token_value", forPinCode: "12345")
-                            expect(sut.getToken(forPinCode: "12345")).to(equal("token_value"))
+                            expect(sut.getToken(forPinCode: "12345")) == "token_value"
                         } catch {
                             fatalError("Error saving token")
                         }
@@ -64,7 +64,7 @@ class AuthTokenStorageSpec: QuickSpec {
                     }
 
                     it("returns the authToken for the matching pin code") {
-                        expect(sut.getToken(forPinCode: "12345")).to(equal("token_value"))
+                        expect(sut.getToken(forPinCode: "12345")) == "token_value"
                     }
 
                     it("does not return authToken for different pin code") {
@@ -74,4 +74,5 @@ class AuthTokenStorageSpec: QuickSpec {
             }
         }
     }
+
 }

@@ -10,11 +10,16 @@ import PromiseKit
 import UIKit
 
 protocol AlertShowing {
-    @discardableResult func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool>
+
+    @discardableResult
+    func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool>
+
 }
 
 class AlertPresenter: AlertShowing {
-    @discardableResult func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool> {
+
+    @discardableResult
+    func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool> {
         return Promise { fulfill, _ in
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default) { _ in fulfill(true) }
@@ -22,6 +27,7 @@ class AlertPresenter: AlertShowing {
             controller.present(alert, animated: true)
         }
     }
+
 }
 
 protocol AlertPresentingController {
@@ -33,7 +39,9 @@ protocol AlertPresentingController {
 
 @discardableResult
 func presentAlert(in alertPresenting: AlertPresentingController?, title: String?, message: String?) -> Promise<Bool> {
-    guard let alertPresenting = alertPresenting else { return Promise(error: RequestError.deallocatedClientError) }
+    guard let alertPresenting = alertPresenting else {
+        return Promise(error: RequestError.deallocatedClientError)
+    }
 
     return alertPresenting.alertPresenter.show(in: alertPresenting.controller,
                                                title: title ?? "",

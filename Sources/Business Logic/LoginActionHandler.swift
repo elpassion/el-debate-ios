@@ -23,7 +23,9 @@ class LoginActionHandler: LoginActionHandling {
 
     func login(withPinCode pinCode: String) -> Promise<VoteContext> {
         return fetchAuthToken(forPinCode: pinCode).then { [weak self] authToken -> Promise<(String, Debate)> in
-            guard let `self` = self else { return Promise(error: RequestError.deallocatedClientError) }
+            guard let `self` = self else {
+                return Promise(error: RequestError.deallocatedClientError)
+            }
 
             return when(fulfilled: Promise(value: authToken), self.apiClient.fetchDebate(authToken: authToken))
         }.then { (authToken, debate) in

@@ -46,7 +46,7 @@ class CommentViewControllerSpec: QuickSpec {
 
         describe("after view is loaded") {
             it("should set title") {
-                expect(controller.title).to(equal("Comment"))
+                expect(controller.title) == "Comment"
             }
 
             it("should have a correct comment view loaded") {
@@ -103,7 +103,7 @@ class CommentViewControllerSpec: QuickSpec {
             it("should play the animation with keyboard height") {
                 keyboardHandler.onKeyboardHeightChanged?(242.0)
 
-                expect(controller.commentView.buttonBottom?.constant).to(equal(CGFloat(-242.0)))
+                expect(controller.commentView.buttonBottom?.constant) == CGFloat(-242.0)
             }
         }
     }

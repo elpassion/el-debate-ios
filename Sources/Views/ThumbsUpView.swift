@@ -8,7 +8,7 @@ import UIKit
 
 class ThumbsUpView: UIView {
 
-    private let thumbsUpIcon = Views.image(image: .thumbsUp, contentMode: .scaleAspectFit)
+    private let thumbsUpIcon: UIImageView = Views.image(image: .thumbsUp, contentMode: .scaleAspectFit)
     private let highlightColor: UIColor
     private let defaultColor: UIColor
 
@@ -60,6 +60,8 @@ class ThumbsUpView: UIView {
 
     // MARK: - Required initializer
 
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }

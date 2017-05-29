@@ -3,4 +3,4 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
-protocol AutoMockable { }
+protocol AutoMockable {}

@@ -4,6 +4,7 @@
 //
 
 class AuthTokenDeserializer: Deserializing {
+
     func deserialize(json: Any?) throws -> String {
         guard let dict = json as? [String: Any] else {
             throw RequestError.deserializationError(reason: "Response is not a dictionary")
@@ -15,4 +16,5 @@ class AuthTokenDeserializer: Deserializing {
 
         return authToken
     }
+
 }

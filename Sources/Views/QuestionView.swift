@@ -8,9 +8,11 @@ import UIKit
 
 class QuestionView: UIView {
 
-    private let stack = Views.stack(axis: .vertical, distribution: .equalSpacing, alignment: .fill, spacing: 10.0)
-    private let title = Views.label(size: 13.0, color: UIColor(predefined: .pin), alignment: .left, numberOfLines: 0)
-    private let questionFrame = QuestionFrameView()
+    private let stack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
+                                                 alignment: .fill, spacing: 10.0)
+    private let title: UILabel = Views.label(size: 13.0, color: UIColor(predefined: .pin),
+                                             alignment: .left, numberOfLines: 0)
+    private let questionFrame: QuestionFrameView = QuestionFrameView()
 
     init() {
         super.init(frame: .zero)
@@ -47,6 +49,8 @@ class QuestionView: UIView {
 
     // MARK: - Required initializer
 
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }
