@@ -20,7 +20,8 @@ class CommentView: UIView {
     var onSubmitButtonTapped: (() -> Void)?
 
     var commentText: String {
-        return contentTextField.text
+        get { return contentTextField.text }
+        set { contentTextField.text = newValue }
     }
 
     init() {

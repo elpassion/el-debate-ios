@@ -45,7 +45,7 @@ class CommentViewController: UIViewController, CommentControllerProviding, Alert
         setupKeyboardNotifications()
     }
 
-    func onSubmitButtonTapped() {
+    private func onSubmitButtonTapped() {
         loadingView.show(in: self)
 
         apiClient.comment(authToken: authToken, text: commentView.commentText)

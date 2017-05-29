@@ -2,7 +2,6 @@
 //  Created by Jakub Turek on 12.05.2017.
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
-// swiftlint:disable function_body_length
 
 @testable import ELDebate
 import Nimble
@@ -12,6 +11,7 @@ import Quick
 
 class PinEntryViewControllerSpec: QuickSpec {
 
+    // swiftlint:disable function_body_length
     override func spec() {
         describe("PinEntryViewController") {
             var loginActionHandlingMock: LoginActionHandlingMock!

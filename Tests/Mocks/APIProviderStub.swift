@@ -13,6 +13,8 @@ class APIProviderStub: APIProviding {
     var debateAuthToken: String?
     var votingAuthToken: String?
     var votingAnswer: Answer?
+    var commentAuthToken: String?
+    var commentText: String?
 
     var commentReturnValue: Promise<Bool>?
 
@@ -35,6 +37,9 @@ class APIProviderStub: APIProviding {
     }
     
     func comment(authToken: String, text: String) -> Promise<Bool> {
+        commentAuthToken = authToken
+        commentText = text
+
         if let commentValue = commentReturnValue {
             return commentValue
         } else {
