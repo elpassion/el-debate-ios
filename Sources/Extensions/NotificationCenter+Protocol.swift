@@ -15,4 +15,4 @@ protocol NotificationManaging {
 
 }
 
-extension NotificationCenter: NotificationManaging { }
+extension NotificationCenter: NotificationManaging {}

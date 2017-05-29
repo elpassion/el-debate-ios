@@ -6,6 +6,7 @@
 import Foundation
 
 extension Dictionary {
+
     func merge(_ otherDictionary: [Key: Value]) -> [Key: Value] {
         var result: [Key: Value] = [:]
 
@@ -19,4 +20,5 @@ extension Dictionary {
 
         return result
     }
+
 }

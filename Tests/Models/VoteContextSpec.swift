@@ -11,6 +11,7 @@ import Nimble
 import Quick
 
 class VoteContextSpec: QuickSpec {
+
     override func spec() {
         describe("VoteContext") {
             describe("answer") {
@@ -28,4 +29,5 @@ class VoteContextSpec: QuickSpec {
             }
         }
     }
+
 }

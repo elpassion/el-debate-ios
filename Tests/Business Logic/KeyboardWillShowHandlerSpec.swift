@@ -76,6 +76,7 @@ class KeyboardWillShowHandlerSpec: QuickSpec {
             }
         }
     }
+
 }
 
 private func keyboardUserInfo(height: CGFloat) -> [AnyHashable: Any] {

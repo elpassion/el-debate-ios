@@ -36,8 +36,12 @@ class PinEntryView: UIView {
     // MARK: - Public API
 
     var pinCode: String {
-        get { return codeField.pinCode }
-        set { codeField.pinCode = newValue }
+        get {
+            return codeField.pinCode
+        }
+        set {
+            codeField.pinCode = newValue
+        }
     }
 
     func setLoginButton(isEnabled: Bool) {
@@ -111,6 +115,8 @@ class PinEntryView: UIView {
 
     // MARK: - Required initializer
 
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }

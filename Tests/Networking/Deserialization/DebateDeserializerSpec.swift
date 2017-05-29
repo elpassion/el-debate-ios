@@ -103,6 +103,7 @@ class DebateDeserializerSpec: QuickSpec {
             }
         }
     }
+
 }
 
 private func errorMessage(deserializer: DebateDeserializer, json: Any?) -> String? {

@@ -32,4 +32,5 @@ class DictionaryMappingSpec: QuickSpec {
             }
         }
     }
+
 }

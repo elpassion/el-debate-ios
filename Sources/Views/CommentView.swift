@@ -20,8 +20,12 @@ class CommentView: UIView {
     var onSubmitButtonTapped: (() -> Void)?
 
     var commentText: String {
-        get { return contentTextField.text }
-        set { contentTextField.text = newValue }
+        get {
+            return contentTextField.text
+        }
+        set {
+            contentTextField.text = newValue
+        }
     }
 
     init() {
@@ -79,6 +83,10 @@ class CommentView: UIView {
         onSubmitButtonTapped?()
     }
 
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    // MARK: - Required initializer
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }

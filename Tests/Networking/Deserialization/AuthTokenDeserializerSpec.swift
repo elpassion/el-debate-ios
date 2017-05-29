@@ -37,4 +37,5 @@ class AuthTokenDeserializerSpec: QuickSpec {
             }
         }
     }
+
 }

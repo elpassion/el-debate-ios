@@ -40,4 +40,5 @@ class MainWindowFactorySpec: QuickSpec {
             }
         }
     }
+
 }

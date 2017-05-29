@@ -13,13 +13,14 @@ protocol Deserializing {
 
 class Deserializer<Result>: Deserializing {
 
-    private let _deserialize: ((Any?) throws -> Result)
+    private let deserializeClosure: ((Any?) throws -> Result)
 
     required init<D: Deserializing>(_ deserializer: D) where D.Result == Result {
-        _deserialize = deserializer.deserialize
+        deserializeClosure = deserializer.deserialize
     }
 
     func deserialize(json: Any?) throws -> Result {
-        return try _deserialize(json)
+        return try deserializeClosure(json)
     }
+
 }

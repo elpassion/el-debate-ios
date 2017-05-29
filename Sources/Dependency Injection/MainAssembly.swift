@@ -32,4 +32,5 @@ class MainAssembly: Assembly {
             return AuthTokenStorage(keychain: keychain)
         }
     }
+
 }

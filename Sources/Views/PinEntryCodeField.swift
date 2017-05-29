@@ -26,8 +26,12 @@ class PinEntryCodeField: UIView {
     // MARK: - Public API
 
     var pinCode: String {
-        get { return codeInput.text ?? "" }
-        set { codeInput.text = newValue }
+        get {
+            return codeInput.text ?? ""
+        }
+        set {
+            codeInput.text = newValue
+        }
     }
 
     // MARK: - Subviews
@@ -68,6 +72,8 @@ class PinEntryCodeField: UIView {
 
     // MARK: - Required initializer
 
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }

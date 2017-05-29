@@ -26,4 +26,5 @@ class CurrentYearCalculatorSpec: QuickSpec {
             }
         }
     }
+
 }

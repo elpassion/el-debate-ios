@@ -14,4 +14,4 @@ protocol KeychainStoring {
     func remove(_ key: String) throws
 }
 
-extension Keychain : KeychainStoring {}
+extension Keychain: KeychainStoring {}
