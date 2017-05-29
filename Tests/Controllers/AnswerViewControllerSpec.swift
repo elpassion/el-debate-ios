@@ -6,25 +6,29 @@
 @testable import ELDebate
 import Nimble
 import Nimble_Snapshots
+import PromiseKit
 import Quick
 
 class AnswerViewControllerSpec: QuickSpec {
 
+    // swiftlint:disable function_body_length
     override func spec() {
         describe("AnswerViewController") {
             var yearCalculator: CurrentYearCalculatorMock!
             var controller: AnswerViewController!
             var apliClient: APIProviderStub!
+            var alertView: AlertViewMock!
 
             beforeEach {
                 yearCalculator = CurrentYearCalculatorMock()
                 yearCalculator.year = "2012"
                 apliClient = APIProviderStub()
+                alertView = AlertViewMock()
                 controller = AnswerViewController(
                     yearCalculator: yearCalculator,
                     voteContext: VoteContext.testDefault,
                     apiClient: apliClient,
-                    alertView: AlertViewMock()
+                    alertView: alertView
                 )
             }
 
@@ -64,6 +68,19 @@ class AnswerViewControllerSpec: QuickSpec {
 
                     expect(apliClient.votingAnswer?.identifier).toEventually(equal(2))
                     expect(apliClient.votingAuthToken).toEventually(equal("whatever"))
+                }
+            }
+
+            describe("vote") {
+                context("when failed") {
+                    it("should show an alert message") {
+                        apliClient.voteResult = Promise(error: RequestError.apiError(statusCode: 404))
+
+                        controller.answerView.onAnswerSelected?(.negative)
+
+                        expect(alertView.title).toEventually(equal("Error"))
+                        expect(alertView.message).toEventually(equal("There was a problem submitting your vote"))
+                    }
                 }
             }
         }
