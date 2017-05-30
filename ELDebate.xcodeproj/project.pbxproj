@@ -411,12 +411,12 @@
 				8C127C821EC49B2900E9B5FD /* ControllerFactoryMock.swift */,
 				8C6DA0421EC59D7F00D31E76 /* CurrentYearCalculatorMock.swift */,
 				6E9119B71EC5B6F400B4B14B /* FetchDebateResponseJSONMock.swift */,
+				8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */,
 				6EF0365D1EC9916200198F01 /* KeychainMock.swift */,
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
 				8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
-				8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -433,20 +433,22 @@
 		8C35DDAC1EDD774A00A26DD2 /* Test Data */ = {
 			isa = PBXGroup;
 			children = (
+				8C35DDBA1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift */,
 				8C35DDAE1EDD7D8600A26DD2 /* KeychainFixtures.swift */,
 				8C35DDB81EDD9FE800A26DD2 /* RouterFixtures.swift */,
-				8C35DDBA1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift */,
 			);
 			name = "Test Data";
+			path = "Test Data";
 			sourceTree = "<group>";
 		};
 		8C35DDB31EDD9F4900A26DD2 /* Test Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				8C35DDB41EDD9F5900A26DD2 /* TestAssembly.swift */,
 				8C35DDB61EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift */,
+				8C35DDB41EDD9F5900A26DD2 /* TestAssembly.swift */,
 			);
 			name = "Test Assembly";
+			path = "Test Assembly";
 			sourceTree = "<group>";
 		};
 		8C3E8F0B1ED83909009DB7ED /* Notifications */ = {
@@ -557,10 +559,10 @@
 				6EF0365A1EC98EF400198F01 /* AuthTokenStorageSpec.swift */,
 				8C0D63001EC5DACE00421B89 /* ControllerConfiguratorSpec.swift */,
 				8C6DA03F1EC59B7100D31E76 /* CurrentYearCalculatorSpec.swift */,
+				8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */,
 				8C6127EB1EC9E516003472A3 /* LoginActionHandlerSpec.swift */,
 				8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */,
 				8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */,
-				8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -670,10 +672,10 @@
 		8CDF21741ECAFB91002B4FA4 /* FeatureTests */ = {
 			isa = PBXGroup;
 			children = (
-				8C35DDB31EDD9F4900A26DD2 /* Test Assembly */,
-				8C35DDAC1EDD774A00A26DD2 /* Test Data */,
 				8CDF21821ECB13DC002B4FA4 /* Features */,
 				8CDF217F1ECB11DF002B4FA4 /* Matchers */,
+				8C35DDB31EDD9F4900A26DD2 /* Test Assembly */,
+				8C35DDAC1EDD774A00A26DD2 /* Test Data */,
 				5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */,
 				8CDF21771ECAFB91002B4FA4 /* Info.plist */,
 			);
@@ -683,8 +685,8 @@
 		8CDF217F1ECB11DF002B4FA4 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
-				8CDF21801ECB11EB002B4FA4 /* HasPlaceholder.swift */,
 				8C35DDB11EDD9C2500A26DD2 /* HasAppeared.swift */,
+				8CDF21801ECB11EB002B4FA4 /* HasPlaceholder.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
