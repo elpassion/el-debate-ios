@@ -57,9 +57,12 @@
 		8C1917FE1EC3600F00519DC8 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1917FD1EC3600F00519DC8 /* Route.swift */; };
 		8C1918001EC3602A00519DC8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1917FF1EC3602A00519DC8 /* Router.swift */; };
 		8C35DDA81EDD68F600A26DD2 /* KeychainMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF0365D1EC9916200198F01 /* KeychainMock.swift */; };
-		8C35DDAD1EDD775300A26DD2 /* NetworkingFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDA91EDD752100A26DD2 /* NetworkingFixtures.swift */; };
 		8C35DDAF1EDD7D8600A26DD2 /* KeychainFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDAE1EDD7D8600A26DD2 /* KeychainFixtures.swift */; };
 		8C35DDB21EDD9C2500A26DD2 /* HasAppeared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDB11EDD9C2500A26DD2 /* HasAppeared.swift */; };
+		8C35DDB51EDD9F5900A26DD2 /* TestAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDB41EDD9F5900A26DD2 /* TestAssembly.swift */; };
+		8C35DDB71EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDB61EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift */; };
+		8C35DDB91EDD9FE800A26DD2 /* RouterFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDB81EDD9FE800A26DD2 /* RouterFixtures.swift */; };
+		8C35DDBB1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDBA1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift */; };
 		8C364DE51EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DE41EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift */; };
 		8C364DE71EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DE61EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift */; };
 		8C364DE91EDC1D82007D4EA6 /* NotificationManagingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */; };
@@ -213,9 +216,12 @@
 		8C1917FD1EC3600F00519DC8 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8C1917FF1EC3602A00519DC8 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8C1918011EC360F100519DC8 /* RouterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterSpec.swift; sourceTree = "<group>"; };
-		8C35DDA91EDD752100A26DD2 /* NetworkingFixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkingFixtures.swift; path = "../Tests/Test Data/NetworkingFixtures.swift"; sourceTree = "<group>"; };
 		8C35DDAE1EDD7D8600A26DD2 /* KeychainFixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainFixtures.swift; sourceTree = "<group>"; };
 		8C35DDB11EDD9C2500A26DD2 /* HasAppeared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasAppeared.swift; sourceTree = "<group>"; };
+		8C35DDB41EDD9F5900A26DD2 /* TestAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAssembly.swift; sourceTree = "<group>"; };
+		8C35DDB61EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assembler+TestAssembly.swift"; sourceTree = "<group>"; };
+		8C35DDB81EDD9FE800A26DD2 /* RouterFixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFixtures.swift; sourceTree = "<group>"; };
+		8C35DDBA1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureTestsAPIClient.swift; sourceTree = "<group>"; };
 		8C364DE41EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Protocol.swift"; sourceTree = "<group>"; };
 		8C364DE61EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowHandler.swift; sourceTree = "<group>"; };
 		8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagingMock.swift; sourceTree = "<group>"; };
@@ -428,9 +434,19 @@
 			isa = PBXGroup;
 			children = (
 				8C35DDAE1EDD7D8600A26DD2 /* KeychainFixtures.swift */,
-				8C35DDA91EDD752100A26DD2 /* NetworkingFixtures.swift */,
+				8C35DDB81EDD9FE800A26DD2 /* RouterFixtures.swift */,
+				8C35DDBA1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift */,
 			);
 			name = "Test Data";
+			sourceTree = "<group>";
+		};
+		8C35DDB31EDD9F4900A26DD2 /* Test Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				8C35DDB41EDD9F5900A26DD2 /* TestAssembly.swift */,
+				8C35DDB61EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift */,
+			);
+			name = "Test Assembly";
 			sourceTree = "<group>";
 		};
 		8C3E8F0B1ED83909009DB7ED /* Notifications */ = {
@@ -654,6 +670,7 @@
 		8CDF21741ECAFB91002B4FA4 /* FeatureTests */ = {
 			isa = PBXGroup;
 			children = (
+				8C35DDB31EDD9F4900A26DD2 /* Test Assembly */,
 				8C35DDAC1EDD774A00A26DD2 /* Test Data */,
 				8CDF21821ECB13DC002B4FA4 /* Features */,
 				8CDF217F1ECB11DF002B4FA4 /* Matchers */,
@@ -1148,9 +1165,12 @@
 				8CDF217E1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift in Sources */,
 				8C35DDB21EDD9C2500A26DD2 /* HasAppeared.swift in Sources */,
 				8C6EC6451ECC422F009E0FBC /* AnswerScreenTests.swift in Sources */,
-				8C35DDAD1EDD775300A26DD2 /* NetworkingFixtures.swift in Sources */,
 				8C35DDAF1EDD7D8600A26DD2 /* KeychainFixtures.swift in Sources */,
+				8C35DDB51EDD9F5900A26DD2 /* TestAssembly.swift in Sources */,
 				8CDF21811ECB11EB002B4FA4 /* HasPlaceholder.swift in Sources */,
+				8C35DDBB1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift in Sources */,
+				8C35DDB71EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift in Sources */,
+				8C35DDB91EDD9FE800A26DD2 /* RouterFixtures.swift in Sources */,
 				857114A6CA12F10D014D97B7 /* EarlGrey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

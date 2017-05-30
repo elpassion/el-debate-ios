@@ -14,13 +14,6 @@ PODS:
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - KeychainAccess (3.0.2)
-  - Mockingjay (2.0.0):
-    - Mockingjay/Core (= 2.0.0)
-    - Mockingjay/XCTest (= 2.0.0)
-  - Mockingjay/Core (2.0.0):
-    - URITemplate (~> 2.0)
-  - Mockingjay/XCTest (2.0.0):
-    - Mockingjay/Core
   - Nimble (6.1.0)
   - Nimble-Snapshots (4.4.0):
     - Nimble-Snapshots/Core (= 4.4.0)
@@ -46,7 +39,6 @@ PODS:
   - SwinjectAutoregistration (2.0.1):
     - Swinject (~> 2.0.0)
   - UIColor_Hex_Swift (3.0.2)
-  - URITemplate (2.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
@@ -57,7 +49,6 @@ DEPENDENCIES:
   - Fabric (~> 1.6)
   - FBSnapshotTestCase (~> 2.1)
   - KeychainAccess (~> 3.0)
-  - Mockingjay (~> 2.0)
   - Nimble (~> 6.1)
   - Nimble-Snapshots
   - PromiseKit (~> 4.0)
@@ -77,7 +68,6 @@ SPEC CHECKSUMS:
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
-  Mockingjay: 7122a3fc0597aa63438e4cd9b71b7bc8aac05b87
   Nimble: c53e6903fee94041b90ded74f135820437d8bf59
   Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
   PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
@@ -87,8 +77,7 @@ SPEC CHECKSUMS:
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
-  URITemplate: 720b8a56a281494d7c2d31ee33183986eaed2c67
 
-PODFILE CHECKSUM: 15590cfb5e83d204eaa6b54276e44ba1e32dac92
+PODFILE CHECKSUM: 1f654e523635af41658c849868e30c46203c5dbf
 
 COCOAPODS: 1.2.1

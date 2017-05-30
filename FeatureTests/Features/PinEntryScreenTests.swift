@@ -13,14 +13,9 @@ class PinEntryScreenTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        guard let applicationDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError("Expected to manage AppDelegate")
-        }
-
         GREYTestHelper.enableFastAnimation()
-        NetworkingFixtures.enable(for: self)
         KeychainFixtures.enable()
-        applicationDelegate.reset()
+        RouterFixtures.enable()
     }
 
     func testPinEntryScreenShouldDisplayPinInput() {

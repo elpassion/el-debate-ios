@@ -31,7 +31,6 @@ target 'ELDebate' do
     pod 'EarlGrey', '~> 1.9'
     pod 'EarlGreySnapshots', '~> 0.0.1'
     pod 'FBSnapshotTestCase', '~> 2.1'
-    pod 'Mockingjay', '~> 2.0'
   end
 
 end
