@@ -12,6 +12,7 @@ import Quick
 
 class AuthTokenStorageSpec: QuickSpec {
 
+    // swiftlint:disable function_body_length
     override func spec() {
         var sut: AuthTokenStorage!
 
@@ -69,6 +70,24 @@ class AuthTokenStorageSpec: QuickSpec {
 
                     it("does not return authToken for different pin code") {
                         expect(sut.getToken(forPinCode: "67890")).to(beNil())
+                    }
+                }
+            }
+
+            describe("resetToken") {
+                context("the authToken value is there") {
+                    beforeEach {
+                        do {
+                            try sut.save(token: "token_value", forPinCode: "12345")
+                        } catch {
+                            fatalError("Error saving token")
+                        }
+                    }
+
+                    it("should remove token") {
+                        sut.resetToken(forPinCode: "12345")
+
+                        expect(sut.getToken(forPinCode: "12345")).to(beNil())
                     }
                 }
             }

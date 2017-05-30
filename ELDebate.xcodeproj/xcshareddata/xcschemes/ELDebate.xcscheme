@@ -40,16 +40,6 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8CDF21641ECAF5F6002B4FA4"
-               BuildableName = "ELDebateFeatureTests.xctest"
-               BlueprintName = "ELDebateFeatureTests"
-               ReferencedContainer = "container:ELDebate.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
             skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"

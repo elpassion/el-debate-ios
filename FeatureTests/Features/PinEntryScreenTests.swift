@@ -18,6 +18,8 @@ class PinEntryScreenTests: XCTestCase {
         }
 
         GREYTestHelper.enableFastAnimation()
+        NetworkingFixtures.enable(for: self)
+        KeychainFixtures.enable()
         applicationDelegate.reset()
     }
 
@@ -33,11 +35,10 @@ class PinEntryScreenTests: XCTestCase {
 
     func testLoginWorks() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
-            .perform(grey_typeText("13160"))
+            .perform(grey_typeText(KeychainFixtures.testPinCode))
 
         EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
             .perform(grey_tap())
-            .assert(grey_sufficientlyVisible())
 
         EarlGrey.select(elementWithMatcher: grey_text("Our debate is about:"))
             .assert(grey_sufficientlyVisible())

@@ -15,6 +15,8 @@ class AuthTokenStorageStub: AuthTokenStoring {
     var lastSavedPin: String?
     var lastSavedToken: String?
 
+    var lastResetPin: String?
+
     func hasToken(forPinCode pinCode: String) -> Bool {
         return hasTokenReturnValue
     }
@@ -28,6 +30,10 @@ class AuthTokenStorageStub: AuthTokenStoring {
     func save(token authToken: String, forPinCode pinCode: String) throws {
         lastSavedPin = pinCode
         lastSavedToken = authToken
+    }
+
+    func resetToken(forPinCode pinCode: String) {
+        lastResetPin = pinCode
     }
 
 }
@@ -44,6 +50,10 @@ class ThrowingAuthTokenStorageStub: AuthTokenStoring {
 
     func save(token authToken: String, forPinCode pinCode: String) throws {
         throw RequestError.apiError(statusCode: 555)
+    }
+
+    func resetToken(forPinCode pinCode: String) {
+
     }
 
 }

@@ -18,6 +18,8 @@ class AnswerScreenTests: XCTestCase {
         }
 
         GREYTestHelper.enableFastAnimation()
+        NetworkingFixtures.enable(for: self)
+        KeychainFixtures.enable()
         applicationDelegate.reset()
         navigateToAnswerScreen()
     }
@@ -68,17 +70,16 @@ class AnswerScreenTests: XCTestCase {
 
     private func navigateToAnswerScreen() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
-            .perform(grey_typeText("13160"))
+            .perform(grey_typeText(KeychainFixtures.testPinCode))
 
         EarlGrey.select(elementWithMatcher: grey_text("Welcome to"))
             .perform(grey_tap())
 
         EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
             .perform(grey_tap())
-            .assert(grey_sufficientlyVisible())
+            .assert(grey_not(grey_enabled()))
 
-        EarlGrey.select(elementWithMatcher: grey_text("Our debate is about:"))
-            .assert(grey_sufficientlyVisible())
+        grey_waitUntilVisible(grey_text("Our debate is about:"))
     }
     
 }
