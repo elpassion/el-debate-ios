@@ -13,6 +13,7 @@ protocol AuthTokenStoring {
     func save(token authToken: String, forPinCode pinCode: String) throws
     func getToken(forPinCode pinCode: String) -> String?
     func hasToken(forPinCode pinCode: String) -> Bool
+    func resetToken(forPinCode pinCode: String)
 
 }
 
@@ -42,6 +43,10 @@ class AuthTokenStorage: AuthTokenStoring {
 
     func hasToken(forPinCode pinCode: String) -> Bool {
         return getToken(forPinCode: pinCode) != nil
+    }
+
+    func resetToken(forPinCode pinCode: String) {
+        try? keychain.remove(key(forPinCode: pinCode))
     }
 
     // MARK: - Utility

@@ -24,13 +24,15 @@ target 'ELDebate' do
     pod 'Quick', '~> 1.1'
   end
 
+  target 'FeatureTests' do
+    use_frameworks!
+    inherit! :search_paths
+
+    pod 'EarlGrey', '~> 1.9'
+    pod 'EarlGreySnapshots', '~> 0.0.1'
+    pod 'FBSnapshotTestCase', '~> 2.1'
+  end
+
 end
 
-target 'FeatureTests' do
-  use_frameworks!
-  inherit! :search_paths
 
-  pod 'EarlGrey', '~> 1.9'
-  pod 'FBSnapshotTestCase', '~> 2.1'
-  pod 'EarlGreySnapshots', '~> 0.0.1'
-end

@@ -13,12 +13,9 @@ class AnswerScreenTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        guard let applicationDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError("Expected to manage AppDelegate")
-        }
-
         GREYTestHelper.enableFastAnimation()
-        applicationDelegate.reset()
+        KeychainFixtures.enable()
+        RouterFixtures.enable()
         navigateToAnswerScreen()
     }
 
@@ -68,17 +65,15 @@ class AnswerScreenTests: XCTestCase {
 
     private func navigateToAnswerScreen() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
-            .perform(grey_typeText("13160"))
+            .perform(grey_typeText(KeychainFixtures.testPinCode))
 
         EarlGrey.select(elementWithMatcher: grey_text("Welcome to"))
             .perform(grey_tap())
 
         EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
             .perform(grey_tap())
-            .assert(grey_sufficientlyVisible())
 
-        EarlGrey.select(elementWithMatcher: grey_text("Our debate is about:"))
-            .assert(grey_sufficientlyVisible())
+        grey_waitUntilVisible(grey_text("Our debate is about:"))
     }
     
 }
