@@ -43,7 +43,7 @@ class ControllerConfiguratorSpec: QuickSpec {
                         let answerControllerProvider = AnswerControllerMockProvider()
 
                         sut.configure(controller: answerControllerProvider, with: routerMock)
-                        answerControllerProvider.onCommentButtonTapped?("TheAuthToken!")
+                        answerControllerProvider.onChatButtonTapped?("TheAuthToken!")
 
                         if case let .some(.comment(authToken)) = routerMock.lastRoute {
                             passedAuthToken = authToken

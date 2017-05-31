@@ -18,14 +18,10 @@ struct Views {
         return stackView
     }
 
-    static func label(style: TextStyle, alignment: NSTextAlignment, numberOfLines: Int,
-                      text: String? = nil) -> UILabel {
-        let label = UILabel(frame: .zero)
-        label.font = style.font
+    static func label(style: AttributeStyle, numberOfLines: Int, text: String? = nil) -> AttributedLabel {
+        let label = AttributedLabel(attributes: style.attributes)
         label.lineBreakMode = numberOfLines > 0 ? .byWordWrapping : .byTruncatingTail
         label.numberOfLines = numberOfLines
-        label.textAlignment = alignment
-        label.textColor = style.color
         label.text = text
 
         return label
@@ -41,6 +37,18 @@ struct Views {
         }
 
         return imageView
+    }
+
+    static func button(style: TextStyle, backgroundColor: Color, cornerRadius: CGFloat,
+                       title: String? = nil) -> UIButton {
+        let button = UIButton(type: .custom)
+        button.backgroundColor = UIColor(predefined: backgroundColor)
+        button.layer.cornerRadius = cornerRadius
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(style.color, for: .normal)
+        button.titleLabel?.font = style.font
+
+        return button
     }
 
 }

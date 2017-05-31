@@ -5,20 +5,14 @@
 
 import UIKit
 
-struct TextStyleDescriptor {
-
-    let font: Font
-    let size: Double
-    let color: Color
-
-}
-
 enum TextStyle {
 
     case answer
     case description
     case question
     case welcome
+    case buttonTitle
+    case enterPin
 
 }
 
@@ -29,24 +23,24 @@ extension TextStyle {
         case .answer:
             return TextStyleDescriptor(font: .regular, size: 18.0, color: .undecided)
         case .description:
-            return TextStyleDescriptor(font: .regular, size: 12.0, color: .description)
+            return TextStyleDescriptor(font: .regular, size: 10.0, color: .description)
         case .question:
-            return TextStyleDescriptor(font: .medium, size: 18.0, color: .question)
+            return TextStyleDescriptor(font: .medium, size: 19.0, color: .question)
         case .welcome:
             return TextStyleDescriptor(font: .regular, size: 20.0, color: .question)
+        case .buttonTitle:
+            return TextStyleDescriptor(font: .medium, size: 18.0, color: .buttonTitle)
+        case .enterPin:
+            return TextStyleDescriptor(font: .regular, size: 18.0, color: .pin)
         }
     }
 
     var font: UIFont {
-        guard let font = UIFont(name: style.font.rawValue, size: CGFloat(style.size)) else {
-            fatalError("Could not create font with name \(style.font.rawValue) and size: \(style.size)")
-        }
-
-        return font
+        return style.uiFont
     }
 
     var color: UIColor {
-        return UIColor(predefined: style.color)
+        return style.uiColor
     }
 
 }

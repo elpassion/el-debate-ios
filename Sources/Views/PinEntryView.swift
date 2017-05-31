@@ -10,7 +10,8 @@ class PinEntryView: UIView {
 
     private let welcomeView: PinEntryWelcomeView = PinEntryWelcomeView()
     private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
-    private let loginButton: UIButton = UIButton(type: .custom)
+    private let loginButton: UIButton = Views.button(style: .buttonTitle, backgroundColor: .navigationBar,
+                                                     cornerRadius: 3.0, title: "Log in")
     private let codeField: PinEntryCodeField = PinEntryCodeField()
     private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
@@ -54,16 +55,20 @@ class PinEntryView: UIView {
         layoutIfNeeded()
     }
 
+    // MARK: - Layout subviews (shadow)
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        loginButton.dropShadow()
+    }
+
     // MARK: - Subviews
 
     private func setUpSubviews() {
         backgroundColor = UIColor(predefined: .screenBackground)
 
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
-        loginButton.setBackgroundImage(UIImage(predefined: .buttonBackground), for: .normal)
-        loginButton.setTitle("Log in", for: .normal)
-        loginButton.setTitleColor(.white, for: .normal)
-        loginButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 5.0, right: 0.0)
+        loginButton.contentEdgeInsets = UIEdgeInsets(top: 12.0, left: 0.0, bottom: 12.0, right: 0.0)
     }
 
     private func addSubviews() {

@@ -10,7 +10,7 @@ class QuestionView: UIView {
 
     private let stack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                                  alignment: .fill, spacing: 15.0)
-    private let title: UILabel = Views.label(style: .description, alignment: .left, numberOfLines: 0)
+    private let title: UILabel = Views.label(style: .description, numberOfLines: 0)
     private let questionFrame: QuestionFrameView = QuestionFrameView()
 
     init() {

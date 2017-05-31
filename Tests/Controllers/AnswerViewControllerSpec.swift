@@ -48,15 +48,15 @@ class AnswerViewControllerSpec: QuickSpec {
                 }
             }
 
-            describe("comment button tap") {
-                it("should invoke comment button tapped callback with auth token") {
+            describe("chat button tap") {
+                it("should invoke chat button tapped callback with auth token") {
                     var authenticationToken: String?
 
-                    controller.onCommentButtonTapped = { authToken in
+                    controller.onChatButtonTapped = { authToken in
                         authenticationToken = authToken
                     }
 
-                    controller.answerView.onCommentButtonTapped?()
+                    controller.answerView.onChatButtonTapped?()
 
                     expect(authenticationToken).toEventually(equal("whatever"))
                 }

@@ -13,17 +13,17 @@ class SingleAnswerView: UIView {
     private let stackContainer: UIView = UIView(frame: .zero)
     private let horizontalStack: UIStackView = Views.stack(axis: .horizontal, distribution: .fill,
                                                            alignment: .center, spacing: 10.0)
-    private let answerLabel: UILabel
+    private let answerLabel: AttributedLabel
     private let iconView: UIImageView
-    private let highlightColor: UIColor
-    private let defaultColor: UIColor = UIColor(predefined: .unselected)
+    private let highlightColor: Color
+    private let defaultColor: Color = .unselected
     private let spinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     private let selectionIndicator: UIView = UIView(frame: .zero)
 
     init(color: Color, image: Image, type: AnswerType) {
         self.answerType = type
-        self.highlightColor = UIColor(predefined: color)
-        self.answerLabel = Views.label(style: .answer, alignment: .left, numberOfLines: 0)
+        self.highlightColor = color
+        self.answerLabel = Views.label(style: .answer, numberOfLines: 0)
         self.iconView = Views.image(image: image, contentMode: .scaleAspectFit, renderingMode: .alwaysTemplate)
 
         super.init(frame: .zero)
@@ -56,7 +56,7 @@ class SingleAnswerView: UIView {
 
     var selected: Bool = false {
         didSet {
-            iconView.tintColor = selected ? highlightColor : defaultColor
+            iconView.tintColor = selected ? highlightColor.ui : defaultColor.ui
             selectionIndicator.isHidden = !selected
         }
     }
@@ -71,12 +71,12 @@ class SingleAnswerView: UIView {
         stackContainer.clipsToBounds = true
         stackContainer.layer.cornerRadius = container.layer.cornerRadius
 
-        selectionIndicator.backgroundColor = highlightColor
+        selectionIndicator.backgroundColor = highlightColor.ui
         selectionIndicator.isHidden = true
 
-        iconView.tintColor = defaultColor
+        iconView.tintColor = defaultColor.ui
 
-        answerLabel.textColor = highlightColor
+        answerLabel.color = highlightColor
     }
 
     private func addSubviews() {

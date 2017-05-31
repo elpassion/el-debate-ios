@@ -9,7 +9,7 @@ import UIKit
 class QuestionFrameView: UIView {
 
     private let container: UIView = UIView(frame: .zero)
-    private let question: UILabel = Views.label(style: .question, alignment: .center, numberOfLines: 0)
+    private let question: UILabel = Views.label(style: .question, numberOfLines: 0)
 
     init() {
         super.init(frame: .zero)

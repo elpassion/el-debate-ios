@@ -13,7 +13,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
 
-    var onCommentButtonTapped: ((String) -> Void)?
+    var onChatButtonTapped: ((String) -> Void)?
 
     // MARK: - Initializer
 
@@ -37,7 +37,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        answerView.onCommentButtonTapped = { [weak self] in self?.didTapComment() }
+        answerView.onChatButtonTapped = { [weak self] in self?.didTapChat() }
         answerView.onAnswerSelected = { [weak self] in self?.didSelectAnswer(with: $0) }
 
         title = "EL Debate \(yearCalculator.year)"
@@ -65,8 +65,8 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
             }
     }
 
-    private func didTapComment() {
-        onCommentButtonTapped?(voteContext.authToken)
+    private func didTapChat() {
+        onChatButtonTapped?(voteContext.authToken)
     }
 
     // MARK: - ControllerProviding
