@@ -14,7 +14,7 @@ class AnswerView: UIView, AnswerViewProviding {
 
     private let scrollView: UIScrollView = UIScrollView(frame: .zero)
     private let verticalStack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
-                                                         alignment: .fill, spacing: 30.0)
+                                                         alignment: .fill, spacing: 20.0)
     private let questionView: QuestionView = QuestionView()
     private let answersListView: AnswersListView = AnswersListView()
     private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)

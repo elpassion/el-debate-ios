@@ -10,25 +10,34 @@ class SingleAnswerView: UIView {
 
     let answerType: AnswerType
     private let container: UIView = UIView(frame: .zero)
+    private let stackContainer: UIView = UIView(frame: .zero)
     private let horizontalStack: UIStackView = Views.stack(axis: .horizontal, distribution: .fill,
-                                                           alignment: .fill, spacing: 10.0)
+                                                           alignment: .center, spacing: 10.0)
     private let answerLabel: UILabel
-    private let thumbsUp: ThumbsUpView
+    private let iconView: UIImageView
     private let highlightColor: UIColor
     private let defaultColor: UIColor = UIColor(predefined: .unselected)
     private let spinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    private let selectionIndicator: UIView = UIView(frame: .zero)
 
-    init(color: Color, type: AnswerType) {
+    init(color: Color, image: Image, type: AnswerType) {
         self.answerType = type
         self.highlightColor = UIColor(predefined: color)
-        self.answerLabel = Views.label(size: 16.0, color: defaultColor, alignment: .left, numberOfLines: 0)
-        self.thumbsUp = ThumbsUpView(highlightColor: color)
+        self.answerLabel = Views.label(style: .answer, alignment: .left, numberOfLines: 0)
+        self.iconView = Views.image(image: image, contentMode: .scaleAspectFit, renderingMode: .alwaysTemplate)
 
         super.init(frame: .zero)
 
         setUpSubviews()
         addSubviews()
         setUpLayout()
+    }
+
+    // MARK: - Layout subviews (shadow)
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        container.dropShadow()
     }
 
     // MARK: - Public API
@@ -47,16 +56,9 @@ class SingleAnswerView: UIView {
 
     var selected: Bool = false {
         didSet {
-            thumbsUp.selected = selected
-            answerLabel.textColor = selected ? highlightColor : defaultColor
+            iconView.tintColor = selected ? highlightColor : defaultColor
+            selectionIndicator.isHidden = !selected
         }
-    }
-
-    // MARK: - Layout subviews (shadow)
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        container.dropShadow()
     }
 
     // MARK: - Subviews
@@ -64,30 +66,54 @@ class SingleAnswerView: UIView {
     private func setUpSubviews() {
         container.backgroundColor = .white
         container.layer.cornerRadius = 5.0
+
+        stackContainer.backgroundColor = .white
+        stackContainer.clipsToBounds = true
+        stackContainer.layer.cornerRadius = container.layer.cornerRadius
+
+        selectionIndicator.backgroundColor = highlightColor
+        selectionIndicator.isHidden = true
+
+        iconView.tintColor = defaultColor
+
+        answerLabel.textColor = highlightColor
     }
 
     private func addSubviews() {
         horizontalStack.addArrangedSubview(answerLabel)
         horizontalStack.addArrangedSubview(spinner)
-        horizontalStack.addArrangedSubview(thumbsUp)
+        horizontalStack.addArrangedSubview(iconView)
 
-        container.addSubview(horizontalStack)
+        stackContainer.addSubview(selectionIndicator)
+        stackContainer.addSubview(horizontalStack)
+
+        container.addSubview(stackContainer)
+
         addSubview(container)
     }
 
     // MARK: - Layout
 
     private func setUpLayout() {
-        let insets = UIEdgeInsets(top: 5.0, left: 10.0, bottom: 5.0, right: 10.0)
+        let insets = UIEdgeInsets(top: 5.0, left: 15.0, bottom: 5.0, right: 15.0)
 
         container.edgeAnchors == edgeAnchors
+        stackContainer.edgeAnchors == container.edgeAnchors
         horizontalStack.edgeAnchors == container.edgeAnchors + insets
 
         answerLabel.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
-        thumbsUp.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        iconView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
         spinner.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
 
-        thumbsUp.widthAnchor == thumbsUp.heightAnchor
+        answerLabel.heightAnchor == horizontalStack.heightAnchor
+
+        iconView.heightAnchor == container.heightAnchor * 0.55
+        iconView.widthAnchor == iconView.heightAnchor
+
+        selectionIndicator.leadingAnchor == container.leadingAnchor
+        selectionIndicator.bottomAnchor == container.bottomAnchor
+        selectionIndicator.heightAnchor == 2.0
+        selectionIndicator.widthAnchor == container.widthAnchor * 0.65
     }
 
     // MARK: - Required initializer

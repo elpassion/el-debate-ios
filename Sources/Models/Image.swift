@@ -10,5 +10,7 @@ enum Image: String {
     case buttonBackground = "button_background"
     case keyIcon = "key_icon"
     case thumbsUp = "thumbs_up"
+    case thumbsDown = "thumbs_down"
+    case handNeutral = "hand_neutral"
 
 }

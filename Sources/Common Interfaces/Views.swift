@@ -18,24 +18,27 @@ struct Views {
         return stackView
     }
 
-    static func label(size: CGFloat, color: UIColor, alignment: NSTextAlignment, numberOfLines: Int,
+    static func label(style: TextStyle, alignment: NSTextAlignment, numberOfLines: Int,
                       text: String? = nil) -> UILabel {
         let label = UILabel(frame: .zero)
-        label.font = UIFont.systemFont(ofSize: size)
+        label.font = style.font
         label.lineBreakMode = numberOfLines > 0 ? .byWordWrapping : .byTruncatingTail
         label.numberOfLines = numberOfLines
         label.textAlignment = alignment
-        label.textColor = color
+        label.textColor = style.color
         label.text = text
 
         return label
     }
 
-    static func image(image: Image, contentMode: UIViewContentMode) -> UIImageView {
+    static func image(image: Image, contentMode: UIViewContentMode,
+                      renderingMode: UIImageRenderingMode? = nil) -> UIImageView {
         let imageView = UIImageView(frame: .zero)
         imageView.clipsToBounds = true
         imageView.contentMode = contentMode
-        imageView.image = UIImage(predefined: image)
+        imageView.image = UIImage(predefined: image).flatMap { (image) in
+            image.withRenderingMode(renderingMode ?? .alwaysOriginal)
+        }
 
         return imageView
     }

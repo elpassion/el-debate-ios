@@ -17,5 +17,6 @@ enum Color: String {
     // swiftlint:disable identifier_name
     case no = "#E44043"
     // swiftlint:enable identifier_name
+    case description = "#B8B8B8"
 
 }

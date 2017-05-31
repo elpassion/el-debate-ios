@@ -113,6 +113,8 @@
 		8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */; };
 		8C85D8521EC34FC100C5BAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */; };
 		8C85D8531EC34FC100C5BAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8481EC34FC100C5BAE7 /* LaunchScreen.storyboard */; };
+		8CA6D8261EDF067D00A82CD2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6D8251EDF067D00A82CD2 /* Font.swift */; };
+		8CA6D8281EDF073000A82CD2 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6D8271EDF073000A82CD2 /* TextStyle.swift */; };
 		8CAD324D1EC36B5F00830E72 /* PinEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */; };
 		8CB3AF5C1EC36EA7005EEDC7 /* RouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1918011EC360F100519DC8 /* RouterSpec.swift */; };
 		8CB42CF11EC5F34F007E61F6 /* AnswerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */; };
@@ -274,6 +276,8 @@
 		8C85D8491EC34FC100C5BAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C85D84C1EC34FC100C5BAE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C85D8501EC34FC100C5BAE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CA6D8251EDF067D00A82CD2 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		8CA6D8271EDF073000A82CD2 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryViewController.swift; sourceTree = "<group>"; };
 		8CAD34DF1EC34F5E00468C87 /* ELDebate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELDebate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB3AF521EC36E92005EEDC7 /* ELDebateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELDebateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -376,7 +380,9 @@
 			children = (
 				8C6DA02B1EC58CFA00D31E76 /* Color.swift */,
 				6EA7E2991EC4AF09002DF55E /* Debate.swift */,
+				8CA6D8251EDF067D00A82CD2 /* Font.swift */,
 				8C127C8E1EC4A23D00E9B5FD /* Image.swift */,
+				8CA6D8271EDF073000A82CD2 /* TextStyle.swift */,
 				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
 			);
 			path = Models;
@@ -437,7 +443,6 @@
 				8C35DDAE1EDD7D8600A26DD2 /* KeychainFixtures.swift */,
 				8C35DDB81EDD9FE800A26DD2 /* RouterFixtures.swift */,
 			);
-			name = "Test Data";
 			path = "Test Data";
 			sourceTree = "<group>";
 		};
@@ -447,7 +452,6 @@
 				8C35DDB61EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift */,
 				8C35DDB41EDD9F5900A26DD2 /* TestAssembly.swift */,
 			);
-			name = "Test Assembly";
 			path = "Test Assembly";
 			sourceTree = "<group>";
 		};
@@ -1051,6 +1055,7 @@
 				8C664A1B1EC490820017687F /* AuthTokenDeserializer.swift in Sources */,
 				8C0D62FF1EC5C8A400421B89 /* ControllerConfigurator.swift in Sources */,
 				8C6DA0321EC590E500D31E76 /* NavigationControllerFactory.swift in Sources */,
+				8CA6D8281EDF073000A82CD2 /* TextStyle.swift in Sources */,
 				6EA7E2911EC466E3002DF55E /* ApiClient.swift in Sources */,
 				8C6DA02C1EC58CFA00D31E76 /* Color.swift in Sources */,
 				8CD371A91EC5EAC500203620 /* SingleAnswerView.swift in Sources */,
@@ -1067,6 +1072,7 @@
 				8C6DA03D1EC59B3800D31E76 /* CurrentYearCalculator.swift in Sources */,
 				8C3E8F0A1ED836E3009DB7ED /* ForceCast.swift in Sources */,
 				8C664A121EC45FFD0017687F /* JSONResponseProviding.swift in Sources */,
+				8CA6D8261EDF067D00A82CD2 /* Font.swift in Sources */,
 				6EA7E29A1EC4AF09002DF55E /* Debate.swift in Sources */,
 				6EA7E29C1EC4AF75002DF55E /* Answer.swift in Sources */,
 				8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */,

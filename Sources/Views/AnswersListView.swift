@@ -9,12 +9,10 @@ import UIKit
 class AnswersListView: UIView {
 
     private let stack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
-                                                 alignment: .fill, spacing: 20.0)
-    private let chooseSideLabel: UILabel = Views.label(size: 13.0, color: UIColor(predefined: .pin),
-                                                       alignment: .left, numberOfLines: 0)
+                                                 alignment: .fill, spacing: 15.0)
+    private let chooseSideLabel: UILabel = Views.label(style: .description, alignment: .left, numberOfLines: 0)
     private let answerPicker: AnswerPicker = AnswerPicker()
-    private let changeMindLabel: UILabel = Views.label(size: 13.0, color: UIColor(predefined: .pin),
-                                                       alignment: .left, numberOfLines: 0)
+    private let changeMindLabel: UILabel = Views.label(style: .description, alignment: .left, numberOfLines: 0)
 
     var onAnswerSelected: ((AnswerType) -> Void)? {
         get {

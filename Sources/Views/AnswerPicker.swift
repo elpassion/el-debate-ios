@@ -11,9 +11,10 @@ class AnswerPicker: UIView {
 
     private let verticalStack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                                          alignment: .fill, spacing: 14.0)
-    private let yesAnswer: SingleAnswerView = SingleAnswerView(color: .yes, type: .positive)
-    private let noAnswer: SingleAnswerView = SingleAnswerView(color: .no, type: .negative)
-    private let undecidedAnswer: SingleAnswerView = SingleAnswerView(color: .undecided, type: .neutral)
+    private let yesAnswer: SingleAnswerView = SingleAnswerView(color: .yes, image: .thumbsUp, type: .positive)
+    private let noAnswer: SingleAnswerView = SingleAnswerView(color: .no, image: .thumbsDown, type: .negative)
+    private let undecidedAnswer: SingleAnswerView = SingleAnswerView(color: .undecided, image: .handNeutral,
+                                                                     type: .neutral)
     private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
     var onAnswerSelected: ((AnswerType) -> Void)?
@@ -30,7 +31,7 @@ class AnswerPicker: UIView {
         setUpGestureRecognition()
     }
 
-    // MARK: Public API
+    // MARK: - Public API
 
     func selectAnswer(type answerType: AnswerType) {
         answerViews.forEach { (view) in

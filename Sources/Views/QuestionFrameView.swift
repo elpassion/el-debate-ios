@@ -9,9 +9,7 @@ import UIKit
 class QuestionFrameView: UIView {
 
     private let container: UIView = UIView(frame: .zero)
-    private let question: UILabel = Views.label(size: 24.0, color: UIColor(predefined: .question),
-                                                alignment: .center, numberOfLines: 0,
-                                                text: "Lorem ipsum dolor sit amet consectetur?")
+    private let question: UILabel = Views.label(style: .question, alignment: .center, numberOfLines: 0)
 
     init() {
         super.init(frame: .zero)
@@ -50,7 +48,7 @@ class QuestionFrameView: UIView {
     private func setUpLayout() {
         container.edgeAnchors == edgeAnchors
 
-        question.edgeAnchors == container.edgeAnchors + UIEdgeInsets(top: 25.0, left: 15.0, bottom: 25.0, right: 15.0)
+        question.edgeAnchors == container.edgeAnchors + UIEdgeInsets(top: 20.0, left: 8.0, bottom: 20.0, right: 8.0)
     }
 
     // MARK: - Required initializer
