@@ -125,7 +125,6 @@
 		8CB3AF5C1EC36EA7005EEDC7 /* RouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1918011EC360F100519DC8 /* RouterSpec.swift */; };
 		8CB42CF11EC5F34F007E61F6 /* AnswerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */; };
 		8CD371A91EC5EAC500203620 /* SingleAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */; };
-		8CD371AB1EC5EDDF00203620 /* ThumbsUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD371AA1EC5EDDF00203620 /* ThumbsUpView.swift */; };
 		8CD5F6491ECC77720067BFC7 /* Promise+APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD5F6481ECC77720067BFC7 /* Promise+APIResponse.swift */; };
 		8CD5F64B1ECC85DC0067BFC7 /* Dictionary+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD5F64A1ECC85DC0067BFC7 /* Dictionary+Mapping.swift */; };
 		8CD5F64E1ECC86500067BFC7 /* DictionaryMappingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD5F64D1ECC86500067BFC7 /* DictionaryMappingSpec.swift */; };
@@ -288,14 +287,13 @@
 		8C85D84C1EC34FC100C5BAE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C85D8501EC34FC100C5BAE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CA6D8251EDF067D00A82CD2 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextStyleDescriptor.swift; path = ../Models/TextStyleDescriptor.swift; sourceTree = "<group>"; };
+		8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextStyleDescriptor.swift; path = TextStyleDescriptor.swift; sourceTree = "<group>"; };
 		8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatButtonView.swift; sourceTree = "<group>"; };
 		8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryViewController.swift; sourceTree = "<group>"; };
 		8CAD34DF1EC34F5E00468C87 /* ELDebate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELDebate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB3AF521EC36E92005EEDC7 /* ELDebateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELDebateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerPicker.swift; sourceTree = "<group>"; };
 		8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnswerView.swift; sourceTree = "<group>"; };
-		8CD371AA1EC5EDDF00203620 /* ThumbsUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbsUpView.swift; sourceTree = "<group>"; };
 		8CD5F6481ECC77720067BFC7 /* Promise+APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+APIResponse.swift"; sourceTree = "<group>"; };
 		8CD5F64A1ECC85DC0067BFC7 /* Dictionary+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Mapping.swift"; sourceTree = "<group>"; };
 		8CD5F64D1ECC86500067BFC7 /* DictionaryMappingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryMappingSpec.swift; sourceTree = "<group>"; };
@@ -375,6 +373,8 @@
 				8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */,
 				8C464F091EC5E537009DD7BF /* AnswerView.swift */,
 				8C6127E81EC9BF8E003472A3 /* AnswersListView.swift */,
+				8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */,
+				8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */,
 				6E1EA10D1ECF185C008C19EF /* CommentView.swift */,
 				8C6DA0361EC5943400D31E76 /* PinEntryCodeField.swift */,
 				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
@@ -382,9 +382,6 @@
 				8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */,
 				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
 				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
-				8CD371AA1EC5EDDF00203620 /* ThumbsUpView.swift */,
-				8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */,
-				8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -392,13 +389,13 @@
 		8C127C8D1EC4A23200E9B5FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8C3155B01EDF674D003F31D9 /* AttributeStyle.swift */,
 				8C6DA02B1EC58CFA00D31E76 /* Color.swift */,
 				6EA7E2991EC4AF09002DF55E /* Debate.swift */,
 				8CA6D8251EDF067D00A82CD2 /* Font.swift */,
 				8C127C8E1EC4A23D00E9B5FD /* Image.swift */,
-				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
 				8C3155AE1EDF6358003F31D9 /* TextStyle.swift */,
-				8C3155B01EDF674D003F31D9 /* AttributeStyle.swift */,
+				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -494,6 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				6EA7E29B1EC4AF75002DF55E /* Answer.swift */,
+				8C3155A71EDF56E2003F31D9 /* AttributesDescriptor.swift */,
 				6EF036581EC98E1F00198F01 /* AuthTokenStorage.swift */,
 				8C0D62FE1EC5C8A400421B89 /* ControllerConfigurator.swift */,
 				8C127C7A1EC4941000E9B5FD /* ControllerFactory.swift */,
@@ -502,7 +500,6 @@
 				8C6127EE1EC9E71B003472A3 /* LoginActionHandler.swift */,
 				8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */,
 				8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */,
-				8C3155A71EDF56E2003F31D9 /* AttributesDescriptor.swift */,
 				8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */,
 			);
 			path = "Business Logic";
@@ -577,6 +574,7 @@
 		8C6DA03E1EC59B6100D31E76 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				8C3155A91EDF57DA003F31D9 /* AttributesDescriptorSpec.swift */,
 				6EF0365A1EC98EF400198F01 /* AuthTokenStorageSpec.swift */,
 				8C0D63001EC5DACE00421B89 /* ControllerConfiguratorSpec.swift */,
 				8C6DA03F1EC59B7100D31E76 /* CurrentYearCalculatorSpec.swift */,
@@ -584,7 +582,6 @@
 				8C6127EB1EC9E516003472A3 /* LoginActionHandlerSpec.swift */,
 				8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */,
 				8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */,
-				8C3155A91EDF57DA003F31D9 /* AttributesDescriptorSpec.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -1123,7 +1120,6 @@
 				6E1EA10E1ECF185C008C19EF /* CommentView.swift in Sources */,
 				8C63FA171EC37C1D0080FFF9 /* MainAssembly.swift in Sources */,
 				8C1918001EC3602A00519DC8 /* Router.swift in Sources */,
-				8CD371AB1EC5EDDF00203620 /* ThumbsUpView.swift in Sources */,
 				8CAD324D1EC36B5F00830E72 /* PinEntryViewController.swift in Sources */,
 				8C127C7D1EC4965E00E9B5FD /* PinEntryAssembly.swift in Sources */,
 				8C6DA0371EC5943400D31E76 /* PinEntryCodeField.swift in Sources */,
