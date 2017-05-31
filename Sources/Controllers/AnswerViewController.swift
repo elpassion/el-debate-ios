@@ -8,7 +8,6 @@ import UIKit
 
 class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPresentingController {
 
-    private let yearCalculator: CurrentYearCalculating
     private let voteContext: VoteContext
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
@@ -17,9 +16,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
 
     // MARK: - Initializer
 
-    init(yearCalculator: CurrentYearCalculating, voteContext: VoteContext,
-         apiClient: APIProviding, alertView: AlertShowing) {
-        self.yearCalculator = yearCalculator
+    init(voteContext: VoteContext, apiClient: APIProviding, alertView: AlertShowing) {
         self.voteContext = voteContext
         self.apiClient = apiClient
         self.alertPresenter = alertView
@@ -40,7 +37,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
         answerView.onChatButtonTapped = { [weak self] in self?.didTapChat() }
         answerView.onAnswerSelected = { [weak self] in self?.didSelectAnswer(with: $0) }
 
-        title = "EL Debate \(yearCalculator.year)"
+        title = "EL Debate"
 
         let debate = voteContext.debate
         answerView.config(

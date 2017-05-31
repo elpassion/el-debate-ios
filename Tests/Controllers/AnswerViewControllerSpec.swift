@@ -14,18 +14,14 @@ class AnswerViewControllerSpec: QuickSpec {
     // swiftlint:disable function_body_length
     override func spec() {
         describe("AnswerViewController") {
-            var yearCalculator: CurrentYearCalculatorMock!
             var controller: AnswerViewController!
             var apliClient: APIProviderStub!
             var alertView: AlertViewMock!
 
             beforeEach {
-                yearCalculator = CurrentYearCalculatorMock()
-                yearCalculator.year = "2012"
                 apliClient = APIProviderStub()
                 alertView = AlertViewMock()
                 controller = AnswerViewController(
-                    yearCalculator: yearCalculator,
                     voteContext: VoteContext.testDefault,
                     apiClient: apliClient,
                     alertView: alertView
@@ -38,7 +34,7 @@ class AnswerViewControllerSpec: QuickSpec {
                 }
 
                 it("should set title") {
-                    expect(controller.title) == "EL Debate 2012"
+                    expect(controller.title) == "EL Debate"
                 }
 
                 it("should have a valid snaphot") {
