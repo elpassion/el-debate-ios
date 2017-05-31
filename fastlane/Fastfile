@@ -37,6 +37,7 @@ platform :ios do
     match(type: "appstore")
     gym(scheme: "ELDebate")
     pilot
+    clean_build_artifacts
   end
 
   desc "Deploy a new version to the App Store"
@@ -60,6 +61,7 @@ platform :ios do
   		match(type: "appstore")
   		gym(scheme: "ELDebate")
   		pilot
+  		clean_build_artifacts
   	end
   end
 
