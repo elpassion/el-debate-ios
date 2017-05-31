@@ -52,8 +52,6 @@ platform :ios do
   desc "Auto deployment script for Apple TestFlight"
   desc "Runs only for GH merge commits"
   lane :autodeploy do
-  	ensure_git_status_clean
-
   	if pr = pull_request_number
   		increment_build_number_in_plist(build_number: pr,
   										target: "ELDebate")
