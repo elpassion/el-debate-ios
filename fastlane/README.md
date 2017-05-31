@@ -47,6 +47,13 @@ This will also make sure the profile is up to date
 fastlane ios release
 ```
 Deploy a new version to the App Store
+### ios autodeploy
+```
+fastlane ios autodeploy
+```
+Auto deployment script for Apple TestFlight
+
+Runs only for GH merge commits
 
 ----
 

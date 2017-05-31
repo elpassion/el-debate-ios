@@ -37,6 +37,7 @@ platform :ios do
     match(type: "appstore")
     gym(scheme: "ELDebate")
     pilot
+    clean_build_artifacts
   end
 
   desc "Deploy a new version to the App Store"
@@ -46,6 +47,20 @@ platform :ios do
     gym # Build your app - more options available
     deliver(force: true)
     # frameit
+  end
+
+  desc "Auto deployment script for Apple TestFlight"
+  desc "Runs only for GH merge commits"
+  lane :autodeploy do
+  	if pr = pull_request_number
+  		increment_build_number_in_plist(build_number: pr,
+  										target: "ELDebate")
+  		scan(scheme: "ELDebate")
+  		match(type: "appstore")
+  		gym(scheme: "ELDebate")
+  		pilot
+  		clean_build_artifacts
+  	end
   end
 
   # You can define as many lanes as you want
