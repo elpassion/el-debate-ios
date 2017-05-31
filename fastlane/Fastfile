@@ -48,6 +48,12 @@ platform :ios do
     # frameit
   end
 
+  desc "Auto deployment script for Apple TestFlight"
+  desc "Runs only for GH merge commits"
+  lane :autodeploy do
+  	ensure_git_status_clean
+  end
+
   # You can define as many lanes as you want
 
   after_all do |lane|
