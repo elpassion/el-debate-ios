@@ -1,15 +1,23 @@
 osx_image: xcode8.3
 language: objective-c
 rvm:
- - 2.2
+- 2.2
 podfile: Podfile
 before_install:
- - bundle install
- - pod repo update
- - pod install
+- openssl aes-256-cbc -K $encrypted_bbdbf7e1c4b4_key -iv $encrypted_bbdbf7e1c4b4_iv
+  -in setup_travis_deployment.sh.enc -out setup_travis_deployment.sh -d
+- chmod +x setup_travis_deployment.sh
+- ./setup_travis_deployment.sh
+- bundle install
+- pod repo update
+- pod install
 script:
- - set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme ELDebate -sdk iphonesimulator10.3 -destination 'name=iPhone SE,OS=10.3' ONLY_ACTIVE_ARCH=NO | xcpretty
- - set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme FeatureTests -sdk iphonesimulator10.3 -destination 'name=iPhone SE,OS=10.3' ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme ELDebate
+  -sdk iphonesimulator10.3 -destination 'name=iPhone SE,OS=10.3' ONLY_ACTIVE_ARCH=NO
+  | xcpretty
+- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme FeatureTests
+  -sdk iphonesimulator10.3 -destination 'name=iPhone SE,OS=10.3' ONLY_ACTIVE_ARCH=NO
+  | xcpretty
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - fastlane ios autodeploy
+- bash <(curl -s https://codecov.io/bash)
+- fastlane ios autodeploy
