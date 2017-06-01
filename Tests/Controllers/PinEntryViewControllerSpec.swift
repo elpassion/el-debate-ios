@@ -15,19 +15,15 @@ class PinEntryViewControllerSpec: QuickSpec {
     override func spec() {
         describe("PinEntryViewController") {
             var loginActionHandlingMock: LoginActionHandlingMock!
-            var yearCalculator: CurrentYearCalculatorMock!
             var alertViewMock: AlertViewMock!
             var keyboardHandler: KeyboardWillShowHandlerMock!
             var controller: PinEntryViewController!
 
             beforeEach {
                 loginActionHandlingMock = LoginActionHandlingMock()
-                yearCalculator = CurrentYearCalculatorMock()
-                yearCalculator.year = "2023"
                 alertViewMock = AlertViewMock()
                 keyboardHandler = KeyboardWillShowHandlerMock()
                 controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
-                                                    yearCalculator: yearCalculator,
                                                     alertView: alertViewMock,
                                                     keyboardHandling: keyboardHandler)
             }
@@ -45,7 +41,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                 }
 
                 it("should set title") {
-                    expect(controller.title) == "EL Debate 2023"
+                    expect(controller.title) == "EL Debate"
                 }
 
                 it("should have a valid snapshot") {

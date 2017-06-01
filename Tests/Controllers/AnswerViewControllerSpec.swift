@@ -14,18 +14,14 @@ class AnswerViewControllerSpec: QuickSpec {
     // swiftlint:disable function_body_length
     override func spec() {
         describe("AnswerViewController") {
-            var yearCalculator: CurrentYearCalculatorMock!
             var controller: AnswerViewController!
             var apliClient: APIProviderStub!
             var alertView: AlertViewMock!
 
             beforeEach {
-                yearCalculator = CurrentYearCalculatorMock()
-                yearCalculator.year = "2012"
                 apliClient = APIProviderStub()
                 alertView = AlertViewMock()
                 controller = AnswerViewController(
-                    yearCalculator: yearCalculator,
                     voteContext: VoteContext.testDefault,
                     apiClient: apliClient,
                     alertView: alertView
@@ -38,7 +34,7 @@ class AnswerViewControllerSpec: QuickSpec {
                 }
 
                 it("should set title") {
-                    expect(controller.title) == "EL Debate 2012"
+                    expect(controller.title) == "EL Debate"
                 }
 
                 it("should have a valid snaphot") {
@@ -48,15 +44,15 @@ class AnswerViewControllerSpec: QuickSpec {
                 }
             }
 
-            describe("comment button tap") {
-                it("should invoke comment button tapped callback with auth token") {
+            describe("chat button tap") {
+                it("should invoke chat button tapped callback with auth token") {
                     var authenticationToken: String?
 
-                    controller.onCommentButtonTapped = { authToken in
+                    controller.onChatButtonTapped = { authToken in
                         authenticationToken = authToken
                     }
 
-                    controller.answerView.onCommentButtonTapped?()
+                    controller.answerView.onChatButtonTapped?()
 
                     expect(authenticationToken).toEventually(equal("whatever"))
                 }

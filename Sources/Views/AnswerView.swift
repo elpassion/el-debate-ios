@@ -14,19 +14,25 @@ class AnswerView: UIView, AnswerViewProviding {
 
     private let scrollView: UIScrollView = UIScrollView(frame: .zero)
     private let verticalStack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
-                                                         alignment: .fill, spacing: 30.0)
+                                                         alignment: .fill, spacing: 20.0)
     private let questionView: QuestionView = QuestionView()
     private let answersListView: AnswersListView = AnswersListView()
     private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
-    private let commentButton: UIButton = UIButton(type: .custom)
+    private let chatButton: ChatButtonView = ChatButtonView()
 
-    var onCommentButtonTapped: (() -> Void)?
+    var onChatButtonTapped: (() -> Void)? {
+        get {
+            return chatButton.onChatButtonTapped
+        }
+        set {
+            chatButton.onChatButtonTapped = newValue
+        }
+    }
 
     var onAnswerSelected: ((AnswerType) -> Void)? {
         get {
            return answersListView.onAnswerSelected
         }
-
         set {
             answersListView.onAnswerSelected = newValue
         }
@@ -63,50 +69,33 @@ class AnswerView: UIView, AnswerViewProviding {
 
     private func setUpSubviews() {
         backgroundColor = UIColor(predefined: .screenBackground)
-
-        commentButton.addTarget(self, action: #selector(didTapCommentButton), for: .touchUpInside)
-        commentButton.setBackgroundImage(UIImage(predefined: .buttonBackground), for: .normal)
-        commentButton.setTitle("Comment", for: .normal)
-        commentButton.setTitleColor(.white, for: .normal)
-        commentButton.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 5.0, right: 0.0)
     }
 
     private func addSubviews() {
         verticalStack.addArrangedSubview(questionView)
         verticalStack.addArrangedSubview(answersListView)
+        verticalStack.addArrangedSubview(chatButton)
 
         scrollView.addSubview(verticalStack)
 
         addSubview(background)
         addSubview(scrollView)
-        addSubview(commentButton)
-    }
-
-    // MARK: - Comment button tap
-
-    @objc
-    private func didTapCommentButton() {
-        onCommentButtonTapped?()
     }
 
     // MARK: - Layout
 
     private func setUpLayout() {
-        let stackInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 0.0, right: 20.0)
+        let stackInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 9.0, right: 20.0)
 
         scrollView.edgeAnchors == edgeAnchors
 
         verticalStack.edgeAnchors == scrollView.edgeAnchors + stackInsets
-        verticalStack.widthAnchor == widthAnchor - stackInsets.left - stackInsets.right
+        verticalStack.widthAnchor == (widthAnchor - stackInsets.left - stackInsets.right) ~ .custom(999)
 
         background.centerXAnchor == centerXAnchor
         background.bottomAnchor == bottomAnchor - 20
         background.widthAnchor == widthAnchor * 0.95
         background.heightAnchor == background.widthAnchor * 0.75
-
-        commentButton.centerXAnchor == centerXAnchor
-        commentButton.bottomAnchor == bottomAnchor - 15
-        commentButton.widthAnchor == widthAnchor * 0.9
     }
 
     // MARK: - Required initializer

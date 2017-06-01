@@ -8,7 +8,6 @@ import UIKit
 class PinEntryViewController: UIViewController, PinEntryControllerProviding, AlertPresentingController {
 
     private let loginActionHandler: LoginActionHandling
-    private let yearCalculator: CurrentYearCalculating
     let alertPresenter: AlertShowing
     private let keyboardHandling: KeyboardWillShowHandling
 
@@ -16,10 +15,8 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, yearCalculator: CurrentYearCalculating,
-         alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling) {
+    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling) {
         self.loginActionHandler = loginActionHandler
-        self.yearCalculator = yearCalculator
         self.alertPresenter = alertView
         self.keyboardHandling = keyboardHandling
 
@@ -39,7 +36,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "EL Debate \(yearCalculator.year)"
+        title = "EL Debate"
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
         setupKeyboardNotifications()
     }

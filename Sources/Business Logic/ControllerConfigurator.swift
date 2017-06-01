@@ -19,7 +19,7 @@ class ControllerConfigurator: ControllerConfiguring {
         }
 
         if let controller = controller as? AnswerControllerProviding {
-            controller.onCommentButtonTapped = { authToken in router.go(to: .comment(authToken: authToken)) }
+            controller.onChatButtonTapped = { authToken in router.go(to: .comment(authToken: authToken)) }
         }
 
         if let controller = controller as? CommentControllerProviding {

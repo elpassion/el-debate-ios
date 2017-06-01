@@ -10,8 +10,7 @@ class PinEntryWelcomeView: UIView {
 
     private let container: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                                      alignment: .fill, spacing: 10.0)
-    private let welcomeLabel: UILabel = Views.label(size: 20.0, color: .black, alignment: .center,
-                                                    numberOfLines: 0, text: "Welcome to")
+    private let welcomeLabel: UILabel = Views.label(style: .welcome, numberOfLines: 0, text: "Welcome to")
     private let logo: UIImageView = Views.image(image: .logo, contentMode: .scaleAspectFit)
 
     init() {

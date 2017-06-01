@@ -9,9 +9,8 @@ import UIKit
 class QuestionView: UIView {
 
     private let stack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
-                                                 alignment: .fill, spacing: 10.0)
-    private let title: UILabel = Views.label(size: 13.0, color: UIColor(predefined: .pin),
-                                             alignment: .left, numberOfLines: 0)
+                                                 alignment: .fill, spacing: 15.0)
+    private let title: UILabel = Views.label(style: .description, numberOfLines: 0)
     private let questionFrame: QuestionFrameView = QuestionFrameView()
 
     init() {

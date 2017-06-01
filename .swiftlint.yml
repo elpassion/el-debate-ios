@@ -29,3 +29,5 @@ excluded:
   - Pods
   - Tests/Mocks
 
+variable_name:
+  min_length: 2

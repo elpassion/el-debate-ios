@@ -12,7 +12,6 @@ class PinEntryAssembly: Assembly {
         container.autoregister(RequestExecuting.self, initializer: RequestExecutor.init)
         container.autoregister(AlertShowing.self, initializer: AlertPresenter.init)
 
-        container.register(CurrentYearCalculating.self) { _ in CurrentYearCalculator(currentDateProvider: { Date() }) }
         container.register(Deserializer<String>.self, name: "AuthTokenDeserializer") { _ in
             return Deserializer(AuthTokenDeserializer())
         }

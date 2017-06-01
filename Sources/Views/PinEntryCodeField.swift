@@ -41,10 +41,8 @@ class PinEntryCodeField: UIView {
         separator.backgroundColor = UIColor(predefined: .pin)
 
         codeInput.keyboardType = .numberPad
-        codeInput.textAlignment = .left
-        codeInput.textColor = UIColor(predefined: .pin)
+        codeInput.defaultTextAttributes = AttributeStyle.enterPin.attributes.build()
         codeInput.placeholder = "Enter EL Debate PIN"
-        codeInput.font = UIFont.systemFont(ofSize: 19.0)
     }
 
     private func addSubviews() {

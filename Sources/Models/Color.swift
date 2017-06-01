@@ -14,8 +14,16 @@ enum Color: String {
     case unselected = "#EAEAEA"
     case yes = "#0098E3"
     case undecided = "#8F8F8F"
-    // swiftlint:disable identifier_name
     case no = "#E44043"
-    // swiftlint:enable identifier_name
+    case description = "#B8B8B8"
+    case buttonTitle = "#FFFFFF"
+
+}
+
+extension Color {
+
+    var ui: UIColor {
+        return UIColor(predefined: self)
+    }
 
 }

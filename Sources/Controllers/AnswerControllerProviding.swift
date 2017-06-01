@@ -10,6 +10,6 @@ import UIKit
 
 protocol AnswerControllerProviding: class, ControllerProviding {
 
-    var onCommentButtonTapped: ((String) -> Void)? { get set }
+    var onChatButtonTapped: ((String) -> Void)? { get set }
 
 }

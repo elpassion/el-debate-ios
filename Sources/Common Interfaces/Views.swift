@@ -18,26 +18,37 @@ struct Views {
         return stackView
     }
 
-    static func label(size: CGFloat, color: UIColor, alignment: NSTextAlignment, numberOfLines: Int,
-                      text: String? = nil) -> UILabel {
-        let label = UILabel(frame: .zero)
-        label.font = UIFont.systemFont(ofSize: size)
+    static func label(style: AttributeStyle, numberOfLines: Int, text: String? = nil) -> AttributedLabel {
+        let label = AttributedLabel(attributes: style.attributes)
         label.lineBreakMode = numberOfLines > 0 ? .byWordWrapping : .byTruncatingTail
         label.numberOfLines = numberOfLines
-        label.textAlignment = alignment
-        label.textColor = color
         label.text = text
 
         return label
     }
 
-    static func image(image: Image, contentMode: UIViewContentMode) -> UIImageView {
+    static func image(image: Image, contentMode: UIViewContentMode,
+                      renderingMode: UIImageRenderingMode? = nil) -> UIImageView {
         let imageView = UIImageView(frame: .zero)
         imageView.clipsToBounds = true
         imageView.contentMode = contentMode
-        imageView.image = UIImage(predefined: image)
+        imageView.image = UIImage(predefined: image).flatMap { (image) in
+            image.withRenderingMode(renderingMode ?? .alwaysOriginal)
+        }
 
         return imageView
+    }
+
+    static func button(style: TextStyle, backgroundColor: Color, cornerRadius: CGFloat,
+                       title: String? = nil) -> UIButton {
+        let button = UIButton(type: .custom)
+        button.backgroundColor = UIColor(predefined: backgroundColor)
+        button.layer.cornerRadius = cornerRadius
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(style.color, for: .normal)
+        button.titleLabel?.font = style.font
+
+        return button
     }
 
 }
