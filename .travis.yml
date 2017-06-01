@@ -4,12 +4,7 @@ rvm:
 - 2.2
 podfile: Podfile
 before_install:
-- openssl aes-256-cbc -K $encrypted_bbdbf7e1c4b4_key -iv $encrypted_bbdbf7e1c4b4_iv
-  -in .setup_travis_deployment.sh.enc -out setup_travis_deployment.sh -d
-- openssl aes-256-cbc -K $encrypted_bbdbf7e1c4b4_key -iv $encrypted_bbdbf7e1c4b4_iv
-  -in .match_key.enc -out match_key -d
-- mv match_key ~/.ssh/travis_id_rsa
-- echo -e "Host github.com\n\tHostName github.com\n\tUser git\n\tIdentityFile ~/.ssh/travis_id_rsa\n" >> ~/.ssh/config
+- openssl aes-256-cbc -K $encrypted_bbdbf7e1c4b4_key -iv $encrypted_bbdbf7e1c4b4_iv -in .setup_travis_deployment.sh.enc -out setup_travis_deployment.sh -d
 - chmod +x setup_travis_deployment.sh
 - ./setup_travis_deployment.sh
 - bundle install
