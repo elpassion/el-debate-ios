@@ -1,25 +1,11 @@
-# Customise this file, documentation can be found here:
-# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
-# All available actions: https://docs.fastlane.tools/actions
-# can also be listed using the `fastlane actions` command
-
-# Change the syntax highlighting to Ruby
-# All lines starting with a # are ignored when running `fastlane`
-
-# If you want to automatically update fastlane if a new version is available:
-# update_fastlane
-
-# This is the minimum version number required.
-# Update this, if you use features of a newer version
 fastlane_version "2.30.2"
 
 default_platform :ios
 
 platform :ios do
   before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
     cocoapods
-    
   end
 
   desc "Runs all the tests"
@@ -35,32 +21,42 @@ platform :ios do
     commit_version_bump
     scan(scheme: "ELDebate")
     match(type: "appstore")
-    gym(scheme: "ELDebate")
+    gym(scheme: "ELDebate", clean: true)
     pilot
     clean_build_artifacts
-  end
-
-  desc "Deploy a new version to the App Store"
-  lane :release do
-    # match(type: "appstore")
-    # snapshot
-    gym # Build your app - more options available
-    deliver(force: true)
-    # frameit
   end
 
   desc "Auto deployment script for Apple TestFlight"
   desc "Runs only for GH merge commits"
   lane :autodeploy do
-  	if pr = pull_request_number
-  		increment_build_number_in_plist(build_number: pr,
-  										target: "ELDebate")
-  		scan(scheme: "ELDebate")
-  		match(type: "appstore")
-  		gym(scheme: "ELDebate")
-  		pilot
-  		clean_build_artifacts
-  	end
+    if pr = pull_request_number
+      increment_build_number_in_plist(build_number: pr, target: "ELDebate")
+      password = SecureRandom.base64
+      keychain_name = "fastlane"
+      ENV["MATCH_KEYCHAIN_NAME"] = keychain_name
+      ENV["MATCH_KEYCHAIN_PASSWORD"] = password
+
+      create_keychain(
+        name: keychain_name,
+        default_keychain: true,
+        unlock: true,
+        timeout: 3600,
+        lock_when_sleeps: true,
+        password: password
+      )
+
+      match(
+        type: "appstore",
+        keychain_name: keychain_name,
+        keychain_password: password,
+        readonly: true
+      )
+
+      gym(scheme: "ELDebate", clean: true)
+      pilot
+      clean_build_artifacts
+      slack(message: "Successfully deployed EL Debate iOS #{pr} to TestFlight")
+    end
   end
 
   # You can define as many lanes as you want
@@ -70,13 +66,6 @@ platform :ios do
 
     # slack(
     #   message: "Successfully deployed new App Update."
-    # )
-  end
-
-  error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
     # )
   end
 end

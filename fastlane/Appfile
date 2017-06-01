@@ -1,5 +1,4 @@
 app_identifier "pl.elpassion.ELDebate" # The bundle identifier of your app
-apple_id "jkbturek@gmail.com" # Your Apple email address
 
 team_id "H5QFB36W2F" # Developer Portal Team ID
 itc_team_id "33869801"
