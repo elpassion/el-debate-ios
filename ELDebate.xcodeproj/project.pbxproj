@@ -428,14 +428,14 @@
 				8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */,
 				8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */,
 				6E1EA10D1ECF185C008C19EF /* CommentView.swift */,
+				8CFAC8541EE5A55C0086A976 /* IconTextField.swift */,
+				8CDE55421EE5B68200A05902 /* LoginButtonView.swift */,
 				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
 				8C127C891EC4A0D100E9B5FD /* PinEntryWelcomeView.swift */,
+				8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */,
 				8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */,
 				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
 				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
-				8CFAC8541EE5A55C0086A976 /* IconTextField.swift */,
-				8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */,
-				8CDE55421EE5B68200A05902 /* LoginButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -482,13 +482,13 @@
 				6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */,
 				8C127C821EC49B2900E9B5FD /* ControllerFactoryMock.swift */,
 				6E9119B71EC5B6F400B4B14B /* FetchDebateResponseJSONMock.swift */,
+				8CCE0F581EE57C84001FD1D7 /* FontSizeCalculatorMock.swift */,
 				8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */,
 				6EF0365D1EC9916200198F01 /* KeychainMock.swift */,
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
 				8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
-				8CCE0F581EE57C84001FD1D7 /* FontSizeCalculatorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -566,14 +566,14 @@
 				6EF036581EC98E1F00198F01 /* AuthTokenStorage.swift */,
 				8C0D62FE1EC5C8A400421B89 /* ControllerConfigurator.swift */,
 				8C127C7A1EC4941000E9B5FD /* ControllerFactory.swift */,
+				8CCE0F5A1EE5872F001FD1D7 /* Display.swift */,
+				8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */,
 				8C364DE61EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift */,
 				8C6127EE1EC9E71B003472A3 /* LoginActionHandler.swift */,
 				8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */,
 				8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */,
 				8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */,
 				8C0AA2BA1EE55E4500F98074 /* TextStyleDescriptorFactory.swift */,
-				8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */,
-				8CCE0F5A1EE5872F001FD1D7 /* Display.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -650,12 +650,12 @@
 				8C3155A91EDF57DA003F31D9 /* AttributesDescriptorSpec.swift */,
 				6EF0365A1EC98EF400198F01 /* AuthTokenStorageSpec.swift */,
 				8C0D63001EC5DACE00421B89 /* ControllerConfiguratorSpec.swift */,
+				8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */,
 				8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */,
 				8C6127EB1EC9E516003472A3 /* LoginActionHandlerSpec.swift */,
 				8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */,
 				8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */,
 				8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */,
-				8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -733,10 +733,10 @@
 		8CAD34D61EC34F5E00468C87 = {
 			isa = PBXGroup;
 			children = (
-				8C4B231C1EE5469600CE42DD /* Playground */,
 				8CDF21741ECAFB91002B4FA4 /* FeatureTests */,
 				8C4B23241EE547B400CE42DD /* Framework */,
 				ECA6FADB8E61D4022744061E /* Frameworks */,
+				8C4B231C1EE5469600CE42DD /* Playground */,
 				7AFE4545D2D4ECC51308BFA5 /* Pods */,
 				8CAD34E01EC34F5E00468C87 /* Products */,
 				8C78D3FA1EC350C400BDF7EB /* Resources */,
