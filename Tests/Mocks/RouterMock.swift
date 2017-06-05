@@ -3,7 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
-@testable import ELDebate
+@testable import ELDebateFramework
 import UIKit
 
 class RouterMock: Routing {

@@ -4,6 +4,7 @@
 //
 
 @testable import ELDebate
+@testable import ELDebateFramework
 import Nimble
 import Quick
 

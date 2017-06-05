@@ -5,13 +5,13 @@
 
 import UIKit
 
-protocol MainWindowCreating {
+public protocol MainWindowCreating {
 
     func makeMainWindow(with navigationController: UINavigationController) -> UIWindow
 
 }
 
-class MainWindowFactory: MainWindowCreating {
+public class MainWindowFactory: MainWindowCreating {
 
     private let screenBounds: CGRect
 
@@ -19,7 +19,7 @@ class MainWindowFactory: MainWindowCreating {
         self.screenBounds = screenBounds
     }
 
-    func makeMainWindow(with navigationController: UINavigationController) -> UIWindow {
+    public func makeMainWindow(with navigationController: UINavigationController) -> UIWindow {
         let window = UIWindow(frame: screenBounds)
         window.backgroundColor = .white
         window.makeKeyAndVisible()

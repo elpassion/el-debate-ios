@@ -1,4 +1,4 @@
-@testable import ELDebate
+@testable import ELDebateFramework
 import Foundation
 import UIKit
 import Alamofire

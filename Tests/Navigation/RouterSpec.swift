@@ -5,7 +5,7 @@
 
 // swiftlint:disable function_body_length
 
-@testable import ELDebate
+@testable import ELDebateFramework
 import Nimble
 import Quick
 import UIKit

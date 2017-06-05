@@ -4,6 +4,7 @@
 //
 
 import Crashlytics
+import ELDebateFramework
 import Fabric
 import Swinject
 import SwinjectAutoregistration
