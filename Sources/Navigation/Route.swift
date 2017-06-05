@@ -3,7 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
-enum Route {
+public enum Route {
 
     case pinEntry
     case answer(voteContext: VoteContext)

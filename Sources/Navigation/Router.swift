@@ -6,7 +6,7 @@
 import PromiseKit
 import UIKit
 
-protocol Routing {
+public protocol Routing {
 
     var navigator: UINavigationController { get }
 
@@ -16,9 +16,9 @@ protocol Routing {
 
 }
 
-class Router: Routing {
+public class Router: Routing {
 
-    let navigator: UINavigationController
+    public let navigator: UINavigationController
     private let controllerFactory: ControllerCreating
     private let controllerConfigurator: ControllerConfiguring
 
@@ -29,17 +29,17 @@ class Router: Routing {
         self.controllerConfigurator = controllerConfigurator
     }
 
-    func go(to route: Route) {
+    public func go(to route: Route) {
         let provider = makeProvider(for: route)
         navigator.pushViewController(provider.controller, animated: true)
     }
 
-    func reset(to route: Route) {
+    public func reset(to route: Route) {
         let provider = makeProvider(for: route)
         navigator.setViewControllers([provider.controller], animated: true)
     }
 
-    func goBack() {
+    public func goBack() {
         navigator.popViewController(animated: true)
     }
 

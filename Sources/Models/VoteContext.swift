@@ -8,12 +8,14 @@
 
 import Foundation
 
-struct VoteContext {
+public struct VoteContext {
+
     let debate: Debate
     let authToken: String
+
 }
 
-extension VoteContext {
+public extension VoteContext {
 
     func answer(for answerType: AnswerType) -> Answer {
         switch answerType {

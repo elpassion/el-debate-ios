@@ -5,7 +5,7 @@
 
 import UIKit
 
-protocol PinEntryControllerProviding: class, ControllerProviding {
+public protocol PinEntryControllerProviding: class, ControllerProviding {
 
     var onVoteContextLoaded: ((VoteContext) -> Void)? { get set }
 

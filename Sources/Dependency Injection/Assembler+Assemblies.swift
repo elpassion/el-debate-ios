@@ -5,7 +5,7 @@
 
 import Swinject
 
-extension Assembler {
+public extension Assembler {
 
     static var defaultAssembler: Assembler {
         guard let assembler = try? Assembler(assemblies: defaultAssemblies) else {

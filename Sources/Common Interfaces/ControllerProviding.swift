@@ -5,7 +5,7 @@
 
 import UIKit
 
-protocol ControllerProviding: class {
+public protocol ControllerProviding: class {
 
     var controller: UIViewController { get }
 

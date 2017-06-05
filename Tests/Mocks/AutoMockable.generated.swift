@@ -1,7 +1,7 @@
 // Generated using Sourcery 0.6.1 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
-@testable import ELDebate
+@testable import ELDebateFramework
 import Foundation
 import UIKit
 import Alamofire
@@ -25,6 +25,28 @@ configureCalled
 configureCalled
  = true
         configureReceivedArguments = (controller: controller, router: router)
+    }
+}
+class FontSizeCalculatingMock: FontSizeCalculating {
+
+
+    //MARK: - size
+
+    var 
+sizeCalled
+ = false
+    var sizeReceivedArguments: (fontSize: Double, screenHeight: Double)?
+    var 
+sizeReturnValue
+: Double!
+
+    func size(withReferenceSize fontSize: Double, forScreenHeight screenHeight: Double) -> Double {
+
+sizeCalled
+ = true
+        sizeReceivedArguments = (fontSize: fontSize, screenHeight: screenHeight)
+        return 
+sizeReturnValue
     }
 }
 class LoginActionHandlingMock: LoginActionHandling {

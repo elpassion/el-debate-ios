@@ -18,7 +18,6 @@ opt_in_rules:
   - fatal_error_message
   - redundant_nil_coalescing
   - private_outlet
-  - no_extension_access_modifier
   - conditional_returns_on_newline
   - prohibited_super_call
   - implicitly_unwrapped_optional

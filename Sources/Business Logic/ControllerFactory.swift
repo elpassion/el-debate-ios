@@ -6,7 +6,7 @@
 import Swinject
 import SwinjectAutoregistration
 
-enum ControllerType {
+public enum ControllerType {
 
     case pinEntry
     case answer(voteContext: VoteContext)
@@ -14,21 +14,21 @@ enum ControllerType {
 
 }
 
-protocol ControllerCreating {
+public protocol ControllerCreating {
 
     func makeController(of type: ControllerType) -> ControllerProviding
 
 }
 
-class ControllerFactory: ControllerCreating {
+public class ControllerFactory: ControllerCreating {
 
     private let resolver: Resolver
 
-    init(resolver: Resolver) {
+    public init(resolver: Resolver) {
         self.resolver = resolver
     }
 
-    func makeController(of type: ControllerType) -> ControllerProviding {
+    public func makeController(of type: ControllerType) -> ControllerProviding {
         switch type {
         case .pinEntry:
             return resolver ~> PinEntryViewController.self

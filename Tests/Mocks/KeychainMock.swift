@@ -6,7 +6,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
-@testable import ELDebate
+@testable import ELDebateFramework
 
 class KeychainMock: KeychainStoring {
     var storedValues: [String: Any?] = [:]

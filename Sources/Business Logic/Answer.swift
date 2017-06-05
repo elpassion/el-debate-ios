@@ -8,13 +8,16 @@
 
 import Foundation
 
-enum AnswerType: String {
+public enum AnswerType: String {
+
     case positive
     case neutral
     case negative
+
 }
 
-extension AnswerType {
+public extension AnswerType {
+
     static var allTypes: [AnswerType] {
         return [
             .positive,
@@ -22,10 +25,13 @@ extension AnswerType {
             .negative
         ]
     }
+
 }
 
-struct Answer {
+public struct Answer {
+
     let identifier: Int
     let value: String
     let type: AnswerType
+
 }
