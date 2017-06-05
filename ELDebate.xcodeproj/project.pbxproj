@@ -134,6 +134,7 @@
 		8CCE0F551EE57A30001FD1D7 /* FontSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */; };
 		8CCE0F571EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */; };
 		8CCE0F591EE57C84001FD1D7 /* FontSizeCalculatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F581EE57C84001FD1D7 /* FontSizeCalculatorMock.swift */; };
+		8CCE0F5C1EE58790001FD1D7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F5A1EE5872F001FD1D7 /* Display.swift */; };
 		8CD5F64E1ECC86500067BFC7 /* DictionaryMappingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD5F64D1ECC86500067BFC7 /* DictionaryMappingSpec.swift */; };
 		8CD5F6501ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD5F64F1ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift */; };
 		8CDF217E1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF217D1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift */; };
@@ -328,6 +329,7 @@
 		8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculator.swift; sourceTree = "<group>"; };
 		8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculatorSpec.swift; sourceTree = "<group>"; };
 		8CCE0F581EE57C84001FD1D7 /* FontSizeCalculatorMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculatorMock.swift; sourceTree = "<group>"; };
+		8CCE0F5A1EE5872F001FD1D7 /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnswerView.swift; sourceTree = "<group>"; };
 		8CD5F6481ECC77720067BFC7 /* Promise+APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+APIResponse.swift"; sourceTree = "<group>"; };
 		8CD5F64A1ECC85DC0067BFC7 /* Dictionary+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Mapping.swift"; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 				8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */,
 				8C0AA2BA1EE55E4500F98074 /* TextStyleDescriptorFactory.swift */,
 				8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */,
+				8CCE0F5A1EE5872F001FD1D7 /* Display.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -1266,6 +1269,7 @@
 				8C4B235E1EE547F500CE42DD /* CommentAssembly.swift in Sources */,
 				8C4B233A1EE547D100CE42DD /* QuestionView.swift in Sources */,
 				8C4B23511EE547F100CE42DD /* AnswerType+RawType.swift in Sources */,
+				8CCE0F5C1EE58790001FD1D7 /* Display.swift in Sources */,
 				8C4B23741EE5480400CE42DD /* NavigationControllerFactory.swift in Sources */,
 				8C4B236A1EE547FE00CE42DD /* ControllerProviding.swift in Sources */,
 				8C4B23551EE547F100CE42DD /* Keychain+KeychainStoring.swift in Sources */,

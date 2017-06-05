@@ -121,3 +121,28 @@ public func playgroundWrapper(child: UIViewController,
         
         return parent
 }
+
+public func size(for device: Device, and orientation: Orientation) -> CGSize {
+    let parentSize: CGSize
+
+    switch (device, orientation) {
+    case (.phone4inch, .portrait):
+        parentSize = .init(width: 320, height: 575)
+    case (.phone4inch, .landscape):
+        parentSize = .init(width: 575, height: 320)
+    case (.phone4_7inch, .portrait):
+        parentSize = .init(width: 375, height: 667)
+    case (.phone4_7inch, .landscape):
+        parentSize = .init(width: 667, height: 375)
+    case (.phone5_5inch, .portrait):
+        parentSize = .init(width: 414, height: 736)
+    case (.phone5_5inch, .landscape):
+        parentSize = .init(width: 736, height: 414)
+    case (.pad, .portrait):
+        parentSize = .init(width: 768, height: 1024)
+    case (.pad, .landscape):
+        parentSize = .init(width: 1024, height: 768)
+    }
+
+    return parentSize
+}

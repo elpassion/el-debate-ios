@@ -73,7 +73,7 @@ class AnswerPicker: UIView {
 
     private var answerHeight: Double {
         return FontSizeCalculator().size(withReferenceSize: 60.0,
-                                         forScreenHeight: Double(UIScreen.main.bounds.height))
+                                         forScreenHeight: Double(Display.height))
     }
 
     // MARK: - Gesture recognition

@@ -46,7 +46,7 @@ class TextStyleDescriptorFactory: TextStyleDescriptorCreating {
 class StyleBuilder {
 
     static let factory: TextStyleDescriptorCreating = TextStyleDescriptorFactory(
-        sizeCalculator: FontSizeCalculator(), screenBounds: UIScreen.main.bounds)
+        sizeCalculator: FontSizeCalculator(), screenBounds: Display.bounds)
 
     class func build(for style: TextStyle) -> TextStyleDescriptor {
         return factory.make(for: style)
