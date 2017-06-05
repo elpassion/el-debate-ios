@@ -42,15 +42,16 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     }
 
     func onLoginButtonTapped() {
-        pinEntryView.setLoginButton(isEnabled: false)
+        pinEntryView.showLogin(inProgress: true)
 
         loginActionHandler.login(withPinCode: pinEntryView.pinCode)
             .then { [weak self] voteContext -> Void in
+                self?.view.endEditing(true)
                 self?.onVoteContextLoaded?(voteContext)
             }.catch { [weak self] _ in
                 presentAlert(in: self, title: "Error", message: "Could not find a debate for a given pin code")
             }.always { [weak self] in
-                self?.pinEntryView.setLoginButton(isEnabled: true)
+                self?.pinEntryView.showLogin(inProgress: false)
             }
     }
 

@@ -33,6 +33,7 @@ PODS:
   - PromiseKit/UIKit (4.2.2):
     - PromiseKit/CorePromise
   - Quick (1.1.0)
+  - Reveal-SDK (8)
   - Sourcery (0.6.1)
   - SwiftLint (0.19.0)
   - Swinject (2.0.0)
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - Nimble-Snapshots
   - PromiseKit (~> 4.0)
   - Quick (~> 1.1)
+  - Reveal-SDK
   - Sourcery (~> 0.6)
   - SwiftLint (~> 0.18)
   - Swinject (~> 2.0)
@@ -72,12 +74,13 @@ SPEC CHECKSUMS:
   Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
   PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+  Reveal-SDK: 43be4e662864e937960d0d04d005135e29c4e53b
   Sourcery: 1426fbb5fe2d53f1e03845e989a89b6b67ce4e33
   SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: b8335de8a5f1f8d779ba5b8a38de42bd12dc96e1
+PODFILE CHECKSUM: fc5dc4477a1df6e0161d0f4e9ebbe628c26f2256
 
 COCOAPODS: 1.2.1

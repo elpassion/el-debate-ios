@@ -12,6 +12,7 @@ class PinEntryView: UIView {
     private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
     private let loginButton: UIButton = Views.button(style: .buttonTitle, backgroundColor: .navigationBar,
                                                      cornerRadius: 3.0, title: "Log in")
+    private let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
     private let pinInputView: PinInputPanel = PinInputPanel()
     private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
@@ -23,7 +24,6 @@ class PinEntryView: UIView {
     var buttonBottomConstraint: NSLayoutConstraint?
 
     var onLoginButtonTapped: (() -> Void)?
-    var onCommentButtonTapped: (() -> Void)?
 
     init() {
         super.init(frame: .zero)
@@ -45,8 +45,17 @@ class PinEntryView: UIView {
         }
     }
 
-    func setLoginButton(isEnabled: Bool) {
-        loginButton.isEnabled = isEnabled
+    func showLogin(inProgress: Bool) {
+        let backgroundColor: Color = inProgress ? .pin : .navigationBar
+        loginButton.isEnabled = !inProgress
+        loginButton.backgroundColor = UIColor(predefined: backgroundColor)
+        activityIndicator.isHidden = loginButton.isEnabled
+
+        if inProgress {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
 
     func playKeyboardAnimation(height: CGFloat) {
@@ -69,6 +78,8 @@ class PinEntryView: UIView {
 
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         loginButton.contentEdgeInsets = UIEdgeInsets(top: 12.0, left: 0.0, bottom: 12.0, right: 0.0)
+
+        activityIndicator.isHidden = true
     }
 
     private func addSubviews() {
@@ -76,6 +87,7 @@ class PinEntryView: UIView {
         addSubview(welcomeView)
         addSubview(loginButton)
         addSubview(pinInputView)
+        addSubview(activityIndicator)
     }
 
     // MARK: - Layout
@@ -98,6 +110,9 @@ class PinEntryView: UIView {
         pinInputView.widthAnchor == loginButton.widthAnchor
         codeFieldBottomConstraint = pinInputView.bottomAnchor == background.topAnchor + codeFieldAnimationRatio
         pinInputView.centerXAnchor == centerXAnchor
+
+        activityIndicator.centerYAnchor == loginButton.centerYAnchor
+        activityIndicator.trailingAnchor == loginButton.trailingAnchor - 12.0
     }
 
     // MARK: - Gesture recognition
