@@ -1,22 +1,24 @@
 //
-//  Created by Jakub Turek on 12.05.2017.
+//  Created by Jakub Turek on 05.06.2017.
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
 import Anchorage
 import UIKit
 
-class PinEntryCodeField: UIView {
+class IconTextField: UIView {
 
     private let verticalStack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                                          alignment: .center, spacing: 4.0)
     private let horizontalStack: UIStackView = Views.stack(axis: .horizontal, distribution: .fill,
                                                            alignment: .fill, spacing: 25.0)
     private let separator: UIView = UIView(frame: .zero)
-    private let keyIcon: UIImageView = Views.image(image: .keyIcon, contentMode: .scaleAspectFit)
-    private let codeInput: UITextField = UITextField(frame: .zero)
+    private let iconView: UIImageView
+    private let textField: UITextField = UITextField(frame: .zero)
 
-    init() {
+    init(icon: Image) {
+        iconView = Views.image(image: icon, contentMode: .scaleAspectFit)
+
         super.init(frame: .zero)
 
         setUpSubviews()
@@ -26,12 +28,30 @@ class PinEntryCodeField: UIView {
 
     // MARK: - Public API
 
-    var pinCode: String {
+    var value: String {
         get {
-            return codeInput.text ?? ""
+            return textField.text ?? ""
         }
         set {
-            codeInput.text = newValue
+            textField.text = newValue
+        }
+    }
+
+    var keyboardType: UIKeyboardType {
+        get {
+            return textField.keyboardType
+        }
+        set {
+            textField.keyboardType = newValue
+        }
+    }
+
+    var placeholder: String {
+        get {
+            return textField.placeholder ?? ""
+        }
+        set {
+            textField.placeholder = newValue
         }
     }
 
@@ -40,14 +60,14 @@ class PinEntryCodeField: UIView {
     private func setUpSubviews() {
         separator.backgroundColor = UIColor(predefined: .pin)
 
-        codeInput.keyboardType = .numberPad
-        codeInput.defaultTextAttributes = AttributeStyle.enterPin.attributes.build()
-        codeInput.placeholder = "Enter EL Debate PIN"
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.defaultTextAttributes = AttributeStyle.enterPin.attributes.build()
     }
 
     private func addSubviews() {
-        horizontalStack.addArrangedSubview(keyIcon)
-        horizontalStack.addArrangedSubview(codeInput)
+        horizontalStack.addArrangedSubview(iconView)
+        horizontalStack.addArrangedSubview(textField)
 
         verticalStack.addArrangedSubview(horizontalStack)
         verticalStack.addArrangedSubview(separator)
@@ -60,8 +80,8 @@ class PinEntryCodeField: UIView {
     private func setUpLayout() {
         verticalStack.edgeAnchors == edgeAnchors
 
-        keyIcon.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        codeInput.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        iconView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        textField.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
 
         horizontalStack.widthAnchor == verticalStack.widthAnchor - 20.0
 

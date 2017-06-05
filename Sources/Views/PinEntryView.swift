@@ -12,12 +12,12 @@ class PinEntryView: UIView {
     private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
     private let loginButton: UIButton = Views.button(style: .buttonTitle, backgroundColor: .navigationBar,
                                                      cornerRadius: 3.0, title: "Log in")
-    private let codeField: PinEntryCodeField = PinEntryCodeField()
+    private let pinInputView: PinInputPanel = PinInputPanel()
     private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
     private let buttonConstraintValue: CGFloat = CGFloat(-15.0)
     private let codeFieldConstraintValue: CGFloat = CGFloat(-20.0)
-    private let codeFieldAnimationRatio: CGFloat = CGFloat(3.4)
+    private let codeFieldAnimationRatio: CGFloat = CGFloat(7.0)
 
     private var codeFieldBottomConstraint: NSLayoutConstraint?
     var buttonBottomConstraint: NSLayoutConstraint?
@@ -38,10 +38,10 @@ class PinEntryView: UIView {
 
     var pinCode: String {
         get {
-            return codeField.pinCode
+            return pinInputView.pinCode
         }
         set {
-            codeField.pinCode = newValue
+            pinInputView.pinCode = newValue
         }
     }
 
@@ -75,7 +75,7 @@ class PinEntryView: UIView {
         addSubview(background)
         addSubview(welcomeView)
         addSubview(loginButton)
-        addSubview(codeField)
+        addSubview(pinInputView)
     }
 
     // MARK: - Layout
@@ -95,9 +95,9 @@ class PinEntryView: UIView {
         loginButton.widthAnchor == widthAnchor * 0.9
         loginButton.heightAnchor == heightAnchor * 0.08
 
-        codeField.widthAnchor == loginButton.widthAnchor
-        codeFieldBottomConstraint = codeField.bottomAnchor == background.topAnchor + codeFieldConstraintValue
-        codeField.centerXAnchor == centerXAnchor
+        pinInputView.widthAnchor == loginButton.widthAnchor
+        codeFieldBottomConstraint = pinInputView.bottomAnchor == background.topAnchor + codeFieldAnimationRatio
+        pinInputView.centerXAnchor == centerXAnchor
     }
 
     // MARK: - Gesture recognition

@@ -48,7 +48,6 @@
 		8C4B23331EE547D100CE42DD /* AttributedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */; };
 		8C4B23341EE547D100CE42DD /* ChatButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */; };
 		8C4B23351EE547D100CE42DD /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1EA10D1ECF185C008C19EF /* CommentView.swift */; };
-		8C4B23361EE547D100CE42DD /* PinEntryCodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0361EC5943400D31E76 /* PinEntryCodeField.swift */; };
 		8C4B23371EE547D100CE42DD /* PinEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */; };
 		8C4B23381EE547D100CE42DD /* PinEntryWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C127C891EC4A0D100E9B5FD /* PinEntryWelcomeView.swift */; };
 		8C4B23391EE547D100CE42DD /* QuestionFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */; };
@@ -129,6 +128,8 @@
 		8C85D8521EC34FC100C5BAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */; };
 		8C85D8531EC34FC100C5BAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8481EC34FC100C5BAE7 /* LaunchScreen.storyboard */; };
 		8CB3AF5C1EC36EA7005EEDC7 /* RouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1918011EC360F100519DC8 /* RouterSpec.swift */; };
+		8CB4CDE01EE5A5890055C50B /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAC8541EE5A55C0086A976 /* IconTextField.swift */; };
+		8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */; };
 		8CCE0F501EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */; };
 		8CCE0F521EE55F01001FD1D7 /* TextStyleDescriptorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0AA2BA1EE55E4500F98074 /* TextStyleDescriptorFactory.swift */; };
 		8CCE0F551EE57A30001FD1D7 /* FontSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */; };
@@ -307,7 +308,6 @@
 		8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Predefined.swift"; sourceTree = "<group>"; };
 		8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactory.swift; sourceTree = "<group>"; };
 		8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerFactorySpec.swift; sourceTree = "<group>"; };
-		8C6DA0361EC5943400D31E76 /* PinEntryCodeField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryCodeField.swift; sourceTree = "<group>"; };
 		8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryViewControllerSpec.swift; sourceTree = "<group>"; };
 		8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryControllerProviding.swift; sourceTree = "<group>"; };
 		8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProviderStub.swift; sourceTree = "<group>"; };
@@ -325,6 +325,7 @@
 		8CAD34DF1EC34F5E00468C87 /* ELDebate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELDebate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB3AF521EC36E92005EEDC7 /* ELDebateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELDebateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerPicker.swift; sourceTree = "<group>"; };
+		8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinInputPanel.swift; sourceTree = "<group>"; };
 		8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleDescriptorFactorySpec.swift; sourceTree = "<group>"; };
 		8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculator.swift; sourceTree = "<group>"; };
 		8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculatorSpec.swift; sourceTree = "<group>"; };
@@ -341,6 +342,7 @@
 		8CDF21801ECB11EB002B4FA4 /* HasPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasPlaceholder.swift; sourceTree = "<group>"; };
 		8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		8CF071D81ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowPayloadSpec.swift; sourceTree = "<group>"; };
+		8CFAC8541EE5A55C0086A976 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		996F3224CAB84F5F195967B0 /* Pods-FeatureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatureTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeatureTests/Pods-FeatureTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F279745FDA64037BEE9E67EC /* Pods-FeatureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatureTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatureTests/Pods-FeatureTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -424,12 +426,13 @@
 				8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */,
 				8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */,
 				6E1EA10D1ECF185C008C19EF /* CommentView.swift */,
-				8C6DA0361EC5943400D31E76 /* PinEntryCodeField.swift */,
 				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
 				8C127C891EC4A0D100E9B5FD /* PinEntryWelcomeView.swift */,
 				8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */,
 				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
 				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
+				8CFAC8541EE5A55C0086A976 /* IconTextField.swift */,
+				8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1247,17 +1250,18 @@
 				8C4B234B1EE547EC00CE42DD /* Color.swift in Sources */,
 				8C4B23681EE547FA00CE42DD /* PinEntryViewController.swift in Sources */,
 				8C4B23501EE547EC00CE42DD /* VoteContext.swift in Sources */,
+				8CB4CDE01EE5A5890055C50B /* IconTextField.swift in Sources */,
 				8C4B23371EE547D100CE42DD /* PinEntryView.swift in Sources */,
 				8C4B23331EE547D100CE42DD /* AttributedLabel.swift in Sources */,
 				8C4B23441EE547E100CE42DD /* AnswerDeserializer.swift in Sources */,
 				8C4B23391EE547D100CE42DD /* QuestionFrameView.swift in Sources */,
 				8C4B23721EE5480400CE42DD /* LoginActionHandler.swift in Sources */,
+				8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */,
 				8C4B23491EE547E600CE42DD /* Router.swift in Sources */,
 				8C4B233D1EE547D700CE42DD /* NotificationDescriptor.swift in Sources */,
 				8C4B23461EE547E100CE42DD /* DebateDeserializer.swift in Sources */,
 				8C4B23701EE5480400CE42DD /* ControllerFactory.swift in Sources */,
 				8C4B23401EE547DC00CE42DD /* ApiResponse.swift in Sources */,
-				8C4B23361EE547D100CE42DD /* PinEntryCodeField.swift in Sources */,
 				8C4B23471EE547E100CE42DD /* Deserializer.swift in Sources */,
 				8C4B23531EE547F100CE42DD /* Dictionary+Merging.swift in Sources */,
 				8C4B23751EE5480400CE42DD /* TextStyleDescriptor.swift in Sources */,
