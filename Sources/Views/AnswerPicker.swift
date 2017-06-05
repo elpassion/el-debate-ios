@@ -66,9 +66,14 @@ class AnswerPicker: UIView {
     private func setUpLayout() {
         verticalStack.edgeAnchors == edgeAnchors
 
-        yesAnswer.heightAnchor == 45
+        yesAnswer.heightAnchor == answerHeight
         noAnswer.heightAnchor == yesAnswer.heightAnchor
         undecidedAnswer.heightAnchor == noAnswer.heightAnchor
+    }
+
+    private var answerHeight: Double {
+        return FontSizeCalculator().size(withReferenceSize: 60.0,
+                                         forScreenHeight: Double(UIScreen.main.bounds.height))
     }
 
     // MARK: - Gesture recognition

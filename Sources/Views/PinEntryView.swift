@@ -93,6 +93,7 @@ class PinEntryView: UIView {
         loginButton.centerXAnchor == centerXAnchor
         buttonBottomConstraint = loginButton.bottomAnchor == bottomAnchor + buttonConstraintValue
         loginButton.widthAnchor == widthAnchor * 0.9
+        loginButton.heightAnchor == heightAnchor * 0.08
 
         codeField.widthAnchor == loginButton.widthAnchor
         codeFieldBottomConstraint = codeField.bottomAnchor == background.topAnchor + codeFieldConstraintValue

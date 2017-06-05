@@ -26,7 +26,10 @@ struct AttributesDescriptor {
          alignment: NSTextAlignment = .left,
          lineSpacing: CGFloat = 0.0,
          kern: Double = 0.0) {
-        self.init(style: textStyle.style, alignment: alignment, lineSpacing: lineSpacing, kern: kern)
+        self.init(style: StyleBuilder.build(for: textStyle),
+                  alignment: alignment,
+                  lineSpacing: lineSpacing,
+                  kern: kern)
     }
 
 }
