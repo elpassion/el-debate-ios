@@ -138,6 +138,7 @@
 		8CCE0F5C1EE58790001FD1D7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F5A1EE5872F001FD1D7 /* Display.swift */; };
 		8CD5F64E1ECC86500067BFC7 /* DictionaryMappingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD5F64D1ECC86500067BFC7 /* DictionaryMappingSpec.swift */; };
 		8CD5F6501ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD5F64F1ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift */; };
+		8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDE55421EE5B68200A05902 /* LoginButtonView.swift */; };
 		8CDF217E1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF217D1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift */; };
 		8CDF21811ECB11EB002B4FA4 /* HasPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF21801ECB11EB002B4FA4 /* HasPlaceholder.swift */; };
 		8CF071D91ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF071D81ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift */; };
@@ -336,6 +337,7 @@
 		8CD5F64A1ECC85DC0067BFC7 /* Dictionary+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Mapping.swift"; sourceTree = "<group>"; };
 		8CD5F64D1ECC86500067BFC7 /* DictionaryMappingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryMappingSpec.swift; sourceTree = "<group>"; };
 		8CD5F64F1ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryMergingSpec.swift; sourceTree = "<group>"; };
+		8CDE55421EE5B68200A05902 /* LoginButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButtonView.swift; sourceTree = "<group>"; };
 		8CDF21731ECAFB91002B4FA4 /* FeatureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CDF21771ECAFB91002B4FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CDF217D1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryScreenTests.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
 				8CFAC8541EE5A55C0086A976 /* IconTextField.swift */,
 				8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */,
+				8CDE55421EE5B68200A05902 /* LoginButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1237,6 +1240,7 @@
 				8C4B235A1EE547F100CE42DD /* UIImage+Predefined.swift in Sources */,
 				8C4B23521EE547F100CE42DD /* Dictionary+Mapping.swift in Sources */,
 				8C4B23381EE547D100CE42DD /* PinEntryWelcomeView.swift in Sources */,
+				8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */,
 				8C4B233F1EE547DC00CE42DD /* ApiClient.swift in Sources */,
 				8C4B23691EE547FE00CE42DD /* AutoMockable.swift in Sources */,
 				8C4B23611EE547FA00CE42DD /* AlertPresenter.swift in Sources */,
