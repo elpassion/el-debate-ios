@@ -1,11 +1,9 @@
 platform :ios, '10.0'
 inhibit_all_warnings!
 
-def debate_pods
+def common_pods
   pod 'Alamofire', '~> 4.4'
   pod 'Anchorage', '~> 4.0'
-  pod 'Crashlytics', '~> 3.8'
-  pod 'Fabric', '~> 1.6'
   pod 'KeychainAccess', '~> 3.0'
   pod 'PromiseKit', '~> 4.0'
   pod 'Sourcery', '~> 0.6'
@@ -17,7 +15,9 @@ end
 
 target 'ELDebate' do
   use_frameworks!
-  debate_pods
+  common_pods
+  pod 'Crashlytics', '~> 3.8'
+  pod 'Fabric', '~> 1.6'
 
   target 'ELDebateTests' do
     inherit! :search_paths
@@ -38,5 +38,5 @@ end
 
 target 'ELDebateFramework' do
   use_frameworks!
-  debate_pods
+  common_pods
 end
