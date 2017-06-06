@@ -9,7 +9,7 @@
 import PromiseKit
 import UIKit
 
-class CommentViewController: UIViewController, CommentControllerProviding, AlertPresentingController {
+class CommentController: UIViewController, AlertPresentingController {
 
     private let authToken: String
     private let apiClient: APIProviding

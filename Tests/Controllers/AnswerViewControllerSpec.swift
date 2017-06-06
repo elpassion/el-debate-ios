@@ -17,16 +17,17 @@ class AnswerViewControllerSpec: QuickSpec {
             var controller: AnswerViewController!
             var apiClient: APIProviderStub!
             var alertView: AlertViewMock!
+            var commentPresenter: CommentControllerPresentingMock!
 
             beforeEach {
                 apiClient = APIProviderStub()
                 alertView = AlertViewMock()
-                let inputAlertPresenter = InputAlertPresenter()
+                commentPresenter = CommentControllerPresentingMock()
                 controller = AnswerViewController(
                     voteContext: VoteContext.testDefault,
                     apiClient: apiClient,
                     alertView: alertView,
-                    inputAlertPresenter: inputAlertPresenter
+                    commentPresenter: commentPresenter
                 )
             }
 
@@ -52,6 +53,15 @@ class AnswerViewControllerSpec: QuickSpec {
 
                     expect(apiClient.votingAnswer?.identifier).toEventually(equal(2))
                     expect(apiClient.votingAuthToken).toEventually(equal("whatever"))
+                }
+            }
+
+            describe("chat button tap") {
+                it("should present comment controller") {
+                    controller.answerView.onChatButtonTapped?()
+
+                    expect(commentPresenter.presentCalled).to(beTrue())
+                    expect(commentPresenter.presentReceivedController) == controller
                 }
             }
 

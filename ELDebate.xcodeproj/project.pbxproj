@@ -90,8 +90,7 @@
 		8C4B23611EE547FA00CE42DD /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EADF5551ECC48BB00488057 /* AlertPresenter.swift */; };
 		8C4B23621EE547FA00CE42DD /* AnswerControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */; };
 		8C4B23631EE547FA00CE42DD /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */; };
-		8C4B23641EE547FA00CE42DD /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF682071ED3205200B6CA5A /* CommentControllerProviding.swift */; };
-		8C4B23651EE547FA00CE42DD /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1EA1051ECEDB98008C19EF /* CommentViewController.swift */; };
+		8C4B23651EE547FA00CE42DD /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1EA1051ECEDB98008C19EF /* CommentController.swift */; };
 		8C4B23661EE547FA00CE42DD /* LoadingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C9901ED3054600E2B096 /* LoadingViewPresenter.swift */; };
 		8C4B23671EE547FA00CE42DD /* PinEntryControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */; };
 		8C4B23681EE547FA00CE42DD /* PinEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */; };
@@ -134,6 +133,7 @@
 		8CCE0F571EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */; };
 		8CCE0F591EE57C84001FD1D7 /* FontSizeCalculatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F581EE57C84001FD1D7 /* FontSizeCalculatorMock.swift */; };
 		8CCE0F5C1EE58790001FD1D7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F5A1EE5872F001FD1D7 /* Display.swift */; };
+		8CD496791EE6F8B8004046C7 /* CommentControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */; };
 		8CD5F64E1ECC86500067BFC7 /* DictionaryMappingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD5F64D1ECC86500067BFC7 /* DictionaryMappingSpec.swift */; };
 		8CD5F6501ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD5F64F1ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift */; };
 		8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDE55421EE5B68200A05902 /* LoginButtonView.swift */; };
@@ -203,7 +203,7 @@
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		5F67AEB94008F68BD181A24A /* Pods-ELDebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.release.xcconfig"; sourceTree = "<group>"; };
 		61933490ECFB149E50D497ED /* Pods-ELDebateFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateFramework/Pods-ELDebateFramework.release.xcconfig"; sourceTree = "<group>"; };
-		6E1EA1051ECEDB98008C19EF /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		6E1EA1051ECEDB98008C19EF /* CommentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerControllerProviding.swift; sourceTree = "<group>"; };
 		6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentResponseJSONMock.swift; sourceTree = "<group>"; };
 		6E39C9901ED3054600E2B096 /* LoadingViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewPresenter.swift; sourceTree = "<group>"; };
@@ -230,7 +230,6 @@
 		6EF0365F1EC9A43D00198F01 /* Keychain+KeychainStoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keychain+KeychainStoring.swift"; sourceTree = "<group>"; };
 		6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteResponseJSONMock.swift; sourceTree = "<group>"; };
 		6EF036641EC9BDAD00198F01 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
-		6EF682071ED3205200B6CA5A /* CommentControllerProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		7038F97CE28C5DDE8433B481 /* Pods-ELDebate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.debug.xcconfig"; sourceTree = "<group>"; };
 		7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELDebate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89394591D6E38BCF7121D02F /* Pods_ELDebateFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELDebateFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +328,7 @@
 		8CCE0F581EE57C84001FD1D7 /* FontSizeCalculatorMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculatorMock.swift; sourceTree = "<group>"; };
 		8CCE0F5A1EE5872F001FD1D7 /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnswerView.swift; sourceTree = "<group>"; };
+		8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentControllerPresenter.swift; sourceTree = "<group>"; };
 		8CD5F6481ECC77720067BFC7 /* Promise+APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+APIResponse.swift"; sourceTree = "<group>"; };
 		8CD5F64A1ECC85DC0067BFC7 /* Dictionary+Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Mapping.swift"; sourceTree = "<group>"; };
 		8CD5F64D1ECC86500067BFC7 /* DictionaryMappingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryMappingSpec.swift; sourceTree = "<group>"; };
@@ -712,10 +712,10 @@
 			isa = PBXGroup;
 			children = (
 				6EADF5551ECC48BB00488057 /* AlertPresenter.swift */,
+				8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */,
 				6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */,
 				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
-				6EF682071ED3205200B6CA5A /* CommentControllerProviding.swift */,
-				6E1EA1051ECEDB98008C19EF /* CommentViewController.swift */,
+				6E1EA1051ECEDB98008C19EF /* CommentController.swift */,
 				6E39C9901ED3054600E2B096 /* LoadingViewPresenter.swift */,
 				8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */,
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
@@ -1215,6 +1215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CD496791EE6F8B8004046C7 /* CommentControllerPresenter.swift in Sources */,
 				8C4B234F1EE547EC00CE42DD /* TextStyle.swift in Sources */,
 				8C4B233E1EE547D700CE42DD /* Notifications.swift in Sources */,
 				8C4B234A1EE547EC00CE42DD /* AttributeStyle.swift in Sources */,
@@ -1226,7 +1227,7 @@
 				8CC783D81EE6F43B00023EBF /* InputAlertPresenter.swift in Sources */,
 				8C4B236B1EE547FE00CE42DD /* Views.swift in Sources */,
 				8C4B236D1EE5480400CE42DD /* AttributesDescriptor.swift in Sources */,
-				8C4B23651EE547FA00CE42DD /* CommentViewController.swift in Sources */,
+				8C4B23651EE547FA00CE42DD /* CommentController.swift in Sources */,
 				8C4B23561EE547F100CE42DD /* NotificationCenter+Protocol.swift in Sources */,
 				8C4B233C1EE547D700CE42DD /* KeyboardWillShowPayload.swift in Sources */,
 				8C4B23451EE547E100CE42DD /* AuthTokenDeserializer.swift in Sources */,
@@ -1279,7 +1280,6 @@
 				8C4B23731EE5480400CE42DD /* MainWindowFactory.swift in Sources */,
 				8C4B23661EE547FA00CE42DD /* LoadingViewPresenter.swift in Sources */,
 				8C4B23321EE547D100CE42DD /* AnswersListView.swift in Sources */,
-				8C4B23641EE547FA00CE42DD /* CommentControllerProviding.swift in Sources */,
 				8C4B23601EE547F500CE42DD /* PinEntryAssembly.swift in Sources */,
 				8C4B234C1EE547EC00CE42DD /* Debate.swift in Sources */,
 				8C4B23671EE547FA00CE42DD /* PinEntryControllerProviding.swift in Sources */,

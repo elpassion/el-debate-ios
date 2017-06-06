@@ -10,6 +10,23 @@ import PromiseKit
 
 
 
+class CommentControllerPresentingMock: CommentControllerPresenting {
+
+
+    //MARK: - present
+
+    var 
+presentCalled
+ = false
+    var presentReceivedController: UIViewController?
+
+    func present(in controller: UIViewController) {
+
+presentCalled
+ = true
+        presentReceivedController = controller
+    }
+}
 class ControllerConfiguringMock: ControllerConfiguring {
 
 
