@@ -9,31 +9,47 @@
 import PromiseKit
 import UIKit
 
-class CommentController: UIViewController, AlertPresentingController {
+class CommentController: UIViewController, ControllerProviding {
 
-    private let authToken: String
+    private let voteContext: VoteContext
     private let apiClient: APIProviding
-    let alertPresenter: AlertShowing
-    private let loadingView: LoadingViewShowing
-    private let keyboardHandling: KeyboardWillShowHandling
+    private let inputAlertPresenter: InputAlertPresenting
 
-    var onCommentSubmitted: (() -> Void)?
+    lazy var doDismiss: () -> Void = { [weak self] in
+        self?.removeFromParentViewController()
+        self?.view.removeFromSuperview()
+    }
 
-    init(authToken: String, apiClient: APIProviding, alertView: AlertShowing,
-         loadingView: LoadingViewShowing, keyboardHandling: KeyboardWillShowHandling) {
-        self.authToken = authToken
+    init(voteContext: VoteContext, apiClient: APIProviding, inputAlertPresenter: InputAlertPresenting) {
+        self.voteContext = voteContext
         self.apiClient = apiClient
-        self.alertPresenter = alertView
-        self.loadingView = loadingView
-        self.keyboardHandling = keyboardHandling
+        self.inputAlertPresenter = inputAlertPresenter
 
         super.init(nibName: nil, bundle: nil)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        definesPresentationContext = true
-        title = "Comment"
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        _ = inputAlertPresenter.prompt(in: self, with: inputAlertConfiguration)
+            .then { [weak self] comment in
+                self?.didSendComment(comment)
+            }.always { [weak self] in
+                self?.doDismiss()
+            }
+    }
+
+    private func didSendComment(_ comment: String?) -> Promise<Bool> {
+        guard let comment = comment else {
+            return Promise(value: false)
+        }
+
+        return apiClient.comment(authToken: voteContext.authToken, text: comment)
+    }
+
+    private var inputAlertConfiguration: InputAlertConfiguration {
+        return InputAlertConfiguration(title: nil, message: "Add a comment", cancelTitle: "Cancel",
+                                       okTitle: "Send", inputPlaceholder: "Comment")
     }
 
     // MARK: - ControllerProviding

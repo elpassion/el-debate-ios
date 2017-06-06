@@ -64,7 +64,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     }
 
     private func didTapChat() {
-        commentPresenter.present(in: self)
+        commentPresenter.present(in: self, with: voteContext)
     }
 
     // MARK: - ControllerProviding

@@ -18,13 +18,13 @@ class CommentControllerPresentingMock: CommentControllerPresenting {
     var 
 presentCalled
  = false
-    var presentReceivedController: UIViewController?
+    var presentReceivedArguments: (controller: UIViewController, context: VoteContext)?
 
-    func present(in controller: UIViewController) {
+    func present(in controller: UIViewController, with context: VoteContext) {
 
 presentCalled
  = true
-        presentReceivedController = controller
+        presentReceivedArguments = (controller: controller, context: context)
     }
 }
 class ControllerConfiguringMock: ControllerConfiguring {

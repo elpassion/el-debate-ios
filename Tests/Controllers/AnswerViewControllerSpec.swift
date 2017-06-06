@@ -57,11 +57,20 @@ class AnswerViewControllerSpec: QuickSpec {
             }
 
             describe("chat button tap") {
-                it("should present comment controller") {
+                beforeEach {
                     controller.answerView.onChatButtonTapped?()
+                }
 
+                it("should present comment controller") {
                     expect(commentPresenter.presentCalled).to(beTrue())
-                    expect(commentPresenter.presentReceivedController) == controller
+                    expect(commentPresenter.presentReceivedArguments?.controller) == controller
+                }
+
+                it("should pass its context") {
+                    let context = commentPresenter.presentReceivedArguments?.context
+
+                    expect(context?.authToken) == VoteContext.testDefault.authToken
+                    expect(context?.debate.topic) == VoteContext.testDefault.debate.topic
                 }
             }
 
