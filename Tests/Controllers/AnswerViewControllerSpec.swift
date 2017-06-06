@@ -21,10 +21,12 @@ class AnswerViewControllerSpec: QuickSpec {
             beforeEach {
                 apiClient = APIProviderStub()
                 alertView = AlertViewMock()
+                let inputAlertPresenter = InputAlertPresenter()
                 controller = AnswerViewController(
                     voteContext: VoteContext.testDefault,
                     apiClient: apiClient,
-                    alertView: alertView
+                    alertView: alertView,
+                    inputAlertPresenter: inputAlertPresenter
                 )
             }
 
@@ -41,20 +43,6 @@ class AnswerViewControllerSpec: QuickSpec {
                     controller.view.frame = UIScreen.main.bounds
 
                     expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
-                }
-            }
-
-            describe("chat button tap") {
-                it("should invoke chat button tapped callback with auth token") {
-                    var authenticationToken: String?
-
-                    controller.onChatButtonTapped = { authToken in
-                        authenticationToken = authToken
-                    }
-
-                    controller.answerView.onChatButtonTapped?()
-
-                    expect(authenticationToken).toEventually(equal("whatever"))
                 }
             }
 

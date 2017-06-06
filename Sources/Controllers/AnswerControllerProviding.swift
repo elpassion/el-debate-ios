@@ -8,8 +8,4 @@
 
 import UIKit
 
-protocol AnswerControllerProviding: class, ControllerProviding {
-
-    var onChatButtonTapped: ((String) -> Void)? { get set }
-
-}
+protocol AnswerControllerProviding: class, ControllerProviding {}

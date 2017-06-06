@@ -30,41 +30,12 @@ class CommentViewController: UIViewController, CommentControllerProviding, Alert
         super.init(nibName: nil, bundle: nil)
     }
 
-    override func loadView() {
-        view = CommentView()
-    }
-
-    var commentView: CommentView { return forceCast(view) }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         definesPresentationContext = true
         title = "Comment"
-        commentView.onSubmitButtonTapped = { [weak self] in self?.onSubmitButtonTapped() }
-
-        setupKeyboardNotifications()
     }
 
-    private func onSubmitButtonTapped() {
-        loadingView.show(in: self)
-
-        apiClient.comment(authToken: authToken, text: commentView.commentText)
-            .then { [weak self] _ -> Promise<Bool> in
-                presentAlert(in: self, title: nil, message: "Your comment was submitted")
-            }.then { _ -> Void in
-                self.onCommentSubmitted?()
-            }.catch { [weak self] _ -> Void in
-                presentAlert(in: self, title: "Error", message: "There was a problem submitting your comment")
-            }.always { [weak self] in
-                self?.loadingView.hide()
-            }
-    }
-
-    private func setupKeyboardNotifications() {
-        keyboardHandling.onKeyboardHeightChanged = { [weak self] height in
-            self?.commentView.playKeyboardAnimation(height: height)
-        }
-    }
     // MARK: - ControllerProviding
 
     var controller: UIViewController { return self }

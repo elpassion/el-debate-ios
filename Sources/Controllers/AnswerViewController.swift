@@ -11,15 +11,16 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     private let voteContext: VoteContext
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
-
-    var onChatButtonTapped: ((String) -> Void)?
+    private let inputAlertPresenter: InputAlertPresenting
 
     // MARK: - Initializer
 
-    init(voteContext: VoteContext, apiClient: APIProviding, alertView: AlertShowing) {
+    init(voteContext: VoteContext, apiClient: APIProviding,
+         alertView: AlertShowing, inputAlertPresenter: InputAlertPresenting) {
         self.voteContext = voteContext
         self.apiClient = apiClient
         self.alertPresenter = alertView
+        self.inputAlertPresenter = inputAlertPresenter
 
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -63,7 +64,6 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     }
 
     private func didTapChat() {
-        onChatButtonTapped?(voteContext.authToken)
     }
 
     // MARK: - ControllerProviding

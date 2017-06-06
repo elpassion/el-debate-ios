@@ -10,7 +10,6 @@ class ControllerFactoryMock: ControllerCreating {
 
     let pinEntryProvider = PinEntryControllerMockProvider()
     let answerProvider = AnswerControllerMockProvider()
-    let commentProvider = CommentControllerMockProvider()
 
     var lastType: ControllerType?
 
@@ -22,8 +21,6 @@ class ControllerFactoryMock: ControllerCreating {
             return pinEntryProvider
         case .answer:
             return answerProvider
-        case .comment:
-            return commentProvider
         }
     }
 
@@ -48,13 +45,5 @@ class AnswerControllerMockProvider: AnswerControllerProviding {
     let controller = UIViewController()
 
     var onChatButtonTapped: ((String) -> Void)?
-
-}
-
-class CommentControllerMockProvider: CommentControllerProviding {
-
-    let controller = UIViewController()
-
-    var onCommentSubmitted: (() -> Void)?
 
 }
