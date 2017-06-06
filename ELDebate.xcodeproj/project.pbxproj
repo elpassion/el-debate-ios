@@ -453,9 +453,9 @@
 				6EA7E2991EC4AF09002DF55E /* Debate.swift */,
 				8CA6D8251EDF067D00A82CD2 /* Font.swift */,
 				8C127C8E1EC4A23D00E9B5FD /* Image.swift */,
+				8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */,
 				8C3155AE1EDF6358003F31D9 /* TextStyle.swift */,
 				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
-				8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -485,18 +485,18 @@
 				6EADF5571ECC491B00488057 /* AlertViewMock.swift */,
 				8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */,
 				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
+				8CD496821EE7040A004046C7 /* ChildControllerSpy.swift */,
 				6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */,
 				8C127C821EC49B2900E9B5FD /* ControllerFactoryMock.swift */,
 				6E9119B71EC5B6F400B4B14B /* FetchDebateResponseJSONMock.swift */,
 				8CCE0F581EE57C84001FD1D7 /* FontSizeCalculatorMock.swift */,
+				8CD4967F1EE6FD98004046C7 /* InputAlertPresenterMock.swift */,
 				8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */,
 				6EF0365D1EC9916200198F01 /* KeychainMock.swift */,
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
 				8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
-				8CD4967F1EE6FD98004046C7 /* InputAlertPresenterMock.swift */,
-				8CD496821EE7040A004046C7 /* ChildControllerSpy.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -645,9 +645,9 @@
 			isa = PBXGroup;
 			children = (
 				8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */,
-				8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */,
-				8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */,
 				8CD496841EE7044D004046C7 /* CommentControllerPresenterSpec.swift */,
+				8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */,
+				8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -727,14 +727,14 @@
 			isa = PBXGroup;
 			children = (
 				6EADF5551ECC48BB00488057 /* AlertPresenter.swift */,
-				8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */,
 				6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */,
 				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
 				6E1EA1051ECEDB98008C19EF /* CommentController.swift */,
+				8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */,
+				8CC783D61EE6F20300023EBF /* InputAlertPresenter.swift */,
 				6E39C9901ED3054600E2B096 /* LoadingViewPresenter.swift */,
 				8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */,
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
-				8CC783D61EE6F20300023EBF /* InputAlertPresenter.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
