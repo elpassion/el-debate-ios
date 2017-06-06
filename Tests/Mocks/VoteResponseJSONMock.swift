@@ -26,7 +26,7 @@ class VoteResponseJSONMock: JSONResponseProviding {
 class VoteResponseErrorMock: JSONResponseProviding {
 
     var errorJSON: Any = ["error": "debate_not_found"]
-    var error: RequestError = RequestError.apiError(statusCode: 404)
+    var error: Error = RequestError.apiError(statusCode: 404)
 
     func json(completionHandler: @escaping (ApiResponse) -> Void) {
         let apiResponse = ApiResponse(json: errorJSON, error: error)

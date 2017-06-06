@@ -3,6 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+import Alamofire
 @testable import ELDebateFramework
 import Nimble
 import PromiseKit
@@ -98,7 +99,7 @@ class ApiClientSpec: QuickSpec {
                     beforeEach {
                         let error = VoteResponseErrorMock()
                         error.errorJSON = ["status": "request_limit_reached"]
-                        error.error = RequestError.apiError(statusCode: 429)
+                        error.error = AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: 429))
                         requestExecutor.postReturnValue = error
                     }
 

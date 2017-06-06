@@ -6,6 +6,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+import Alamofire
 import Foundation
 import PromiseKit
 
@@ -41,8 +42,7 @@ class ApiClient: APIProviding {
         )
 
         return Promise(requestExecutor: jsonResponse.json, processor: { [weak self] apiResponse in
-            guard let `self` = self else { throw RequestError.deallocatedClientError }
-            return try self.authTokenDeserializer.deserialize(json: apiResponse.json)
+            try deserialize(response: apiResponse, with: self?.authTokenDeserializer)
         })
     }
 
@@ -53,8 +53,7 @@ class ApiClient: APIProviding {
         )
 
         return Promise(requestExecutor: jsonResponse.json, processor: { [weak self] apiResponse in
-            guard let `self` = self else { throw RequestError.deallocatedClientError }
-            return try self.debateDeserializer.deserialize(json: apiResponse.json)
+            try deserialize(response: apiResponse, with: self?.debateDeserializer)
         })
     }
 
@@ -67,7 +66,8 @@ class ApiClient: APIProviding {
 
         return Promise(requestExecutor: response.maybeJson, processor: { _ in answer })
             .recover { error -> Promise<Answer> in
-                if case let RequestError.apiError(statusCode: statusCode) = error, statusCode == 429 {
+                if case let AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: code)) = error,
+                    code == 429 {
                     return Promise(error: RequestError.throttling)
                 } else {
                     return Promise(error: error)
@@ -85,4 +85,9 @@ class ApiClient: APIProviding {
         return Promise(requestExecutor: response.maybeJson, processor: { _ in true })
     }
 
+}
+
+private func deserialize<T>(response: ApiResponse, with deserializer: Deserializer<T>?) throws -> T {
+    guard let deserializer = deserializer else { throw RequestError.deallocatedClientError }
+    return try deserializer.deserialize(json: response.json)
 }

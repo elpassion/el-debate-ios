@@ -15,15 +15,15 @@ class AnswerViewControllerSpec: QuickSpec {
     override func spec() {
         describe("AnswerViewController") {
             var controller: AnswerViewController!
-            var apliClient: APIProviderStub!
+            var apiClient: APIProviderStub!
             var alertView: AlertViewMock!
 
             beforeEach {
-                apliClient = APIProviderStub()
+                apiClient = APIProviderStub()
                 alertView = AlertViewMock()
                 controller = AnswerViewController(
                     voteContext: VoteContext.testDefault,
-                    apiClient: apliClient,
+                    apiClient: apiClient,
                     alertView: alertView
                 )
             }
@@ -62,20 +62,31 @@ class AnswerViewControllerSpec: QuickSpec {
                 it("should invoke voting") {
                     controller.answerView.onAnswerSelected?(.neutral)
 
-                    expect(apliClient.votingAnswer?.identifier).toEventually(equal(2))
-                    expect(apliClient.votingAuthToken).toEventually(equal("whatever"))
+                    expect(apiClient.votingAnswer?.identifier).toEventually(equal(2))
+                    expect(apiClient.votingAuthToken).toEventually(equal("whatever"))
                 }
             }
 
             describe("vote") {
                 context("when failed") {
                     it("should show an alert message") {
-                        apliClient.voteResult = Promise(error: RequestError.apiError(statusCode: 404))
+                        apiClient.voteResult = Promise(error: RequestError.apiError(statusCode: 404))
 
                         controller.answerView.onAnswerSelected?(.negative)
 
                         expect(alertView.title).toEventually(equal("Error"))
                         expect(alertView.message).toEventually(equal("There was a problem submitting your vote"))
+                    }
+                }
+
+                context("when failed because of throttling") {
+                    it("should show a specific throttling alert") {
+                        apiClient.voteResult = Promise(error: RequestError.throttling)
+
+                        controller.answerView.onAnswerSelected?(.positive)
+
+                        expect(alertView.title).toEventually(equal("Slow down"))
+                        expect(alertView.message).toEventually(equal("You are voting too fast"))
                     }
                 }
             }

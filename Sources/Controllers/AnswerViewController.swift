@@ -55,8 +55,8 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
         apiClient.vote(authToken: authToken, answer: answer)
             .then { [weak self] answer -> Void in
                 self?.answerView.selectAnswer(type: answer.type)
-            }.catch { [weak self] _ in
-                presentAlert(in: self, title: "Error", message: "There was a problem submitting your vote")
+            }.catch { [weak self] error in
+                presentError(error, in: self)
             }.always { [weak self] in
                 self?.answerView.stopSpinners()
             }
@@ -76,4 +76,20 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+fileprivate func presentError(_ error: Error, in controller: AlertPresentingController?) {
+    if case RequestError.throttling = error {
+        presentSlowDownError(in: controller)
+    } else {
+        presentGenericError(in: controller)
+    }
+}
+
+fileprivate func presentGenericError(in controller: AlertPresentingController?) {
+    presentAlert(in: controller, title: "Error", message: "There was a problem submitting your vote")
+}
+
+fileprivate func presentSlowDownError(in controller: AlertPresentingController?) {
+    presentAlert(in: controller, title: "Slow down", message: "You are voting too fast")
 }
