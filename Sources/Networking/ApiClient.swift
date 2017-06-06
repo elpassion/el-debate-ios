@@ -66,6 +66,13 @@ class ApiClient: APIProviding {
         )
 
         return Promise(requestExecutor: response.maybeJson, processor: { _ in answer })
+            .recover { error -> Promise<Answer> in
+                if case let RequestError.apiError(statusCode: statusCode) = error, statusCode == 429 {
+                    return Promise(error: RequestError.throttling)
+                } else {
+                    return Promise(error: error)
+                }
+            }
     }
 
     func comment(authToken: String, text: String) -> Promise<Bool> {
