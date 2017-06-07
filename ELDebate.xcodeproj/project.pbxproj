@@ -133,6 +133,11 @@
 		8CCE0F571EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */; };
 		8CCE0F591EE57C84001FD1D7 /* FontSizeCalculatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F581EE57C84001FD1D7 /* FontSizeCalculatorMock.swift */; };
 		8CCE0F5C1EE58790001FD1D7 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F5A1EE5872F001FD1D7 /* Display.swift */; };
+		8CD094761EE866C1006D46A5 /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD094751EE866C1006D46A5 /* LoginCredentials.swift */; };
+		8CD094781EE867EA006D46A5 /* LoginCredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD094771EE867EA006D46A5 /* LoginCredentialsStore.swift */; };
+		8CD0947A1EE868D3006D46A5 /* UserDefaults+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */; };
+		8CD0947C1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0947B1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift */; };
+		8CD0947E1EE8726F006D46A5 /* UserDefaultsStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */; };
 		8CD496791EE6F8B8004046C7 /* CommentControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */; };
 		8CD4967C1EE6FA4A004046C7 /* InputAlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */; };
 		8CD4967E1EE6FBF9004046C7 /* CommentControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */; };
@@ -332,6 +337,11 @@
 		8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculatorSpec.swift; sourceTree = "<group>"; };
 		8CCE0F581EE57C84001FD1D7 /* FontSizeCalculatorMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculatorMock.swift; sourceTree = "<group>"; };
 		8CCE0F5A1EE5872F001FD1D7 /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		8CD094751EE866C1006D46A5 /* LoginCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
+		8CD094771EE867EA006D46A5 /* LoginCredentialsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCredentialsStore.swift; sourceTree = "<group>"; };
+		8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Protocol.swift"; sourceTree = "<group>"; };
+		8CD0947B1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCredentialsStoreSpec.swift; sourceTree = "<group>"; };
+		8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsStoreMock.swift; sourceTree = "<group>"; };
 		8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnswerView.swift; sourceTree = "<group>"; };
 		8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentControllerPresenter.swift; sourceTree = "<group>"; };
 		8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAlertConfiguration.swift; sourceTree = "<group>"; };
@@ -456,6 +466,7 @@
 				8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */,
 				8C3155AE1EDF6358003F31D9 /* TextStyle.swift */,
 				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
+				8CD094751EE866C1006D46A5 /* LoginCredentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -474,6 +485,7 @@
 				8C6DA02D1EC58D9200D31E76 /* UIColor+Predefined.swift */,
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
 				8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */,
+				8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -497,6 +509,7 @@
 				8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
+				8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -582,6 +595,7 @@
 				8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */,
 				8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */,
 				8C0AA2BA1EE55E4500F98074 /* TextStyleDescriptorFactory.swift */,
+				8CD094771EE867EA006D46A5 /* LoginCredentialsStore.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -664,6 +678,7 @@
 				8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */,
 				8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */,
 				8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */,
+				8CD0947B1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -1232,6 +1247,8 @@
 			files = (
 				8CD496791EE6F8B8004046C7 /* CommentControllerPresenter.swift in Sources */,
 				8C4B234F1EE547EC00CE42DD /* TextStyle.swift in Sources */,
+				8CD0947A1EE868D3006D46A5 /* UserDefaults+Protocol.swift in Sources */,
+				8CD094781EE867EA006D46A5 /* LoginCredentialsStore.swift in Sources */,
 				8C4B233E1EE547D700CE42DD /* Notifications.swift in Sources */,
 				8C4B234A1EE547EC00CE42DD /* AttributeStyle.swift in Sources */,
 				8C4B234E1EE547EC00CE42DD /* Image.swift in Sources */,
@@ -1274,6 +1291,7 @@
 				8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */,
 				8C4B23491EE547E600CE42DD /* Router.swift in Sources */,
 				8C4B233D1EE547D700CE42DD /* NotificationDescriptor.swift in Sources */,
+				8CD094761EE866C1006D46A5 /* LoginCredentials.swift in Sources */,
 				8C4B23461EE547E100CE42DD /* DebateDeserializer.swift in Sources */,
 				8C4B23701EE5480400CE42DD /* ControllerFactory.swift in Sources */,
 				8C4B23401EE547DC00CE42DD /* ApiResponse.swift in Sources */,
@@ -1332,6 +1350,7 @@
 				8C3155AA1EDF57DA003F31D9 /* AttributesDescriptorSpec.swift in Sources */,
 				8C364DE91EDC1D82007D4EA6 /* NotificationManagingMock.swift in Sources */,
 				8C364DEB1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift in Sources */,
+				8CD0947E1EE8726F006D46A5 /* UserDefaultsStoreMock.swift in Sources */,
 				8C6127F61EC9F7B7003472A3 /* Debate+Default.swift in Sources */,
 				8CD4967E1EE6FBF9004046C7 /* CommentControllerSpec.swift in Sources */,
 				8CD5F6501ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift in Sources */,
@@ -1339,6 +1358,7 @@
 				6EF036631EC9B8FA00198F01 /* VoteResponseJSONMock.swift in Sources */,
 				8C364DED1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift in Sources */,
 				8C664A1F1EC490BB0017687F /* AuthTokenDeserializerSpec.swift in Sources */,
+				8CD0947C1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift in Sources */,
 				8CCE0F571EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift in Sources */,
 				8C6127F21EC9E904003472A3 /* AuthTokenStorageStub.swift in Sources */,
 				6EADF55C1ECC813A00488057 /* Answer+Default.swift in Sources */,
