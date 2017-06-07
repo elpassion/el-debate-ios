@@ -29,30 +29,18 @@ class IconTextField: UIView {
     // MARK: - Public API
 
     var value: String {
-        get {
-            return textField.text ?? ""
-        }
-        set {
-            textField.text = newValue
-        }
+        get { return textField.text ?? "" }
+        set { textField.text = newValue }
     }
 
     var keyboardType: UIKeyboardType {
-        get {
-            return textField.keyboardType
-        }
-        set {
-            textField.keyboardType = newValue
-        }
+        get { return textField.keyboardType }
+        set { textField.keyboardType = newValue }
     }
 
     var placeholder: String {
-        get {
-            return textField.placeholder ?? ""
-        }
-        set {
-            textField.placeholder = newValue
-        }
+        get { return textField.placeholder ?? "" }
+        set { textField.placeholder = newValue }
     }
 
     // MARK: - Subviews

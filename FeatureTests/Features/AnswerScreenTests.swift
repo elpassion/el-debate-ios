@@ -16,6 +16,7 @@ class AnswerScreenTests: XCTestCase {
         GREYTestHelper.enableFastAnimation()
         KeychainFixtures.enable()
         RouterFixtures.enable()
+        UserDefaultsFixtures.enable()
         navigateToAnswerScreen()
     }
 
@@ -65,10 +66,12 @@ class AnswerScreenTests: XCTestCase {
 
     private func navigateToAnswerScreen() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
+            .atIndex(1)
             .perform(grey_typeText(KeychainFixtures.testPinCode))
 
-        EarlGrey.select(elementWithMatcher: grey_text("Welcome to"))
-            .perform(grey_tap())
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
+            .atIndex(0)
+            .perform(grey_typeText("Username"))
 
         EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
             .perform(grey_tap())

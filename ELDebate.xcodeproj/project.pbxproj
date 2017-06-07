@@ -139,6 +139,7 @@
 		8CD0947C1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0947B1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift */; };
 		8CD0947E1EE8726F006D46A5 /* UserDefaultsStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */; };
 		8CD094801EE87411006D46A5 /* LoginCredentialsStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0947F1EE87411006D46A5 /* LoginCredentialsStoreMock.swift */; };
+		8CD094821EE87935006D46A5 /* UserDefaultsFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD094811EE87935006D46A5 /* UserDefaultsFixtures.swift */; };
 		8CD496791EE6F8B8004046C7 /* CommentControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */; };
 		8CD4967C1EE6FA4A004046C7 /* InputAlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */; };
 		8CD4967E1EE6FBF9004046C7 /* CommentControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */; };
@@ -344,6 +345,7 @@
 		8CD0947B1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCredentialsStoreSpec.swift; sourceTree = "<group>"; };
 		8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsStoreMock.swift; sourceTree = "<group>"; };
 		8CD0947F1EE87411006D46A5 /* LoginCredentialsStoreMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCredentialsStoreMock.swift; sourceTree = "<group>"; };
+		8CD094811EE87935006D46A5 /* UserDefaultsFixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsFixtures.swift; sourceTree = "<group>"; };
 		8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnswerView.swift; sourceTree = "<group>"; };
 		8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentControllerPresenter.swift; sourceTree = "<group>"; };
 		8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAlertConfiguration.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 				8C35DDBA1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift */,
 				8C35DDAE1EDD7D8600A26DD2 /* KeychainFixtures.swift */,
 				8C35DDB81EDD9FE800A26DD2 /* RouterFixtures.swift */,
+				8CD094811EE87935006D46A5 /* UserDefaultsFixtures.swift */,
 			);
 			path = "Test Data";
 			sourceTree = "<group>";
@@ -1397,6 +1400,7 @@
 				8C35DDB21EDD9C2500A26DD2 /* HasAppeared.swift in Sources */,
 				8C6EC6451ECC422F009E0FBC /* AnswerScreenTests.swift in Sources */,
 				8C35DDAF1EDD7D8600A26DD2 /* KeychainFixtures.swift in Sources */,
+				8CD094821EE87935006D46A5 /* UserDefaultsFixtures.swift in Sources */,
 				8C35DDB51EDD9F5900A26DD2 /* TestAssembly.swift in Sources */,
 				8CDF21811ECB11EB002B4FA4 /* HasPlaceholder.swift in Sources */,
 				8C35DDBB1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift in Sources */,
