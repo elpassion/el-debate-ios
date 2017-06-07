@@ -466,9 +466,9 @@
 				8CA6D8251EDF067D00A82CD2 /* Font.swift */,
 				8C127C8E1EC4A23D00E9B5FD /* Image.swift */,
 				8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */,
+				8CD094751EE866C1006D46A5 /* LoginCredentials.swift */,
 				8C3155AE1EDF6358003F31D9 /* TextStyle.swift */,
 				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
-				8CD094751EE866C1006D46A5 /* LoginCredentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -507,12 +507,12 @@
 				8CD4967F1EE6FD98004046C7 /* InputAlertPresenterMock.swift */,
 				8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */,
 				6EF0365D1EC9916200198F01 /* KeychainMock.swift */,
+				8CD0947F1EE87411006D46A5 /* LoginCredentialsStoreMock.swift */,
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
 				8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
-				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
 				8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */,
-				8CD0947F1EE87411006D46A5 /* LoginCredentialsStoreMock.swift */,
+				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -594,11 +594,11 @@
 				8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */,
 				8C364DE61EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift */,
 				8C6127EE1EC9E71B003472A3 /* LoginActionHandler.swift */,
+				8CD094771EE867EA006D46A5 /* LoginCredentialsStore.swift */,
 				8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */,
 				8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */,
 				8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */,
 				8C0AA2BA1EE55E4500F98074 /* TextStyleDescriptorFactory.swift */,
-				8CD094771EE867EA006D46A5 /* LoginCredentialsStore.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -678,10 +678,10 @@
 				8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */,
 				8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */,
 				8C6127EB1EC9E516003472A3 /* LoginActionHandlerSpec.swift */,
+				8CD0947B1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift */,
 				8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */,
 				8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */,
 				8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */,
-				8CD0947B1EE869DF006D46A5 /* LoginCredentialsStoreSpec.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
