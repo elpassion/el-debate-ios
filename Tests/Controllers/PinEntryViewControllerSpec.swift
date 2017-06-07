@@ -60,7 +60,6 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                     it("should trigger successful login callback with correct authentication token") {
                         var fetchedVoteContext: VoteContext?
-
                         controller.onVoteContextLoaded = { voteContext in
                             fetchedVoteContext = voteContext
                         }
@@ -68,6 +67,18 @@ class PinEntryViewControllerSpec: QuickSpec {
                         controller.pinEntryView.onLoginButtonTapped?()
 
                         expect(fetchedVoteContext?.debate.topic).toEventually(equal("test_debate_topic"))
+                    }
+
+                    it("should pass username from text field value") {
+                        var username: String?
+                        controller.pinEntryView.username = "The username"
+                        controller.onVoteContextLoaded = { voteContext in
+                            username = voteContext.username
+                        }
+
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(username).toEventually(equal("The username"))
                     }
 
                     it("should pass pin from view") {
@@ -98,10 +109,20 @@ class PinEntryViewControllerSpec: QuickSpec {
                     controller.viewDidLoad()
                 }
 
-                it("should play the animation with keyboard height") {
-                    keyboardHandler.onKeyboardHeightChanged?(CGFloat(250.0))
+                it("should play the correct animation for zero height") {
+                    keyboardHandler.onKeyboardHeightChanged?(CGFloat(0.0))
 
-                    expect(controller.pinEntryView.buttonBottomConstraint?.constant) == -265.0
+                    expect(controller.pinEntryView.loginButtonBottonConstraint?.constant) == -15.0
+                    expect(controller.pinEntryView.pinInputCenterConstraint?.isActive) == true
+                    expect(controller.pinEntryView.pinInputBottomConstraint?.isActive) == false
+                }
+
+                it("should play the correct animation for non-zero height") {
+                    keyboardHandler.onKeyboardHeightChanged?(CGFloat(200.0))
+
+                    expect(controller.pinEntryView.loginButtonBottonConstraint?.constant) == -215.0
+                    expect(controller.pinEntryView.pinInputCenterConstraint?.isActive) == false
+                    expect(controller.pinEntryView.pinInputBottomConstraint?.isActive) == true
                 }
             }
         }

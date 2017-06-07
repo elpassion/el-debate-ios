@@ -14,13 +14,6 @@ class PinEntryView: UIView {
     private let pinInputView: PinInputPanel = PinInputPanel()
     private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
-    private let buttonConstraintValue: CGFloat = CGFloat(-15.0)
-    private let codeFieldConstraintValue: CGFloat = CGFloat(-20.0)
-    private let codeFieldAnimationRatio: CGFloat = CGFloat(7.0)
-
-    private var codeFieldBottomConstraint: NSLayoutConstraint?
-    var buttonBottomConstraint: NSLayoutConstraint?
-
     init() {
         super.init(frame: .zero)
 
@@ -33,31 +26,34 @@ class PinEntryView: UIView {
     // MARK: - Public API
 
     var onLoginButtonTapped: (() -> Void)? {
-        get {
-            return loginButton.onLoginButtonTapped
-        }
-        set {
-            loginButton.onLoginButtonTapped = newValue
-        }
+        get { return loginButton.onLoginButtonTapped }
+        set { loginButton.onLoginButtonTapped = newValue }
     }
 
     var pinCode: String {
-        get {
-            return pinInputView.pinCode
-        }
-        set {
-            pinInputView.pinCode = newValue
-        }
+        get { return pinInputView.pinCode }
+        set { pinInputView.pinCode = newValue }
     }
 
-    func showLogin(inProgress: Bool) {
-        loginButton.loginInProgress = inProgress
+    var username: String {
+        get { return pinInputView.username }
+        set { pinInputView.username = newValue }
+    }
+
+    var loginInProgress: Bool {
+        get { return loginButton.loginInProgress }
+        set { loginButton.loginInProgress = newValue }
     }
 
     func playKeyboardAnimation(height: CGFloat) {
-        buttonBottomConstraint?.constant = buttonConstraintValue - height
-        codeFieldBottomConstraint?.constant = codeFieldConstraintValue - (height / codeFieldAnimationRatio)
+        loginButtonBottonConstraint?.constant = loginButtonBottomSpacing - height
+        centerPinInput(height == 0.0)
         layoutIfNeeded()
+    }
+
+    private func centerPinInput(_ shouldCenter: Bool) {
+        pinInputCenterConstraint?.isActive = shouldCenter
+        pinInputBottomConstraint?.isActive = !shouldCenter
     }
 
     // MARK: - Layout subviews (shadow)
@@ -93,14 +89,22 @@ class PinEntryView: UIView {
         background.heightAnchor == background.widthAnchor * 0.75
 
         loginButton.centerXAnchor == centerXAnchor
-        buttonBottomConstraint = loginButton.bottomAnchor == bottomAnchor + buttonConstraintValue
+        loginButtonBottonConstraint = loginButton.bottomAnchor == bottomAnchor + loginButtonBottomSpacing
         loginButton.widthAnchor == widthAnchor * 0.9
         loginButton.heightAnchor == heightAnchor * 0.08
 
         pinInputView.widthAnchor == loginButton.widthAnchor
-        codeFieldBottomConstraint = pinInputView.bottomAnchor == background.topAnchor + codeFieldAnimationRatio
+        pinInputCenterConstraint = pinInputView.centerYAnchor == centerYAnchor
         pinInputView.centerXAnchor == centerXAnchor
+        pinInputBottomConstraint = pinInputView.bottomAnchor == loginButton.topAnchor - 20
+
+        centerPinInput(true)
     }
+
+    private var loginButtonBottomSpacing: CGFloat = CGFloat(-15.0)
+    var pinInputCenterConstraint: NSLayoutConstraint?
+    var pinInputBottomConstraint: NSLayoutConstraint?
+    var loginButtonBottonConstraint: NSLayoutConstraint?
 
     // MARK: - Gesture recognition
 

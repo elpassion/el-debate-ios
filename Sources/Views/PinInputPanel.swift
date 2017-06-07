@@ -32,6 +32,15 @@ class PinInputPanel: UIView {
         }
     }
 
+    var username: String {
+        get {
+            return nameInput.value
+        }
+        set {
+            nameInput.value = newValue
+        }
+    }
+
     // MARK: - Subviews
 
     private func setUpSubviews() {

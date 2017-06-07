@@ -42,16 +42,15 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     }
 
     func onLoginButtonTapped() {
-        pinEntryView.showLogin(inProgress: true)
+        pinEntryView.loginInProgress = true
 
         loginActionHandler.login(withPinCode: pinEntryView.pinCode)
             .then { [weak self] voteContext -> Void in
-                self?.view.endEditing(true)
-                self?.onVoteContextLoaded?(voteContext)
+                self?.didFetchVoteContext(voteContext)
             }.catch { [weak self] _ in
                 presentAlert(in: self, title: "Error", message: "Could not find a debate for a given pin code")
             }.always { [weak self] in
-                self?.pinEntryView.showLogin(inProgress: false)
+                self?.pinEntryView.loginInProgress = false
             }
     }
 
@@ -59,6 +58,13 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
         keyboardHandling.onKeyboardHeightChanged = { [weak self] height in
             self?.pinEntryView.playKeyboardAnimation(height: height)
         }
+    }
+
+    private func didFetchVoteContext(_ voteContext: VoteContext) {
+        let contextWithUsername = voteContext.copy(withUsername: pinEntryView.username)
+
+        view.endEditing(true)
+        onVoteContextLoaded?(contextWithUsername)
     }
 
     // MARK: - Controller providing

@@ -12,6 +12,7 @@ public struct VoteContext {
 
     let debate: Debate
     let authToken: String
+    let username: String?
 
 }
 
@@ -26,6 +27,16 @@ public extension VoteContext {
         case .negative:
             return debate.negativeAnswer
         }
+    }
+
+}
+
+public extension VoteContext {
+
+    func copy(withUsername username: String) -> VoteContext {
+        return VoteContext(debate: debate,
+                           authToken: authToken,
+                           username: username)
     }
 
 }
