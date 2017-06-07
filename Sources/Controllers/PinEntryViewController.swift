@@ -10,15 +10,18 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     private let loginActionHandler: LoginActionHandling
     let alertPresenter: AlertShowing
     private let keyboardHandling: KeyboardWillShowHandling
+    private let lastCredentialsStore: LoginCredentialsStoring
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling) {
+    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing,
+         keyboardHandling: KeyboardWillShowHandling, lastCredentialsStore: LoginCredentialsStoring) {
         self.loginActionHandler = loginActionHandler
         self.alertPresenter = alertView
         self.keyboardHandling = keyboardHandling
+        self.lastCredentialsStore = lastCredentialsStore
 
         super.init(nibName: nil, bundle: nil)
 
@@ -38,6 +41,8 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
         title = "EL Debate"
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
+        pinEntryView.pinCode = lastCredentialsStore.lastCredentials?.pinCode ?? ""
+        pinEntryView.username = lastCredentialsStore.lastCredentials?.username ?? ""
         setupKeyboardNotifications()
     }
 
@@ -63,6 +68,8 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     private func didFetchVoteContext(_ voteContext: VoteContext) {
         let contextWithUsername = voteContext.copy(withUsername: pinEntryView.username)
 
+        lastCredentialsStore.lastCredentials = LoginCredentials(pinCode: pinEntryView.pinCode,
+                                                                username: pinEntryView.username)
         view.endEditing(true)
         onVoteContextLoaded?(contextWithUsername)
     }

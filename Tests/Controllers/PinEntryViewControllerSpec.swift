@@ -17,15 +17,18 @@ class PinEntryViewControllerSpec: QuickSpec {
             var loginActionHandlingMock: LoginActionHandlingMock!
             var alertViewMock: AlertViewMock!
             var keyboardHandler: KeyboardWillShowHandlerMock!
+            var store: LoginCredentialsStoreMock!
             var controller: PinEntryViewController!
 
             beforeEach {
                 loginActionHandlingMock = LoginActionHandlingMock()
                 alertViewMock = AlertViewMock()
                 keyboardHandler = KeyboardWillShowHandlerMock()
+                store = LoginCredentialsStoreMock()
                 controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
                                                     alertView: alertViewMock,
-                                                    keyboardHandling: keyboardHandler)
+                                                    keyboardHandling: keyboardHandler,
+                                                    lastCredentialsStore: store)
             }
 
             it("should initialize back bar button item") {
@@ -37,6 +40,7 @@ class PinEntryViewControllerSpec: QuickSpec {
 
             describe("after view is loaded") {
                 beforeEach {
+                    store.lastCredentials = LoginCredentials(pinCode: "777", username: "Lucker")
                     controller.viewDidLoad()
                 }
 
@@ -48,6 +52,11 @@ class PinEntryViewControllerSpec: QuickSpec {
                     controller.view.frame = UIScreen.main.bounds
 
                     expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
+                }
+
+                it("should set field values from login store") {
+                    expect(controller.pinEntryView.pinCode) == "777"
+                    expect(controller.pinEntryView.username) == "Lucker"
                 }
             }
 
@@ -88,10 +97,21 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                         expect(loginActionHandlingMock.loginReceivedPinCode).toEventually(equal("99999"))
                     }
+
+                    it("should store credentials in store") {
+                        controller.pinEntryView.pinCode = "9812367"
+                        controller.pinEntryView.username = "Teh Dev"
+
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(store.lastCredentials?.pinCode).toEventually(equal("9812367"))
+                        expect(store.lastCredentials?.username).toEventually(equal("Teh Dev"))
+                    }
                 }
 
                 context("there was a problem") {
                     beforeEach {
+                        store.lastCredentials = LoginCredentials(pinCode: "777", username: "Lucker")
                         loginActionHandlingMock.loginReturnValue = Promise(
                             error: RequestError.apiError(statusCode: 500)
                         )
@@ -100,6 +120,16 @@ class PinEntryViewControllerSpec: QuickSpec {
                     it("shows an error alert") {
                         controller.onLoginButtonTapped()
                         expect(alertViewMock.wasShown).toEventually(equal(true))
+                    }
+
+                    it("should not store credentials in store") {
+                        controller.pinEntryView.pinCode = "9812367"
+                        controller.pinEntryView.username = "Teh Dev"
+
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(store.lastCredentials?.pinCode) == "777"
+                        expect(store.lastCredentials?.username) == "Lucker"
                     }
                 }
             }

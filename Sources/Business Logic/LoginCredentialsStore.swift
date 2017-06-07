@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol LoginCredentialsStoring {
+protocol LoginCredentialsStoring: class {
 
     var lastCredentials: LoginCredentials? { get set }
 
