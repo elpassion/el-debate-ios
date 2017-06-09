@@ -25,7 +25,7 @@ class ChatButtonView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        chatButton.dropShadow()
+        //chatButton.dropShadow()
     }
 
     // MARK: - Subviews
@@ -33,6 +33,7 @@ class ChatButtonView: UIView {
     private func setUpSubviews() {
         chatButton.addTarget(self, action: #selector(didTapChatButton), for: .touchUpInside)
         chatButton.contentEdgeInsets = UIEdgeInsets(top: 12.0, left: 0.0, bottom: 12.0, right: 0.0)
+        chatButton.setBackgroundImage(.from(color: .highlightedButton), for: .highlighted)
     }
 
     private func addSubviews() {

@@ -18,12 +18,8 @@ class AttributedLabel: UILabel {
     // MARK: - Text
 
     override var text: String? {
-        get {
-            return attributedText?.string
-        }
-        set {
-            updateAttributedText(with: newValue)
-        }
+        get { return attributedText?.string }
+        set { updateAttributedText(with: newValue) }
     }
 
     private func updateAttributedText(with text: String?) {

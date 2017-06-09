@@ -123,6 +123,9 @@
 		8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */; };
 		8C85D8521EC34FC100C5BAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */; };
 		8C85D8531EC34FC100C5BAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8481EC34FC100C5BAE7 /* LaunchScreen.storyboard */; };
+		8C87B8AB1EE9522300A243E2 /* UIImage+FromColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C87B8A91EE951E000A243E2 /* UIImage+FromColor.swift */; };
+		8C87B8AE1EE974D900A243E2 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C87B8AC1EE974D100A243E2 /* ProgressView.swift */; };
+		8C87B8B11EE98BD300A243E2 /* UIBezierPath+Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C87B8AF1EE98B6700A243E2 /* UIBezierPath+Lines.swift */; };
 		8CB3AF5C1EC36EA7005EEDC7 /* RouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1918011EC360F100519DC8 /* RouterSpec.swift */; };
 		8CB4CDE01EE5A5890055C50B /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAC8541EE5A55C0086A976 /* IconTextField.swift */; };
 		8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */; };
@@ -325,6 +328,9 @@
 		8C85D8491EC34FC100C5BAE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C85D84C1EC34FC100C5BAE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C85D8501EC34FC100C5BAE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C87B8A91EE951E000A243E2 /* UIImage+FromColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+FromColor.swift"; sourceTree = "<group>"; };
+		8C87B8AC1EE974D100A243E2 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		8C87B8AF1EE98B6700A243E2 /* UIBezierPath+Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Lines.swift"; sourceTree = "<group>"; };
 		8CA6D8251EDF067D00A82CD2 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleDescriptor.swift; sourceTree = "<group>"; };
 		8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatButtonView.swift; sourceTree = "<group>"; };
@@ -455,6 +461,7 @@
 				8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */,
 				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
 				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
+				8C87B8AC1EE974D100A243E2 /* ProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -490,6 +497,8 @@
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
 				8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */,
 				8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */,
+				8C87B8A91EE951E000A243E2 /* UIImage+FromColor.swift */,
+				8C87B8AF1EE98B6700A243E2 /* UIBezierPath+Lines.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1275,6 +1284,7 @@
 				8C4B235A1EE547F100CE42DD /* UIImage+Predefined.swift in Sources */,
 				8C4B23521EE547F100CE42DD /* Dictionary+Mapping.swift in Sources */,
 				8C4B23381EE547D100CE42DD /* PinEntryWelcomeView.swift in Sources */,
+				8C87B8AB1EE9522300A243E2 /* UIImage+FromColor.swift in Sources */,
 				8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */,
 				8C4B233F1EE547DC00CE42DD /* ApiClient.swift in Sources */,
 				8C4B23691EE547FE00CE42DD /* AutoMockable.swift in Sources */,
@@ -1290,6 +1300,7 @@
 				8C4B23501EE547EC00CE42DD /* VoteContext.swift in Sources */,
 				8CB4CDE01EE5A5890055C50B /* IconTextField.swift in Sources */,
 				8C4B23371EE547D100CE42DD /* PinEntryView.swift in Sources */,
+				8C87B8B11EE98BD300A243E2 /* UIBezierPath+Lines.swift in Sources */,
 				8C4B23331EE547D100CE42DD /* AttributedLabel.swift in Sources */,
 				8C4B23441EE547E100CE42DD /* AnswerDeserializer.swift in Sources */,
 				8C4B23391EE547D100CE42DD /* QuestionFrameView.swift in Sources */,
@@ -1327,6 +1338,7 @@
 				8C4B235D1EE547F500CE42DD /* Assembler+Assemblies.swift in Sources */,
 				8C4B23621EE547FA00CE42DD /* AnswerControllerProviding.swift in Sources */,
 				8C4B23301EE547D100CE42DD /* AnswerPicker.swift in Sources */,
+				8C87B8AE1EE974D900A243E2 /* ProgressView.swift in Sources */,
 				8C4B23481EE547E600CE42DD /* Route.swift in Sources */,
 				8C4B23411EE547DC00CE42DD /* JSONResponseProviding.swift in Sources */,
 			);

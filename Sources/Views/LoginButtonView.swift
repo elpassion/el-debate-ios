@@ -26,9 +26,7 @@ class LoginButtonView: UIView {
 
     var loginInProgress: Bool = false {
         didSet {
-            let backgroundColor: Color = loginInProgress ? .pin : .navigationBar
             loginButton.isEnabled = !loginInProgress
-            loginButton.backgroundColor = UIColor(predefined: backgroundColor)
             activityIndicator.isHidden = loginButton.isEnabled
 
             if loginInProgress {
@@ -44,6 +42,7 @@ class LoginButtonView: UIView {
     private func setUpSubviews() {
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         loginButton.contentEdgeInsets = UIEdgeInsets(top: 12.0, left: 0.0, bottom: 12.0, right: 0.0)
+        loginButton.setBackgroundImage(.from(color: .highlightedButton), for: .highlighted)
 
         activityIndicator.isHidden = true
     }
@@ -59,7 +58,7 @@ class LoginButtonView: UIView {
         loginButton.edgeAnchors == edgeAnchors
 
         activityIndicator.centerYAnchor == centerYAnchor
-        activityIndicator.trailingAnchor == loginButton.trailingAnchor - 12.0
+        activityIndicator.leadingAnchor == loginButton.leadingAnchor + 12.0
     }
 
     // MARK: - Login button tap

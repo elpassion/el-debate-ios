@@ -15,13 +15,13 @@ class AnswersListView: UIView {
     private let changeMindLabel: UILabel = Views.label(style: .description, numberOfLines: 0)
 
     var onAnswerSelected: ((AnswerType) -> Void)? {
-        get {
-            return answerPicker.onAnswerSelected
-        }
+        get { return answerPicker.onAnswerSelected }
+        set { answerPicker.onAnswerSelected = newValue }
+    }
 
-        set {
-            answerPicker.onAnswerSelected = newValue
-        }
+    var enabled: Bool {
+        get { return answerPicker.enabled }
+        set { answerPicker.enabled = newValue }
     }
 
     init() {
@@ -35,9 +35,9 @@ class AnswersListView: UIView {
     // MARK: Public API
 
     func config(yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String) {
-      answerPicker.config(yesAnswerText: yesAnswerText,
-                          undecidedAnswerText: undecidedAnswerText,
-                          noAnswerText: noAnswerText)
+        answerPicker.config(yesAnswerText: yesAnswerText,
+                            undecidedAnswerText: undecidedAnswerText,
+                            noAnswerText: noAnswerText)
     }
 
     func selectAnswer(type answerType: AnswerType) {

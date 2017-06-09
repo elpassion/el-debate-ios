@@ -52,6 +52,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     private func didSelectAnswer(with answerType: AnswerType) {
         let authToken = voteContext.authToken
         let answer = voteContext.answer(for: answerType)
+        answerView.enabled = false
 
         apiClient.vote(authToken: authToken, answer: answer)
             .then { [weak self] answer -> Void in
@@ -59,7 +60,8 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
             }.catch { [weak self] error in
                 presentError(error, in: self)
             }.always { [weak self] in
-                self?.answerView.stopSpinners()
+                self?.answerView.cancelAnimations()
+                self?.answerView.enabled = true
             }
     }
 
