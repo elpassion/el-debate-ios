@@ -10,20 +10,9 @@ class PinEntryView: UIView {
 
     private let welcomeView: PinEntryWelcomeView = PinEntryWelcomeView()
     private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
-    private let loginButton: UIButton = Views.button(style: .buttonTitle, backgroundColor: .navigationBar,
-                                                     cornerRadius: 3.0, title: "Log in")
-    private let codeField: PinEntryCodeField = PinEntryCodeField()
+    private let loginButton: LoginButtonView = LoginButtonView()
+    private let pinInputView: PinInputPanel = PinInputPanel()
     private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
-
-    private let buttonConstraintValue: CGFloat = CGFloat(-15.0)
-    private let codeFieldConstraintValue: CGFloat = CGFloat(-20.0)
-    private let codeFieldAnimationRatio: CGFloat = CGFloat(3.4)
-
-    private var codeFieldBottomConstraint: NSLayoutConstraint?
-    var buttonBottomConstraint: NSLayoutConstraint?
-
-    var onLoginButtonTapped: (() -> Void)?
-    var onCommentButtonTapped: (() -> Void)?
 
     init() {
         super.init(frame: .zero)
@@ -36,23 +25,35 @@ class PinEntryView: UIView {
 
     // MARK: - Public API
 
-    var pinCode: String {
-        get {
-            return codeField.pinCode
-        }
-        set {
-            codeField.pinCode = newValue
-        }
+    var onLoginButtonTapped: (() -> Void)? {
+        get { return loginButton.onLoginButtonTapped }
+        set { loginButton.onLoginButtonTapped = newValue }
     }
 
-    func setLoginButton(isEnabled: Bool) {
-        loginButton.isEnabled = isEnabled
+    var pinCode: String {
+        get { return pinInputView.pinCode }
+        set { pinInputView.pinCode = newValue }
+    }
+
+    var username: String {
+        get { return pinInputView.username }
+        set { pinInputView.username = newValue }
+    }
+
+    var loginInProgress: Bool {
+        get { return loginButton.loginInProgress }
+        set { loginButton.loginInProgress = newValue }
     }
 
     func playKeyboardAnimation(height: CGFloat) {
-        buttonBottomConstraint?.constant = buttonConstraintValue - height
-        codeFieldBottomConstraint?.constant = codeFieldConstraintValue - (height / codeFieldAnimationRatio)
+        loginButtonBottonConstraint?.constant = loginButtonBottomSpacing - height
+        centerPinInput(height == 0.0)
         layoutIfNeeded()
+    }
+
+    private func centerPinInput(_ shouldCenter: Bool) {
+        pinInputCenterConstraint?.isActive = shouldCenter
+        pinInputBottomConstraint?.isActive = !shouldCenter
     }
 
     // MARK: - Layout subviews (shadow)
@@ -66,16 +67,13 @@ class PinEntryView: UIView {
 
     private func setUpSubviews() {
         backgroundColor = UIColor(predefined: .screenBackground)
-
-        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
-        loginButton.contentEdgeInsets = UIEdgeInsets(top: 12.0, left: 0.0, bottom: 12.0, right: 0.0)
     }
 
     private func addSubviews() {
         addSubview(background)
         addSubview(welcomeView)
         addSubview(loginButton)
-        addSubview(codeField)
+        addSubview(pinInputView)
     }
 
     // MARK: - Layout
@@ -91,27 +89,28 @@ class PinEntryView: UIView {
         background.heightAnchor == background.widthAnchor * 0.75
 
         loginButton.centerXAnchor == centerXAnchor
-        buttonBottomConstraint = loginButton.bottomAnchor == bottomAnchor + buttonConstraintValue
+        loginButtonBottonConstraint = loginButton.bottomAnchor == bottomAnchor + loginButtonBottomSpacing
         loginButton.widthAnchor == widthAnchor * 0.9
         loginButton.heightAnchor == heightAnchor * 0.08
 
-        codeField.widthAnchor == loginButton.widthAnchor
-        codeFieldBottomConstraint = codeField.bottomAnchor == background.topAnchor + codeFieldConstraintValue
-        codeField.centerXAnchor == centerXAnchor
+        pinInputView.widthAnchor == loginButton.widthAnchor
+        pinInputCenterConstraint = pinInputView.centerYAnchor == centerYAnchor
+        pinInputView.centerXAnchor == centerXAnchor
+        pinInputBottomConstraint = pinInputView.bottomAnchor == loginButton.topAnchor - 20
+
+        centerPinInput(true)
     }
+
+    private var loginButtonBottomSpacing: CGFloat = CGFloat(-15.0)
+    var pinInputCenterConstraint: NSLayoutConstraint?
+    var pinInputBottomConstraint: NSLayoutConstraint?
+    var loginButtonBottonConstraint: NSLayoutConstraint?
 
     // MARK: - Gesture recognition
 
     private func setUpGestureRecognition() {
         tapGestureRecognizer.addTarget(self, action: #selector(didTapBackground))
         addGestureRecognizer(tapGestureRecognizer)
-    }
-
-    // MARK: - Login button tap
-
-    @objc
-    private func didTapLoginButton() {
-        onLoginButtonTapped?()
     }
 
     // MARK: - Background tap

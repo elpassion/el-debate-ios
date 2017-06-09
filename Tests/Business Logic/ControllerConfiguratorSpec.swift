@@ -36,33 +36,6 @@ class ControllerConfiguratorSpec: QuickSpec {
                         expect(passedVoteContext?.debate.topic) == "test_debate_topic"
                     }
                 }
-
-                context("when configuring answer controller") {
-                    it("should navigate to comment passing auth token") {
-                        var passedAuthToken: String?
-                        let answerControllerProvider = AnswerControllerMockProvider()
-
-                        sut.configure(controller: answerControllerProvider, with: routerMock)
-                        answerControllerProvider.onChatButtonTapped?("TheAuthToken!")
-
-                        if case let .some(.comment(authToken)) = routerMock.lastRoute {
-                            passedAuthToken = authToken
-                        }
-
-                        expect(passedAuthToken) == "TheAuthToken!"
-                    }
-                }
-
-                context("when configuring comment controller") {
-                    it("should navigate back when comment is submitted") {
-                        let commentControllerProvider = CommentControllerMockProvider()
-
-                        sut.configure(controller: commentControllerProvider, with: routerMock)
-                        commentControllerProvider.onCommentSubmitted?()
-
-                        expect(routerMock.goneBack).to(beTrue())
-                    }
-                }
             }
         }
     }

@@ -20,9 +20,4 @@ class RouterMock: Routing {
     func reset(to route: Route) {
         lastResetToRoute = route
     }
-
-    func goBack() {
-        goneBack = true
-    }
-
 }

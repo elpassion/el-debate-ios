@@ -18,6 +18,7 @@ class AnswerPicker: UIView {
     private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 
     var onAnswerSelected: ((AnswerType) -> Void)?
+    var enabled: Bool = true
 
     private var answerViews: [SingleAnswerView] {
         return [yesAnswer, noAnswer, undecidedAnswer]
@@ -34,7 +35,7 @@ class AnswerPicker: UIView {
     // MARK: - Public API
 
     func selectAnswer(type answerType: AnswerType) {
-        answerViews.forEach { (view) in
+        answerViews.forEach { view in
             view.selected = view.answerType == answerType
         }
     }
@@ -46,9 +47,9 @@ class AnswerPicker: UIView {
     }
 
     func stopSpinners() {
-        yesAnswer.stopSpinner()
-        noAnswer.stopSpinner()
-        undecidedAnswer.stopSpinner()
+        answerViews.forEach { view in
+            view.stopSpinner()
+        }
     }
 
     // MARK: - Subviews
@@ -85,18 +86,20 @@ class AnswerPicker: UIView {
 
     @objc
     private func didTapAnswer(with gestureRecognizer: UITapGestureRecognizer) {
-        guard let answerView = tappedAnswerView(with: gestureRecognizer) else {
+        guard enabled else {
             return
         }
 
-        if !answerView.selected {
-            answerView.startSpinner()
-            onAnswerSelected?(answerView.answerType)
+        guard let answerView = tappedAnswerView(with: gestureRecognizer), !answerView.selected else {
+            return
         }
+
+        answerView.startSpinner()
+        onAnswerSelected?(answerView.answerType)
     }
 
-    private func tappedAnswerView(with gestureRegognizer: UITapGestureRecognizer) -> SingleAnswerView? {
-        let tapLocation = gestureRegognizer.location(in: self)
+    private func tappedAnswerView(with gestureRecognizer: UITapGestureRecognizer) -> SingleAnswerView? {
+        let tapLocation = gestureRecognizer.location(in: self)
 
         return answerViews.first {
             $0.frame.contains(tapLocation)

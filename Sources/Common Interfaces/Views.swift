@@ -42,11 +42,14 @@ struct Views {
     static func button(style: TextStyle, backgroundColor: Color, cornerRadius: CGFloat,
                        title: String? = nil) -> UIButton {
         let button = UIButton(type: .custom)
-        button.backgroundColor = UIColor(predefined: backgroundColor)
-        button.layer.cornerRadius = cornerRadius
+        button.clipsToBounds = true
+        button.setBackgroundImage(.from(color: backgroundColor), for: .normal)
+        button.setBackgroundImage(.from(color: backgroundColor), for: .disabled)
+        button.setBackgroundImage(.from(color: backgroundColor), for: .highlighted)
         button.setTitle(title, for: .normal)
         button.setTitleColor(style.color, for: .normal)
         button.titleLabel?.font = style.font
+        button.layer.cornerRadius = cornerRadius
 
         return button
     }

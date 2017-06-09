@@ -13,6 +13,7 @@ class ControllerFactoryMock: ControllerCreating {
     let commentProvider = CommentControllerMockProvider()
 
     var lastType: ControllerType?
+    var lastContext: VoteContext?
 
     func makeController(of type: ControllerType) -> ControllerProviding {
         lastType = type
@@ -20,9 +21,11 @@ class ControllerFactoryMock: ControllerCreating {
         switch type {
         case .pinEntry:
             return pinEntryProvider
-        case .answer:
+        case let .answer(voteContext: voteContext):
+            lastContext = voteContext
             return answerProvider
-        case .comment:
+        case let .comment(voteContext: voteContext):
+            lastContext = voteContext
             return commentProvider
         }
     }
@@ -51,10 +54,8 @@ class AnswerControllerMockProvider: AnswerControllerProviding {
 
 }
 
-class CommentControllerMockProvider: CommentControllerProviding {
+class CommentControllerMockProvider: ControllerProviding {
 
-    let controller = UIViewController()
-
-    var onCommentSubmitted: (() -> Void)?
+    let controller: UIViewController = ChildControllerSpy()
 
 }

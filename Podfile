@@ -18,6 +18,7 @@ target 'ELDebate' do
   common_pods
   pod 'Crashlytics', '~> 3.8'
   pod 'Fabric', '~> 1.6'
+  pod 'Reveal-SDK', :configurations => ['Debug']
 
   target 'ELDebateTests' do
     inherit! :search_paths

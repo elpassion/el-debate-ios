@@ -17,6 +17,7 @@ enum Color: String {
     case no = "#E44043"
     case description = "#B8B8B8"
     case buttonTitle = "#FFFFFF"
+    case highlightedButton = "#5DC869"
 
 }
 

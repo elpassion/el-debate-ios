@@ -7,7 +7,9 @@ import Anchorage
 import UIKit
 
 protocol AnswerViewProviding {
+
     func config(debateTitle: String, yesAnswerText: String, undecidedAnswerText: String, noAnswerText: String)
+
 }
 
 class AnswerView: UIView, AnswerViewProviding {
@@ -21,21 +23,18 @@ class AnswerView: UIView, AnswerViewProviding {
     private let chatButton: ChatButtonView = ChatButtonView()
 
     var onChatButtonTapped: (() -> Void)? {
-        get {
-            return chatButton.onChatButtonTapped
-        }
-        set {
-            chatButton.onChatButtonTapped = newValue
-        }
+        get { return chatButton.onChatButtonTapped }
+        set { chatButton.onChatButtonTapped = newValue }
     }
 
     var onAnswerSelected: ((AnswerType) -> Void)? {
-        get {
-           return answersListView.onAnswerSelected
-        }
-        set {
-            answersListView.onAnswerSelected = newValue
-        }
+        get { return answersListView.onAnswerSelected }
+        set { answersListView.onAnswerSelected = newValue }
+    }
+
+    var enabled: Bool {
+        get { return answersListView.enabled }
+        set { answersListView.enabled = newValue }
     }
 
     init() {
@@ -44,6 +43,11 @@ class AnswerView: UIView, AnswerViewProviding {
         setUpSubviews()
         addSubviews()
         setUpLayout()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        chatButton.dropShadow()
     }
 
     // MARK: Public API
@@ -61,7 +65,7 @@ class AnswerView: UIView, AnswerViewProviding {
         answersListView.selectAnswer(type: answerType)
     }
 
-    func stopSpinners() {
+    func cancelAnimations() {
         answersListView.stopSpinners()
     }
 

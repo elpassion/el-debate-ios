@@ -11,15 +11,16 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     private let voteContext: VoteContext
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
-
-    var onChatButtonTapped: ((String) -> Void)?
+    private let commentPresenter: CommentControllerPresenting
 
     // MARK: - Initializer
 
-    init(voteContext: VoteContext, apiClient: APIProviding, alertView: AlertShowing) {
+    init(voteContext: VoteContext, apiClient: APIProviding,
+         alertView: AlertShowing, commentPresenter: CommentControllerPresenting) {
         self.voteContext = voteContext
         self.apiClient = apiClient
         self.alertPresenter = alertView
+        self.commentPresenter = commentPresenter
 
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -51,19 +52,21 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     private func didSelectAnswer(with answerType: AnswerType) {
         let authToken = voteContext.authToken
         let answer = voteContext.answer(for: answerType)
+        answerView.enabled = false
 
         apiClient.vote(authToken: authToken, answer: answer)
             .then { [weak self] answer -> Void in
                 self?.answerView.selectAnswer(type: answer.type)
-            }.catch { [weak self] _ in
-                presentAlert(in: self, title: "Error", message: "There was a problem submitting your vote")
+            }.catch { [weak self] error in
+                presentError(error, in: self)
             }.always { [weak self] in
-                self?.answerView.stopSpinners()
+                self?.answerView.cancelAnimations()
+                self?.answerView.enabled = true
             }
     }
 
     private func didTapChat() {
-        onChatButtonTapped?(voteContext.authToken)
+        commentPresenter.present(in: self, with: voteContext)
     }
 
     // MARK: - ControllerProviding
@@ -76,4 +79,20 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+fileprivate func presentError(_ error: Error, in controller: AlertPresentingController?) {
+    if case RequestError.throttling = error {
+        presentSlowDownError(in: controller)
+    } else {
+        presentGenericError(in: controller)
+    }
+}
+
+fileprivate func presentGenericError(in controller: AlertPresentingController?) {
+    presentAlert(in: controller, title: "Error", message: "There was a problem submitting your vote")
+}
+
+fileprivate func presentSlowDownError(in controller: AlertPresentingController?) {
+    presentAlert(in: controller, title: "Slow down", message: "You are voting too fast")
 }

@@ -9,6 +9,7 @@ import UIKit
 class SingleAnswerView: UIView {
 
     let answerType: AnswerType
+
     private let container: UIView = UIView(frame: .zero)
     private let stackContainer: UIView = UIView(frame: .zero)
     private let horizontalStack: UIStackView = Views.stack(axis: .horizontal, distribution: .fill,
@@ -17,14 +18,14 @@ class SingleAnswerView: UIView {
     private let iconView: UIImageView
     private let highlightColor: Color
     private let defaultColor: Color = .unselected
-    private let spinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    private let selectionIndicator: UIView = UIView(frame: .zero)
+    private let progressView: ProgressView
 
     init(color: Color, image: Image, type: AnswerType) {
         self.answerType = type
         self.highlightColor = color
         self.answerLabel = Views.label(style: .answer, numberOfLines: 0)
         self.iconView = Views.image(image: image, contentMode: .scaleAspectFit, renderingMode: .alwaysTemplate)
+        self.progressView = ProgressView(color: color)
 
         super.init(frame: .zero)
 
@@ -47,17 +48,18 @@ class SingleAnswerView: UIView {
     }
 
     func startSpinner() {
-        spinner.startAnimating()
+        progressView.startAnimation()
     }
 
     func stopSpinner() {
-        spinner.stopAnimating()
+        progressView.stopAnimation()
     }
 
     var selected: Bool = false {
         didSet {
-            iconView.tintColor = selected ? highlightColor.ui : defaultColor.ui
-            selectionIndicator.isHidden = !selected
+            UIView.animate(withDuration: 0.5, animations: {
+                self.iconView.tintColor = self.selected ? self.highlightColor.ui : self.defaultColor.ui
+            })
         }
     }
 
@@ -71,9 +73,6 @@ class SingleAnswerView: UIView {
         stackContainer.clipsToBounds = true
         stackContainer.layer.cornerRadius = container.layer.cornerRadius
 
-        selectionIndicator.backgroundColor = highlightColor.ui
-        selectionIndicator.isHidden = true
-
         iconView.tintColor = defaultColor.ui
 
         answerLabel.color = highlightColor
@@ -81,11 +80,10 @@ class SingleAnswerView: UIView {
 
     private func addSubviews() {
         horizontalStack.addArrangedSubview(answerLabel)
-        horizontalStack.addArrangedSubview(spinner)
         horizontalStack.addArrangedSubview(iconView)
 
-        stackContainer.addSubview(selectionIndicator)
         stackContainer.addSubview(horizontalStack)
+        stackContainer.addSubview(progressView)
 
         container.addSubview(stackContainer)
 
@@ -103,17 +101,16 @@ class SingleAnswerView: UIView {
 
         answerLabel.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
         iconView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        spinner.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
 
         answerLabel.heightAnchor == horizontalStack.heightAnchor
 
         iconView.heightAnchor == container.heightAnchor * 0.55
         iconView.widthAnchor == iconView.heightAnchor
 
-        selectionIndicator.leadingAnchor == container.leadingAnchor
-        selectionIndicator.bottomAnchor == container.bottomAnchor
-        selectionIndicator.heightAnchor == 2.0
-        selectionIndicator.widthAnchor == container.widthAnchor * 0.65
+        progressView.leadingAnchor == stackContainer.leadingAnchor
+        progressView.bottomAnchor == stackContainer.bottomAnchor
+        progressView.heightAnchor == 2.0
+        progressView.widthAnchor == stackContainer.widthAnchor
     }
 
     // MARK: - Required initializer

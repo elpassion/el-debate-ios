@@ -32,6 +32,10 @@ class PinEntryAssembly: Assembly {
             return DebateDeserializer.build()
         }
 
+        container.register(LoginCredentialsStoring.self) { _ in
+            return LoginCredentialsStore(userDefaults: UserDefaults.standard)
+        }
+
         container.autoregister(LoginActionHandling.self, initializer: LoginActionHandler.init)
         container.autoregister(PinEntryViewController.self, initializer: PinEntryViewController.init)
     }

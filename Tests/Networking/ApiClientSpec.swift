@@ -3,6 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+import Alamofire
 @testable import ELDebateFramework
 import Nimble
 import PromiseKit
@@ -66,7 +67,7 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("returns deserialized Debate object") {
-                        var debate: Debate? = nil
+                        var debate: Debate?
                         _ = apiClient.fetchDebate(authToken: "auth_token_value").then { debateResult in
                             debate = debateResult
                         }
@@ -85,12 +86,33 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("executes the success block") {
-                        var answerParam: Answer? = nil
+                        var answerParam: Answer?
                         _ = apiClient.vote(authToken: "token", answer: answer).then { answerResult in
                             answerParam = answerResult
                         }
 
                         expect(answerParam).toEventuallyNot(beNil())
+                    }
+                }
+
+                context("when voting too fast") {
+                    beforeEach {
+                        let error = VoteResponseErrorMock()
+                        error.errorJSON = ["status": "request_limit_reached"]
+                        error.error = AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: 429))
+                        requestExecutor.postReturnValue = error
+                    }
+
+                    it("returns throttling error") {
+                        var throttleError = false
+
+                        apiClient.vote(authToken: "token", answer: answer).catch { errorResult in
+                            if case RequestError.throttling = errorResult {
+                                throttleError = true
+                            }
+                        }
+
+                        expect(throttleError).toEventually(beTrue())
                     }
                 }
 
@@ -100,7 +122,7 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("executes the error block") {
-                        var error: Error? = nil
+                        var error: Error?
 
                         apiClient.vote(authToken: "token", answer: answer).catch { errorResult in
                             error = errorResult

@@ -16,11 +16,13 @@ class PinEntryScreenTests: XCTestCase {
         GREYTestHelper.enableFastAnimation()
         KeychainFixtures.enable()
         RouterFixtures.enable()
+        UserDefaultsFixtures.enable()
     }
 
     func testPinEntryScreenShouldDisplayPinInput() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
-            .assert(grey_hasPlaceholder("Enter EL Debate PIN"))
+            .atIndex(1)
+            .assert(grey_hasPlaceholder("EL Debate PIN"))
     }
 
     func testPinEntryScreenShouldDisplayLoginButton() {
@@ -30,7 +32,12 @@ class PinEntryScreenTests: XCTestCase {
 
     func testLoginWorks() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
+            .atIndex(1)
             .perform(grey_typeText(KeychainFixtures.testPinCode))
+
+        EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
+            .atIndex(0)
+            .perform(grey_typeText("Username"))
 
         EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
             .perform(grey_tap())
@@ -46,6 +53,7 @@ class PinEntryScreenTests: XCTestCase {
 
     func testLoginButtonSlidesUpWhenEnteringPin() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
+            .atIndex(1)
             .perform(grey_typeText("12345"))
 
         EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))

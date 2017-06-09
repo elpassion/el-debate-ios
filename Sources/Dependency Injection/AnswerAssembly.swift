@@ -9,16 +9,11 @@ import SwinjectAutoregistration
 class AnswerAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(AnswerViewController.self) { (resolver: Resolver, voteContext: VoteContext) in
-            let apiClient = resolver ~> APIProviding.self
-            let alertView = resolver ~> AlertShowing.self
-
-            return AnswerViewController(
-                voteContext: voteContext,
-                apiClient: apiClient,
-                alertView: alertView
-            )
-        }
+        container.autoregister(InputAlertPresenting.self, initializer: InputAlertPresenter.init)
+        container.autoregister(CommentControllerPresenting.self, initializer: CommentControllerPresenter.init)
+        container.autoregister(CommentController.self, argument: VoteContext.self, initializer: CommentController.init)
+        container.autoregister(AnswerViewController.self, argument: VoteContext.self,
+                               initializer: AnswerViewController.init)
     }
 
 }

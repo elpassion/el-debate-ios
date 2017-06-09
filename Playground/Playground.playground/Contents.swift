@@ -3,7 +3,7 @@ import PlaygroundSupport
 import ELDebateFramework
 import Swinject
 
-let device: Device = .phone4_7inch
+let device: Device = .phone4inch
 let orientation: Orientation = .portrait
 
 Display.bounds = CGRect(origin: .zero, size: size(for: device, and: orientation))

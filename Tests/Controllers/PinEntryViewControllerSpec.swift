@@ -17,15 +17,18 @@ class PinEntryViewControllerSpec: QuickSpec {
             var loginActionHandlingMock: LoginActionHandlingMock!
             var alertViewMock: AlertViewMock!
             var keyboardHandler: KeyboardWillShowHandlerMock!
+            var store: LoginCredentialsStoreMock!
             var controller: PinEntryViewController!
 
             beforeEach {
                 loginActionHandlingMock = LoginActionHandlingMock()
                 alertViewMock = AlertViewMock()
                 keyboardHandler = KeyboardWillShowHandlerMock()
+                store = LoginCredentialsStoreMock()
                 controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
                                                     alertView: alertViewMock,
-                                                    keyboardHandling: keyboardHandler)
+                                                    keyboardHandling: keyboardHandler,
+                                                    lastCredentialsStore: store)
             }
 
             it("should initialize back bar button item") {
@@ -37,6 +40,7 @@ class PinEntryViewControllerSpec: QuickSpec {
 
             describe("after view is loaded") {
                 beforeEach {
+                    store.lastCredentials = LoginCredentials(pinCode: "777", username: "Lucker")
                     controller.viewDidLoad()
                 }
 
@@ -49,6 +53,11 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                     expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
                 }
+
+                it("should set field values from login store") {
+                    expect(controller.pinEntryView.pinCode) == "777"
+                    expect(controller.pinEntryView.username) == "Lucker"
+                }
             }
 
             describe("log in button press") {
@@ -60,7 +69,6 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                     it("should trigger successful login callback with correct authentication token") {
                         var fetchedVoteContext: VoteContext?
-
                         controller.onVoteContextLoaded = { voteContext in
                             fetchedVoteContext = voteContext
                         }
@@ -70,6 +78,18 @@ class PinEntryViewControllerSpec: QuickSpec {
                         expect(fetchedVoteContext?.debate.topic).toEventually(equal("test_debate_topic"))
                     }
 
+                    it("should pass username from text field value") {
+                        var username: String?
+                        controller.pinEntryView.username = "The username"
+                        controller.onVoteContextLoaded = { voteContext in
+                            username = voteContext.username
+                        }
+
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(username).toEventually(equal("The username"))
+                    }
+
                     it("should pass pin from view") {
                         controller.pinEntryView.pinCode = "99999"
 
@@ -77,10 +97,21 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                         expect(loginActionHandlingMock.loginReceivedPinCode).toEventually(equal("99999"))
                     }
+
+                    it("should store credentials in store") {
+                        controller.pinEntryView.pinCode = "9812367"
+                        controller.pinEntryView.username = "Teh Dev"
+
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(store.lastCredentials?.pinCode).toEventually(equal("9812367"))
+                        expect(store.lastCredentials?.username).toEventually(equal("Teh Dev"))
+                    }
                 }
 
                 context("there was a problem") {
                     beforeEach {
+                        store.lastCredentials = LoginCredentials(pinCode: "777", username: "Lucker")
                         loginActionHandlingMock.loginReturnValue = Promise(
                             error: RequestError.apiError(statusCode: 500)
                         )
@@ -90,6 +121,16 @@ class PinEntryViewControllerSpec: QuickSpec {
                         controller.onLoginButtonTapped()
                         expect(alertViewMock.wasShown).toEventually(equal(true))
                     }
+
+                    it("should not store credentials in store") {
+                        controller.pinEntryView.pinCode = "9812367"
+                        controller.pinEntryView.username = "Teh Dev"
+
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(store.lastCredentials?.pinCode) == "777"
+                        expect(store.lastCredentials?.username) == "Lucker"
+                    }
                 }
             }
 
@@ -98,10 +139,20 @@ class PinEntryViewControllerSpec: QuickSpec {
                     controller.viewDidLoad()
                 }
 
-                it("should play the animation with keyboard height") {
-                    keyboardHandler.onKeyboardHeightChanged?(CGFloat(250.0))
+                it("should play the correct animation for zero height") {
+                    keyboardHandler.onKeyboardHeightChanged?(CGFloat(0.0))
 
-                    expect(controller.pinEntryView.buttonBottomConstraint?.constant) == -265.0
+                    expect(controller.pinEntryView.loginButtonBottonConstraint?.constant) == -15.0
+                    expect(controller.pinEntryView.pinInputCenterConstraint?.isActive) == true
+                    expect(controller.pinEntryView.pinInputBottomConstraint?.isActive) == false
+                }
+
+                it("should play the correct animation for non-zero height") {
+                    keyboardHandler.onKeyboardHeightChanged?(CGFloat(200.0))
+
+                    expect(controller.pinEntryView.loginButtonBottonConstraint?.constant) == -215.0
+                    expect(controller.pinEntryView.pinInputCenterConstraint?.isActive) == false
+                    expect(controller.pinEntryView.pinInputBottomConstraint?.isActive) == true
                 }
             }
         }

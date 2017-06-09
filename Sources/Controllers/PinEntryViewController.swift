@@ -10,15 +10,18 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     private let loginActionHandler: LoginActionHandling
     let alertPresenter: AlertShowing
     private let keyboardHandling: KeyboardWillShowHandling
+    private let lastCredentialsStore: LoginCredentialsStoring
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling) {
+    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing,
+         keyboardHandling: KeyboardWillShowHandling, lastCredentialsStore: LoginCredentialsStoring) {
         self.loginActionHandler = loginActionHandler
         self.alertPresenter = alertView
         self.keyboardHandling = keyboardHandling
+        self.lastCredentialsStore = lastCredentialsStore
 
         super.init(nibName: nil, bundle: nil)
 
@@ -38,19 +41,21 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
         title = "EL Debate"
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
+        pinEntryView.pinCode = lastCredentialsStore.lastCredentials?.pinCode ?? ""
+        pinEntryView.username = lastCredentialsStore.lastCredentials?.username ?? ""
         setupKeyboardNotifications()
     }
 
     func onLoginButtonTapped() {
-        pinEntryView.setLoginButton(isEnabled: false)
+        pinEntryView.loginInProgress = true
 
         loginActionHandler.login(withPinCode: pinEntryView.pinCode)
             .then { [weak self] voteContext -> Void in
-                self?.onVoteContextLoaded?(voteContext)
+                self?.didFetchVoteContext(voteContext)
             }.catch { [weak self] _ in
                 presentAlert(in: self, title: "Error", message: "Could not find a debate for a given pin code")
             }.always { [weak self] in
-                self?.pinEntryView.setLoginButton(isEnabled: true)
+                self?.pinEntryView.loginInProgress = false
             }
     }
 
@@ -58,6 +63,15 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
         keyboardHandling.onKeyboardHeightChanged = { [weak self] height in
             self?.pinEntryView.playKeyboardAnimation(height: height)
         }
+    }
+
+    private func didFetchVoteContext(_ voteContext: VoteContext) {
+        let contextWithUsername = voteContext.copy(withUsername: pinEntryView.username)
+
+        lastCredentialsStore.lastCredentials = LoginCredentials(pinCode: pinEntryView.pinCode,
+                                                                username: pinEntryView.username)
+        view.endEditing(true)
+        onVoteContextLoaded?(contextWithUsername)
     }
 
     // MARK: - Controller providing
