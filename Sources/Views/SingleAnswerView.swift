@@ -57,7 +57,9 @@ class SingleAnswerView: UIView {
 
     var selected: Bool = false {
         didSet {
-            iconView.tintColor = selected ? highlightColor.ui : defaultColor.ui
+            UIView.animate(withDuration: 0.5, animations: {
+                self.iconView.tintColor = self.selected ? self.highlightColor.ui : self.defaultColor.ui
+            })
         }
     }
 

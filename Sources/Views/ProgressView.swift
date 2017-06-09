@@ -29,8 +29,11 @@ class ProgressView: UIView {
     }
 
     func stopAnimation() {
-        progressBar.isHidden = true
-        layer.removeAllAnimations()
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .beginFromCurrentState, animations: {
+            self.progressBar.alpha = 0.0
+        }, completion: { _ in
+            self.layer.removeAllAnimations()
+        })
     }
 
     private func setUpInitialPosition() {
@@ -39,7 +42,7 @@ class ProgressView: UIView {
     }
 
     private func animateProgress() {
-        progressBar.isHidden = false
+        progressBar.alpha = 1.0
         leadingConstraint?.constant = frame.size.width
 
         UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseInOut, .repeat], animations: {
@@ -51,7 +54,7 @@ class ProgressView: UIView {
 
     private func setUpSubviews() {
         progressBar.backgroundColor = UIColor(predefined: color)
-        progressBar.isHidden = true
+        progressBar.alpha = 0.0
     }
 
     private func addSubviews() {
