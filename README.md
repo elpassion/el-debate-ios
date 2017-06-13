@@ -23,9 +23,7 @@ The project showcases a couple of good engineering practices:
 
 ### Installation
 
-<aside class="notice">
-This is only accessible to E LPassion organization members.
-</aside>
+:fire: **This is only accessible to EL Passion organization members.** :fire:
 
 EL Debate can be installed as a framework with Cocoapods. Add following contents to `Podfile`:
 
