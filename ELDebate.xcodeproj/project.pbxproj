@@ -458,10 +458,10 @@
 				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
 				8C127C891EC4A0D100E9B5FD /* PinEntryWelcomeView.swift */,
 				8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */,
+				8C87B8AC1EE974D100A243E2 /* ProgressView.swift */,
 				8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */,
 				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
 				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
-				8C87B8AC1EE974D100A243E2 /* ProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -493,12 +493,12 @@
 				8C364DE41EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift */,
 				8C3E8F101ED83ABF009DB7ED /* NotificationCenter+StrongTyping.swift */,
 				8CD5F6481ECC77720067BFC7 /* Promise+APIResponse.swift */,
+				8C87B8AF1EE98B6700A243E2 /* UIBezierPath+Lines.swift */,
 				8C6DA02D1EC58D9200D31E76 /* UIColor+Predefined.swift */,
+				8C87B8A91EE951E000A243E2 /* UIImage+FromColor.swift */,
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
 				8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */,
 				8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */,
-				8C87B8A91EE951E000A243E2 /* UIImage+FromColor.swift */,
-				8C87B8AF1EE98B6700A243E2 /* UIBezierPath+Lines.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -720,16 +720,7 @@
 		8C85D8451EC34FC100C5BAE7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8C63FA0C1EC3776A0080FFF9 /* Business Logic */,
-				8C63FA0D1EC379AE0080FFF9 /* Common Interfaces */,
-				8CAD324B1EC36B5200830E72 /* Controllers */,
-				8C63FA131EC37BE70080FFF9 /* Dependency Injection */,
-				8C127C901EC4AFE700E9B5FD /* Extensions */,
-				8C127C8D1EC4A23200E9B5FD /* Models */,
-				8C1917FC1EC3600400519DC8 /* Navigation */,
-				8C664A101EC45FDC0017687F /* Networking */,
-				8C3E8F0B1ED83909009DB7ED /* Notifications */,
-				8C127C851EC4A06100E9B5FD /* Views */,
+				8CE0CD6D1EEFE15000B0B358 /* Framework */,
 				8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */,
 			);
 			path = Sources;
@@ -834,6 +825,24 @@
 				8CDF217D1ECAFE4F002B4FA4 /* PinEntryScreenTests.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		8CE0CD6D1EEFE15000B0B358 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				8C63FA0C1EC3776A0080FFF9 /* Business Logic */,
+				8C63FA0D1EC379AE0080FFF9 /* Common Interfaces */,
+				8CAD324B1EC36B5200830E72 /* Controllers */,
+				8C63FA131EC37BE70080FFF9 /* Dependency Injection */,
+				8C127C901EC4AFE700E9B5FD /* Extensions */,
+				8C127C8D1EC4A23200E9B5FD /* Models */,
+				8C1917FC1EC3600400519DC8 /* Navigation */,
+				8C664A101EC45FDC0017687F /* Networking */,
+				8C3E8F0B1ED83909009DB7ED /* Notifications */,
+				8C127C851EC4A06100E9B5FD /* Views */,
+			);
+			name = Framework;
+			path = Framework;
 			sourceTree = "<group>";
 		};
 		8CF071D71ED8793A00F73D57 /* Notifications */ = {
@@ -1611,6 +1620,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dariusz Rybicki (KB57E8RV46)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = H5QFB36W2F;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ELDebate;
@@ -1629,6 +1640,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: EL Passion Next Sp. z o.o. (H5QFB36W2F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: EL Passion Next Sp. z o.o. (H5QFB36W2F)";
 				DEVELOPMENT_TEAM = H5QFB36W2F;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pl.elpassion.ELDebate;
