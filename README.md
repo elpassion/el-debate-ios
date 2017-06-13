@@ -18,3 +18,41 @@ The project showcases a couple of good engineering practices:
 * [x] Playground-driven view development ([original idea](https://talk.objc.io/episodes/S01E51-playground-driven-development-at-kickstarter)),
 * [x] Routing pattern (extended coordinator pattern),
 * [x] UI interaction/snapshot testing.
+
+# ELDebate as a framework
+
+### Installation
+
+<aside class="notice">
+This is only accessible to E LPassion organization members.
+</aside>
+
+EL Debate can be installed as a framework with Cocoapods. Add following contents to `Podfile`:
+
+```
+source 'git@github.com:elpassion/specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'ApplicationTargetToIntegrateELDebate' do
+  pod 'ELDebate', '~> 1.0'
+end
+```
+
+and run `pod install` command.
+
+### Running
+
+To run EL Debate within your application use following code:
+
+```swift
+let navigationController = UINavigationController()
+let debateRunner: DebateRunning = DebateRunner()
+
+debateRunner.start(in: navigationController, applyingDebateStyle: true)
+```
+
+Keep in mind that:
+
+1. If `debateRunner` gets deallocated during runtime, the application will crash. Retain it as a field in your controller / coordinator.
+2. EL Debate uses custom navigation bar styling. The flag `applyingDebateStyle: true` is responsible for setting custom styling properties in navigation controller's bar.
+3. The `navigationController` has to be in your root view controller's hierarchy (obviously).
