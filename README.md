@@ -28,7 +28,7 @@ The project showcases a couple of good engineering practices:
 EL Debate can be installed as a framework with Cocoapods. Add following contents to `Podfile`:
 
 ```
-source 'git@github.com:elpassion/specs.git'
+source 'git@github.com:elpassion/podspecs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'ApplicationTargetToIntegrateELDebate' do
