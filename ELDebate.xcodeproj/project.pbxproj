@@ -853,6 +853,7 @@
 				8CE0CD6F1EEFE7A500B0B358 /* DebateRunner.swift */,
 			);
 			name = Runner;
+			path = Runner;
 			sourceTree = "<group>";
 		};
 		8CF071D71ED8793A00F73D57 /* Notifications */ = {

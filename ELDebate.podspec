@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/elpassion/el-debate-ios"
   s.license          = 'Source code licensed under GPLv3.'
   s.author           = { "Jakub Turek" => "jkbturek@gmail.com" }
-  s.source           = { :git => "https://github.com/elpassion/el-debate-ios", :tag => s.version }
+  s.source           = { :git => "https://github.com/elpassion/el-debate-ios.git", :tag => s.version }
   s.social_media_url = 'https://twitter.com/elpassion'
 
   s.platform     = :ios, '10.0'
   s.requires_arc = true
 
-  s.source_files = 'Sources/Framework'
+  s.source_files = 'Sources/Framework/*{.swift}'
   s.resources = 'Resources/*'
 
   s.dependency 'Alamofire', '~> 4.4'
