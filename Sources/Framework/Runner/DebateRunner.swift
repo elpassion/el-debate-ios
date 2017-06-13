@@ -9,7 +9,7 @@ import UIKit
 
 public protocol DebateRunning {
 
-    func start(in navigationController: UINavigationController)
+    func start(in navigationController: UINavigationController, applyingDebateStyle: Bool)
 
 }
 
@@ -28,10 +28,14 @@ public class DebateRunner: DebateRunning {
         self.resolver = resolver
     }
 
-    public func start(in navigationController: UINavigationController) {
+    public func start(in navigationController: UINavigationController, applyingDebateStyle: Bool) {
         router = Router(navigator: navigationController,
                         controllerFactory: resolver ~> ControllerCreating.self,
                         controllerConfigurator: resolver ~> ControllerConfiguring.self)
+
+        if applyingDebateStyle {
+            navigationController.applyDebateStyle()
+        }
 
         router?.go(to: .pinEntry)
     }

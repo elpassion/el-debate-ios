@@ -107,6 +107,7 @@
 		8C4B23731EE5480400CE42DD /* MainWindowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */; };
 		8C4B23741EE5480400CE42DD /* NavigationControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */; };
 		8C4B23751EE5480400CE42DD /* TextStyleDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */; };
+		8C530B1F1EEFF77D00C9925B /* UINavigationController+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C530B1E1EEFF77D00C9925B /* UINavigationController+Styling.swift */; };
 		8C6127E51EC9AED9003472A3 /* AnswerViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */; };
 		8C6127ED1EC9E520003472A3 /* LoginActionHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127EB1EC9E516003472A3 /* LoginActionHandlerSpec.swift */; };
 		8C6127F21EC9E904003472A3 /* AuthTokenStorageStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */; };
@@ -293,6 +294,7 @@
 		8C4B23231EE547B400CE42DD /* ELDebateFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ELDebateFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B23251EE547B400CE42DD /* ELDebateFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELDebateFramework.h; sourceTree = "<group>"; };
 		8C4B23261EE547B400CE42DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C530B1E1EEFF77D00C9925B /* UINavigationController+Styling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Styling.swift"; sourceTree = "<group>"; };
 		8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewControllerSpec.swift; sourceTree = "<group>"; };
 		8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionFrameView.swift; sourceTree = "<group>"; };
 		8C6127E81EC9BF8E003472A3 /* AnswersListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersListView.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				8C6DA02D1EC58D9200D31E76 /* UIColor+Predefined.swift */,
 				8C87B8A91EE951E000A243E2 /* UIImage+FromColor.swift */,
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
+				8C530B1E1EEFF77D00C9925B /* UINavigationController+Styling.swift */,
 				8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */,
 				8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */,
 			);
@@ -852,7 +855,6 @@
 			children = (
 				8CE0CD6F1EEFE7A500B0B358 /* DebateRunner.swift */,
 			);
-			name = Runner;
 			path = Runner;
 			sourceTree = "<group>";
 		};
@@ -1306,6 +1308,7 @@
 				8C4B23521EE547F100CE42DD /* Dictionary+Mapping.swift in Sources */,
 				8C4B23381EE547D100CE42DD /* PinEntryWelcomeView.swift in Sources */,
 				8C87B8AB1EE9522300A243E2 /* UIImage+FromColor.swift in Sources */,
+				8C530B1F1EEFF77D00C9925B /* UINavigationController+Styling.swift in Sources */,
 				8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */,
 				8C4B233F1EE547DC00CE42DD /* ApiClient.swift in Sources */,
 				8C4B23691EE547FE00CE42DD /* AutoMockable.swift in Sources */,

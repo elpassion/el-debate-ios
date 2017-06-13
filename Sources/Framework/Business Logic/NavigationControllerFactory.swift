@@ -15,14 +15,7 @@ class NavigationControllerFactory: NavigationControllerCreating {
 
     func makeNavigationController() -> UINavigationController {
         let controller = UINavigationController()
-
-        controller.navigationBar.barTintColor = UIColor(predefined: .navigationBar)
-        controller.navigationBar.barStyle = .black
-        controller.navigationBar.isTranslucent = false
-        controller.navigationBar.tintColor = UIColor.white
-        controller.navigationBar.titleTextAttributes = [
-            NSForegroundColorAttributeName: UIColor.white
-        ]
+        controller.applyDebateStyle()
 
         return controller
     }
