@@ -11,17 +11,19 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     let alertPresenter: AlertShowing
     private let keyboardHandling: KeyboardWillShowHandling
     private let lastCredentialsStore: LoginCredentialsStoring
+    private let formValidator: PinFormValidating
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing,
-         keyboardHandling: KeyboardWillShowHandling, lastCredentialsStore: LoginCredentialsStoring) {
+    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling,
+         lastCredentialsStore: LoginCredentialsStoring, formValidator: PinFormValidating) {
         self.loginActionHandler = loginActionHandler
         self.alertPresenter = alertView
         self.keyboardHandling = keyboardHandling
         self.lastCredentialsStore = lastCredentialsStore
+        self.formValidator = formValidator
 
         super.init(nibName: nil, bundle: nil)
 
@@ -49,8 +51,10 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     func onLoginButtonTapped() {
         pinEntryView.loginInProgress = true
 
-        loginActionHandler.login(withPinCode: pinEntryView.pinCode)
-            .then { [weak self] voteContext -> Void in
+        formValidator.validate(username: pinEntryView.username, pinCode: pinEntryView.pinCode)
+            .then { [unowned self] data in
+                self.loginActionHandler.login(withPinCode: data.pin)
+            }.then { [weak self] voteContext -> Void in
                 self?.didFetchVoteContext(voteContext)
             }.catch { [weak self] _ in
                 presentAlert(in: self, title: "Error", message: "Could not find a debate for a given pin code")

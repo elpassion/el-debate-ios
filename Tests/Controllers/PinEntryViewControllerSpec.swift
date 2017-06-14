@@ -18,6 +18,7 @@ class PinEntryViewControllerSpec: QuickSpec {
             var alertViewMock: AlertViewMock!
             var keyboardHandler: KeyboardWillShowHandlerMock!
             var store: LoginCredentialsStoreMock!
+            var formValidator: PinFormValidatorMock!
             var controller: PinEntryViewController!
 
             beforeEach {
@@ -25,10 +26,12 @@ class PinEntryViewControllerSpec: QuickSpec {
                 alertViewMock = AlertViewMock()
                 keyboardHandler = KeyboardWillShowHandlerMock()
                 store = LoginCredentialsStoreMock()
+                formValidator = PinFormValidatorMock()
                 controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
                                                     alertView: alertViewMock,
                                                     keyboardHandling: keyboardHandler,
-                                                    lastCredentialsStore: store)
+                                                    lastCredentialsStore: store,
+                                                    formValidator: formValidator)
             }
 
             it("should initialize back bar button item") {
@@ -61,6 +64,19 @@ class PinEntryViewControllerSpec: QuickSpec {
             }
 
             describe("log in button press") {
+                context("validation failed") {
+                    beforeEach {
+                        formValidator.error = PinCodeValidatorError.missing
+                    }
+
+                    it("should present an error") {
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(alertViewMock.title).toEventually(equal("Error"))
+                        expect(alertViewMock.message).toEventually(equal("The PIN code is required"))
+                    }
+                }
+
                 context("action was successful") {
                     beforeEach {
                         loginActionHandlingMock.loginReturnValue = Promise(value: VoteContext.testDefault)
