@@ -5,7 +5,10 @@
 
 public enum PinCodeValidatorError: Error {
 
-    case invalidPin(reason: String)
+    case missing
+    case tooLong
+    case tooShort
+    case invalidCharacter(character: String)
 
 }
 
@@ -13,19 +16,19 @@ public class PinCodeValidator: Validator {
 
     private let validLength: Int = 5
 
-    public init() { }
+    public init() {}
 
     public func validate(_ value: String?) throws {
         guard let value = value, !value.isEmpty else {
-            throw PinCodeValidatorError.invalidPin(reason: "The PIN code is required")
+            throw PinCodeValidatorError.missing
         }
 
-        guard value.characters.count < (validLength + 1) else {
-            throw PinCodeValidatorError.invalidPin(reason: "The PIN code is too long")
-        }
+        let charactersCount = value.characters.count
 
-        guard value.characters.count > (validLength - 1) else {
-            throw PinCodeValidatorError.invalidPin(reason: "The PIN code is too short")
+        if charactersCount > validLength {
+            throw PinCodeValidatorError.tooLong
+        } else if charactersCount < validLength {
+            throw PinCodeValidatorError.tooShort
         }
 
         let validCharacters = CharacterSet.decimalDigits
@@ -34,7 +37,7 @@ public class PinCodeValidator: Validator {
         }
 
         if let firstInvalid = firstInvalid {
-            throw PinCodeValidatorError.invalidPin(reason: "The PIN code contains invalid character: \(firstInvalid)")
+            throw PinCodeValidatorError.invalidCharacter(character: "\(firstInvalid)")
         }
     }
 

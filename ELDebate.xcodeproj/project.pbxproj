@@ -114,6 +114,12 @@
 		8C6137F31EF1302C00E00700 /* PinCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6137F21EF1302C00E00700 /* PinCodeValidator.swift */; };
 		8C6137F51EF1303500E00700 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6137F41EF1303500E00700 /* Validator.swift */; };
 		8C6137F91EF131A800E00700 /* PinCodeValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6137F71EF131A600E00700 /* PinCodeValidatorSpec.swift */; };
+		8C6137FB1EF145F100E00700 /* UsernameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6137FA1EF145F100E00700 /* UsernameValidator.swift */; };
+		8C6137FD1EF1548100E00700 /* UsernameValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6137FC1EF1548100E00700 /* UsernameValidatorSpec.swift */; };
+		8C6138081EF15D7800E00700 /* OptionalStringValidatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6138071EF15D7800E00700 /* OptionalStringValidatorMock.swift */; };
+		8C61380A1EF15DDF00E00700 /* PinFormValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6138091EF15DDF00E00700 /* PinFormValidatorSpec.swift */; };
+		8C61380B1EF1608000E00700 /* PinFormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6138031EF15A3C00E00700 /* PinFormValidator.swift */; };
+		8C61380C1EF1608F00E00700 /* PinFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6138051EF15A5D00E00700 /* PinFormData.swift */; };
 		8C63FA061EC371170080FFF9 /* MainWindowFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */; };
 		8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */; };
 		8C63FA121EC379F30080FFF9 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */; };
@@ -306,6 +312,12 @@
 		8C6137F21EF1302C00E00700 /* PinCodeValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidator.swift; sourceTree = "<group>"; };
 		8C6137F41EF1303500E00700 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		8C6137F71EF131A600E00700 /* PinCodeValidatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorSpec.swift; sourceTree = "<group>"; };
+		8C6137FA1EF145F100E00700 /* UsernameValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidator.swift; sourceTree = "<group>"; };
+		8C6137FC1EF1548100E00700 /* UsernameValidatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorSpec.swift; sourceTree = "<group>"; };
+		8C6138031EF15A3C00E00700 /* PinFormValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinFormValidator.swift; sourceTree = "<group>"; };
+		8C6138051EF15A5D00E00700 /* PinFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinFormData.swift; sourceTree = "<group>"; };
+		8C6138071EF15D7800E00700 /* OptionalStringValidatorMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalStringValidatorMock.swift; sourceTree = "<group>"; };
+		8C6138091EF15DDF00E00700 /* PinFormValidatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinFormValidatorSpec.swift; sourceTree = "<group>"; };
 		8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowFactorySpec.swift; sourceTree = "<group>"; };
 		8C63FA071EC374F50080FFF9 /* MainWindowFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowFactory.swift; sourceTree = "<group>"; };
 		8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateSpec.swift; sourceTree = "<group>"; };
@@ -486,6 +498,7 @@
 				8CD094751EE866C1006D46A5 /* LoginCredentials.swift */,
 				8C3155AE1EDF6358003F31D9 /* TextStyle.swift */,
 				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
+				8C6138051EF15A5D00E00700 /* PinFormData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -533,6 +546,7 @@
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */,
 				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
+				8C6138071EF15D7800E00700 /* OptionalStringValidatorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -608,6 +622,7 @@
 			children = (
 				8C6137F21EF1302C00E00700 /* PinCodeValidator.swift */,
 				8C6137F41EF1303500E00700 /* Validator.swift */,
+				8C6137FA1EF145F100E00700 /* UsernameValidator.swift */,
 			);
 			name = Validation;
 			sourceTree = "<group>";
@@ -616,6 +631,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6137F71EF131A600E00700 /* PinCodeValidatorSpec.swift */,
+				8C6137FC1EF1548100E00700 /* UsernameValidatorSpec.swift */,
 			);
 			name = Validation;
 			sourceTree = "<group>";
@@ -638,6 +654,7 @@
 				8C6DA0311EC590E500D31E76 /* NavigationControllerFactory.swift */,
 				8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */,
 				8C0AA2BA1EE55E4500F98074 /* TextStyleDescriptorFactory.swift */,
+				8C6138031EF15A3C00E00700 /* PinFormValidator.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -722,6 +739,7 @@
 				8C63FA051EC371170080FFF9 /* MainWindowFactorySpec.swift */,
 				8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */,
 				8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */,
+				8C6138091EF15DDF00E00700 /* PinFormValidatorSpec.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -1318,6 +1336,7 @@
 				8C4B235C1EE547F500CE42DD /* AnswerAssembly.swift in Sources */,
 				8C4B234D1EE547EC00CE42DD /* Font.swift in Sources */,
 				8C4B23581EE547F100CE42DD /* Promise+APIResponse.swift in Sources */,
+				8C6137FB1EF145F100E00700 /* UsernameValidator.swift in Sources */,
 				8CC783D81EE6F43B00023EBF /* InputAlertPresenter.swift in Sources */,
 				8C4B236B1EE547FE00CE42DD /* Views.swift in Sources */,
 				8C4B236D1EE5480400CE42DD /* AttributesDescriptor.swift in Sources */,
@@ -1368,6 +1387,7 @@
 				8C4B23341EE547D100CE42DD /* ChatButtonView.swift in Sources */,
 				8C4B236E1EE5480400CE42DD /* AuthTokenStorage.swift in Sources */,
 				8C4B23711EE5480400CE42DD /* KeyboardWillShowHandler.swift in Sources */,
+				8C61380C1EF1608F00E00700 /* PinFormData.swift in Sources */,
 				8C4B233A1EE547D100CE42DD /* QuestionView.swift in Sources */,
 				8C4B23511EE547F100CE42DD /* AnswerType+RawType.swift in Sources */,
 				8CCE0F5C1EE58790001FD1D7 /* Display.swift in Sources */,
@@ -1377,6 +1397,7 @@
 				8C4B236C1EE5480400CE42DD /* Answer.swift in Sources */,
 				8C4B23421EE547DC00CE42DD /* RequestError.swift in Sources */,
 				8C4B23731EE5480400CE42DD /* MainWindowFactory.swift in Sources */,
+				8C61380B1EF1608000E00700 /* PinFormValidator.swift in Sources */,
 				8C4B23321EE547D100CE42DD /* AnswersListView.swift in Sources */,
 				8C4B23601EE547F500CE42DD /* PinEntryAssembly.swift in Sources */,
 				8C4B234C1EE547EC00CE42DD /* Debate.swift in Sources */,
@@ -1412,6 +1433,7 @@
 				6EADF5591ECC493400488057 /* AlertViewMock.swift in Sources */,
 				8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */,
 				6EDF434C1ECB11B0004B92BD /* VoteContextSpec.swift in Sources */,
+				8C6138081EF15D7800E00700 /* OptionalStringValidatorMock.swift in Sources */,
 				8C3155AA1EDF57DA003F31D9 /* AttributesDescriptorSpec.swift in Sources */,
 				8C364DE91EDC1D82007D4EA6 /* NotificationManagingMock.swift in Sources */,
 				8C364DEB1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift in Sources */,
@@ -1429,6 +1451,7 @@
 				6EADF55C1ECC813A00488057 /* Answer+Default.swift in Sources */,
 				8C6137F91EF131A800E00700 /* PinCodeValidatorSpec.swift in Sources */,
 				8C6127ED1EC9E520003472A3 /* LoginActionHandlerSpec.swift in Sources */,
+				8C61380A1EF15DDF00E00700 /* PinFormValidatorSpec.swift in Sources */,
 				8CF071D91ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift in Sources */,
 				6EDF434F1ECB186F004B92BD /* VoteContext+Default.swift in Sources */,
 				6EA7E2981EC46906002DF55E /* LoginResponseJSONMock.swift in Sources */,
@@ -1449,6 +1472,7 @@
 				8C6DA0491EC5AC9F00D31E76 /* APIProviderStub.swift in Sources */,
 				8CD496831EE7040A004046C7 /* ChildControllerSpy.swift in Sources */,
 				8C0D63021EC5DAEB00421B89 /* ControllerConfiguratorSpec.swift in Sources */,
+				8C6137FD1EF1548100E00700 /* UsernameValidatorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
