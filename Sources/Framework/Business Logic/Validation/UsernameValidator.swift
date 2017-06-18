@@ -3,11 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
-public enum UsernameValidatorError: Error {
-
-    case missing
-
-}
+import Foundation
 
 public class UsernameValidator: Validator {
 

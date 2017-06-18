@@ -47,3 +47,17 @@ func presentAlert(in alertPresenting: AlertPresentingController?, title: String?
                                                title: title ?? "",
                                                message: message ?? "")
 }
+
+@discardableResult
+func presentErrorAlert(for error: Error, in alertPresenting: AlertPresentingController?,
+                       defaultMessage: String) -> Promise<Bool> {
+    let message: String
+
+    if let alertPresentableError = error as? AlertPresentableError {
+        message = alertPresentableError.errorMessage
+    } else {
+        message = defaultMessage
+    }
+
+    return presentAlert(in: alertPresenting, title: "Error", message: message)
+}

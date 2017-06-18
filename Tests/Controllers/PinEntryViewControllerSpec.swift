@@ -72,6 +72,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                     it("should present an error") {
                         controller.pinEntryView.onLoginButtonTapped?()
 
+                        expect(alertViewMock.wasShown).toEventually(beTrue())
                         expect(alertViewMock.title).toEventually(equal("Error"))
                         expect(alertViewMock.message).toEventually(equal("The PIN code is required"))
                     }
@@ -135,7 +136,11 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                     it("shows an error alert") {
                         controller.onLoginButtonTapped()
+
                         expect(alertViewMock.wasShown).toEventually(equal(true))
+                        expect(alertViewMock.title).toEventually(equal("Error"))
+                        expect(alertViewMock.message).toEventually(
+                                equal("Could not find a debate for a given pin code"))
                     }
 
                     it("should not store credentials in store") {

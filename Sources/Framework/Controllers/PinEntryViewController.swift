@@ -3,6 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+import PromiseKit
 import UIKit
 
 class PinEntryViewController: UIViewController, PinEntryControllerProviding, AlertPresentingController {
@@ -52,12 +53,12 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
         pinEntryView.loginInProgress = true
 
         formValidator.validate(username: pinEntryView.username, pinCode: pinEntryView.pinCode)
-            .then { [unowned self] data in
-                self.loginActionHandler.login(withPinCode: data.pin)
+            .then { [weak self] data in
+                performLogIn(with: self?.loginActionHandler, withPin: data.pin)
             }.then { [weak self] voteContext -> Void in
                 self?.didFetchVoteContext(voteContext)
-            }.catch { [weak self] _ in
-                presentAlert(in: self, title: "Error", message: "Could not find a debate for a given pin code")
+            }.catch { [weak self] error in
+                presentErrorAlert(for: error, in: self, defaultMessage: "Could not find a debate for a given pin code")
             }.always { [weak self] in
                 self?.pinEntryView.loginInProgress = false
             }
@@ -88,4 +89,12 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+private func performLogIn(with actionHandler: LoginActionHandling?, withPin pin: String) -> Promise<VoteContext> {
+    guard let actionHandler = actionHandler else {
+        return Promise(error: RequestError.deallocatedClientError)
+    }
+
+    return actionHandler.login(withPinCode: pin)
 }

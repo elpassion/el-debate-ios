@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0F5311200D5341E956D16AC2 /* Pods_FeatureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */; };
+		326723424614E761B4834409 /* UsernameValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */; };
+		326723B8FDCF8C056AF26357 /* PinCodeValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */; };
+		32672746AB41975F44B887A7 /* UsernameValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */; };
+		326728DEF33D4C6F923378A5 /* AlertPresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */; };
+		32672CD29AB24344404C2D44 /* PinCodeValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */; };
 		501E951C7F5419BDDB3C45B8 /* Pods_ELDebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */; };
 		51757128F328010E2BC3E35A /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B514A80F4268B66CD30EE8B /* EarlGrey.framework */; };
 		6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */; };
@@ -225,6 +230,11 @@
 		19E287EA4ED2A64F83F5A9CB /* Pods-ELDebateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		275F10A50218847328F71153 /* Pods-ELDebateFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateFramework/Pods-ELDebateFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorErrorSpec.swift; sourceTree = "<group>"; };
+		326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresentableError.swift; sourceTree = "<group>"; };
+		32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorError.swift; sourceTree = "<group>"; };
+		32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorErrorSpec.swift; sourceTree = "<group>"; };
+		32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorError.swift; sourceTree = "<group>"; };
 		503584F6E31E132E68AE9835 /* Pods-ELDebateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.release.xcconfig"; sourceTree = "<group>"; };
 		5B514A80F4268B66CD30EE8B /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = "${SRCROOT}/Pods/EarlGrey/EarlGrey/EarlGrey.framework"; sourceTree = SRCROOT; };
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
@@ -437,6 +447,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32672B0AD29D2DBFC55D54EA /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */,
+				32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		32672E0FBD8A938D0F12AEDC /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */,
+				32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		6EA7E2921EC466EC002DF55E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +531,7 @@
 				8C6138051EF15A5D00E00700 /* PinFormData.swift */,
 				8C3155AE1EDF6358003F31D9 /* TextStyle.swift */,
 				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
+				326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -628,6 +657,7 @@
 				8C6137F21EF1302C00E00700 /* PinCodeValidator.swift */,
 				8C6137FA1EF145F100E00700 /* UsernameValidator.swift */,
 				8C6137F41EF1303500E00700 /* Validator.swift */,
+				32672B0AD29D2DBFC55D54EA /* Errors */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -637,6 +667,7 @@
 			children = (
 				8C6137F71EF131A600E00700 /* PinCodeValidatorSpec.swift */,
 				8C6137FC1EF1548100E00700 /* UsernameValidatorSpec.swift */,
+				32672E0FBD8A938D0F12AEDC /* Errors */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -1416,6 +1447,9 @@
 				8C87B8AE1EE974D900A243E2 /* ProgressView.swift in Sources */,
 				8C4B23481EE547E600CE42DD /* Route.swift in Sources */,
 				8C4B23411EE547DC00CE42DD /* JSONResponseProviding.swift in Sources */,
+				326723B8FDCF8C056AF26357 /* PinCodeValidatorError.swift in Sources */,
+				32672746AB41975F44B887A7 /* UsernameValidatorError.swift in Sources */,
+				326728DEF33D4C6F923378A5 /* AlertPresentableError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1481,6 +1515,8 @@
 				8CD496831EE7040A004046C7 /* ChildControllerSpy.swift in Sources */,
 				8C0D63021EC5DAEB00421B89 /* ControllerConfiguratorSpec.swift in Sources */,
 				8C6137FD1EF1548100E00700 /* UsernameValidatorSpec.swift in Sources */,
+				326723424614E761B4834409 /* UsernameValidatorErrorSpec.swift in Sources */,
+				32672CD29AB24344404C2D44 /* PinCodeValidatorErrorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,14 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
-public enum PinCodeValidatorError: Error {
-
-    case missing
-    case tooLong
-    case tooShort
-    case invalidCharacter(character: String)
-
-}
+import Foundation
 
 public class PinCodeValidator: Validator {
 
