@@ -136,6 +136,7 @@
 		8C6DA03B1EC599E300D31E76 /* PinEntryViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */; };
 		8C6DA0491EC5AC9F00D31E76 /* APIProviderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */; };
 		8C6EC6451ECC422F009E0FBC /* AnswerScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6EC6441ECC422F009E0FBC /* AnswerScreenTests.swift */; };
+		8C7322D61EF7DDB00067BC84 /* PartialContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7322D31EF7DD890067BC84 /* PartialContext.swift */; };
 		8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */; };
 		8C85D8521EC34FC100C5BAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */; };
 		8C85D8531EC34FC100C5BAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8481EC34FC100C5BAE7 /* LaunchScreen.storyboard */; };
@@ -354,6 +355,7 @@
 		8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryControllerProviding.swift; sourceTree = "<group>"; };
 		8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProviderStub.swift; sourceTree = "<group>"; };
 		8C6EC6441ECC422F009E0FBC /* AnswerScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerScreenTests.swift; sourceTree = "<group>"; };
+		8C7322D31EF7DD890067BC84 /* PartialContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialContext.swift; sourceTree = "<group>"; };
 		8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 				8C3155AE1EDF6358003F31D9 /* TextStyle.swift */,
 				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
 				326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */,
+				8C7322D31EF7DD890067BC84 /* PartialContext.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1405,6 +1408,7 @@
 				8C4B23331EE547D100CE42DD /* AttributedLabel.swift in Sources */,
 				8C4B23441EE547E100CE42DD /* AnswerDeserializer.swift in Sources */,
 				8C4B23391EE547D100CE42DD /* QuestionFrameView.swift in Sources */,
+				8C7322D61EF7DDB00067BC84 /* PartialContext.swift in Sources */,
 				8C4B23721EE5480400CE42DD /* LoginActionHandler.swift in Sources */,
 				8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */,
 				8C4B23491EE547E600CE42DD /* Router.swift in Sources */,

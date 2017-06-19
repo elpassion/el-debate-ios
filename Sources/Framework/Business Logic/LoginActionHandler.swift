@@ -25,33 +25,43 @@ class LoginActionHandler: LoginActionHandling {
 
     func login(with credentials: LoginCredentials) -> Promise<VoteContext> {
         return formValidator.validate(username: credentials.username, pinCode: credentials.pin)
-            .then { [weak self] validCredentials -> Promise<String> in
-                guard let `self` = self else {
-                    return Promise(error: RequestError.deallocatedClientError)
-                }
-
-                return self.fetchAuthToken(forPinCode: validCredentials.pin)
-            }.then { [weak self] authToken -> Promise<(String, Debate)> in
-                guard let `self` = self else {
-                    return Promise(error: RequestError.deallocatedClientError)
-                }
-
-                return when(fulfilled: Promise(value: authToken), self.apiClient.fetchDebate(authToken: authToken))
-            }.then { (authToken, debate) in
-                let voteContext = VoteContext(debate: debate, authToken: authToken, username: credentials.username)
-                return Promise(value: voteContext)
+            .then {
+                addingStoredToken(into: PartialContext(credentials: $0), from: self.tokenStorage)
+            }.then {
+                fetchingToken(into: $0, using: self.apiClient, storedIn: self.tokenStorage)
+            }.then {
+                fetchingDebate(into: $0, using: self.apiClient)
+            }.then { partialContext in
+                partialContext.buildContext()
             }
     }
 
-    private func fetchAuthToken(forPinCode pinCode: String) -> Promise<String> {
-        if let authToken = tokenStorage.getToken(forPinCode: pinCode) {
-            return Promise(value: authToken)
-        } else {
-            return apiClient.login(pinCode: pinCode).then { [unowned self] authToken in
-                try self.tokenStorage.save(token: authToken, forPinCode: pinCode)
-                return Promise(value: authToken)
-            }
-        }
+}
+
+private func addingStoredToken(into context: PartialContext,
+                               from storage: AuthTokenStoring) -> Promise<PartialContext> {
+    let token = storage.getToken(forPinCode: context.credentials.pin)
+    return Promise(value: context.with(token: token))
+}
+
+private func fetchingToken(into context: PartialContext, using apiClient: APIProviding,
+                           storedIn storage: AuthTokenStoring) -> Promise<PartialContext> {
+    guard context.authToken == nil else {
+        return Promise(value: context)
     }
 
+    return apiClient.login(pinCode: context.credentials.pin).then { authToken in
+        try storage.save(token: authToken, forPinCode: context.credentials.pin)
+        return Promise(value: context.with(token: authToken))
+    }
+}
+
+private func fetchingDebate(into context: PartialContext, using apiClient: APIProviding) -> Promise<PartialContext> {
+    guard let authToken = context.authToken else {
+        fatalError("Debate should never be fetched without authentication token")
+    }
+
+    return apiClient.fetchDebate(authToken: authToken).then { debate in
+        context.with(debate: debate)
+    }
 }
