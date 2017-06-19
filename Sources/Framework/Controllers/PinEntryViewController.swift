@@ -12,19 +12,17 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     let alertPresenter: AlertShowing
     private let keyboardHandling: KeyboardWillShowHandling
     private let lastCredentialsStore: LoginCredentialsStoring
-    private let formValidator: PinFormValidating
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
     init(loginActionHandler: LoginActionHandling, alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling,
-         lastCredentialsStore: LoginCredentialsStoring, formValidator: PinFormValidating) {
+         lastCredentialsStore: LoginCredentialsStoring) {
         self.loginActionHandler = loginActionHandler
         self.alertPresenter = alertView
         self.keyboardHandling = keyboardHandling
         self.lastCredentialsStore = lastCredentialsStore
-        self.formValidator = formValidator
 
         super.init(nibName: nil, bundle: nil)
 
@@ -51,10 +49,8 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     func onLoginButtonTapped() {
         pinEntryView.loginInProgress = true
 
-        formValidator.validate(username: pinEntryView.credentials.username, pinCode: pinEntryView.credentials.pin)
-            .then { [weak self] data in
-                performLogIn(with: self?.loginActionHandler, with: data)
-            }.then { [weak self] voteContext -> Void in
+        loginActionHandler.login(with: pinEntryView.credentials)
+            .then { [weak self] voteContext -> Void in
                 self?.didFetchVoteContext(voteContext)
             }.catch { [weak self] error in
                 presentErrorAlert(for: error, in: self, defaultMessage: "Could not find a debate for a given pin code")
@@ -85,13 +81,4 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
         fatalError("init(coder:) has not been implemented")
     }
 
-}
-
-private func performLogIn(with actionHandler: LoginActionHandling?,
-                          with credentials: LoginCredentials) -> Promise<VoteContext> {
-    guard let actionHandler = actionHandler else {
-        return Promise(error: RequestError.deallocatedClientError)
-    }
-
-    return actionHandler.login(with: credentials)
 }

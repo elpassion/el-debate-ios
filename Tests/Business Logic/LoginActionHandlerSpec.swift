@@ -28,6 +28,31 @@ class LoginActionHandlerSpec: QuickSpec {
             }
 
             describe("login") {
+                context("when credential validation fails") {
+                    beforeEach {
+                        formValidator.error = PinCodeValidatorError.missing
+                    }
+
+                    it("should propagate the error") {
+                        var errorPropagated = false
+
+                        _ = sut.login(with: LoginCredentials(pin: "pin", username: "user")).catch { error in
+                            if case PinCodeValidatorError.missing = error {
+                                errorPropagated = true
+                            }
+                        }
+
+                        expect(errorPropagated).toEventually(beTrue())
+                    }
+                }
+
+                it("should pass correct arguments to a validator") {
+                    _ = sut.login(with: LoginCredentials(pin: "val_pin", username: "val_user"))
+
+                    expect(formValidator.lastPin) == "val_pin"
+                    expect(formValidator.lastUsername) == "val_user"
+                }
+
                 context("when token for pin exists in storage") {
                     beforeEach {
                         tokenStorage.hasTokenReturnValue = true

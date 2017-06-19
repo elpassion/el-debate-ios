@@ -24,16 +24,23 @@ class LoginActionHandler: LoginActionHandling {
     }
 
     func login(with credentials: LoginCredentials) -> Promise<VoteContext> {
-        return fetchAuthToken(forPinCode: credentials.pin).then { [weak self] authToken -> Promise<(String, Debate)> in
-            guard let `self` = self else {
-                return Promise(error: RequestError.deallocatedClientError)
-            }
+        return formValidator.validate(username: credentials.username, pinCode: credentials.pin)
+            .then { [weak self] validCredentials -> Promise<String> in
+                guard let `self` = self else {
+                    return Promise(error: RequestError.deallocatedClientError)
+                }
 
-            return when(fulfilled: Promise(value: authToken), self.apiClient.fetchDebate(authToken: authToken))
-        }.then { (authToken, debate) in
-            let voteContext = VoteContext(debate: debate, authToken: authToken, username: credentials.username)
-            return Promise(value: voteContext)
-        }
+                return self.fetchAuthToken(forPinCode: validCredentials.pin)
+            }.then { [weak self] authToken -> Promise<(String, Debate)> in
+                guard let `self` = self else {
+                    return Promise(error: RequestError.deallocatedClientError)
+                }
+
+                return when(fulfilled: Promise(value: authToken), self.apiClient.fetchDebate(authToken: authToken))
+            }.then { (authToken, debate) in
+                let voteContext = VoteContext(debate: debate, authToken: authToken, username: credentials.username)
+                return Promise(value: voteContext)
+            }
     }
 
     private func fetchAuthToken(forPinCode pinCode: String) -> Promise<String> {

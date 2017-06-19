@@ -18,7 +18,6 @@ class PinEntryViewControllerSpec: QuickSpec {
             var alertViewMock: AlertViewMock!
             var keyboardHandler: KeyboardWillShowHandlerMock!
             var store: LoginCredentialsStoreMock!
-            var formValidator: PinFormValidatorMock!
             var controller: PinEntryViewController!
 
             beforeEach {
@@ -26,12 +25,10 @@ class PinEntryViewControllerSpec: QuickSpec {
                 alertViewMock = AlertViewMock()
                 keyboardHandler = KeyboardWillShowHandlerMock()
                 store = LoginCredentialsStoreMock()
-                formValidator = PinFormValidatorMock()
                 controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
                                                     alertView: alertViewMock,
                                                     keyboardHandling: keyboardHandler,
-                                                    lastCredentialsStore: store,
-                                                    formValidator: formValidator)
+                                                    lastCredentialsStore: store)
             }
 
             it("should initialize back bar button item") {
@@ -83,7 +80,7 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                 context("validation failed") {
                     beforeEach {
-                        formValidator.error = PinCodeValidatorError.missing
+                        loginActionHandlingMock.loginReturnValue = Promise(error: PinCodeValidatorError.missing)
                     }
 
                     it("should present an error") {
@@ -129,7 +126,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                     }
                 }
 
-                context("there was a problem") {
+                context("api client returns invalid response") {
                     beforeEach {
                         store.lastCredentials = LoginCredentials(pin: "777", username: "Lucker")
                         loginActionHandlingMock.loginReturnValue = Promise(
