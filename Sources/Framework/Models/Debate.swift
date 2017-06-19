@@ -9,8 +9,10 @@
 import Foundation
 
 struct Debate {
+
     let topic: String
     let positiveAnswer: Answer
     let neutralAnswer: Answer
     let negativeAnswer: Answer
+
 }

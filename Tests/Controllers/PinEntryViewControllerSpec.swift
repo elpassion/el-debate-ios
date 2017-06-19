@@ -40,7 +40,7 @@ class PinEntryViewControllerSpec: QuickSpec {
 
             describe("after view is loaded") {
                 beforeEach {
-                    store.lastCredentials = LoginCredentials(pinCode: "777", username: "Lucker")
+                    store.lastCredentials = LoginCredentials(pin: "777", username: "Lucker")
                     controller.viewDidLoad()
                 }
 
@@ -55,19 +55,55 @@ class PinEntryViewControllerSpec: QuickSpec {
                 }
 
                 it("should set field values from login store") {
-                    expect(controller.pinEntryView.pinCode) == "777"
-                    expect(controller.pinEntryView.username) == "Lucker"
+                    expect(controller.pinEntryView.credentials.pin) == "777"
+                    expect(controller.pinEntryView.credentials.username) == "Lucker"
+                }
+
+                context("when there are no credentials") {
+                    beforeEach {
+                        store.lastCredentials = nil
+                        controller.viewDidLoad()
+                    }
+
+                    it("should set empty pin and username") {
+                        expect(controller.pinEntryView.credentials.pin) == ""
+                        expect(controller.pinEntryView.credentials.username) == ""
+                    }
                 }
             }
 
             describe("log in button press") {
-                context("action was successful") {
+                beforeEach {
+                    loginActionHandlingMock.loginReturnValue = Promise(value: VoteContext.testDefault)
+                    loginActionHandlingMock.loginReceivedCredentials = nil
+                }
+
+                context("validation failed") {
                     beforeEach {
-                        loginActionHandlingMock.loginReturnValue = Promise(value: VoteContext.testDefault)
-                        loginActionHandlingMock.loginReceivedPinCode = nil
+                        loginActionHandlingMock.loginReturnValue = Promise(error: PinCodeValidatorError.missing)
                     }
 
-                    it("should trigger successful login callback with correct authentication token") {
+                    it("should present an error") {
+                        controller.pinEntryView.onLoginButtonTapped?()
+
+                        expect(alertViewMock.wasShown).toEventually(beTrue())
+                        expect(alertViewMock.title).toEventually(equal("Error"))
+                        expect(alertViewMock.message).toEventually(equal("The PIN code is required"))
+                    }
+                }
+
+                it("should pass form data from view") {
+                    controller.pinEntryView.credentials = LoginCredentials(pin: "99999", username: "I am the user")
+
+                    controller.pinEntryView.onLoginButtonTapped?()
+
+                    expect(loginActionHandlingMock.loginReceivedCredentials?.pin).toEventually(equal("99999"))
+                    expect(loginActionHandlingMock.loginReceivedCredentials?.username).toEventually(
+                        equal("I am the user"))
+                }
+
+                context("action was successful") {
+                    it("should trigger successful login callback with vote context from action") {
                         var fetchedVoteContext: VoteContext?
                         controller.onVoteContextLoaded = { voteContext in
                             fetchedVoteContext = voteContext
@@ -76,42 +112,23 @@ class PinEntryViewControllerSpec: QuickSpec {
                         controller.pinEntryView.onLoginButtonTapped?()
 
                         expect(fetchedVoteContext?.debate.topic).toEventually(equal("test_debate_topic"))
-                    }
-
-                    it("should pass username from text field value") {
-                        var username: String?
-                        controller.pinEntryView.username = "The username"
-                        controller.onVoteContextLoaded = { voteContext in
-                            username = voteContext.username
-                        }
-
-                        controller.pinEntryView.onLoginButtonTapped?()
-
-                        expect(username).toEventually(equal("The username"))
-                    }
-
-                    it("should pass pin from view") {
-                        controller.pinEntryView.pinCode = "99999"
-
-                        controller.pinEntryView.onLoginButtonTapped?()
-
-                        expect(loginActionHandlingMock.loginReceivedPinCode).toEventually(equal("99999"))
+                        expect(fetchedVoteContext?.authToken).toEventually(equal("whatever"))
+                        expect(fetchedVoteContext?.username).toEventually(equal("some user"))
                     }
 
                     it("should store credentials in store") {
-                        controller.pinEntryView.pinCode = "9812367"
-                        controller.pinEntryView.username = "Teh Dev"
+                        controller.pinEntryView.credentials = LoginCredentials(pin: "9812367", username: "Teh Dev")
 
                         controller.pinEntryView.onLoginButtonTapped?()
 
-                        expect(store.lastCredentials?.pinCode).toEventually(equal("9812367"))
+                        expect(store.lastCredentials?.pin).toEventually(equal("9812367"))
                         expect(store.lastCredentials?.username).toEventually(equal("Teh Dev"))
                     }
                 }
 
-                context("there was a problem") {
+                context("api client returns invalid response") {
                     beforeEach {
-                        store.lastCredentials = LoginCredentials(pinCode: "777", username: "Lucker")
+                        store.lastCredentials = LoginCredentials(pin: "777", username: "Lucker")
                         loginActionHandlingMock.loginReturnValue = Promise(
                             error: RequestError.apiError(statusCode: 500)
                         )
@@ -119,16 +136,19 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                     it("shows an error alert") {
                         controller.onLoginButtonTapped()
+
                         expect(alertViewMock.wasShown).toEventually(equal(true))
+                        expect(alertViewMock.title).toEventually(equal("Error"))
+                        expect(alertViewMock.message).toEventually(
+                                equal("Could not find a debate for a given pin code"))
                     }
 
                     it("should not store credentials in store") {
-                        controller.pinEntryView.pinCode = "9812367"
-                        controller.pinEntryView.username = "Teh Dev"
+                        controller.pinEntryView.credentials = LoginCredentials(pin: "9812367", username: "Teh Dev")
 
                         controller.pinEntryView.onLoginButtonTapped?()
 
-                        expect(store.lastCredentials?.pinCode) == "777"
+                        expect(store.lastCredentials?.pin) == "777"
                         expect(store.lastCredentials?.username) == "Lucker"
                     }
                 }

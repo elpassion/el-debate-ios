@@ -11,23 +11,20 @@ import Foundation
 class AnswerDeserializer: Deserializing {
 
     func deserialize(json: Any?) throws -> Answer {
-        guard let dict = json as? [String: Any] else {
-            throw RequestError.deserializationError(reason: "Response is not a dictionary")
-        }
+        let dict = try parseDictionary(json)
+        let identifier: Int = try parseField(from: dict, key: "id", description: "answer identifier")
+        let value: String = try parseField(from: dict, key: "value", description: "answer value")
+        let answerType = try parseAnswerType(dict)
 
-        guard let identifier = dict["id"] as? Int else {
-            throw RequestError.deserializationError(reason: "Response does not contain answer identifier")
-        }
+        return Answer(identifier: identifier, value: value, type: answerType)
+    }
 
-        guard let value = dict["value"] as? String else {
-            throw RequestError.deserializationError(reason: "Response does not contain answer value")
-        }
-
-        guard let answerType = dict["answer_type"].flatMap(AnswerType.init(rawType:)) else {
+    private func parseAnswerType(_ dictionary: [String: Any]) throws -> AnswerType {
+        guard let answerType = dictionary["answer_type"].flatMap(AnswerType.init(rawType:)) else {
             throw RequestError.deserializationError(reason: "Response does not contain correct answer type")
         }
 
-        return Answer(identifier: identifier, value: value, type: answerType)
+        return answerType
     }
 
 }

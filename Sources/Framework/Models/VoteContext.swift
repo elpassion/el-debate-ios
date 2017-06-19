@@ -30,13 +30,3 @@ public extension VoteContext {
     }
 
 }
-
-public extension VoteContext {
-
-    func copy(withUsername username: String) -> VoteContext {
-        return VoteContext(debate: debate,
-                           authToken: authToken,
-                           username: username)
-    }
-
-}

@@ -17,17 +17,10 @@ class DebateDeserializer: Deserializing {
     }
 
     func deserialize(json: Any?) throws -> Debate {
-        guard let dict = json as? [String: Any] else {
-            throw RequestError.deserializationError(reason: "Response is not a dictionary")
-        }
-
-        guard let topic = dict["topic"] as? String else {
-            throw RequestError.deserializationError(reason: "Response does not contain debate topic")
-        }
-
-        guard let answersData = dict["answers"] as? [String: [String: Any?]] else {
-            throw RequestError.deserializationError(reason: "Response does not contain answers data")
-        }
+        let dict = try parseDictionary(json)
+        let topic: String = try parseField(from: dict, key: "topic", description: "debate topic")
+        let answersData: [String: [String: Any]] = try parseField(
+            from: dict, key: "answers", description: "answers data")
 
         let answers = try answersWithTypes(answersData)
             .map { try answerDeserializer.deserialize(json: $0) }

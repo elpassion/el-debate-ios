@@ -30,14 +30,14 @@ class PinEntryView: UIView {
         set { loginButton.onLoginButtonTapped = newValue }
     }
 
-    var pinCode: String {
-        get { return pinInputView.pinCode }
-        set { pinInputView.pinCode = newValue }
-    }
-
-    var username: String {
-        get { return pinInputView.username }
-        set { pinInputView.username = newValue }
+    var credentials: LoginCredentials {
+        get {
+            return LoginCredentials(pin: pinInputView.pinCode, username: pinInputView.username)
+        }
+        set {
+            pinInputView.pinCode = newValue.pin
+            pinInputView.username = newValue.username
+        }
     }
 
     var loginInProgress: Bool {

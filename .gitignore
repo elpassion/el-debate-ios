@@ -71,3 +71,6 @@ FailureDiffs/
 # Deployment scripts
 .setup_travis_deployment.sh
 .match_key
+
+# AppCode
+.idea/

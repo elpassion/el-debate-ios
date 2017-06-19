@@ -39,7 +39,7 @@ class LoginCredentialsStore: LoginCredentialsStoring {
 
     private func serialize(_ credentials: LoginCredentials) -> String? {
         let dictionary: [String: String] = [
-            "pinCode": credentials.pinCode,
+            "pinCode": credentials.pin,
             "username": credentials.username
         ]
 
@@ -57,14 +57,14 @@ class LoginCredentialsStore: LoginCredentialsStoring {
             return nil
         }
 
-        guard let pinCode = json["pinCode"] else {
+        guard let pin = json["pinCode"] else {
             return nil
         }
         guard let username = json["username"] else {
             return nil
         }
 
-        return LoginCredentials(pinCode: pinCode, username: username)
+        return LoginCredentials(pin: pin, username: username)
     }
 
 }

@@ -74,16 +74,16 @@ class LoginActionHandlingMock: LoginActionHandling {
     var 
 loginCalled
  = false
-    var loginReceivedPinCode: String?
+    var loginReceivedCredentials: LoginCredentials?
     var 
 loginReturnValue
 : Promise<VoteContext>!
 
-    func login(withPinCode pinCode: String) -> Promise<VoteContext> {
+    func login(with credentials: LoginCredentials) -> Promise<VoteContext> {
 
 loginCalled
  = true
-        loginReceivedPinCode = pinCode
+        loginReceivedCredentials = credentials
         return 
 loginReturnValue
     }

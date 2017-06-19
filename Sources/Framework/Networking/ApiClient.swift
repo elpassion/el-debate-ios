@@ -41,9 +41,7 @@ class ApiClient: APIProviding {
             headers: nil
         )
 
-        return Promise(requestExecutor: jsonResponse.json, processor: { [weak self] apiResponse in
-            try deserialize(response: apiResponse, with: self?.authTokenDeserializer)
-        })
+        return request(with: jsonResponse.json, deserializedBy: self.authTokenDeserializer)
     }
 
     func fetchDebate(authToken: String) -> Promise<Debate> {
@@ -52,9 +50,7 @@ class ApiClient: APIProviding {
             headers: ["Authorization": authToken]
         )
 
-        return Promise(requestExecutor: jsonResponse.json, processor: { [weak self] apiResponse in
-            try deserialize(response: apiResponse, with: self?.debateDeserializer)
-        })
+        return request(with: jsonResponse.json, deserializedBy: self.debateDeserializer)
     }
 
     func vote(authToken: String, answer: Answer) -> Promise<Answer> {
@@ -87,7 +83,9 @@ class ApiClient: APIProviding {
 
 }
 
-private func deserialize<T>(response: ApiResponse, with deserializer: Deserializer<T>?) throws -> T {
-    guard let deserializer = deserializer else { throw RequestError.deallocatedClientError }
-    return try deserializer.deserialize(json: response.json)
+private func request<T>(with executor: @escaping (@escaping (ApiResponse) -> Void) -> Void,
+                        deserializedBy deserializer: Deserializer<T>) -> Promise<T> {
+    return Promise(requestExecutor: executor, processor: { response in
+        try deserializer.deserialize(json: response.json)
+    })
 }

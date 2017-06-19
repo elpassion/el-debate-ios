@@ -3,6 +3,7 @@
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
+import PromiseKit
 import UIKit
 
 class PinEntryViewController: UIViewController, PinEntryControllerProviding, AlertPresentingController {
@@ -16,8 +17,8 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing,
-         keyboardHandling: KeyboardWillShowHandling, lastCredentialsStore: LoginCredentialsStoring) {
+    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling,
+         lastCredentialsStore: LoginCredentialsStoring) {
         self.loginActionHandler = loginActionHandler
         self.alertPresenter = alertView
         self.keyboardHandling = keyboardHandling
@@ -41,37 +42,33 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
         title = "EL Debate"
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
-        pinEntryView.pinCode = lastCredentialsStore.lastCredentials?.pinCode ?? ""
-        pinEntryView.username = lastCredentialsStore.lastCredentials?.username ?? ""
-        setupKeyboardNotifications()
+        pinEntryView.credentials = lastCredentialsStore.lastCredentials ?? LoginCredentials(pin: "", username: "")
+        setUpKeyboardNotifications()
     }
 
     func onLoginButtonTapped() {
         pinEntryView.loginInProgress = true
 
-        loginActionHandler.login(withPinCode: pinEntryView.pinCode)
+        loginActionHandler.login(with: pinEntryView.credentials)
             .then { [weak self] voteContext -> Void in
                 self?.didFetchVoteContext(voteContext)
-            }.catch { [weak self] _ in
-                presentAlert(in: self, title: "Error", message: "Could not find a debate for a given pin code")
+            }.catch { [weak self] error in
+                presentErrorAlert(for: error, in: self, defaultMessage: "Could not find a debate for a given pin code")
             }.always { [weak self] in
                 self?.pinEntryView.loginInProgress = false
             }
     }
 
-    private func setupKeyboardNotifications() {
+    private func setUpKeyboardNotifications() {
         keyboardHandling.onKeyboardHeightChanged = { [weak self] height in
             self?.pinEntryView.playKeyboardAnimation(height: height)
         }
     }
 
     private func didFetchVoteContext(_ voteContext: VoteContext) {
-        let contextWithUsername = voteContext.copy(withUsername: pinEntryView.username)
-
-        lastCredentialsStore.lastCredentials = LoginCredentials(pinCode: pinEntryView.pinCode,
-                                                                username: pinEntryView.username)
+        lastCredentialsStore.lastCredentials = pinEntryView.credentials
         view.endEditing(true)
-        onVoteContextLoaded?(contextWithUsername)
+        onVoteContextLoaded?(voteContext)
     }
 
     // MARK: - Controller providing
