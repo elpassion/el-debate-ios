@@ -7,7 +7,7 @@ import PromiseKit
 
 protocol LoginActionHandling: AutoMockable {
 
-    func login(withPinCode pinCode: String) -> Promise<VoteContext>
+    func login(with credentials: LoginCredentials) -> Promise<VoteContext>
 
 }
 
@@ -15,14 +15,16 @@ class LoginActionHandler: LoginActionHandling {
 
     private let apiClient: APIProviding
     private let tokenStorage: AuthTokenStoring
+    private let formValidator: PinFormValidating
 
-    init(apiClient: APIProviding, tokenStorage: AuthTokenStoring) {
+    init(apiClient: APIProviding, tokenStorage: AuthTokenStoring, formValidator: PinFormValidating) {
         self.apiClient = apiClient
         self.tokenStorage = tokenStorage
+        self.formValidator = formValidator
     }
 
-    func login(withPinCode pinCode: String) -> Promise<VoteContext> {
-        return fetchAuthToken(forPinCode: pinCode).then { [weak self] authToken -> Promise<(String, Debate)> in
+    func login(with credentials: LoginCredentials) -> Promise<VoteContext> {
+        return fetchAuthToken(forPinCode: credentials.pin).then { [weak self] authToken -> Promise<(String, Debate)> in
             guard let `self` = self else {
                 return Promise(error: RequestError.deallocatedClientError)
             }

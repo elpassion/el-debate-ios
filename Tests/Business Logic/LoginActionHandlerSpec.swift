@@ -2,7 +2,6 @@
 //  Created by Jakub Turek on 15.05.2017.
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
-// swiftlint:disable function_body_length
 
 @testable import ELDebateFramework
 import Nimble
@@ -10,17 +9,22 @@ import Quick
 
 class LoginActionHandlerSpec: QuickSpec {
 
+    // swiftlint:disable function_body_length
     override func spec() {
         describe("LoginActionHandler") {
             var apiProviderStub: APIProviderStub!
             var tokenStorage: AuthTokenStorageStub!
-            var loginActionHandler: LoginActionHandler!
+            var formValidator: PinFormValidatorMock!
+            var sut: LoginActionHandler!
 
             beforeEach {
                 apiProviderStub = APIProviderStub()
                 apiProviderStub.authenticationToken = "auth_token_from_service"
                 tokenStorage = AuthTokenStorageStub()
-                loginActionHandler = LoginActionHandler(apiClient: apiProviderStub, tokenStorage: tokenStorage)
+                formValidator = PinFormValidatorMock()
+                sut = LoginActionHandler(apiClient: apiProviderStub,
+                                         tokenStorage: tokenStorage,
+                                         formValidator: formValidator)
             }
 
             describe("login") {
@@ -31,7 +35,7 @@ class LoginActionHandlerSpec: QuickSpec {
                     }
 
                     it("should use token from storage") {
-                        _ = loginActionHandler.login(withPinCode: "in_storage")
+                        _ = sut.login(with: LoginCredentials(pin: "in_storage", username: "user"))
 
                         expect(apiProviderStub.debateAuthToken).toEventually(equal("auth_token_from_storage"))
                     }
@@ -44,13 +48,13 @@ class LoginActionHandlerSpec: QuickSpec {
                     }
 
                     it("should use token from service") {
-                        _ = loginActionHandler.login(withPinCode: "not_in_storage")
+                        _ = sut.login(with: LoginCredentials(pin: "not_in_storage", username: "user"))
 
                         expect(apiProviderStub.debateAuthToken).toEventually(equal("auth_token_from_service"))
                     }
 
                     it("should store pin and auth code in storage") {
-                        _ = loginActionHandler.login(withPinCode: "not_in_storage")
+                        _ = sut.login(with: LoginCredentials(pin: "not_in_storage", username: "user"))
 
                         expect(tokenStorage.lastSavedPin).toEventually(equal("not_in_storage"))
                         expect(tokenStorage.lastSavedToken).toEventually(equal("auth_token_from_service"))
@@ -61,14 +65,15 @@ class LoginActionHandlerSpec: QuickSpec {
                     beforeEach {
                         apiProviderStub = APIProviderStub()
                         apiProviderStub.authenticationToken = "auth_token_from_service"
-                        loginActionHandler = LoginActionHandler(apiClient: apiProviderStub,
-                                                                tokenStorage: ThrowingAuthTokenStorageStub())
+                        sut = LoginActionHandler(apiClient: apiProviderStub,
+                                                 tokenStorage: ThrowingAuthTokenStorageStub(),
+                                                 formValidator: formValidator)
                     }
 
                     it("should propagate it") {
                         var error: Error?
 
-                        _ = loginActionHandler.login(withPinCode: "pin_code").catch { loginError in
+                        _ = sut.login(with: LoginCredentials(pin: "pin_code", username: "user")).catch { loginError in
                             error = loginError
                         }
 
@@ -79,7 +84,7 @@ class LoginActionHandlerSpec: QuickSpec {
                 it("should return VoteContext from API client") {
                     var voteContext: VoteContext?
 
-                    _ = loginActionHandler.login(withPinCode: "pin_code").then { result in
+                    _ = sut.login(with: LoginCredentials(pin: "pin_code", username: "user")).then { result in
                         voteContext = result
                     }
 

@@ -94,5 +94,5 @@ private func performLogIn(with actionHandler: LoginActionHandling?, withPin pin:
         return Promise(error: RequestError.deallocatedClientError)
     }
 
-    return actionHandler.login(withPinCode: pin)
+    return actionHandler.login(with: LoginCredentials(pin: pin, username: "USERNAME"))
 }

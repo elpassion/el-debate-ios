@@ -93,7 +93,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                 context("action was successful") {
                     beforeEach {
                         loginActionHandlingMock.loginReturnValue = Promise(value: VoteContext.testDefault)
-                        loginActionHandlingMock.loginReceivedPinCode = nil
+                        loginActionHandlingMock.loginReceivedCredentials = nil
                     }
 
                     it("should trigger successful login callback with correct authentication token") {
@@ -124,7 +124,7 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                         controller.pinEntryView.onLoginButtonTapped?()
 
-                        expect(loginActionHandlingMock.loginReceivedPinCode).toEventually(equal("99999"))
+                        expect(loginActionHandlingMock.loginReceivedCredentials?.pin).toEventually(equal("99999"))
                     }
 
                     it("should store credentials in store") {
