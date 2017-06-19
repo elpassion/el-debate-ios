@@ -137,6 +137,8 @@
 		8C6DA0491EC5AC9F00D31E76 /* APIProviderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */; };
 		8C6EC6451ECC422F009E0FBC /* AnswerScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6EC6441ECC422F009E0FBC /* AnswerScreenTests.swift */; };
 		8C7322D61EF7DDB00067BC84 /* PartialContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7322D31EF7DD890067BC84 /* PartialContext.swift */; };
+		8C7322D81EF8182E0067BC84 /* APIAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7322D71EF8182E0067BC84 /* APIAssembly.swift */; };
+		8C7322DB1EF81C160067BC84 /* Deserialization+CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7322D91EF81BFD0067BC84 /* Deserialization+CommonFunctions.swift */; };
 		8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */; };
 		8C85D8521EC34FC100C5BAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */; };
 		8C85D8531EC34FC100C5BAE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8481EC34FC100C5BAE7 /* LaunchScreen.storyboard */; };
@@ -356,6 +358,8 @@
 		8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProviderStub.swift; sourceTree = "<group>"; };
 		8C6EC6441ECC422F009E0FBC /* AnswerScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerScreenTests.swift; sourceTree = "<group>"; };
 		8C7322D31EF7DD890067BC84 /* PartialContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialContext.swift; sourceTree = "<group>"; };
+		8C7322D71EF8182E0067BC84 /* APIAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAssembly.swift; sourceTree = "<group>"; };
+		8C7322D91EF81BFD0067BC84 /* Deserialization+CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Deserialization+CommonFunctions.swift"; sourceTree = "<group>"; };
 		8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -708,6 +712,7 @@
 		8C63FA131EC37BE70080FFF9 /* Dependency Injection */ = {
 			isa = PBXGroup;
 			children = (
+				8C7322D71EF8182E0067BC84 /* APIAssembly.swift */,
 				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
 				8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */,
 				8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */,
@@ -737,6 +742,7 @@
 				8C664A1A1EC490820017687F /* AuthTokenDeserializer.swift */,
 				6EA7E29D1EC4B115002DF55E /* DebateDeserializer.swift */,
 				8C664A161EC48F370017687F /* Deserializer.swift */,
+				8C7322D91EF81BFD0067BC84 /* Deserialization+CommonFunctions.swift */,
 			);
 			path = Deserialization;
 			sourceTree = "<group>";
@@ -1385,9 +1391,11 @@
 				8C4B236F1EE5480400CE42DD /* ControllerConfigurator.swift in Sources */,
 				8CCE0F551EE57A30001FD1D7 /* FontSizeCalculator.swift in Sources */,
 				8C4B235A1EE547F100CE42DD /* UIImage+Predefined.swift in Sources */,
+				8C7322D81EF8182E0067BC84 /* APIAssembly.swift in Sources */,
 				8C4B23521EE547F100CE42DD /* Dictionary+Mapping.swift in Sources */,
 				8C4B23381EE547D100CE42DD /* PinEntryWelcomeView.swift in Sources */,
 				8C87B8AB1EE9522300A243E2 /* UIImage+FromColor.swift in Sources */,
+				8C7322DB1EF81C160067BC84 /* Deserialization+CommonFunctions.swift in Sources */,
 				8C530B1F1EEFF77D00C9925B /* UINavigationController+Styling.swift in Sources */,
 				8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */,
 				8C4B233F1EE547DC00CE42DD /* ApiClient.swift in Sources */,

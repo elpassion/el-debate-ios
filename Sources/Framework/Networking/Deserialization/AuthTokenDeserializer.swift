@@ -6,13 +6,8 @@
 class AuthTokenDeserializer: Deserializing {
 
     func deserialize(json: Any?) throws -> String {
-        guard let dict = json as? [String: Any] else {
-            throw RequestError.deserializationError(reason: "Response is not a dictionary")
-        }
-
-        guard let authToken = dict["auth_token"] as? String else {
-            throw RequestError.deserializationError(reason: "Auth token is missing in a response")
-        }
+        let dict = try parseDictionary(json)
+        let authToken: String = try parseField(from: dict, key: "auth_token", description: "auth token")
 
         return authToken
     }
