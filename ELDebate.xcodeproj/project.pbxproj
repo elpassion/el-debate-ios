@@ -459,8 +459,8 @@
 		32672E0FBD8A938D0F12AEDC /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */,
 				32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */,
+				326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -521,6 +521,7 @@
 		8C127C8D1EC4A23200E9B5FD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */,
 				8C3155B01EDF674D003F31D9 /* AttributeStyle.swift */,
 				8C6DA02B1EC58CFA00D31E76 /* Color.swift */,
 				6EA7E2991EC4AF09002DF55E /* Debate.swift */,
@@ -528,10 +529,9 @@
 				8C127C8E1EC4A23D00E9B5FD /* Image.swift */,
 				8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */,
 				8C6138051EF15A5D00E00700 /* LoginCredentials.swift */,
+				8C7322D31EF7DD890067BC84 /* PartialContext.swift */,
 				8C3155AE1EDF6358003F31D9 /* TextStyle.swift */,
 				6EDF43471ECB1173004B92BD /* VoteContext.swift */,
-				326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */,
-				8C7322D31EF7DD890067BC84 /* PartialContext.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -577,10 +577,10 @@
 				6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */,
 				8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */,
 				8C6138071EF15D7800E00700 /* OptionalStringValidatorMock.swift */,
+				8C61380D1EF1825100E00700 /* PinFormValidatorMock.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */,
 				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
-				8C61380D1EF1825100E00700 /* PinFormValidatorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -654,10 +654,10 @@
 		8C6137F11EF1301400E00700 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
+				32672B0AD29D2DBFC55D54EA /* Errors */,
 				8C6137F21EF1302C00E00700 /* PinCodeValidator.swift */,
 				8C6137FA1EF145F100E00700 /* UsernameValidator.swift */,
 				8C6137F41EF1303500E00700 /* Validator.swift */,
-				32672B0AD29D2DBFC55D54EA /* Errors */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -665,9 +665,9 @@
 		8C6137F61EF1317A00E00700 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
+				32672E0FBD8A938D0F12AEDC /* Errors */,
 				8C6137F71EF131A600E00700 /* PinCodeValidatorSpec.swift */,
 				8C6137FC1EF1548100E00700 /* UsernameValidatorSpec.swift */,
-				32672E0FBD8A938D0F12AEDC /* Errors */,
 			);
 			path = Validation;
 			sourceTree = "<group>";

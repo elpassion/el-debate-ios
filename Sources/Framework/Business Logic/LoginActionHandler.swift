@@ -25,15 +25,10 @@ class LoginActionHandler: LoginActionHandling {
 
     func login(with credentials: LoginCredentials) -> Promise<VoteContext> {
         return formValidator.validate(username: credentials.username, pinCode: credentials.pin)
-            .then {
-                addingStoredToken(into: PartialContext(credentials: $0), from: self.tokenStorage)
-            }.then {
-                fetchingToken(into: $0, using: self.apiClient, storedIn: self.tokenStorage)
-            }.then {
-                fetchingDebate(into: $0, using: self.apiClient)
-            }.then { partialContext in
-                partialContext.buildContext()
-            }
+            .then { addingStoredToken(into: PartialContext(credentials: $0), from: self.tokenStorage) }
+            .then { fetchingMissingToken(into: $0, using: self.apiClient, storedIn: self.tokenStorage) }
+            .then { fetchingDebate(into: $0, using: self.apiClient) }
+            .then { $0.buildContext() }
     }
 
 }
@@ -44,8 +39,8 @@ private func addingStoredToken(into context: PartialContext,
     return Promise(value: context.with(token: token))
 }
 
-private func fetchingToken(into context: PartialContext, using apiClient: APIProviding,
-                           storedIn storage: AuthTokenStoring) -> Promise<PartialContext> {
+private func fetchingMissingToken(into context: PartialContext, using apiClient: APIProviding,
+                                  storedIn storage: AuthTokenStoring) -> Promise<PartialContext> {
     guard context.authToken == nil else {
         return Promise(value: context)
     }
