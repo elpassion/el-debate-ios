@@ -31,7 +31,7 @@ class LoginActionHandler: LoginActionHandling {
 
             return when(fulfilled: Promise(value: authToken), self.apiClient.fetchDebate(authToken: authToken))
         }.then { (authToken, debate) in
-            let voteContext = VoteContext(debate: debate, authToken: authToken, username: nil)
+            let voteContext = VoteContext(debate: debate, authToken: authToken, username: credentials.username)
             return Promise(value: voteContext)
         }
     }

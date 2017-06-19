@@ -81,14 +81,25 @@ class LoginActionHandlerSpec: QuickSpec {
                     }
                 }
 
-                it("should return VoteContext from API client") {
+                describe("returned vote context") {
                     var voteContext: VoteContext?
 
-                    _ = sut.login(with: LoginCredentials(pin: "pin_code", username: "user")).then { result in
-                        voteContext = result
+                    beforeEach {
+                        _ = sut.login(with: LoginCredentials(pin: "pin_code", username: "TheUser")).then { result in
+                            voteContext = result
+                        }
                     }
 
-                    expect(voteContext?.debate.topic).toEventually(equal("test_debate_topic"))
+                    it("should have debate details returned from API client") {
+                        expect(voteContext?.debate.topic).toEventually(equal("test_debate_topic"))
+                        expect(voteContext?.debate.positiveAnswer.identifier).toEventually(equal(1))
+                        expect(voteContext?.debate.neutralAnswer.identifier).toEventually(equal(2))
+                        expect(voteContext?.debate.negativeAnswer.identifier).toEventually(equal(3))
+                    }
+
+                    it("should have username passed with form data") {
+                        expect(voteContext?.username).toEventually(equal("TheUser"))
+                    }
                 }
             }
         }

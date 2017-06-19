@@ -53,7 +53,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
         formValidator.validate(username: pinEntryView.credentials.username, pinCode: pinEntryView.credentials.pin)
             .then { [weak self] data in
-                performLogIn(with: self?.loginActionHandler, withPin: data.pin)
+                performLogIn(with: self?.loginActionHandler, with: data)
             }.then { [weak self] voteContext -> Void in
                 self?.didFetchVoteContext(voteContext)
             }.catch { [weak self] error in
@@ -70,11 +70,9 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     }
 
     private func didFetchVoteContext(_ voteContext: VoteContext) {
-        let contextWithUsername = voteContext.copy(withUsername: pinEntryView.credentials.username)
-
         lastCredentialsStore.lastCredentials = pinEntryView.credentials
         view.endEditing(true)
-        onVoteContextLoaded?(contextWithUsername)
+        onVoteContextLoaded?(voteContext)
     }
 
     // MARK: - Controller providing
@@ -89,10 +87,11 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
 }
 
-private func performLogIn(with actionHandler: LoginActionHandling?, withPin pin: String) -> Promise<VoteContext> {
+private func performLogIn(with actionHandler: LoginActionHandling?,
+                          with credentials: LoginCredentials) -> Promise<VoteContext> {
     guard let actionHandler = actionHandler else {
         return Promise(error: RequestError.deallocatedClientError)
     }
 
-    return actionHandler.login(with: LoginCredentials(pin: pin, username: "USERNAME"))
+    return actionHandler.login(with: credentials)
 }
