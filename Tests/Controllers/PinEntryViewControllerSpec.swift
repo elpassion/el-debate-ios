@@ -58,8 +58,20 @@ class PinEntryViewControllerSpec: QuickSpec {
                 }
 
                 it("should set field values from login store") {
-                    expect(controller.pinEntryView.pinCode) == "777"
-                    expect(controller.pinEntryView.username) == "Lucker"
+                    expect(controller.pinEntryView.credentials.pin) == "777"
+                    expect(controller.pinEntryView.credentials.username) == "Lucker"
+                }
+
+                context("when there are no credentials") {
+                    beforeEach {
+                        store.lastCredentials = nil
+                        controller.viewDidLoad()
+                    }
+
+                    it("should set empty pin and username") {
+                        expect(controller.pinEntryView.credentials.pin) == ""
+                        expect(controller.pinEntryView.credentials.username) == ""
+                    }
                 }
             }
 
@@ -97,7 +109,7 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                     it("should pass username from text field value") {
                         var username: String?
-                        controller.pinEntryView.username = "The username"
+                        controller.pinEntryView.credentials = LoginCredentials(pin: "", username: "The username")
                         controller.onVoteContextLoaded = { voteContext in
                             username = voteContext.username
                         }
@@ -108,7 +120,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                     }
 
                     it("should pass pin from view") {
-                        controller.pinEntryView.pinCode = "99999"
+                        controller.pinEntryView.credentials = LoginCredentials(pin: "99999", username: "")
 
                         controller.pinEntryView.onLoginButtonTapped?()
 
@@ -116,8 +128,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                     }
 
                     it("should store credentials in store") {
-                        controller.pinEntryView.pinCode = "9812367"
-                        controller.pinEntryView.username = "Teh Dev"
+                        controller.pinEntryView.credentials = LoginCredentials(pin: "9812367", username: "Teh Dev")
 
                         controller.pinEntryView.onLoginButtonTapped?()
 
@@ -144,8 +155,7 @@ class PinEntryViewControllerSpec: QuickSpec {
                     }
 
                     it("should not store credentials in store") {
-                        controller.pinEntryView.pinCode = "9812367"
-                        controller.pinEntryView.username = "Teh Dev"
+                        controller.pinEntryView.credentials = LoginCredentials(pin: "9812367", username: "Teh Dev")
 
                         controller.pinEntryView.onLoginButtonTapped?()
 

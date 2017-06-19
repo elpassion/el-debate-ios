@@ -44,15 +44,14 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
         title = "EL Debate"
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
-        pinEntryView.pinCode = lastCredentialsStore.lastCredentials?.pin ?? ""
-        pinEntryView.username = lastCredentialsStore.lastCredentials?.username ?? ""
-        setupKeyboardNotifications()
+        pinEntryView.credentials = lastCredentialsStore.lastCredentials ?? LoginCredentials(pin: "", username: "")
+        setUpKeyboardNotifications()
     }
 
     func onLoginButtonTapped() {
         pinEntryView.loginInProgress = true
 
-        formValidator.validate(username: pinEntryView.username, pinCode: pinEntryView.pinCode)
+        formValidator.validate(username: pinEntryView.credentials.username, pinCode: pinEntryView.credentials.pin)
             .then { [weak self] data in
                 performLogIn(with: self?.loginActionHandler, withPin: data.pin)
             }.then { [weak self] voteContext -> Void in
@@ -64,17 +63,16 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
             }
     }
 
-    private func setupKeyboardNotifications() {
+    private func setUpKeyboardNotifications() {
         keyboardHandling.onKeyboardHeightChanged = { [weak self] height in
             self?.pinEntryView.playKeyboardAnimation(height: height)
         }
     }
 
     private func didFetchVoteContext(_ voteContext: VoteContext) {
-        let contextWithUsername = voteContext.copy(withUsername: pinEntryView.username)
+        let contextWithUsername = voteContext.copy(withUsername: pinEntryView.credentials.username)
 
-        lastCredentialsStore.lastCredentials = LoginCredentials(pin: pinEntryView.pinCode,
-                                                                username: pinEntryView.username)
+        lastCredentialsStore.lastCredentials = pinEntryView.credentials
         view.endEditing(true)
         onVoteContextLoaded?(contextWithUsername)
     }
