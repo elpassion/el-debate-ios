@@ -72,7 +72,7 @@ internal class PinFormValidatorSpec: QuickSpec {
 
                 context("when validation succeeds") {
                     it("should return validated data") {
-                        var formData: PinFormData?
+                        var formData: LoginCredentials?
 
                         _ = sut.validate(username: "username", pinCode: "pinCode")
                             .then {

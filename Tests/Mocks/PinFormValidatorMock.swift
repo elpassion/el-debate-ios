@@ -10,11 +10,11 @@ internal class PinFormValidatorMock: PinFormValidating {
 
     var error: Error?
 
-    func validate(username: String, pinCode: String) -> Promise<PinFormData> {
+    func validate(username: String, pinCode: String) -> Promise<LoginCredentials> {
         if let error = error {
             return Promise(error: error)
         } else {
-            return Promise(value: PinFormData(pin: pinCode, username: username))
+            return Promise(value: LoginCredentials(pin: pinCode, username: username))
         }
     }
 

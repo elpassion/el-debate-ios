@@ -7,7 +7,7 @@ import PromiseKit
 
 public protocol PinFormValidating {
 
-    func validate(username: String, pinCode: String) -> Promise<PinFormData>
+    func validate(username: String, pinCode: String) -> Promise<LoginCredentials>
 
 }
 
@@ -21,13 +21,13 @@ public class PinFormValidator: PinFormValidating {
         self.pinCodeValidator = pinCodeValidator
     }
 
-    public func validate(username: String, pinCode: String) -> Promise<PinFormData> {
+    public func validate(username: String, pinCode: String) -> Promise<LoginCredentials> {
         return Promise { fullfill, reject in
             do {
                 try usernameValidator.validate(username)
                 try pinCodeValidator.validate(pinCode)
 
-                fullfill(PinFormData(pin: pinCode, username: username))
+                fullfill(LoginCredentials(pin: pinCode, username: username))
             } catch let error {
                 reject(error)
             }

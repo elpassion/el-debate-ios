@@ -23,7 +23,7 @@ class LoginCredentialsStoreSpec: QuickSpec {
             describe("lastCredentials") {
                 describe("setter") {
                     it("should store serialized credentials to a dictionary") {
-                        let credentials = LoginCredentials(pinCode: "PIN", username: "USER")
+                        let credentials = LoginCredentials(pin: "PIN", username: "USER")
 
                         sut.lastCredentials = credentials
 
@@ -74,7 +74,7 @@ class LoginCredentialsStoreSpec: QuickSpec {
 
                         let credentials = sut.lastCredentials
 
-                        expect(credentials?.pinCode) == "123"
+                        expect(credentials?.pin) == "123"
                         expect(credentials?.username) == "ME"
                     }
                 }

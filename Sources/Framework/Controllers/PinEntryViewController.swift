@@ -44,7 +44,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
         title = "EL Debate"
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
-        pinEntryView.pinCode = lastCredentialsStore.lastCredentials?.pinCode ?? ""
+        pinEntryView.pinCode = lastCredentialsStore.lastCredentials?.pin ?? ""
         pinEntryView.username = lastCredentialsStore.lastCredentials?.username ?? ""
         setupKeyboardNotifications()
     }
@@ -73,7 +73,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     private func didFetchVoteContext(_ voteContext: VoteContext) {
         let contextWithUsername = voteContext.copy(withUsername: pinEntryView.username)
 
-        lastCredentialsStore.lastCredentials = LoginCredentials(pinCode: pinEntryView.pinCode,
+        lastCredentialsStore.lastCredentials = LoginCredentials(pin: pinEntryView.pinCode,
                                                                 username: pinEntryView.username)
         view.endEditing(true)
         onVoteContextLoaded?(contextWithUsername)

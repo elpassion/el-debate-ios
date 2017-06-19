@@ -1,11 +1,16 @@
 //
-//  Created by Jakub Turek on 07.06.2017.
+//  Created by Jakub Turek on 14.06.2017.
 //  Copyright © 2017 EL Passion. All rights reserved.
 //
 
-struct LoginCredentials {
+public struct LoginCredentials {
 
-    let pinCode: String
-    let username: String
+    public let pin: String
+    public let username: String
+
+    public init(pin: String, username: String) {
+        self.pin = pin
+        self.username = username
+    }
 
 }
