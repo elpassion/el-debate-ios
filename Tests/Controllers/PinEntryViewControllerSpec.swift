@@ -156,23 +156,22 @@ class PinEntryViewControllerSpec: QuickSpec {
 
             describe("keyboard event") {
                 beforeEach {
-                    controller.viewDidLoad()
+                    controller.view.frame = CGRect(x: 0.0, y: 0.0, width: 320.0, height: 504.0)
+                    controller.view.layoutSubviews()
                 }
 
-                it("should play the correct animation for zero height") {
+                it("should default constraints for zero height") {
                     keyboardHandler.onKeyboardHeightChanged?(CGFloat(0.0))
 
-                    expect(controller.pinEntryView.loginButtonBottonConstraint?.constant) == -15.0
-                    expect(controller.pinEntryView.pinInputCenterConstraint?.isActive) == true
-                    expect(controller.pinEntryView.pinInputBottomConstraint?.isActive) == false
+                    expect(controller.pinEntryView.loginButtonBottomConstraint?.constant) == -15.0
+                    expect(controller.pinEntryView.pinInputBottomConstraint?.constant) == -10.0
                 }
 
                 it("should play the correct animation for non-zero height") {
-                    keyboardHandler.onKeyboardHeightChanged?(CGFloat(200.0))
+                    keyboardHandler.onKeyboardHeightChanged?(CGFloat(216.0))
 
-                    expect(controller.pinEntryView.loginButtonBottonConstraint?.constant) == -215.0
-                    expect(controller.pinEntryView.pinInputCenterConstraint?.isActive) == false
-                    expect(controller.pinEntryView.pinInputBottomConstraint?.isActive) == true
+                    expect(controller.pinEntryView.loginButtonBottomConstraint?.constant) == -231.0
+                    expect(controller.pinEntryView.pinInputBottomConstraint?.constant) == -38.5
                 }
             }
         }
