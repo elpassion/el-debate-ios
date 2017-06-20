@@ -30,6 +30,15 @@ class ApiClientSpec: QuickSpec {
                         requestExecutor.postReturnValue = LoginResponseJSONMock()
                     }
 
+                    it("passes correct parameters to login service") {
+                        let credentials = LoginCredentials(pin: "90912", username: "user_")
+
+                        _ = apiClient.login(credentials: credentials)
+
+                        expect(requestExecutor.postReceivedArguments?.body?["code"] as? String) == "90912"
+                        expect(requestExecutor.postReceivedArguments?.body?["username"] as? String) == "user_"
+                    }
+
                     it("returns the authToken") {
                         let credentials = LoginCredentials(pin: "654321", username: "user_")
                         var authToken: String? = nil

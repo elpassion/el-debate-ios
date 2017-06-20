@@ -37,7 +37,7 @@ class ApiClient: APIProviding {
     func login(credentials: LoginCredentials) -> Promise<String> {
         let jsonResponse = requestExecutor.post(
             url: "\(apiHost)/api/login",
-            body: ["code": credentials.pin],
+            body: ["code": credentials.pin, "username": credentials.username],
             headers: nil
         )
 
