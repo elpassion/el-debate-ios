@@ -12,7 +12,7 @@ import PromiseKit
 
 protocol APIProviding {
 
-    func login(pinCode: String) -> Promise<String>
+    func login(credentials: LoginCredentials) -> Promise<String>
     func fetchDebate(authToken: String) -> Promise<Debate>
     func vote(authToken: String, answer: Answer) -> Promise<Answer>
     func comment(_ text: String, with voteContext: VoteContext) -> Promise<Bool>
@@ -34,10 +34,10 @@ class ApiClient: APIProviding {
         self.debateDeserializer = debateDeserializer
     }
 
-    func login(pinCode: String) -> Promise<String> {
+    func login(credentials: LoginCredentials) -> Promise<String> {
         let jsonResponse = requestExecutor.post(
             url: "\(apiHost)/api/login",
-            body: ["code": pinCode],
+            body: ["code": credentials.pin],
             headers: nil
         )
 

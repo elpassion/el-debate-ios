@@ -31,8 +31,10 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("returns the authToken") {
+                        let credentials = LoginCredentials(pin: "654321", username: "user_")
                         var authToken: String? = nil
-                        _ = apiClient.login(pinCode: "654321").then { authTokenResult in
+
+                        _ = apiClient.login(credentials: credentials).then { authTokenResult in
                             authToken = authTokenResult
                         }
 
@@ -46,9 +48,10 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("executes the only error block") {
+                        let credentials = LoginCredentials(pin: "654321", username: "user_")
                         var error: Error? = nil
 
-                        apiClient.login(pinCode: "654321").then { _ in
+                        apiClient.login(credentials: credentials).then { _ in
                             fatalError("This should never happen :D")
                         }.catch { errorResult in
                             error = errorResult

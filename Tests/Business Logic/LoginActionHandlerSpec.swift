@@ -84,6 +84,13 @@ class LoginActionHandlerSpec: QuickSpec {
                         expect(tokenStorage.lastSavedPin).toEventually(equal("not_in_storage"))
                         expect(tokenStorage.lastSavedToken).toEventually(equal("auth_token_from_service"))
                     }
+
+                    it("should pass correct arguments to login method") {
+                        _ = sut.login(with: LoginCredentials(pin: "123", username: "qwerty"))
+
+                        expect(apiProviderStub.credentials?.pin).toEventually(equal("123"))
+                        expect(apiProviderStub.credentials?.username).toEventually(equal("qwerty"))
+                    }
                 }
 
                 context("when token storage throws an exception") {

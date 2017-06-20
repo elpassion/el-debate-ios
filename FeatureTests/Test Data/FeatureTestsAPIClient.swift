@@ -16,7 +16,7 @@ class FeatureTestsAPIClient: APIProviding {
         return Promise(value: answer)
     }
 
-    func login(pinCode: String) -> Promise<String> {
+    func login(credentials: LoginCredentials) -> Promise<String> {
         return Promise(value: "auth_token")
     }
 
