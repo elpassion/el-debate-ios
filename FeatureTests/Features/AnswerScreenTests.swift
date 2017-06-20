@@ -70,6 +70,24 @@ class AnswerScreenTests: XCTestCase {
 
         EarlGrey.select(elementWithMatcher: grey_text("Add a comment"))
             .assert(grey_sufficientlyVisible())
+
+        EarlGrey.select(elementWithMatcher: grey_text("Cancel"))
+            .perform(grey_tap())
+    }
+
+    func testSendingChatMessage() {
+        EarlGrey.select(elementWithMatcher: grey_buttonTitle("Chat"))
+            .perform(grey_tap())
+
+        EarlGrey.select(elementWithMatcher: grey_hasPlaceholder("Comment"))
+            .atIndex(0)
+            .perform(grey_typeText("comment"))
+
+        EarlGrey.select(elementWithMatcher: grey_text("Send"))
+            .perform(grey_tap())
+
+        EarlGrey.select(elementWithMatcher: grey_text("Add a comment"))
+            .assert(grey_notVisible())
     }
 
     private func navigateToAnswerScreen() {
