@@ -51,7 +51,8 @@ class CommentControllerSpec: QuickSpec {
                 }
 
                 it("should invoke a comment API method") {
-                    expect(apiClient.commentAuthToken).toEventually(equal(VoteContext.testDefault.authToken))
+                    expect(apiClient.commentContext?.username).toEventually(equal(VoteContext.testDefault.username))
+                    expect(apiClient.commentContext?.authToken).toEventually(equal(VoteContext.testDefault.authToken))
                     expect(apiClient.commentText).toEventually(equal("The comment"))
                 }
 

@@ -13,7 +13,7 @@ class APIProviderStub: APIProviding {
     var debateAuthToken: String?
     var votingAuthToken: String?
     var votingAnswer: Answer?
-    var commentAuthToken: String?
+    var commentContext: VoteContext?
     var commentText: String?
 
     var commentResult: Promise<Bool> = Promise(value: true)
@@ -39,8 +39,8 @@ class APIProviderStub: APIProviding {
         return voteResult
     }
     
-    func comment(authToken: String, text: String) -> Promise<Bool> {
-        commentAuthToken = authToken
+    func comment(_ text: String, with voteContext: VoteContext) -> Promise<Bool> {
+        commentContext = voteContext
         commentText = text
 
         return commentResult

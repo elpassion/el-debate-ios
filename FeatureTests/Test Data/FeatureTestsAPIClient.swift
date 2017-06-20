@@ -8,7 +8,7 @@ import PromiseKit
 
 class FeatureTestsAPIClient: APIProviding {
 
-    func comment(authToken: String, text: String) -> Promise<Bool> {
+    func comment(_ text: String, with voteContext: VoteContext) -> Promise<Bool> {
         return Promise(value: true)
     }
 
