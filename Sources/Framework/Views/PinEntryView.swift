@@ -46,14 +46,18 @@ class PinEntryView: UIView {
     }
 
     func playKeyboardAnimation(height: CGFloat) {
-        loginButtonBottonConstraint?.constant = loginButtonBottomSpacing - height
-        centerPinInput(height == 0.0)
+        loginButtonBottomConstraint?.constant = loginButtonBottomSpacing - height
+        pinInputBottomConstraint?.constant = pinInputBottomSpacing + pinBottomOffset(forKeyboardHeight: height)
+
         layoutIfNeeded()
     }
 
-    private func centerPinInput(_ shouldCenter: Bool) {
-        pinInputCenterConstraint?.isActive = shouldCenter
-        pinInputBottomConstraint?.isActive = !shouldCenter
+    private func pinBottomOffset(forKeyboardHeight keyboardHeight: CGFloat) -> CGFloat {
+        let currentBottomOffset = background.height - backgroundBottomSpacing - pinInputBottomSpacing
+        let targetBottomOffset = keyboardHeight + loginButton.height - 2 * loginButtonBottomSpacing
+        let additionalOffset = currentBottomOffset - targetBottomOffset
+
+        return min(additionalOffset, 0.0)
     }
 
     // MARK: - Layout subviews (shadow)
@@ -84,27 +88,25 @@ class PinEntryView: UIView {
         welcomeView.centerXAnchor == centerXAnchor
 
         background.centerXAnchor == centerXAnchor
-        background.bottomAnchor == bottomAnchor - 20
+        background.bottomAnchor == bottomAnchor + backgroundBottomSpacing
         background.widthAnchor == widthAnchor * 0.95
         background.heightAnchor == background.widthAnchor * 0.75
 
         loginButton.centerXAnchor == centerXAnchor
-        loginButtonBottonConstraint = loginButton.bottomAnchor == bottomAnchor + loginButtonBottomSpacing
+        loginButtonBottomConstraint = loginButton.bottomAnchor == bottomAnchor + loginButtonBottomSpacing
         loginButton.widthAnchor == widthAnchor * 0.9
         loginButton.heightAnchor == heightAnchor * 0.08
 
         pinInputView.widthAnchor == loginButton.widthAnchor
-        pinInputCenterConstraint = pinInputView.centerYAnchor == centerYAnchor
         pinInputView.centerXAnchor == centerXAnchor
-        pinInputBottomConstraint = pinInputView.bottomAnchor == loginButton.topAnchor - 20
-
-        centerPinInput(true)
+        pinInputBottomConstraint = pinInputView.bottomAnchor == background.topAnchor + pinInputBottomSpacing
     }
 
-    private var loginButtonBottomSpacing: CGFloat = CGFloat(-15.0)
-    var pinInputCenterConstraint: NSLayoutConstraint?
+    private let backgroundBottomSpacing: CGFloat = CGFloat(-20.0)
+    private let loginButtonBottomSpacing: CGFloat = CGFloat(-15.0)
+    private let pinInputBottomSpacing: CGFloat = CGFloat(-10.0)
     var pinInputBottomConstraint: NSLayoutConstraint?
-    var loginButtonBottonConstraint: NSLayoutConstraint?
+    var loginButtonBottomConstraint: NSLayoutConstraint?
 
     // MARK: - Gesture recognition
 

@@ -32,6 +32,7 @@
 		8C0D63021EC5DAEB00421B89 /* ControllerConfiguratorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0D63001EC5DACE00421B89 /* ControllerConfiguratorSpec.swift */; };
 		8C127C841EC49B2F00E9B5FD /* ControllerFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C127C821EC49B2900E9B5FD /* ControllerFactoryMock.swift */; };
 		8C3155AA1EDF57DA003F31D9 /* AttributesDescriptorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3155A91EDF57DA003F31D9 /* AttributesDescriptorSpec.swift */; };
+		8C337A181EF91B6A007F82B4 /* UIView+Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C337A161EF91B63007F82B4 /* UIView+Sizes.swift */; };
 		8C35DDA81EDD68F600A26DD2 /* KeychainMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF0365D1EC9916200198F01 /* KeychainMock.swift */; };
 		8C35DDAF1EDD7D8600A26DD2 /* KeychainFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDAE1EDD7D8600A26DD2 /* KeychainFixtures.swift */; };
 		8C35DDB21EDD9C2500A26DD2 /* HasAppeared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDB11EDD9C2500A26DD2 /* HasAppeared.swift */; };
@@ -292,6 +293,7 @@
 		8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedLabel.swift; sourceTree = "<group>"; };
 		8C3155AE1EDF6358003F31D9 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		8C3155B01EDF674D003F31D9 /* AttributeStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeStyle.swift; sourceTree = "<group>"; };
+		8C337A161EF91B63007F82B4 /* UIView+Sizes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Sizes.swift"; sourceTree = "<group>"; };
 		8C35DDAE1EDD7D8600A26DD2 /* KeychainFixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainFixtures.swift; sourceTree = "<group>"; };
 		8C35DDB11EDD9C2500A26DD2 /* HasAppeared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasAppeared.swift; sourceTree = "<group>"; };
 		8C35DDB41EDD9F5900A26DD2 /* TestAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAssembly.swift; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
 				8C530B1E1EEFF77D00C9925B /* UINavigationController+Styling.swift */,
 				8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */,
+				8C337A161EF91B63007F82B4 /* UIView+Sizes.swift */,
 				8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */,
 			);
 			path = Extensions;
@@ -741,8 +744,8 @@
 				6EA7E29F1EC4B11F002DF55E /* AnswerDeserializer.swift */,
 				8C664A1A1EC490820017687F /* AuthTokenDeserializer.swift */,
 				6EA7E29D1EC4B115002DF55E /* DebateDeserializer.swift */,
-				8C664A161EC48F370017687F /* Deserializer.swift */,
 				8C7322D91EF81BFD0067BC84 /* Deserialization+CommonFunctions.swift */,
+				8C664A161EC48F370017687F /* Deserializer.swift */,
 			);
 			path = Deserialization;
 			sourceTree = "<group>";
@@ -1368,6 +1371,7 @@
 				8CD496791EE6F8B8004046C7 /* CommentControllerPresenter.swift in Sources */,
 				8C4B234F1EE547EC00CE42DD /* TextStyle.swift in Sources */,
 				8CD0947A1EE868D3006D46A5 /* UserDefaults+Protocol.swift in Sources */,
+				8C337A181EF91B6A007F82B4 /* UIView+Sizes.swift in Sources */,
 				8CD094781EE867EA006D46A5 /* LoginCredentialsStore.swift in Sources */,
 				8C6137F51EF1303500E00700 /* Validator.swift in Sources */,
 				8CE0CD711EEFE87300B0B358 /* DebateRunner.swift in Sources */,
