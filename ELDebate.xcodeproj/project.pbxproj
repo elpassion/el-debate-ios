@@ -559,8 +559,8 @@
 				8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */,
 				8C530B1E1EEFF77D00C9925B /* UINavigationController+Styling.swift */,
 				8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */,
-				8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */,
 				8C337A161EF91B63007F82B4 /* UIView+Sizes.swift */,
+				8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -744,8 +744,8 @@
 				6EA7E29F1EC4B11F002DF55E /* AnswerDeserializer.swift */,
 				8C664A1A1EC490820017687F /* AuthTokenDeserializer.swift */,
 				6EA7E29D1EC4B115002DF55E /* DebateDeserializer.swift */,
-				8C664A161EC48F370017687F /* Deserializer.swift */,
 				8C7322D91EF81BFD0067BC84 /* Deserialization+CommonFunctions.swift */,
+				8C664A161EC48F370017687F /* Deserializer.swift */,
 			);
 			path = Deserialization;
 			sourceTree = "<group>";
