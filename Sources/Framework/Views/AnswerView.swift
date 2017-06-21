@@ -37,6 +37,10 @@ class AnswerView: UIView, AnswerViewProviding {
         set { answersListView.enabled = newValue }
     }
 
+    var selectedAnswer: AnswerType? {
+        return answersListView.selectedAnswer
+    }
+
     init() {
         super.init(frame: .zero)
 

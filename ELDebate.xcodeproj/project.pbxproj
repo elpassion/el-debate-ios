@@ -133,6 +133,7 @@
 		8C63FA121EC379F30080FFF9 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */; };
 		8C63FA1A1EC383890080FFF9 /* RouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C63FA181EC382820080FFF9 /* RouterMock.swift */; };
 		8C664A1F1EC490BB0017687F /* AuthTokenDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C664A1D1EC490B60017687F /* AuthTokenDeserializerSpec.swift */; };
+		8C6AF9751EFAAAA500D16EB8 /* DebateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6AF9741EFAAAA500D16EB8 /* DebateSpec.swift */; };
 		8C6DA0351EC5915800D31E76 /* NavigationControllerFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0331EC5913200D31E76 /* NavigationControllerFactorySpec.swift */; };
 		8C6DA03B1EC599E300D31E76 /* PinEntryViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */; };
 		8C6DA0491EC5AC9F00D31E76 /* APIProviderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */; };
@@ -350,6 +351,7 @@
 		8C664A181EC48F7A0017687F /* RequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		8C664A1A1EC490820017687F /* AuthTokenDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTokenDeserializer.swift; sourceTree = "<group>"; };
 		8C664A1D1EC490B60017687F /* AuthTokenDeserializerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTokenDeserializerSpec.swift; sourceTree = "<group>"; };
+		8C6AF9741EFAAAA500D16EB8 /* DebateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebateSpec.swift; sourceTree = "<group>"; };
 		8C6DA02B1EC58CFA00D31E76 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8C6DA02D1EC58D9200D31E76 /* UIColor+Predefined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Predefined.swift"; sourceTree = "<group>"; };
 		8C6DA02F1EC58E5500D31E76 /* UIImage+Predefined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Predefined.swift"; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				6EDF434A1ECB11A9004B92BD /* VoteContextSpec.swift */,
+				8C6AF9741EFAAAA500D16EB8 /* DebateSpec.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1480,6 +1483,7 @@
 				8C6127E51EC9AED9003472A3 /* AnswerViewControllerSpec.swift in Sources */,
 				8CCE0F501EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift in Sources */,
 				8CD496851EE7044D004046C7 /* CommentControllerPresenterSpec.swift in Sources */,
+				8C6AF9751EFAAAA500D16EB8 /* DebateSpec.swift in Sources */,
 				8CD496801EE6FD98004046C7 /* InputAlertPresenterMock.swift in Sources */,
 				6EA7E2A31EC4B383002DF55E /* DebateDeserializerSpec.swift in Sources */,
 				8C63FA1A1EC383890080FFF9 /* RouterMock.swift in Sources */,

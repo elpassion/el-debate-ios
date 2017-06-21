@@ -17,3 +17,12 @@ struct Debate {
     let lastAnswerIdentifier: Int?
 
 }
+
+extension Debate {
+
+    public var lastAnswerType: AnswerType? {
+        let answers: [Answer] = [positiveAnswer, neutralAnswer, negativeAnswer]
+        return answers.first(where: { $0.identifier == lastAnswerIdentifier })?.type
+    }
+
+}
