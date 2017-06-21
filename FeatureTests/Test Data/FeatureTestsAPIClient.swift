@@ -8,7 +8,7 @@ import PromiseKit
 
 class FeatureTestsAPIClient: APIProviding {
 
-    func comment(authToken: String, text: String) -> Promise<Bool> {
+    func comment(_ text: String, with voteContext: VoteContext) -> Promise<Bool> {
         return Promise(value: true)
     }
 
@@ -16,7 +16,7 @@ class FeatureTestsAPIClient: APIProviding {
         return Promise(value: answer)
     }
 
-    func login(pinCode: String) -> Promise<String> {
+    func login(credentials: LoginCredentials) -> Promise<String> {
         return Promise(value: "auth_token")
     }
 
@@ -24,7 +24,8 @@ class FeatureTestsAPIClient: APIProviding {
         let debate = Debate(topic: "Party craft beer leggings Pitchfork VHS locavore?",
                             positiveAnswer: Answer(identifier: 1, value: "Yes", type: .positive),
                             neutralAnswer: Answer(identifier: 3, value: "Undecided", type: .neutral),
-                            negativeAnswer: Answer(identifier: 2, value: "No", type: .negative))
+                            negativeAnswer: Answer(identifier: 2, value: "No", type: .negative),
+                            lastAnswerIdentifier: nil)
 
         return Promise(value: debate)
     }

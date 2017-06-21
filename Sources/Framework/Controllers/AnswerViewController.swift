@@ -47,6 +47,8 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
             undecidedAnswerText: debate.neutralAnswer.value,
             noAnswerText: debate.negativeAnswer.value
         )
+
+        selectInitialAnswer()
     }
 
     private func didSelectAnswer(with answerType: AnswerType) {
@@ -67,6 +69,14 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
 
     private func didTapChat() {
         commentPresenter.present(in: self, with: voteContext)
+    }
+
+    private func selectInitialAnswer() {
+        guard let answerType = voteContext.debate.lastAnswerType else {
+            return
+        }
+
+        answerView.selectAnswer(type: answerType)
     }
 
     // MARK: - ControllerProviding

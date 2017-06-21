@@ -44,7 +44,7 @@ class CommentController: UIViewController, ControllerProviding {
             return Promise(value: false)
         }
 
-        return apiClient.comment(authToken: voteContext.authToken, text: comment)
+        return apiClient.comment(comment, with: voteContext)
     }
 
     private var inputAlertConfiguration: InputAlertConfiguration {

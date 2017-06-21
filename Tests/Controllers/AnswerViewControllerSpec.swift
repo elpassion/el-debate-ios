@@ -45,6 +45,10 @@ class AnswerViewControllerSpec: QuickSpec {
 
                     expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
                 }
+
+                it("should select initial answer") {
+                    expect(controller.answerView.selectedAnswer) == AnswerType.negative
+                }
             }
 
             describe("answer button tap") {

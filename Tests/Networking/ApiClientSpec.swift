@@ -30,9 +30,20 @@ class ApiClientSpec: QuickSpec {
                         requestExecutor.postReturnValue = LoginResponseJSONMock()
                     }
 
+                    it("passes correct parameters to login service") {
+                        let credentials = LoginCredentials(pin: "90912", username: "user_")
+
+                        _ = apiClient.login(credentials: credentials)
+
+                        expect(requestExecutor.postReceivedArguments?.body?["code"] as? String) == "90912"
+                        expect(requestExecutor.postReceivedArguments?.body?["username"] as? String) == "user_"
+                    }
+
                     it("returns the authToken") {
+                        let credentials = LoginCredentials(pin: "654321", username: "user_")
                         var authToken: String? = nil
-                        _ = apiClient.login(pinCode: "654321").then { authTokenResult in
+
+                        _ = apiClient.login(credentials: credentials).then { authTokenResult in
                             authToken = authTokenResult
                         }
 
@@ -46,9 +57,10 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("executes the only error block") {
+                        let credentials = LoginCredentials(pin: "654321", username: "user_")
                         var error: Error? = nil
 
-                        apiClient.login(pinCode: "654321").then { _ in
+                        apiClient.login(credentials: credentials).then { _ in
                             fatalError("This should never happen :D")
                         }.catch { errorResult in
                             error = errorResult
@@ -133,14 +145,22 @@ class ApiClientSpec: QuickSpec {
             }
 
             describe("comment") {
-                context("comment was submitted") {
-                    beforeEach {
-                        requestExecutor.postReturnValue = CommentResponseJSONMock()
-                    }
+                beforeEach {
+                    requestExecutor.postReturnValue = CommentResponseJSONMock()
+                }
 
+                it("should invoke request with correct parameters") {
+                    _ = apiClient.comment("Hey", with: VoteContext.testDefault)
+
+                    expect(requestExecutor.postReceivedArguments?.body?["text"] as? String) == "Hey"
+                    expect(requestExecutor.postReceivedArguments?.body?["username"] as? String) == "some user"
+                    expect(requestExecutor.postReceivedArguments?.headers?["Authorization"]) == "whatever"
+                }
+
+                context("comment was submitted") {
                     it("executes success callback") {
                         var success: Bool?
-                        _ = apiClient.comment(authToken: "token", text: "Uważam że...")
+                        _ = apiClient.comment("Uważam że...", with: VoteContext.testDefault)
                         .then { successValue in
                             success = successValue
                         }
@@ -157,7 +177,7 @@ class ApiClientSpec: QuickSpec {
                     it("executes error callback") {
                         var error: Error?
 
-                        apiClient.comment(authToken: "token", text: "Uważam że...")
+                        apiClient.comment("Uważam że...", with: VoteContext.testDefault)
                         .catch { errorValue in
                             error = errorValue
                         }

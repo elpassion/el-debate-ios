@@ -20,6 +20,11 @@ class AnswerPicker: UIView {
     var onAnswerSelected: ((AnswerType) -> Void)?
     var enabled: Bool = true
 
+    var selectedAnswer: AnswerType? {
+        let selectedView = answerViews.first { $0.selected }
+        return selectedView?.answerType
+    }
+
     private var answerViews: [SingleAnswerView] {
         return [yesAnswer, noAnswer, undecidedAnswer]
     }

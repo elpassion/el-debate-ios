@@ -24,6 +24,10 @@ class AnswersListView: UIView {
         set { answerPicker.enabled = newValue }
     }
 
+    var selectedAnswer: AnswerType? {
+        return answerPicker.selectedAnswer
+    }
+
     init() {
         super.init(frame: .zero)
 

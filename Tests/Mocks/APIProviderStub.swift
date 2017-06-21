@@ -8,12 +8,12 @@ import PromiseKit
 
 class APIProviderStub: APIProviding {
 
-    var pinCode: String?
+    var credentials: LoginCredentials?
     var authenticationToken = "12"
     var debateAuthToken: String?
     var votingAuthToken: String?
     var votingAnswer: Answer?
-    var commentAuthToken: String?
+    var commentContext: VoteContext?
     var commentText: String?
 
     var commentResult: Promise<Bool> = Promise(value: true)
@@ -21,8 +21,8 @@ class APIProviderStub: APIProviding {
 
     var commentReturnValue: Promise<Bool>?
 
-    func login(pinCode: String) -> Promise<String> {
-        self.pinCode = pinCode
+    func login(credentials: LoginCredentials) -> Promise<String> {
+        self.credentials = credentials
         return Promise(value: authenticationToken)
     }
 
@@ -39,8 +39,8 @@ class APIProviderStub: APIProviding {
         return voteResult
     }
     
-    func comment(authToken: String, text: String) -> Promise<Bool> {
-        commentAuthToken = authToken
+    func comment(_ text: String, with voteContext: VoteContext) -> Promise<Bool> {
+        commentContext = voteContext
         commentText = text
 
         return commentResult

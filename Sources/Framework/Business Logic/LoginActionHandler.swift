@@ -45,7 +45,7 @@ private func fetchingMissingToken(into context: PartialContext, using apiClient:
         return Promise(value: context)
     }
 
-    return apiClient.login(pinCode: context.credentials.pin).then { authToken in
+    return apiClient.login(credentials: context.credentials).then { authToken in
         try storage.save(token: authToken, forPinCode: context.credentials.pin)
         return Promise(value: context.with(token: authToken))
     }
