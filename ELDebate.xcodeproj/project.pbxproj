@@ -485,8 +485,8 @@
 		6EDF43491ECB119F004B92BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6EDF434A1ECB11A9004B92BD /* VoteContextSpec.swift */,
 				8C6AF9741EFAAAA500D16EB8 /* DebateSpec.swift */,
+				6EDF434A1ECB11A9004B92BD /* VoteContextSpec.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
