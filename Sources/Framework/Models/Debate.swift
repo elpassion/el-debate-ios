@@ -14,5 +14,6 @@ struct Debate {
     let positiveAnswer: Answer
     let neutralAnswer: Answer
     let negativeAnswer: Answer
+    let lastAnswerIdentifier: Int?
 
 }

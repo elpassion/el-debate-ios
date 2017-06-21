@@ -24,7 +24,8 @@ class FeatureTestsAPIClient: APIProviding {
         let debate = Debate(topic: "Party craft beer leggings Pitchfork VHS locavore?",
                             positiveAnswer: Answer(identifier: 1, value: "Yes", type: .positive),
                             neutralAnswer: Answer(identifier: 3, value: "Undecided", type: .neutral),
-                            negativeAnswer: Answer(identifier: 2, value: "No", type: .negative))
+                            negativeAnswer: Answer(identifier: 2, value: "No", type: .negative),
+                            lastAnswerIdentifier: 1)
 
         return Promise(value: debate)
     }

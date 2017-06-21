@@ -29,7 +29,8 @@ class DebateDeserializerSpec: QuickSpec {
                             "positive": ["id": 122, "value": "yes"],
                             "negative": ["id": 123, "value": "no"],
                             "neutral": ["id": 124, "value": "maybe"]
-                        ]
+                        ],
+                        "last_answer_id": 123
                     ]
 
                     let result: Debate? = try? deserializer.deserialize(json: response)
@@ -41,6 +42,7 @@ class DebateDeserializerSpec: QuickSpec {
                     expect(result?.positiveAnswer.identifier) == 122
                     expect(result?.negativeAnswer.identifier) == 123
                     expect(result?.neutralAnswer.identifier) == 124
+                    expect(result?.lastAnswerIdentifier) == 123
                 }
 
                 it("should throw deserialization error if response is not a dictionary") {

@@ -21,6 +21,7 @@ class DebateDeserializer: Deserializing {
         let topic: String = try parseField(from: dict, key: "topic", description: "debate topic")
         let answersData: [String: [String: Any]] = try parseField(
             from: dict, key: "answers", description: "answers data")
+        let lastAnswerIdentifier = dict["last_answer_id"] as? Int
 
         let answers = try answersWithTypes(answersData)
             .map { try answerDeserializer.deserialize(json: $0) }
@@ -28,7 +29,8 @@ class DebateDeserializer: Deserializing {
         return Debate(topic: topic,
                       positiveAnswer: try answer(from: answers, ofType: .positive),
                       neutralAnswer: try answer(from: answers, ofType: .neutral),
-                      negativeAnswer: try answer(from: answers, ofType: .negative))
+                      negativeAnswer: try answer(from: answers, ofType: .negative),
+                      lastAnswerIdentifier: lastAnswerIdentifier)
     }
 
     private func answersWithTypes(_ answersJSON: [String: [String: Any?]]) -> [[String: Any?]] {
