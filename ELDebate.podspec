@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ELDebate"
-  s.version          = "1.0"
+  s.version          = "1.0.1"
   s.summary          = "The framework containing ELDebate app."
   s.homepage         = "https://github.com/elpassion/el-debate-ios"
   s.license          = 'Source code licensed under GPLv3.'
