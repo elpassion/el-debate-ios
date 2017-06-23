@@ -14,11 +14,13 @@ class AuthTokenStorageSpec: QuickSpec {
 
     // swiftlint:disable function_body_length
     override func spec() {
+        var keychain: KeychainMock!
         var sut: AuthTokenStorage!
 
         describe("AuthTokenStorage") {
             beforeEach {
-                sut = AuthTokenStorage(keychain: KeychainMock())
+                keychain = KeychainMock()
+                sut = AuthTokenStorage(keychain: keychain)
             }
 
             describe("saveToken") {
@@ -55,7 +57,7 @@ class AuthTokenStorageSpec: QuickSpec {
             }
 
             describe("getToken") {
-                context("the authToken value is there") {
+                when("the authToken value is there") {
                     beforeEach {
                         do {
                             try sut.save(token: "token_value", forPinCode: "12345")
@@ -70,6 +72,16 @@ class AuthTokenStorageSpec: QuickSpec {
 
                     it("does not return authToken for different pin code") {
                         expect(sut.getToken(forPinCode: "67890")).to(beNil())
+                    }
+                }
+
+                when("keychain throws an error") {
+                    beforeEach {
+                        keychain.error = RequestError.throttling
+                    }
+
+                    it("should return nil") {
+                        expect(sut.getToken(forPinCode: "12345")).to(beNil())
                     }
                 }
             }

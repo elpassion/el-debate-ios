@@ -9,17 +9,30 @@
 @testable import ELDebateFramework
 
 class KeychainMock: KeychainStoring {
+    var error: Error?
     var storedValues: [String: Any?] = [:]
 
     func set(_ value: String, key: String) throws {
-        storedValues[key] = value
+        if let error = error {
+            throw error
+        } else {
+            storedValues[key] = value
+        }
     }
 
     func get(_ key: String) throws -> String? {
-        return storedValues[key] as? String
+        if let error = error {
+            throw error
+        } else {
+            return storedValues[key] as? String
+        }
     }
 
     func remove(_ key: String) throws {
-        storedValues[key] = nil
+        if let error = error {
+            throw error
+        } else {
+            storedValues[key] = nil
+        }
     }
 }
