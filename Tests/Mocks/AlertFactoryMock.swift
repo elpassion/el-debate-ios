@@ -7,7 +7,7 @@
 
 internal class AlertFactoryMock: AlertCreating {
 
-    var returnedAlert = UIAlertController()
+    var returnedAlert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
     var lastConfiguration: AlertConfiguration?
 
     func makeAlert(with configuration: AlertConfiguration) -> UIAlertController {

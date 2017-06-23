@@ -15,27 +15,33 @@ protocol InputAlertPresenting {
 class InputAlertPresenter: InputAlertPresenting {
 
     func prompt(in controller: UIViewController, with configuration: InputAlertConfiguration) -> Promise<String?> {
+        return prompt(in: controller, with: configuration, alertFactory: AlertFactory.build())
+    }
+
+    func prompt(in controller: UIViewController, with configuration: InputAlertConfiguration,
+                alertFactory: AlertCreating) -> Promise<String?> {
         return Promise { fulfill, _ in
-            let alert = UIAlertController(title: configuration.title,
-                                          message: configuration.message,
-                                          preferredStyle: .alert)
+            var alert: UIAlertController?
 
-            alert.addTextField { textField in
-                textField.placeholder = configuration.inputPlaceholder
-            }
-
-            let cancelAction = UIAlertAction(title: configuration.cancelTitle, style: .cancel) { _ in
-                fulfill(nil)
-            }
-
-            let sendAction = UIAlertAction(title: configuration.okTitle, style: .default) { [weak alert] _ in
+            let cancelAction = AlertActionConfiguration(title: configuration.cancelTitle,
+                                                        style: .cancel) { _ in fulfill(nil) }
+            let sendAction = AlertActionConfiguration(title: configuration.okTitle,
+                                                      style: .default) { _ in
                 fulfill(alert?.textFields?.first?.text)
             }
 
-            alert.addAction(cancelAction)
-            alert.addAction(sendAction)
+            let inputField = AlertTextFieldConfiguration(placeholder: configuration.inputPlaceholder)
 
-            controller.present(alert, animated: true, completion: nil)
+            let alertConfiguration = AlertConfiguration(title: configuration.title,
+                                                        message: configuration.message,
+                                                        actions: [cancelAction, sendAction],
+                                                        textFields: [inputField])
+
+            alert = alertFactory.makeAlert(with: alertConfiguration)
+
+            if let alert = alert {
+                controller.present(alert, animated: true, completion: nil)
+            }
         }
     }
 

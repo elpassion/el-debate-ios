@@ -115,6 +115,7 @@
 		8C530B1F1EEFF77D00C9925B /* UINavigationController+Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C530B1E1EEFF77D00C9925B /* UINavigationController+Styling.swift */; };
 		8C5B02D91EFD804D00D405CA /* AlertFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B02D71EFD804900D405CA /* AlertFactoryMock.swift */; };
 		8C5B02DC1EFD83FD00D405CA /* PresentControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B02DA1EFD83B500D405CA /* PresentControllerSpy.swift */; };
+		8C5B02DE1EFD84E300D405CA /* InputAlertPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B02DD1EFD84E300D405CA /* InputAlertPresenterSpec.swift */; };
 		8C6127E51EC9AED9003472A3 /* AnswerViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */; };
 		8C6127ED1EC9E520003472A3 /* LoginActionHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127EB1EC9E516003472A3 /* LoginActionHandlerSpec.swift */; };
 		8C6127F21EC9E904003472A3 /* AuthTokenStorageStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */; };
@@ -336,6 +337,7 @@
 		8C530B1E1EEFF77D00C9925B /* UINavigationController+Styling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Styling.swift"; sourceTree = "<group>"; };
 		8C5B02D71EFD804900D405CA /* AlertFactoryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertFactoryMock.swift; sourceTree = "<group>"; };
 		8C5B02DA1EFD83B500D405CA /* PresentControllerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentControllerSpy.swift; sourceTree = "<group>"; };
+		8C5B02DD1EFD84E300D405CA /* InputAlertPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAlertPresenterSpec.swift; sourceTree = "<group>"; };
 		8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerViewControllerSpec.swift; sourceTree = "<group>"; };
 		8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionFrameView.swift; sourceTree = "<group>"; };
 		8C6127E81EC9BF8E003472A3 /* AnswersListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersListView.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */,
+				8C5B02D71EFD804900D405CA /* AlertFactoryMock.swift */,
 				8CBB56A51EFD4BF700289066 /* AlertPresentingControllerMock.swift */,
 				6EADF5571ECC491B00488057 /* AlertViewMock.swift */,
 				8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */,
@@ -621,11 +624,10 @@
 				8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */,
 				8C6138071EF15D7800E00700 /* OptionalStringValidatorMock.swift */,
 				8C61380D1EF1825100E00700 /* PinFormValidatorMock.swift */,
+				8C5B02DA1EFD83B500D405CA /* PresentControllerSpy.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */,
 				6EF036611EC9B8E400198F01 /* VoteResponseJSONMock.swift */,
-				8C5B02D71EFD804900D405CA /* AlertFactoryMock.swift */,
-				8C5B02DA1EFD83B500D405CA /* PresentControllerSpy.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -805,6 +807,7 @@
 				8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */,
 				8CD496841EE7044D004046C7 /* CommentControllerPresenterSpec.swift */,
 				8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */,
+				8C5B02DD1EFD84E300D405CA /* InputAlertPresenterSpec.swift */,
 				8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */,
 			);
 			path = Controllers;
@@ -1583,6 +1586,7 @@
 				8CCD73D71EFD782300183DA0 /* AlertFactorySpec.swift in Sources */,
 				8C5B02DC1EFD83FD00D405CA /* PresentControllerSpy.swift in Sources */,
 				6EADF5591ECC493400488057 /* AlertViewMock.swift in Sources */,
+				8C5B02DE1EFD84E300D405CA /* InputAlertPresenterSpec.swift in Sources */,
 				8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */,
 				6EDF434C1ECB11B0004B92BD /* VoteContextSpec.swift in Sources */,
 				8CCD73CA1EFD6CB700183DA0 /* AnswerSpec.swift in Sources */,
