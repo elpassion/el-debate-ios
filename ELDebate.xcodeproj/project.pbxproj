@@ -160,6 +160,10 @@
 		8CCD73C81EFD66B200183DA0 /* DebateRunnerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73C71EFD66B200183DA0 /* DebateRunnerAssembly.swift */; };
 		8CCD73CA1EFD6CB700183DA0 /* AnswerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73C91EFD6CB700183DA0 /* AnswerSpec.swift */; };
 		8CCD73CC1EFD6F1D00183DA0 /* ControllerFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73CB1EFD6F1D00183DA0 /* ControllerFactorySpec.swift */; };
+		8CCD73D11EFD719E00183DA0 /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73D01EFD719E00183DA0 /* AlertConfiguration.swift */; };
+		8CCD73D21EFD71A200183DA0 /* AlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73CE1EFD716800183DA0 /* AlertFactory.swift */; };
+		8CCD73D51EFD73A400183DA0 /* AlertConfigurationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73D41EFD73A400183DA0 /* AlertConfigurationSpec.swift */; };
+		8CCD73D71EFD782300183DA0 /* AlertFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73D61EFD782300183DA0 /* AlertFactorySpec.swift */; };
 		8CCE0F501EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */; };
 		8CCE0F521EE55F01001FD1D7 /* TextStyleDescriptorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0AA2BA1EE55E4500F98074 /* TextStyleDescriptorFactory.swift */; };
 		8CCE0F551EE57A30001FD1D7 /* FontSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */; };
@@ -400,6 +404,10 @@
 		8CCD73C71EFD66B200183DA0 /* DebateRunnerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebateRunnerAssembly.swift; sourceTree = "<group>"; };
 		8CCD73C91EFD6CB700183DA0 /* AnswerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerSpec.swift; sourceTree = "<group>"; };
 		8CCD73CB1EFD6F1D00183DA0 /* ControllerFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerFactorySpec.swift; sourceTree = "<group>"; };
+		8CCD73CE1EFD716800183DA0 /* AlertFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertFactory.swift; sourceTree = "<group>"; };
+		8CCD73D01EFD719E00183DA0 /* AlertConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertConfiguration.swift; sourceTree = "<group>"; };
+		8CCD73D41EFD73A400183DA0 /* AlertConfigurationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertConfigurationSpec.swift; sourceTree = "<group>"; };
+		8CCD73D61EFD782300183DA0 /* AlertFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertFactorySpec.swift; sourceTree = "<group>"; };
 		8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleDescriptorFactorySpec.swift; sourceTree = "<group>"; };
 		8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculator.swift; sourceTree = "<group>"; };
 		8CCE0F561EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculatorSpec.swift; sourceTree = "<group>"; };
@@ -706,6 +714,7 @@
 		8C63FA0C1EC3776A0080FFF9 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				8CCD73CD1EFD715000183DA0 /* Alerts */,
 				8C6137F11EF1301400E00700 /* Validation */,
 				8C3155A71EDF56E2003F31D9 /* AttributesDescriptor.swift */,
 				6EF036581EC98E1F00198F01 /* AuthTokenStorage.swift */,
@@ -798,6 +807,7 @@
 		8C6DA03E1EC59B6100D31E76 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				8CCD73D31EFD739400183DA0 /* Alerts */,
 				8C6137F61EF1317A00E00700 /* Validation */,
 				8C3155A91EDF57DA003F31D9 /* AttributesDescriptorSpec.swift */,
 				6EF0365A1EC98EF400198F01 /* AuthTokenStorageSpec.swift */,
@@ -928,6 +938,26 @@
 				8CCD73C71EFD66B200183DA0 /* DebateRunnerAssembly.swift */,
 			);
 			path = "Dependency Injection";
+			sourceTree = "<group>";
+		};
+		8CCD73CD1EFD715000183DA0 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				8CCD73D01EFD719E00183DA0 /* AlertConfiguration.swift */,
+				8CCD73CE1EFD716800183DA0 /* AlertFactory.swift */,
+			);
+			name = Alerts;
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		8CCD73D31EFD739400183DA0 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				8CCD73D41EFD73A400183DA0 /* AlertConfigurationSpec.swift */,
+				8CCD73D61EFD782300183DA0 /* AlertFactorySpec.swift */,
+			);
+			name = Alerts;
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 		8CD5F64C1ECC863B0067BFC7 /* Extensions */ = {
@@ -1451,6 +1481,7 @@
 				8C4B235A1EE547F100CE42DD /* UIImage+Predefined.swift in Sources */,
 				8C7322D81EF8182E0067BC84 /* APIAssembly.swift in Sources */,
 				8C4B23521EE547F100CE42DD /* Dictionary+Mapping.swift in Sources */,
+				8CCD73D21EFD71A200183DA0 /* AlertFactory.swift in Sources */,
 				8C4B23381EE547D100CE42DD /* PinEntryWelcomeView.swift in Sources */,
 				8C87B8AB1EE9522300A243E2 /* UIImage+FromColor.swift in Sources */,
 				8C7322DB1EF81C160067BC84 /* Deserialization+CommonFunctions.swift in Sources */,
@@ -1477,6 +1508,7 @@
 				8C7322D61EF7DDB00067BC84 /* PartialContext.swift in Sources */,
 				8C4B23721EE5480400CE42DD /* LoginActionHandler.swift in Sources */,
 				8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */,
+				8CCD73D11EFD719E00183DA0 /* AlertConfiguration.swift in Sources */,
 				8C4B23491EE547E600CE42DD /* Router.swift in Sources */,
 				8C4B233D1EE547D700CE42DD /* NotificationDescriptor.swift in Sources */,
 				8C4B23461EE547E100CE42DD /* DebateDeserializer.swift in Sources */,
@@ -1543,6 +1575,7 @@
 				8CCD73C51EFD65D400183DA0 /* DebateRunnerSpec.swift in Sources */,
 				6EA7E2A31EC4B383002DF55E /* DebateDeserializerSpec.swift in Sources */,
 				8C63FA1A1EC383890080FFF9 /* RouterMock.swift in Sources */,
+				8CCD73D71EFD782300183DA0 /* AlertFactorySpec.swift in Sources */,
 				6EADF5591ECC493400488057 /* AlertViewMock.swift in Sources */,
 				8C63FA0B1EC3767F0080FFF9 /* AppDelegateSpec.swift in Sources */,
 				6EDF434C1ECB11B0004B92BD /* VoteContextSpec.swift in Sources */,
@@ -1563,6 +1596,7 @@
 				8CCE0F571EE57A3D001FD1D7 /* FontSizeCalculatorSpec.swift in Sources */,
 				8C6127F21EC9E904003472A3 /* AuthTokenStorageStub.swift in Sources */,
 				6EADF55C1ECC813A00488057 /* Answer+Default.swift in Sources */,
+				8CCD73D51EFD73A400183DA0 /* AlertConfigurationSpec.swift in Sources */,
 				8C6137F91EF131A800E00700 /* PinCodeValidatorSpec.swift in Sources */,
 				8C6127ED1EC9E520003472A3 /* LoginActionHandlerSpec.swift in Sources */,
 				8C61380A1EF15DDF00E00700 /* PinFormValidatorSpec.swift in Sources */,
