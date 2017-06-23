@@ -11,7 +11,7 @@ import UIKit
 
 class CommentController: UIViewController, ControllerProviding {
 
-    private let voteContext: VoteContext
+    let voteContext: VoteContext
     private let apiClient: APIProviding
     private let inputAlertPresenter: InputAlertPresenting
 

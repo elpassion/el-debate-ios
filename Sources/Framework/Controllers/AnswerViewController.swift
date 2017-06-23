@@ -8,7 +8,7 @@ import UIKit
 
 class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPresentingController {
 
-    private let voteContext: VoteContext
+    let voteContext: VoteContext
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
     private let commentPresenter: CommentControllerPresenting

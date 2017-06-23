@@ -9,6 +9,6 @@ struct InputAlertConfiguration {
     let message: String?
     let cancelTitle: String
     let okTitle: String
-    let inputPlaceholder: String?
+    let inputPlaceholder: String
 
 }
