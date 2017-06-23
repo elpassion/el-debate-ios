@@ -16,7 +16,6 @@ public protocol DebateRunning {
 public class DebateRunner: DebateRunning {
 
     private let resolver: Resolver
-    private var router: Routing?
 
     public convenience init() {
         let assembler = Assembler.defaultAssembler
@@ -28,10 +27,10 @@ public class DebateRunner: DebateRunning {
         self.resolver = resolver
     }
 
+    private(set) var router: Routing?
+
     public func start(in navigationController: UINavigationController, applyingDebateStyle: Bool) {
-        router = Router(navigator: navigationController,
-                        controllerFactory: resolver ~> ControllerCreating.self,
-                        controllerConfigurator: resolver ~> ControllerConfiguring.self)
+        router = resolver ~> (Routing.self, argument: navigationController)
 
         if applyingDebateStyle {
             navigationController.applyDebateStyle()
