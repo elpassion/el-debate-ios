@@ -7,7 +7,7 @@ import Anchorage
 import PromiseKit
 import UIKit
 
-class AnswerPicker: UIView {
+public class AnswerPicker: UIView {
 
     private let verticalStack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                                          alignment: .fill, spacing: 14.0)
@@ -29,7 +29,7 @@ class AnswerPicker: UIView {
         return [yesAnswer, noAnswer, undecidedAnswer]
     }
 
-    init() {
+    public init() {
         super.init(frame: .zero)
 
         addSubviews()
@@ -113,7 +113,7 @@ class AnswerPicker: UIView {
 
     // MARK: - Required initializer
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

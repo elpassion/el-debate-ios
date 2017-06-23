@@ -150,6 +150,11 @@
 		8CB3AF5C1EC36EA7005EEDC7 /* RouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1918011EC360F100519DC8 /* RouterSpec.swift */; };
 		8CB4CDE01EE5A5890055C50B /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAC8541EE5A55C0086A976 /* IconTextField.swift */; };
 		8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */; };
+		8CBB569D1EFD33D100289066 /* AnswerTypeRawTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB569C1EFD33D100289066 /* AnswerTypeRawTypeSpec.swift */; };
+		8CBB56A01EFD348900289066 /* Quick+SyntacticSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB569F1EFD348900289066 /* Quick+SyntacticSugar.swift */; };
+		8CBB56A21EFD371F00289066 /* ForceCastSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB56A11EFD371F00289066 /* ForceCastSpec.swift */; };
+		8CBB56A41EFD481000289066 /* AlertPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB56A31EFD481000289066 /* AlertPresenterSpec.swift */; };
+		8CBB56A61EFD4BF700289066 /* AlertPresentingControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB56A51EFD4BF700289066 /* AlertPresentingControllerMock.swift */; };
 		8CC783D81EE6F43B00023EBF /* InputAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC783D61EE6F20300023EBF /* InputAlertPresenter.swift */; };
 		8CCE0F501EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */; };
 		8CCE0F521EE55F01001FD1D7 /* TextStyleDescriptorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0AA2BA1EE55E4500F98074 /* TextStyleDescriptorFactory.swift */; };
@@ -381,6 +386,11 @@
 		8CB3AF521EC36E92005EEDC7 /* ELDebateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELDebateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerPicker.swift; sourceTree = "<group>"; };
 		8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinInputPanel.swift; sourceTree = "<group>"; };
+		8CBB569C1EFD33D100289066 /* AnswerTypeRawTypeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerTypeRawTypeSpec.swift; sourceTree = "<group>"; };
+		8CBB569F1EFD348900289066 /* Quick+SyntacticSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Quick+SyntacticSugar.swift"; sourceTree = "<group>"; };
+		8CBB56A11EFD371F00289066 /* ForceCastSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForceCastSpec.swift; sourceTree = "<group>"; };
+		8CBB56A31EFD481000289066 /* AlertPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresenterSpec.swift; sourceTree = "<group>"; };
+		8CBB56A51EFD4BF700289066 /* AlertPresentingControllerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresentingControllerMock.swift; sourceTree = "<group>"; };
 		8CC783D61EE6F20300023EBF /* InputAlertPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAlertPresenter.swift; sourceTree = "<group>"; };
 		8CCE0F4F1EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyleDescriptorFactorySpec.swift; sourceTree = "<group>"; };
 		8CCE0F531EE579D2001FD1D7 /* FontSizeCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeCalculator.swift; sourceTree = "<group>"; };
@@ -572,6 +582,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */,
+				8CBB56A51EFD4BF700289066 /* AlertPresentingControllerMock.swift */,
 				6EADF5571ECC491B00488057 /* AlertViewMock.swift */,
 				8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */,
 				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
@@ -766,6 +777,7 @@
 		8C6DA0381EC599CE00D31E76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8CBB56A31EFD481000289066 /* AlertPresenterSpec.swift */,
 				8C6127E31EC9AED0003472A3 /* AnswerViewControllerSpec.swift */,
 				8CD496841EE7044D004046C7 /* CommentControllerPresenterSpec.swift */,
 				8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */,
@@ -832,6 +844,7 @@
 				8C75049D1ECC4C7A0012B499 /* Navigation */,
 				6EA7E2921EC466EC002DF55E /* Networking */,
 				8CF071D71ED8793A00F73D57 /* Notifications */,
+				8CBB569E1EFD346B00289066 /* Quick */,
 				8C6127F31EC9F79A003472A3 /* Test Data */,
 				8C63FA0A1EC3767F0080FFF9 /* AppDelegateSpec.swift */,
 				8C85D8501EC34FC100C5BAE7 /* Info.plist */,
@@ -881,11 +894,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8CBB569E1EFD346B00289066 /* Quick */ = {
+			isa = PBXGroup;
+			children = (
+				8CBB569F1EFD348900289066 /* Quick+SyntacticSugar.swift */,
+			);
+			name = Quick;
+			path = Quick;
+			sourceTree = "<group>";
+		};
 		8CD5F64C1ECC863B0067BFC7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8CBB569C1EFD33D100289066 /* AnswerTypeRawTypeSpec.swift */,
 				8CD5F64D1ECC86500067BFC7 /* DictionaryMappingSpec.swift */,
 				8CD5F64F1ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift */,
+				8CBB56A11EFD371F00289066 /* ForceCastSpec.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1483,8 +1507,11 @@
 				8C6127E51EC9AED9003472A3 /* AnswerViewControllerSpec.swift in Sources */,
 				8CCE0F501EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift in Sources */,
 				8CD496851EE7044D004046C7 /* CommentControllerPresenterSpec.swift in Sources */,
+				8CBB56A61EFD4BF700289066 /* AlertPresentingControllerMock.swift in Sources */,
+				8CBB56A41EFD481000289066 /* AlertPresenterSpec.swift in Sources */,
 				8C6AF9751EFAAAA500D16EB8 /* DebateSpec.swift in Sources */,
 				8CD496801EE6FD98004046C7 /* InputAlertPresenterMock.swift in Sources */,
+				8CBB569D1EFD33D100289066 /* AnswerTypeRawTypeSpec.swift in Sources */,
 				6EA7E2A31EC4B383002DF55E /* DebateDeserializerSpec.swift in Sources */,
 				8C63FA1A1EC383890080FFF9 /* RouterMock.swift in Sources */,
 				6EADF5591ECC493400488057 /* AlertViewMock.swift in Sources */,
@@ -1515,12 +1542,14 @@
 				8CD5F64E1ECC86500067BFC7 /* DictionaryMappingSpec.swift in Sources */,
 				8CD094801EE87411006D46A5 /* LoginCredentialsStoreMock.swift in Sources */,
 				8C6DA0351EC5915800D31E76 /* NavigationControllerFactorySpec.swift in Sources */,
+				8CBB56A01EFD348900289066 /* Quick+SyntacticSugar.swift in Sources */,
 				8C127C841EC49B2F00E9B5FD /* ControllerFactoryMock.swift in Sources */,
 				8C6DA03B1EC599E300D31E76 /* PinEntryViewControllerSpec.swift in Sources */,
 				8CB3AF5C1EC36EA7005EEDC7 /* RouterSpec.swift in Sources */,
 				8C63FA061EC371170080FFF9 /* MainWindowFactorySpec.swift in Sources */,
 				8C63FA121EC379F30080FFF9 /* AutoMockable.generated.swift in Sources */,
 				6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */,
+				8CBB56A21EFD371F00289066 /* ForceCastSpec.swift in Sources */,
 				6E9119B91EC5B78800B4B14B /* FetchDebateResponseJSONMock.swift in Sources */,
 				6EF0365C1EC98F2A00198F01 /* AuthTokenStorageSpec.swift in Sources */,
 				6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */,

@@ -9,7 +9,7 @@
 import PromiseKit
 import UIKit
 
-protocol AlertShowing {
+protocol AlertShowing: AutoMockable {
 
     @discardableResult
     func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool>

@@ -10,6 +10,28 @@ import PromiseKit
 
 
 
+class AlertShowingMock: AlertShowing {
+
+
+    //MARK: - show
+
+    var 
+showCalled
+ = false
+    var showReceivedArguments: (controller: UIViewController, title: String, message: String)?
+    var 
+showReturnValue
+: Promise<Bool>!
+
+    func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool> {
+
+showCalled
+ = true
+        showReceivedArguments = (controller: controller, title: title, message: message)
+        return 
+showReturnValue
+    }
+}
 class CommentControllerPresentingMock: CommentControllerPresenting {
 
 
