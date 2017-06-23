@@ -20,10 +20,18 @@ class AlertPresenter: AlertShowing {
 
     @discardableResult
     func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool> {
+        return show(in: controller, title: title, message: message, alertFactory: AlertFactory.build())
+    }
+
+    @discardableResult
+    func show(in controller: UIViewController, title: String, message: String,
+              alertFactory: AlertCreating) -> Promise<Bool> {
         return Promise { fulfill, _ in
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default) { _ in fulfill(true) }
-            alert.addAction(okAction)
+            let okAction = AlertActionConfiguration(title: "Ok", style: .default) { _ in fulfill(true) }
+            let configuration = AlertConfiguration(title: title, message: message, actions: [okAction], textFields: [])
+
+            let alert = alertFactory.makeAlert(with: configuration)
+
             controller.present(alert, animated: true)
         }
     }

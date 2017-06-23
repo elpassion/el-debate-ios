@@ -36,3 +36,11 @@ public class AlertFactory: AlertCreating {
     }
 
 }
+
+extension AlertFactory {
+
+    static func build() -> AlertFactory {
+        return AlertFactory()
+    }
+
+}
