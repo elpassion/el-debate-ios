@@ -1,44 +1,43 @@
 PODS:
-  - Alamofire (4.4.0)
+  - Alamofire (4.5.1)
   - Anchorage (4.0.0)
-  - Crashlytics (3.8.4):
+  - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
-  - EarlGrey (1.9.3)
+  - EarlGrey (1.12.1)
   - EarlGreySnapshots (0.0.2):
     - EarlGrey (~> 1.9)
     - FBSnapshotTestCase (~> 2.1)
-  - Fabric (1.6.11)
+  - Fabric (1.6.13)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
   - KeychainAccess (3.0.2)
-  - Nimble (6.1.0)
-  - Nimble-Snapshots (4.4.0):
-    - Nimble-Snapshots/Core (= 4.4.0)
-  - Nimble-Snapshots/Core (4.4.0):
+  - Nimble (7.0.1)
+  - Nimble-Snapshots (6.2.1):
+    - Nimble-Snapshots/Core (= 6.2.1)
+  - Nimble-Snapshots/Core (6.2.1):
     - FBSnapshotTestCase (~> 2.0)
-    - Nimble
-    - Quick
-  - PromiseKit (4.2.2):
-    - PromiseKit/Foundation (= 4.2.2)
-    - PromiseKit/QuartzCore (= 4.2.2)
-    - PromiseKit/UIKit (= 4.2.2)
-  - PromiseKit/CorePromise (4.2.2)
-  - PromiseKit/Foundation (4.2.2):
+    - Nimble (~> 7.0)
+  - PromiseKit (4.4.0):
+    - PromiseKit/Foundation (= 4.4.0)
+    - PromiseKit/QuartzCore (= 4.4.0)
+    - PromiseKit/UIKit (= 4.4.0)
+  - PromiseKit/CorePromise (4.4.0)
+  - PromiseKit/Foundation (4.4.0):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.2.2):
+  - PromiseKit/QuartzCore (4.4.0):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.2.2):
+  - PromiseKit/UIKit (4.4.0):
     - PromiseKit/CorePromise
   - Quick (1.1.0)
-  - Reveal-SDK (8)
-  - Sourcery (0.6.1)
-  - SwiftLint (0.19.0)
-  - Swinject (2.0.0)
-  - SwinjectAutoregistration (2.0.1):
-    - Swinject (~> 2.0.0)
+  - Reveal-SDK (10)
+  - Sourcery (0.8.0)
+  - SwiftLint (0.22.0)
+  - Swinject (2.1.1)
+  - SwinjectAutoregistration (2.1.0):
+    - Swinject (~> 2.1)
   - UIColor_Hex_Swift (3.0.2)
 
 DEPENDENCIES:
@@ -50,7 +49,7 @@ DEPENDENCIES:
   - Fabric (~> 1.6)
   - FBSnapshotTestCase (~> 2.1)
   - KeychainAccess (~> 3.0)
-  - Nimble (~> 6.1)
+  - Nimble (~> 7.0)
   - Nimble-Snapshots
   - PromiseKit (~> 4.0)
   - Quick (~> 1.1)
@@ -62,25 +61,25 @@ DEPENDENCIES:
   - UIColor_Hex_Swift (~> 3.0.2)
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Anchorage: fe50dca4e20846b8cb15c859d26fec5132b41577
-  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
-  EarlGrey: d6238c7f1eccf211b23e1589d99c909330ac1cd4
+  Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
+  EarlGrey: f7774b813c888ebdb9a21e612d67874d17d5a326
   EarlGreySnapshots: ce423ad576f1bae4315cd9ca313175d5d99be065
-  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
+  Fabric: 2fb5676bc811af011a04513451f463dac6803206
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
-  Nimble: c53e6903fee94041b90ded74f135820437d8bf59
-  Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
-  PromiseKit: 00e8886881f151c7e573d06b437915b0bb2970ec
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
+  Nimble-Snapshots: 31c8ef7fcebf0e68b4dff83f6e2160813a4a116b
+  PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
-  Reveal-SDK: 43be4e662864e937960d0d04d005135e29c4e53b
-  Sourcery: 1426fbb5fe2d53f1e03845e989a89b6b67ce4e33
-  SwiftLint: 3537a05b34060e78e7510f04fb7537d738247803
-  Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
-  SwinjectAutoregistration: d19654c429354bad4b544c658dc92345ccdbb72c
+  Reveal-SDK: 7869ddf1f902cabbb07a1f0dd06bd25861a126f7
+  Sourcery: c5c099c4786fed4c24febd5edb25a8ea1b45b40d
+  SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
+  Swinject: afea49fd95f392b41171669f165842879c48fad6
+  SwinjectAutoregistration: 7d8ac2c23718c78286adf7590c6d0671b4ccc834
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: fc5dc4477a1df6e0161d0f4e9ebbe628c26f2256
+PODFILE CHECKSUM: f11a7a7d5934de1e860623a606bdcc6804e72692
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
