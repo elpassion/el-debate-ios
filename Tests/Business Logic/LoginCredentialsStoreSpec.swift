@@ -9,7 +9,6 @@ import Quick
 
 class LoginCredentialsStoreSpec: QuickSpec {
 
-    // swiftlint:disable function_body_length
     override func spec() {
         var userDefaults: UserDefaultsStoreMock!
         var sut: LoginCredentialsStore!

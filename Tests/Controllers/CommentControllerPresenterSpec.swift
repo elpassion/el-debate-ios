@@ -11,7 +11,6 @@ import Quick
 
 class CommentControllerPresenterSpec: QuickSpec {
 
-    // swiftlint:disable function_body_length
     override func spec() {
         describe("CommentControllerPresenter") {
             var sut: CommentControllerPresenter!
