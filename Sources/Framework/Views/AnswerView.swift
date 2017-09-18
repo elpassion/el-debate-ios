@@ -93,7 +93,7 @@ class AnswerView: UIView, AnswerViewProviding {
         scrollView.edgeAnchors == edgeAnchors
 
         verticalStack.edgeAnchors == scrollView.edgeAnchors + stackInsets
-        verticalStack.widthAnchor == (widthAnchor - stackInsets.left - stackInsets.right) ~ .custom(999)
+        verticalStack.widthAnchor == (widthAnchor - stackInsets.left - stackInsets.right) ~ .high
 
         background.centerXAnchor == centerXAnchor
         background.bottomAnchor == bottomAnchor - 20

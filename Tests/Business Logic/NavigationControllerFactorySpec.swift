@@ -26,7 +26,7 @@ class NavigationControllerFactorySpec: QuickSpec {
                 it("should set title color") {
                     let attributes = navigationController.navigationBar.titleTextAttributes
 
-                    expect(attributes?[NSForegroundColorAttributeName] as? UIColor) == UIColor.white
+                    expect(attributes?[NSAttributedStringKey.foregroundColor] as? UIColor) == UIColor.white
                 }
 
                 it("should disable translucent navigation bar") {

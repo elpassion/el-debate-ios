@@ -1,7 +1,7 @@
 import EarlGrey
 
 func grey_waitUntilVisible(_ matcher: GREYMatcher, timeout: CFTimeInterval = 5.0, pollInterval: CFTimeInterval = 0.1) {
-    let appeared = GREYCondition(name: "Waiting for \(matcher) to match") { _ in
+    let appeared = GREYCondition(name: "Waiting for \(matcher) to match") {
         var error: NSError?
 
         EarlGrey.select(elementWithMatcher: matcher)

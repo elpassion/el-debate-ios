@@ -19,7 +19,7 @@ class AlertPresenter: AlertShowing {
     func show(in controller: UIViewController, title: String, message: String,
               alertFactory: AlertCreating) -> Promise<Bool> {
         return Promise { fulfill, _ in
-            let okAction = AlertActionConfiguration(title: "Ok", style: .default) { _ in fulfill(true) }
+            let okAction = AlertActionConfiguration(title: "Ok", style: .default) { fulfill(true) }
             let configuration = AlertConfiguration(title: title, message: message, actions: [okAction], textFields: [])
 
             let alert = alertFactory.makeAlert(with: configuration)

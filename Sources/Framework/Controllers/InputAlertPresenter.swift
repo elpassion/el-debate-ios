@@ -19,9 +19,9 @@ class InputAlertPresenter: InputAlertPresenting {
             var alert: UIAlertController?
 
             let cancelAction = AlertActionConfiguration(title: configuration.cancelTitle,
-                                                        style: .cancel) { _ in fulfill(nil) }
+                                                        style: .cancel) { fulfill(nil) }
             let sendAction = AlertActionConfiguration(title: configuration.okTitle,
-                                                      style: .default) { _ in
+                                                      style: .default) {
                 fulfill(alert?.textFields?.first?.text)
             }
 

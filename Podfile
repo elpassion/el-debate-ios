@@ -25,14 +25,14 @@ target 'ELDebate' do
 
     pod 'Nimble-Snapshots'
     pod 'Nimble', '~> 7.0'
-    pod 'Quick', '~> 1.1'
+    pod 'Quick', :git => 'https://github.com/Quick/Quick.git', :branch => 'xcode-9-fix'
   end
 
   target 'FeatureTests' do
     inherit! :search_paths
 
     pod 'EarlGrey', '~> 1.9'
-    pod 'EarlGreySnapshots', '~> 0.0.1'
+    pod 'EarlGreySnapshots', '~> 0.0.2'
     pod 'FBSnapshotTestCase', '~> 2.1'
   end
 end
@@ -45,7 +45,7 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     case target.name
-      when 'KeychainAccess', 'Nimble'
+      when 'KeychainAccess', 'Nimble', 'Quick'
         swift_version = '3.0'
       else
         swift_version = '4.0'

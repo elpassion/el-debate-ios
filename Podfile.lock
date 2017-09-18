@@ -45,14 +45,14 @@ DEPENDENCIES:
   - Anchorage (from `https://github.com/Raizlabs/Anchorage.git`, branch `feature/xcode-9`)
   - Crashlytics (~> 3.8)
   - EarlGrey (~> 1.9)
-  - EarlGreySnapshots (~> 0.0.1)
+  - EarlGreySnapshots (~> 0.0.2)
   - Fabric (~> 1.6)
   - FBSnapshotTestCase (~> 2.1)
   - KeychainAccess (~> 3.0)
   - Nimble (~> 7.0)
   - Nimble-Snapshots
   - PromiseKit (~> 4.0)
-  - Quick (~> 1.1)
+  - Quick (from `https://github.com/Quick/Quick.git`, branch `xcode-9-fix`)
   - Reveal-SDK
   - Sourcery (~> 0.6)
   - SwiftLint (~> 0.18)
@@ -64,6 +64,9 @@ EXTERNAL SOURCES:
   Anchorage:
     :branch: feature/xcode-9
     :git: https://github.com/Raizlabs/Anchorage.git
+  Quick:
+    :branch: xcode-9-fix
+    :git: https://github.com/Quick/Quick.git
   SwinjectAutoregistration:
     :branch: swift4
     :git: https://github.com/Swinject/SwinjectAutoregistration.git
@@ -72,6 +75,9 @@ CHECKOUT OPTIONS:
   Anchorage:
     :commit: 3108a3741a4baf56e7669180e6212549a10712e7
     :git: https://github.com/Raizlabs/Anchorage.git
+  Quick:
+    :commit: a3850d0ddc18cf1e6ef17b3078c660f46888deca
+    :git: https://github.com/Quick/Quick.git
   SwinjectAutoregistration:
     :commit: ef8574264926117c62d92c4cb2872649496f6c21
     :git: https://github.com/Swinject/SwinjectAutoregistration.git
@@ -88,7 +94,7 @@ SPEC CHECKSUMS:
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Nimble-Snapshots: 31c8ef7fcebf0e68b4dff83f6e2160813a4a116b
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
-  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+  Quick: 4700beb8056662b579facd79eaca7f04fb3d48e6
   Reveal-SDK: 7fa13d04bb55db61ff2342a990cf731d5159361d
   Sourcery: c5c099c4786fed4c24febd5edb25a8ea1b45b40d
   SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
@@ -96,6 +102,6 @@ SPEC CHECKSUMS:
   SwinjectAutoregistration: 5923637a0f8c14c80f69e3301631c19abe9f29c7
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: 384b44771607e216be3ee5b771eeb68f734bd788
+PODFILE CHECKSUM: 2f0f9fb1f12250eb468b37581c44b452ce02902e
 
 COCOAPODS: 1.3.1
