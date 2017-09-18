@@ -1,3 +1,5 @@
+import Foundation
+
 extension Dictionary where Key == NSAttributedStringKey, Value == AnyObject {
 
     var stringAny: [String: Any] {
