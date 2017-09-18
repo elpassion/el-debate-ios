@@ -45,7 +45,7 @@ class IconTextField: UIView {
 
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        textField.defaultTextAttributes = AttributeStyle.enterPin.attributes.build()
+        textField.defaultTextAttributes = AttributeStyle.enterPin.attributes.build().stringAny
     }
 
     private func addSubviews() {

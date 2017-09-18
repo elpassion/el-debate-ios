@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F5311200D5341E956D16AC2 /* Pods_FeatureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */; };
+		298381E51F70288400993B17 /* Dictionary+NSAttributedStringKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298381E41F70288400993B17 /* Dictionary+NSAttributedStringKey.swift */; };
 		326723424614E761B4834409 /* UsernameValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */; };
 		326723B8FDCF8C056AF26357 /* PinCodeValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */; };
 		32672746AB41975F44B887A7 /* UsernameValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */; };
@@ -250,6 +251,7 @@
 		19E287EA4ED2A64F83F5A9CB /* Pods-ELDebateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		275F10A50218847328F71153 /* Pods-ELDebateFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateFramework/Pods-ELDebateFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		298381E41F70288400993B17 /* Dictionary+NSAttributedStringKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+NSAttributedStringKey.swift"; sourceTree = "<group>"; };
 		326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorErrorSpec.swift; sourceTree = "<group>"; };
 		326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresentableError.swift; sourceTree = "<group>"; };
 		32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorError.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 				8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */,
 				8C337A161EF91B63007F82B4 /* UIView+Sizes.swift */,
 				8CD094791EE868D3006D46A5 /* UserDefaults+Protocol.swift */,
+				298381E41F70288400993B17 /* Dictionary+NSAttributedStringKey.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1576,6 +1579,7 @@
 				8C4B23531EE547F100CE42DD /* Dictionary+Merging.swift in Sources */,
 				8C4B23751EE5480400CE42DD /* TextStyleDescriptor.swift in Sources */,
 				8C4B235F1EE547F500CE42DD /* MainAssembly.swift in Sources */,
+				298381E51F70288400993B17 /* Dictionary+NSAttributedStringKey.swift in Sources */,
 				8C4B23631EE547FA00CE42DD /* AnswerViewController.swift in Sources */,
 				8C4B23341EE547D100CE42DD /* ChatButtonView.swift in Sources */,
 				8C4B236E1EE5480400CE42DD /* AuthTokenStorage.swift in Sources */,
@@ -1844,6 +1848,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1888,6 +1893,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

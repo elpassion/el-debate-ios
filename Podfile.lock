@@ -4,8 +4,8 @@ PODS:
   - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
   - EarlGrey (1.12.1)
-  - EarlGreySnapshots (0.0.2):
-    - EarlGrey (~> 1.9)
+  - EarlGreySnapshots (0.0.3):
+    - EarlGrey (~> 1.12)
     - FBSnapshotTestCase (~> 2.1)
   - Fabric (1.6.13)
   - FBSnapshotTestCase (2.1.4):
@@ -15,9 +15,9 @@ PODS:
     - FBSnapshotTestCase/Core
   - KeychainAccess (3.0.2)
   - Nimble (7.0.1)
-  - Nimble-Snapshots (6.2.1):
-    - Nimble-Snapshots/Core (= 6.2.1)
-  - Nimble-Snapshots/Core (6.2.1):
+  - Nimble-Snapshots (6.2.2):
+    - Nimble-Snapshots/Core (= 6.2.2)
+  - Nimble-Snapshots/Core (6.2.2):
     - FBSnapshotTestCase (~> 2.0)
     - Nimble (~> 7.0)
   - PromiseKit (4.4.0):
@@ -45,12 +45,12 @@ DEPENDENCIES:
   - Anchorage (from `https://github.com/Raizlabs/Anchorage.git`, branch `feature/xcode-9`)
   - Crashlytics (~> 3.8)
   - EarlGrey (~> 1.9)
-  - EarlGreySnapshots (~> 0.0.2)
+  - EarlGreySnapshots (~> 0.0.3)
   - Fabric (~> 1.6)
   - FBSnapshotTestCase (~> 2.1)
   - KeychainAccess (~> 3.0)
   - Nimble (~> 7.0)
-  - Nimble-Snapshots
+  - Nimble-Snapshots (from `https://github.com/ashfurrow/Nimble-Snapshots.git`, branch `xcode9-beta`)
   - PromiseKit (~> 4.0)
   - Quick (from `https://github.com/Quick/Quick.git`, branch `xcode-9-fix`)
   - Reveal-SDK
@@ -64,6 +64,9 @@ EXTERNAL SOURCES:
   Anchorage:
     :branch: feature/xcode-9
     :git: https://github.com/Raizlabs/Anchorage.git
+  Nimble-Snapshots:
+    :branch: xcode9-beta
+    :git: https://github.com/ashfurrow/Nimble-Snapshots.git
   Quick:
     :branch: xcode-9-fix
     :git: https://github.com/Quick/Quick.git
@@ -75,6 +78,9 @@ CHECKOUT OPTIONS:
   Anchorage:
     :commit: 3108a3741a4baf56e7669180e6212549a10712e7
     :git: https://github.com/Raizlabs/Anchorage.git
+  Nimble-Snapshots:
+    :commit: 88fd55d47f49895ded205da7391641744696de06
+    :git: https://github.com/ashfurrow/Nimble-Snapshots.git
   Quick:
     :commit: a3850d0ddc18cf1e6ef17b3078c660f46888deca
     :git: https://github.com/Quick/Quick.git
@@ -87,12 +93,12 @@ SPEC CHECKSUMS:
   Anchorage: b4ed6555296ae9ee9264def6efd8e7352ea7b893
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   EarlGrey: f7774b813c888ebdb9a21e612d67874d17d5a326
-  EarlGreySnapshots: ce423ad576f1bae4315cd9ca313175d5d99be065
+  EarlGreySnapshots: 92864bb55752c69db9081d3aedbc83214ba0e201
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
-  Nimble-Snapshots: 31c8ef7fcebf0e68b4dff83f6e2160813a4a116b
+  Nimble-Snapshots: f23ae8cb1d0f3c743b634d3cee3f7da2252cd40a
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
   Quick: 4700beb8056662b579facd79eaca7f04fb3d48e6
   Reveal-SDK: 7fa13d04bb55db61ff2342a990cf731d5159361d
@@ -102,6 +108,6 @@ SPEC CHECKSUMS:
   SwinjectAutoregistration: 5923637a0f8c14c80f69e3301631c19abe9f29c7
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: 2f0f9fb1f12250eb468b37581c44b452ce02902e
+PODFILE CHECKSUM: 4ad3e9467cbf2e9cc2145ee92691ef2400dcb7b2
 
 COCOAPODS: 1.3.1
