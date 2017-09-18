@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 30.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import EarlGrey
 
 func grey_waitUntilVisible(_ matcher: GREYMatcher, timeout: CFTimeInterval = 5.0, pollInterval: CFTimeInterval = 0.1) {

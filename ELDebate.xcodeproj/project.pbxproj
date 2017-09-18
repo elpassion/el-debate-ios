@@ -330,7 +330,7 @@
 		8C3E8F121ED83C22009DB7ED /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		8C464F091EC5E537009DD7BF /* AnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		8C47A1561EE5566400B7A525 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8C4B231D1EE5469600CE42DD /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; };
+		8C4B231D1EE5469600CE42DD /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8C4B23231EE547B400CE42DD /* ELDebateFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ELDebateFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B23251EE547B400CE42DD /* ELDebateFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELDebateFramework.h; sourceTree = "<group>"; };
 		8C4B23261EE547B400CE42DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };

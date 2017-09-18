@@ -1,11 +1,3 @@
-//
-//  AlertViewMock.swift
-//  ELDebate
-//
-//  Created by Pawel Urbanek on 17/05/2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebateFramework
 import UIKit
 import PromiseKit
