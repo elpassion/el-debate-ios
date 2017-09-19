@@ -25,37 +25,37 @@ class AttributesDescriptorSpec: QuickSpec {
                 }
 
                 it("should have correct line spacing set") {
-                    let paragraphStyle = attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle
+                    let paragraphStyle = attributes[.paragraphStyle] as? NSParagraphStyle
 
                     expect(paragraphStyle?.lineSpacing) == CGFloat(20.0)
                 }
 
                 it("should have correct alignment set") {
-                    let paragraphStyle = attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle
+                    let paragraphStyle = attributes[.paragraphStyle] as? NSParagraphStyle
 
                     expect(paragraphStyle?.alignment) == NSTextAlignment.justified
                 }
 
                 it("should have correct font name set") {
-                    let font = attributes[NSAttributedStringKey.font] as? UIFont
+                    let font = attributes[.font] as? UIFont
 
                     expect(font?.fontName) == Font.regular.rawValue
                 }
 
                 it("should have correct font size set") {
-                    let font = attributes[NSAttributedStringKey.font] as? UIFont
+                    let font = attributes[.font] as? UIFont
 
                     expect(font?.pointSize) == CGFloat(16.0)
                 }
 
                 it("should have correct kern set") {
-                    let kern = attributes[NSAttributedStringKey.kern] as? NSNumber
+                    let kern = attributes[.kern] as? NSNumber
 
                     expect(kern) == NSNumber(value: 4.0)
                 }
 
                 it("should have correct foreground color set") {
-                    let color = attributes[NSAttributedStringKey.foregroundColor] as? UIColor
+                    let color = attributes[.foregroundColor] as? UIColor
 
                     expect(color?.hexString()) == UIColor(predefined: .pin).hexString()
                 }
