@@ -86,7 +86,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
 
 }
 
-fileprivate func presentError(_ error: Error, in controller: AlertPresentingController?) {
+private func presentError(_ error: Error, in controller: AlertPresentingController?) {
     if case RequestError.throttling = error {
         presentSlowDownError(in: controller)
     } else {
@@ -94,10 +94,10 @@ fileprivate func presentError(_ error: Error, in controller: AlertPresentingCont
     }
 }
 
-fileprivate func presentGenericError(in controller: AlertPresentingController?) {
+private func presentGenericError(in controller: AlertPresentingController?) {
     presentAlert(in: controller, title: "Error", message: "There was a problem submitting your vote")
 }
 
-fileprivate func presentSlowDownError(in controller: AlertPresentingController?) {
+private func presentSlowDownError(in controller: AlertPresentingController?) {
     presentAlert(in: controller, title: "Slow down", message: "You are voting too fast")
 }

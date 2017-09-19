@@ -12,9 +12,7 @@ internal class DebateRunnerSpec: QuickSpec {
             var sut: DebateRunner!
 
             beforeEach {
-                guard let assembler = try? Assembler(assemblies: [DebateRunnerAssembly()]) else {
-                    fatalError("Could not build testing assembly")
-                }
+                let assembler = Assembler([DebateRunnerAssembly()])
 
                 navigationController = UINavigationController()
                 sut = DebateRunner(resolver: assembler.resolver)
