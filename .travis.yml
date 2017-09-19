@@ -1,7 +1,7 @@
-osx_image: xcode8.3
+osx_image: xcode9
 language: objective-c
 rvm:
-- 2.2
+- 2.4.1
 podfile: Podfile
 before_install:
 - openssl aes-256-cbc -K $encrypted_bbdbf7e1c4b4_key -iv $encrypted_bbdbf7e1c4b4_iv -in .setup_travis_deployment.sh.enc -out setup_travis_deployment.sh -d
@@ -11,8 +11,9 @@ before_install:
 - pod repo update
 - pod install
 script:
-- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme ELDebate -sdk iphonesimulator10.3 -destination 'name=iPhone SE,OS=10.3.1' -enableCodeCoverage YES ONLY_ACTIVE_ARCH=YES | xcpretty
-- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme FeatureTests -sdk iphonesimulator10.3 -destination 'name=iPhone SE,OS=10.3.1' -enableCodeCoverage NO ONLY_ACTIVE_ARCH=YES | xcpretty
+- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme ELDebate -sdk iphonesimulator11.0 -destination 'name=iPhone SE,OS=11.0' -enableCodeCoverage YES ONLY_ACTIVE_ARCH=YES | xcpretty
+- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme FeatureTests -sdk iphonesimulator11.0 -destination 'name=iPhone SE,OS=11.0' -enableCodeCoverage NO ONLY_ACTIVE_ARCH=YES | xcpretty
+- bundle exec danger
 after_success:
 - bash <(curl -s https://codecov.io/bash) -J 'ELDebateFramework'
 - fastlane ios autodeploy
