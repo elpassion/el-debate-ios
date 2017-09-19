@@ -63,8 +63,8 @@ class IconTextField: UIView {
     private func setUpLayout() {
         verticalStack.edgeAnchors == edgeAnchors
 
-        iconView.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
-        textField.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
+        iconView.setContentHuggingPriority(.required, for: .horizontal)
+        textField.setContentHuggingPriority(.defaultLow, for: .horizontal)
 
         horizontalStack.widthAnchor == verticalStack.widthAnchor - 20.0
 

@@ -94,8 +94,8 @@ class SingleAnswerView: UIView {
         stackContainer.edgeAnchors == container.edgeAnchors
         horizontalStack.edgeAnchors == container.edgeAnchors + insets
 
-        answerLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
-        iconView.setContentHuggingPriority(UILayoutPriority.required, for: .horizontal)
+        answerLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        iconView.setContentHuggingPriority(.required, for: .horizontal)
 
         answerLabel.heightAnchor == horizontalStack.heightAnchor
 
