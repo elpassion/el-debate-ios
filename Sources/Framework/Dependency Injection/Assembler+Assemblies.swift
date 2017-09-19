@@ -1,5 +1,7 @@
 import Swinject
 
+// swiftlint:disable no_extension_access_modifier
+
 public extension Assembler {
 
     static var defaultAssembler: Assembler {

@@ -8,6 +8,8 @@ public struct VoteContext {
 
 }
 
+// swiftlint:disable no_extension_access_modifier
+
 public extension VoteContext {
 
     func answer(for answerType: AnswerType) -> Answer {
