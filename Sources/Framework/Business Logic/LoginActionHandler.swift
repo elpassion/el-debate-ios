@@ -34,7 +34,8 @@ private func addingStoredToken(into context: PartialContext,
     return Promise(value: context.with(token: token))
 }
 
-private func fetchingMissingToken(into context: PartialContext, using apiClient: APIProviding,
+private func fetchingMissingToken(into context: PartialContext,
+                                  using apiClient: APIProviding,
                                   storedIn storage: AuthTokenStoring) -> Promise<PartialContext> {
     guard context.authToken == nil else {
         return Promise(value: context)

@@ -10,8 +10,10 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
 
     // MARK: - Initializer
 
-    init(voteContext: VoteContext, apiClient: APIProviding,
-         alertView: AlertShowing, commentPresenter: CommentControllerPresenting) {
+    init(voteContext: VoteContext,
+         apiClient: APIProviding,
+         alertView: AlertShowing,
+         commentPresenter: CommentControllerPresenting) {
         self.voteContext = voteContext
         self.apiClient = apiClient
         self.alertPresenter = alertView

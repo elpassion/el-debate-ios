@@ -16,7 +16,9 @@ class AlertPresenter: AlertShowing {
     }
 
     @discardableResult
-    func show(in controller: UIViewController, title: String, message: String,
+    func show(in controller: UIViewController,
+              title: String,
+              message: String,
               alertFactory: AlertCreating) -> Promise<Bool> {
         return Promise { fulfill, _ in
             let okAction = AlertActionConfiguration(title: "Ok", style: .default) { fulfill(true) }
@@ -49,7 +51,8 @@ func presentAlert(in alertPresenting: AlertPresentingController?, title: String?
 }
 
 @discardableResult
-func presentErrorAlert(for error: Error, in alertPresenting: AlertPresentingController?,
+func presentErrorAlert(for error: Error,
+                       in alertPresenting: AlertPresentingController?,
                        defaultMessage: String) -> Promise<Bool> {
     let message: String
 

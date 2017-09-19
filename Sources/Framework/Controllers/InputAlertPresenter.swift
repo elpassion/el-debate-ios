@@ -13,7 +13,8 @@ class InputAlertPresenter: InputAlertPresenting {
         return prompt(in: controller, with: configuration, alertFactory: AlertFactory.build())
     }
 
-    func prompt(in controller: UIViewController, with configuration: InputAlertConfiguration,
+    func prompt(in controller: UIViewController,
+                with configuration: InputAlertConfiguration,
                 alertFactory: AlertCreating) -> Promise<String?> {
         return Promise { fulfill, _ in
             var alert: UIAlertController?

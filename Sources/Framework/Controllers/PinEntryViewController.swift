@@ -12,7 +12,9 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling,
+    init(loginActionHandler: LoginActionHandling,
+         alertView: AlertShowing,
+         keyboardHandling: KeyboardWillShowHandling,
          lastCredentialsStore: LoginCredentialsStoring) {
         self.loginActionHandler = loginActionHandler
         self.alertPresenter = alertView

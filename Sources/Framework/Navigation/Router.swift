@@ -16,7 +16,8 @@ public class Router: Routing {
     private let controllerFactory: ControllerCreating
     private let controllerConfigurator: ControllerConfiguring
 
-    init(navigator: UINavigationController, controllerFactory: ControllerCreating,
+    init(navigator: UINavigationController,
+         controllerFactory: ControllerCreating,
          controllerConfigurator: ControllerConfiguring) {
         self.navigator = navigator
         self.controllerFactory = controllerFactory
