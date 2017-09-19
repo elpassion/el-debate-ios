@@ -7,8 +7,8 @@ def common_pods
   pod 'KeychainAccess', '~> 3.0'
   pod 'PromiseKit', '~> 4.0'
   pod 'Sourcery', '~> 0.6'
-  pod 'SwiftLint', '~> 0.18'
-  pod 'Swinject', '~> 2.0'
+  pod 'SwiftLint', '~> 0.22'
+  pod 'Swinject', '~> 2.1.1'
   pod 'SwinjectAutoregistration', :git => 'https://github.com/Swinject/SwinjectAutoregistration.git', :branch => 'swift4'
   pod 'UIColor_Hex_Swift', '~> 3.0.2'
 end
