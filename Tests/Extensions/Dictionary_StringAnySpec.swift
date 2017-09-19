@@ -2,13 +2,14 @@
 import Nimble
 import Quick
 
-class DictionaryNSAttributedStringKeySpec: QuickSpec {
+class Dictionary_StringAnySpec: QuickSpec {
 
     override func spec() {
-        describe("Dictionary") {
-            it("should convert type of value from NSAttributedStringKey to String") {
+        describe("Dictionary+StringAny") {
+            it("should convert [NSAttributedStringKey: AnyObject] dict type to [String: Any]") {
                 let dictionary: [NSAttributedStringKey: AnyObject] = [
-                    NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)]
+                    NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18)
+                ]
 
                 let expectedDictionary: [String: Any] = [
                     NSAttributedStringKey.font.rawValue: UIFont.systemFont(ofSize: 18)
