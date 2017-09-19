@@ -6,7 +6,7 @@ extension Assembler {
 
     static var testAssembler: Assembler {
         let testAssemblies = defaultAssemblies + [TestAssembly()]
-        
+
         return Assembler(testAssemblies)
     }
 

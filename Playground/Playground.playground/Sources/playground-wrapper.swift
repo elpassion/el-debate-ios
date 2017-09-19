@@ -110,15 +110,15 @@ public func playgroundWrapper(child: UIViewController,
         parent.preferredContentSize = parentSize
         parent.view.backgroundColor = .white
         child.view.backgroundColor = .white
-        
+
         parent.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             child.view.leadingAnchor.constraint(equalTo: parent.view.leadingAnchor),
             child.view.trailingAnchor.constraint(equalTo: parent.view.trailingAnchor),
             child.view.bottomAnchor.constraint(equalTo: parent.view.bottomAnchor),
-            child.view.topAnchor.constraint(equalTo: parent.view.topAnchor),
+            child.view.topAnchor.constraint(equalTo: parent.view.topAnchor)
             ])
-        
+
         return parent
 }
 

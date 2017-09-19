@@ -24,5 +24,5 @@ class FeatureTestsAPIClient: APIProviding {
 
         return Promise(value: debate)
     }
-    
+
 }

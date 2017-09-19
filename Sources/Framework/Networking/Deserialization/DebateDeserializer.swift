@@ -26,7 +26,7 @@ class DebateDeserializer: Deserializing {
     }
 
     private func answersWithTypes(_ answersJSON: [String: [String: Any?]]) -> [[String: Any?]] {
-        let mappedAnswersJSON = answersJSON.mapDictionary { (typeKey, singleAnswerJSON) in
+        let mappedAnswersJSON = answersJSON.mapDictionary { typeKey, singleAnswerJSON in
             (typeKey, singleAnswerJSON.merge(["answer_type": typeKey]))
         }
 

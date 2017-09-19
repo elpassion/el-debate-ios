@@ -1082,7 +1082,6 @@
 			buildPhases = (
 				87AA05CC327041834580D16C /* [CP] Check Pods Manifest.lock */,
 				8C4B231E1EE547B400CE42DD /* Sources */,
-				509296841F7155D0007642D7 /* SwiftLint */,
 				8C4B231F1EE547B400CE42DD /* Frameworks */,
 				8C4B23201EE547B400CE42DD /* Headers */,
 				8C4B23211EE547B400CE42DD /* Resources */,
@@ -1104,7 +1103,7 @@
 				BF521D377CA1F178E3C4E792 /* [CP] Check Pods Manifest.lock */,
 				8C1917F71EC356BA00519DC8 /* Sourcery Generate Mocks */,
 				8CAD34DB1EC34F5E00468C87 /* Sources */,
-				8C78D3FE1EC352AF00BDF7EB /* SwiftLint */,
+				8C78D3FE1EC352AF00BDF7EB /* SwiftLint ELD */,
 				8CAD34DC1EC34F5E00468C87 /* Frameworks */,
 				8CAD34DD1EC34F5E00468C87 /* Resources */,
 				38923F83422368976D5B85FD /* [CP] Embed Pods Frameworks */,
@@ -1128,7 +1127,7 @@
 			buildPhases = (
 				DFCF73244C21B9FBC21D0931 /* [CP] Check Pods Manifest.lock */,
 				8CB3AF4E1EC36E92005EEDC7 /* Sources */,
-				509296851F715613007642D7 /* SwiftLint */,
+				509296851F715613007642D7 /* SwiftLint ELDT */,
 				8CB3AF4F1EC36E92005EEDC7 /* Frameworks */,
 				8CB3AF501EC36E92005EEDC7 /* Resources */,
 				AC883875F718DCE5326FC678 /* [CP] Embed Pods Frameworks */,
@@ -1150,7 +1149,7 @@
 			buildPhases = (
 				131CBAB07B0D66F2BF69F388 /* [CP] Check Pods Manifest.lock */,
 				8CDF216F1ECAFB91002B4FA4 /* Sources */,
-				509296861F71562E007642D7 /* SwiftLint */,
+				509296861F71562E007642D7 /* SwiftLint - FT */,
 				8CDF21701ECAFB91002B4FA4 /* Frameworks */,
 				8CDF21711ECAFB91002B4FA4 /* Resources */,
 				9C4DE1A546D513410B434565 /* EarlGrey Copy Files */,
@@ -1347,42 +1346,28 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		509296841F7155D0007642D7 /* SwiftLint */ = {
+		509296851F715613007642D7 /* SwiftLint ELDT */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ “$CI” = “true” ]; then\necho “Skipping SwiftLint on CI”\nexit 0\nfi\n\ncd Framework; ${PODS_ROOT}/SwiftLint/swiftlint";
-		};
-		509296851F715613007642D7 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
+			name = "SwiftLint ELDT";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ “$CI” = “true” ]; then\necho “Skipping SwiftLint on CI”\nexit 0\nfi\n\ncd Tests; ${PODS_ROOT}/SwiftLint/swiftlint";
 		};
-		509296861F71562E007642D7 /* SwiftLint */ = {
+		509296861F71562E007642D7 /* SwiftLint - FT */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = SwiftLint;
+			name = "SwiftLint - FT";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1465,14 +1450,14 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4fb6504551d9582cf1d2a1b3cd181e74a6b932fd a548a049d3e5ca6c1cea1bec687fa3d529d6e8189235c6b20e8b0d89f5910489";
 		};
-		8C78D3FE1EC352AF00BDF7EB /* SwiftLint */ = {
+		8C78D3FE1EC352AF00BDF7EB /* SwiftLint ELD */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = SwiftLint;
+			name = "SwiftLint ELD";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

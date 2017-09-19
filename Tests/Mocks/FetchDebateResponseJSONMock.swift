@@ -10,13 +10,13 @@ class FetchDebateResponseJSONMock: JSONResponseProviding {
                 "answers": [
                     "positive": ["id": 122, "value": "yes"],
                     "negative": ["id": 123, "value": "no"],
-                    "neutral":  ["id": 124, "value": "maybe"]
+                    "neutral": ["id": 124, "value": "maybe"]
                 ]
             ], error: nil)
-            
+
         completionHandler(apiResponse)
     }
-    
+
     func maybeJson(completionHandler: @escaping (ApiResponse) -> Void) {
         json(completionHandler: completionHandler)
     }

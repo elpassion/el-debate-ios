@@ -7,7 +7,7 @@ class AlertViewMock: AlertShowing {
     var title: String?
     var message: String?
 
-    @discardableResult func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool>  {
+    @discardableResult func show(in controller: UIViewController, title: String, message: String) -> Promise<Bool> {
         self.title = title
         self.message = message
         wasShown = true

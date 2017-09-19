@@ -27,7 +27,7 @@ class ControllerFactoryMock: ControllerCreating {
 
 }
 
-class ControllerMockProvider: ControllerProviding  {
+class ControllerMockProvider: ControllerProviding {
 
     let controller = UIViewController()
 
@@ -38,7 +38,7 @@ class PinEntryControllerMockProvider: PinEntryControllerProviding {
     let controller = UIViewController()
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
-    
+
 }
 
 class AnswerControllerMockProvider: AnswerControllerProviding {

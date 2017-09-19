@@ -12,7 +12,7 @@ class VoteResponseJSONMock: JSONResponseProviding {
     func maybeJson(completionHandler: @escaping (ApiResponse) -> Void) {
         json(completionHandler: completionHandler)
     }
-    
+
 }
 
 class VoteResponseErrorMock: JSONResponseProviding {
@@ -24,10 +24,10 @@ class VoteResponseErrorMock: JSONResponseProviding {
         let apiResponse = ApiResponse(json: errorJSON, error: error)
         completionHandler(apiResponse)
     }
-    
+
     func maybeJson(completionHandler: @escaping (ApiResponse) -> Void) {
         let apiResponse = ApiResponse(json: errorJSON, error: error)
         completionHandler(apiResponse)
     }
-    
+
 }

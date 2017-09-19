@@ -99,5 +99,5 @@ class AnswerScreenTests: XCTestCase {
 
         grey_waitUntilVisible(grey_text("Our debate is about:"))
     }
-    
+
 }

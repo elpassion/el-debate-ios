@@ -27,7 +27,7 @@ struct Views {
         let imageView = UIImageView(frame: .zero)
         imageView.clipsToBounds = true
         imageView.contentMode = contentMode
-        imageView.image = UIImage(predefined: image).flatMap { (image) in
+        imageView.image = UIImage(predefined: image).flatMap { image in
             image.withRenderingMode(renderingMode ?? .alwaysOriginal)
         }
 
