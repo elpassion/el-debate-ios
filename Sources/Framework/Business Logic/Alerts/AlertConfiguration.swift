@@ -9,20 +9,6 @@ public struct AlertConfiguration {
 
 }
 
-public struct AlertActionConfiguration {
-
-    let title: String
-    let style: UIAlertActionStyle
-    let handler: (() -> Void)?
-
-}
-
-public struct AlertTextFieldConfiguration {
-
-    let placeholder: String
-
-}
-
 // MARK: - Equatables
 
 extension AlertConfiguration: Equatable {
@@ -30,22 +16,6 @@ extension AlertConfiguration: Equatable {
     public static func == (lhs: AlertConfiguration, rhs: AlertConfiguration) -> Bool {
         return lhs.title == rhs.title && lhs.message == rhs.message &&
             lhs.actions == rhs.actions && lhs.textFields == rhs.textFields
-    }
-
-}
-
-extension AlertActionConfiguration: Equatable {
-
-    public static func == (lhs: AlertActionConfiguration, rhs: AlertActionConfiguration) -> Bool {
-        return lhs.title == rhs.title && lhs.style == rhs.style
-    }
-
-}
-
-extension AlertTextFieldConfiguration: Equatable {
-
-    public static func == (lhs: AlertTextFieldConfiguration, rhs: AlertTextFieldConfiguration) -> Bool {
-        return lhs.placeholder == rhs.placeholder
     }
 
 }

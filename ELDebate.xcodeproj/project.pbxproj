@@ -16,6 +16,8 @@
 		326728DEF33D4C6F923378A5 /* AlertPresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */; };
 		32672CD29AB24344404C2D44 /* PinCodeValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */; };
 		501E951C7F5419BDDB3C45B8 /* Pods_ELDebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */; };
+		5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */; };
+		5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */; };
 		51757128F328010E2BC3E35A /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B514A80F4268B66CD30EE8B /* EarlGrey.framework */; };
 		6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */; };
 		6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */; };
@@ -260,6 +262,8 @@
 		32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorErrorSpec.swift; sourceTree = "<group>"; };
 		32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorError.swift; sourceTree = "<group>"; };
 		503584F6E31E132E68AE9835 /* Pods-ELDebateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.release.xcconfig"; sourceTree = "<group>"; };
+		5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionConfiguration.swift; sourceTree = "<group>"; };
+		5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTextFieldConfiguration.swift; sourceTree = "<group>"; };
 		5B514A80F4268B66CD30EE8B /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = "${SRCROOT}/Pods/EarlGrey/EarlGrey/EarlGrey.framework"; sourceTree = SRCROOT; };
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		5F67AEB94008F68BD181A24A /* Pods-ELDebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.release.xcconfig"; sourceTree = "<group>"; };
@@ -958,8 +962,10 @@
 		8CCD73CD1EFD715000183DA0 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
+				5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */,
 				8CCD73D01EFD719E00183DA0 /* AlertConfiguration.swift */,
 				8CCD73CE1EFD716800183DA0 /* AlertFactory.swift */,
+				5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -1565,6 +1571,7 @@
 				8CC783D81EE6F43B00023EBF /* InputAlertPresenter.swift in Sources */,
 				8C4B236B1EE547FE00CE42DD /* Views.swift in Sources */,
 				8C4B236D1EE5480400CE42DD /* AttributesDescriptor.swift in Sources */,
+				5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */,
 				8C4B23651EE547FA00CE42DD /* CommentController.swift in Sources */,
 				8C6137F31EF1302C00E00700 /* PinCodeValidator.swift in Sources */,
 				8C4B23561EE547F100CE42DD /* NotificationCenter+Protocol.swift in Sources */,
@@ -1604,6 +1611,7 @@
 				8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */,
 				8CCD73D11EFD719E00183DA0 /* AlertConfiguration.swift in Sources */,
 				8C4B23491EE547E600CE42DD /* Router.swift in Sources */,
+				5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */,
 				8C4B233D1EE547D700CE42DD /* NotificationDescriptor.swift in Sources */,
 				8C4B23461EE547E100CE42DD /* DebateDeserializer.swift in Sources */,
 				8C4B23701EE5480400CE42DD /* ControllerFactory.swift in Sources */,

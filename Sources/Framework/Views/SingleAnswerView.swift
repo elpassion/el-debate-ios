@@ -52,9 +52,9 @@ class SingleAnswerView: UIView {
 
     var selected: Bool = false {
         didSet {
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.5) {
                 self.iconView.tintColor = self.selected ? self.highlightColor.ui : self.defaultColor.ui
-            })
+            }
         }
     }
 

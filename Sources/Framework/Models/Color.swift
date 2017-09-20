@@ -1,5 +1,7 @@
 import UIKit
 
+// swiftlint:disable identifier_name
+
 enum Color: String {
 
     case screenBackground = "#F8FAF8"
