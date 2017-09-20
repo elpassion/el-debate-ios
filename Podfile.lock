@@ -13,7 +13,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - KeychainAccess (3.0.2)
+  - KeychainAccess (3.1.0)
   - Nimble (7.0.1)
   - Nimble-Snapshots (6.2.2):
     - Nimble-Snapshots/Core (= 6.2.2)
@@ -96,7 +96,7 @@ SPEC CHECKSUMS:
   EarlGreySnapshots: 92864bb55752c69db9081d3aedbc83214ba0e201
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
+  KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Nimble-Snapshots: f23ae8cb1d0f3c743b634d3cee3f7da2252cd40a
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e

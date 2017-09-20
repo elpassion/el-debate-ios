@@ -18,3 +18,5 @@ opt_in_rules:
   - nimble_operator
   - single_test_class
   
+  excluded:
+  - EarlGrey.swift
