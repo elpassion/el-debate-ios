@@ -4,7 +4,7 @@ inhibit_all_warnings!
 def common_pods
   pod 'Alamofire', '~> 4.4'
   pod 'Anchorage', :git => 'https://github.com/Raizlabs/Anchorage.git', :branch => 'feature/xcode-9'
-  pod 'KeychainAccess', '~> 3.0'
+  pod 'KeychainAccess', '~> 3.1'
   pod 'PromiseKit', '~> 4.0'
   pod 'Sourcery', '~> 0.6'
   pod 'SwiftLint', '~> 0.22'
