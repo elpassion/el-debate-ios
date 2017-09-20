@@ -30,7 +30,7 @@ class AnswerScreenTests: XCTestCase {
     }
 
     func testPositiveVoteWorks() {
-        EarlGrey.select(elementWithMatcher: grey_kindOfClass(SingleAnswerView.self))
+        EarlGrey.select(elementWithMatcher: grey_text("Yes"))
             .atIndex(0)
             .perform(grey_tap())
             .assert(grey_sufficientlyVisible())
@@ -40,7 +40,7 @@ class AnswerScreenTests: XCTestCase {
     }
 
     func testNegativeVoteWorks() {
-        EarlGrey.select(elementWithMatcher: grey_kindOfClass(SingleAnswerView.self))
+        EarlGrey.select(elementWithMatcher: grey_text("No"))
             .atIndex(1)
             .perform(grey_tap())
             .assert(grey_sufficientlyVisible())
@@ -50,7 +50,7 @@ class AnswerScreenTests: XCTestCase {
     }
 
     func testNeutralVoteWorks() {
-        EarlGrey.select(elementWithMatcher: grey_kindOfClass(SingleAnswerView.self))
+        EarlGrey.select(elementWithMatcher: grey_text("Undecided"))
             .atIndex(2)
             .perform(grey_tap())
             .assert(grey_sufficientlyVisible())
