@@ -1,6 +1,6 @@
 extension AnswerType {
 
-    init?(rawType: Any?) {
+   public init?(rawType: Any?) {
         guard let rawType = rawType as? String else {
             return nil
         }
