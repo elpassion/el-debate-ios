@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 05.06.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Anchorage
 import UIKit
 
@@ -50,7 +45,7 @@ class IconTextField: UIView {
 
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        textField.defaultTextAttributes = AttributeStyle.enterPin.attributes.build()
+        textField.defaultTextAttributes = AttributeStyle.enterPin.attributes.build().stringAny
     }
 
     private func addSubviews() {
@@ -68,8 +63,8 @@ class IconTextField: UIView {
     private func setUpLayout() {
         verticalStack.edgeAnchors == edgeAnchors
 
-        iconView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        textField.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        iconView.setContentHuggingPriority(.required, for: .horizontal)
+        textField.setContentHuggingPriority(.defaultLow, for: .horizontal)
 
         horizontalStack.widthAnchor == verticalStack.widthAnchor - 20.0
 

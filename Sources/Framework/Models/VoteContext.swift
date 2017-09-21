@@ -1,11 +1,3 @@
-//
-//  VoteContext.swift
-//  ELDebate
-//
-//  Created by Pawel Urbanek on 16/05/2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Foundation
 
 public struct VoteContext {
@@ -15,6 +7,8 @@ public struct VoteContext {
     let username: String?
 
 }
+
+// swiftlint:disable no_extension_access_modifier
 
 public extension VoteContext {
 

@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 12.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Anchorage
 import UIKit
 
@@ -15,8 +10,10 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
 
     // MARK: - Initializer
 
-    init(voteContext: VoteContext, apiClient: APIProviding,
-         alertView: AlertShowing, commentPresenter: CommentControllerPresenting) {
+    init(voteContext: VoteContext,
+         apiClient: APIProviding,
+         alertView: AlertShowing,
+         commentPresenter: CommentControllerPresenting) {
         self.voteContext = voteContext
         self.apiClient = apiClient
         self.alertPresenter = alertView
@@ -91,7 +88,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
 
 }
 
-fileprivate func presentError(_ error: Error, in controller: AlertPresentingController?) {
+private func presentError(_ error: Error, in controller: AlertPresentingController?) {
     if case RequestError.throttling = error {
         presentSlowDownError(in: controller)
     } else {
@@ -99,10 +96,10 @@ fileprivate func presentError(_ error: Error, in controller: AlertPresentingCont
     }
 }
 
-fileprivate func presentGenericError(in controller: AlertPresentingController?) {
+private func presentGenericError(in controller: AlertPresentingController?) {
     presentAlert(in: controller, title: "Error", message: "There was a problem submitting your vote")
 }
 
-fileprivate func presentSlowDownError(in controller: AlertPresentingController?) {
+private func presentSlowDownError(in controller: AlertPresentingController?) {
     presentAlert(in: controller, title: "Slow down", message: "You are voting too fast")
 }

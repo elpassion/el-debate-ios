@@ -1,11 +1,3 @@
-//
-//  AnswerDeserializer.swift
-//  ELDebate
-//
-//  Created by Pawel Urbanek on 11/05/2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Foundation
 
 class AnswerDeserializer: Deserializing {

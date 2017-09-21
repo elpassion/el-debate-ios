@@ -1,18 +1,11 @@
-//
-//  Created by Jakub Turek on 10.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Swinject
+
+// swiftlint:disable no_extension_access_modifier
 
 public extension Assembler {
 
     static var defaultAssembler: Assembler {
-        guard let assembler = try? Assembler(assemblies: defaultAssemblies) else {
-            fatalError("Could not build default assembly")
-        }
-
-        return assembler
+        return Assembler(defaultAssemblies)
     }
 
     static var defaultAssemblies: [Assembly] {

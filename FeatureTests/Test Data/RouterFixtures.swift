@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 30.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebate
 @testable import ELDebateFramework
 import Swinject

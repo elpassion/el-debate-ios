@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 10.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import PromiseKit
 import UIKit
 
@@ -17,7 +12,9 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
     // MARK: - Initializer
 
-    init(loginActionHandler: LoginActionHandling, alertView: AlertShowing, keyboardHandling: KeyboardWillShowHandling,
+    init(loginActionHandler: LoginActionHandling,
+         alertView: AlertShowing,
+         keyboardHandling: KeyboardWillShowHandling,
          lastCredentialsStore: LoginCredentialsStoring) {
         self.loginActionHandler = loginActionHandler
         self.alertPresenter = alertView

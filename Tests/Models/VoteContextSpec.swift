@@ -1,11 +1,3 @@
-//
-//  VoteContextSpec.swift
-//  ELDebate
-//
-//  Created by Pawel Urbanek on 16/05/2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebateFramework
 import Nimble
 import Quick

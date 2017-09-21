@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 10.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import PromiseKit
 import UIKit
 
@@ -21,7 +16,8 @@ public class Router: Routing {
     private let controllerFactory: ControllerCreating
     private let controllerConfigurator: ControllerConfiguring
 
-    init(navigator: UINavigationController, controllerFactory: ControllerCreating,
+    init(navigator: UINavigationController,
+         controllerFactory: ControllerCreating,
          controllerConfigurator: ControllerConfiguring) {
         self.navigator = navigator
         self.controllerFactory = controllerFactory

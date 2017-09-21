@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 12.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Anchorage
 import UIKit
 
@@ -57,9 +52,9 @@ class SingleAnswerView: UIView {
 
     var selected: Bool = false {
         didSet {
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.5) {
                 self.iconView.tintColor = self.selected ? self.highlightColor.ui : self.defaultColor.ui
-            })
+            }
         }
     }
 
@@ -99,8 +94,8 @@ class SingleAnswerView: UIView {
         stackContainer.edgeAnchors == container.edgeAnchors
         horizontalStack.edgeAnchors == container.edgeAnchors + insets
 
-        answerLabel.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
-        iconView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        answerLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        iconView.setContentHuggingPriority(.required, for: .horizontal)
 
         answerLabel.heightAnchor == horizontalStack.heightAnchor
 

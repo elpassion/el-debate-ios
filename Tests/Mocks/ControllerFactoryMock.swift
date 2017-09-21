@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 11.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebateFramework
 import UIKit
 
@@ -32,7 +27,7 @@ class ControllerFactoryMock: ControllerCreating {
 
 }
 
-class ControllerMockProvider: ControllerProviding  {
+class ControllerMockProvider: ControllerProviding {
 
     let controller = UIViewController()
 
@@ -43,7 +38,7 @@ class PinEntryControllerMockProvider: PinEntryControllerProviding {
     let controller = UIViewController()
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
-    
+
 }
 
 class AnswerControllerMockProvider: AnswerControllerProviding {

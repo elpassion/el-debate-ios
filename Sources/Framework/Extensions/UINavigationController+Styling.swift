@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 13.06.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import UIKit
 
 extension UINavigationController {
@@ -13,7 +8,7 @@ extension UINavigationController {
         navigationBar.isTranslucent = false
         navigationBar.tintColor = UIColor.white
         navigationBar.titleTextAttributes = [
-            NSForegroundColorAttributeName: UIColor.white
+            NSAttributedStringKey.foregroundColor: UIColor.white
         ]
     }
 

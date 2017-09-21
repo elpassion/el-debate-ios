@@ -1,14 +1,11 @@
-//
-//  Created by Jakub Turek on 11.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import UIKit
 
 struct Views {
 
-    static func stack(axis: UILayoutConstraintAxis, distribution: UIStackViewDistribution,
-                      alignment: UIStackViewAlignment, spacing: CGFloat) -> UIStackView {
+    static func stack(axis: UILayoutConstraintAxis,
+                      distribution: UIStackViewDistribution,
+                      alignment: UIStackViewAlignment,
+                      spacing: CGFloat) -> UIStackView {
         let stackView = UIStackView(frame: .zero)
         stackView.alignment = alignment
         stackView.axis = axis
@@ -27,19 +24,22 @@ struct Views {
         return label
     }
 
-    static func image(image: Image, contentMode: UIViewContentMode,
+    static func image(image: Image,
+                      contentMode: UIViewContentMode,
                       renderingMode: UIImageRenderingMode? = nil) -> UIImageView {
         let imageView = UIImageView(frame: .zero)
         imageView.clipsToBounds = true
         imageView.contentMode = contentMode
-        imageView.image = UIImage(predefined: image).flatMap { (image) in
+        imageView.image = UIImage(predefined: image).flatMap { image in
             image.withRenderingMode(renderingMode ?? .alwaysOriginal)
         }
 
         return imageView
     }
 
-    static func button(style: TextStyle, backgroundColor: Color, cornerRadius: CGFloat,
+    static func button(style: TextStyle,
+                       backgroundColor: Color,
+                       cornerRadius: CGFloat,
                        title: String? = nil) -> UIButton {
         let button = UIButton(type: .custom)
         button.clipsToBounds = true

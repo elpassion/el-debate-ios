@@ -1,11 +1,3 @@
-//
-//  Answers.swift
-//  ELDebate
-//
-//  Created by Pawel Urbanek on 11/05/2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Foundation
 
 public enum AnswerType: String {
@@ -15,6 +7,8 @@ public enum AnswerType: String {
     case negative
 
 }
+
+// swiftlint:disable no_extension_access_modifier
 
 public extension AnswerType {
 

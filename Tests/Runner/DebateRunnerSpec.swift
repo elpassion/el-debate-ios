@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 23.06.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebateFramework
 import Nimble
 import Quick
@@ -17,9 +12,7 @@ internal class DebateRunnerSpec: QuickSpec {
             var sut: DebateRunner!
 
             beforeEach {
-                guard let assembler = try? Assembler(assemblies: [DebateRunnerAssembly()]) else {
-                    fatalError("Could not build testing assembly")
-                }
+                let assembler = Assembler([DebateRunnerAssembly()])
 
                 navigationController = UINavigationController()
                 sut = DebateRunner(resolver: assembler.resolver)
