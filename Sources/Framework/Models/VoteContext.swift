@@ -8,7 +8,7 @@ public struct VoteContext {
 
 }
 
-public extension VoteContext {
+extension VoteContext {
 
     public func answer(for answerType: AnswerType) -> Answer {
         switch answerType {
