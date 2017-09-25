@@ -8,8 +8,6 @@ public enum AnswerType: String {
 
 }
 
-
-
 extension AnswerType {
 
     public static var allTypes: [AnswerType] {
