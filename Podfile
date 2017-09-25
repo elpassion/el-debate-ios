@@ -45,7 +45,7 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     case target.name
-      when 'KeychainAccess', 'Nimble', 'Quick', 'EarlGreySnapshots', 'EarlGrey', 'Nimble-Snapshots'
+      when 'EarlGrey', 'EarlGreySnapshots', 'KeychainAccess', 'Nimble', 'Nimble-Snapshots', 'Quick' 
         swift_version = '3.0'
       else
         swift_version = '4.0'
