@@ -48,7 +48,7 @@ DEPENDENCIES:
   - EarlGreySnapshots (~> 0.0.3)
   - Fabric (~> 1.6)
   - FBSnapshotTestCase (~> 2.1)
-  - KeychainAccess (~> 3.0)
+  - KeychainAccess (~> 3.1)
   - Nimble (~> 7.0)
   - Nimble-Snapshots (from `https://github.com/ashfurrow/Nimble-Snapshots.git`, branch `xcode9-beta`)
   - PromiseKit (~> 4.0)
@@ -108,6 +108,6 @@ SPEC CHECKSUMS:
   SwinjectAutoregistration: 5923637a0f8c14c80f69e3301631c19abe9f29c7
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: ce8df3a8397f0fc0f4b3cfbdc0f0b121aebd0dfc
+PODFILE CHECKSUM: bc8f53748f2cc897267100c29c99c098c4aa161e
 
 COCOAPODS: 1.3.1
