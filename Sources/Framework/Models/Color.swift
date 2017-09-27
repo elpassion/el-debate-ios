@@ -1,6 +1,5 @@
 import UIKit
 
-
 enum Color: String {
 
     case screenBackground = "#F8FAF8"
