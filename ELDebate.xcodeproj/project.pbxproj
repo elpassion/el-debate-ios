@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0F5311200D5341E956D16AC2 /* Pods_FeatureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */; };
+		298784D91F70468B008A28CC /* Dictionary+StringAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298381E41F70288400993B17 /* Dictionary+StringAny.swift */; };
+		298784DB1F704749008A28CC /* Dictionary_StringAnySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298784D51F70420A008A28CC /* Dictionary_StringAnySpec.swift */; };
 		326723424614E761B4834409 /* UsernameValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */; };
 		326723B8FDCF8C056AF26357 /* PinCodeValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */; };
 		32672746AB41975F44B887A7 /* UsernameValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */; };
 		326728DEF33D4C6F923378A5 /* AlertPresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */; };
 		32672CD29AB24344404C2D44 /* PinCodeValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */; };
 		501E951C7F5419BDDB3C45B8 /* Pods_ELDebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */; };
+		5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */; };
+		5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */; };
 		51757128F328010E2BC3E35A /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B514A80F4268B66CD30EE8B /* EarlGrey.framework */; };
 		6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */; };
 		6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */; };
@@ -250,12 +254,16 @@
 		19E287EA4ED2A64F83F5A9CB /* Pods-ELDebateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		275F10A50218847328F71153 /* Pods-ELDebateFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateFramework/Pods-ELDebateFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		298381E41F70288400993B17 /* Dictionary+StringAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+StringAny.swift"; sourceTree = "<group>"; };
+		298784D51F70420A008A28CC /* Dictionary_StringAnySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary_StringAnySpec.swift; sourceTree = "<group>"; };
 		326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorErrorSpec.swift; sourceTree = "<group>"; };
 		326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresentableError.swift; sourceTree = "<group>"; };
 		32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorError.swift; sourceTree = "<group>"; };
 		32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorErrorSpec.swift; sourceTree = "<group>"; };
 		32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorError.swift; sourceTree = "<group>"; };
 		503584F6E31E132E68AE9835 /* Pods-ELDebateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.release.xcconfig"; sourceTree = "<group>"; };
+		5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionConfiguration.swift; sourceTree = "<group>"; };
+		5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTextFieldConfiguration.swift; sourceTree = "<group>"; };
 		5B514A80F4268B66CD30EE8B /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = "${SRCROOT}/Pods/EarlGrey/EarlGrey/EarlGrey.framework"; sourceTree = SRCROOT; };
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		5F67AEB94008F68BD181A24A /* Pods-ELDebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.release.xcconfig"; sourceTree = "<group>"; };
@@ -330,7 +338,7 @@
 		8C3E8F121ED83C22009DB7ED /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		8C464F091EC5E537009DD7BF /* AnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 		8C47A1561EE5566400B7A525 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8C4B231D1EE5469600CE42DD /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; };
+		8C4B231D1EE5469600CE42DD /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8C4B23231EE547B400CE42DD /* ELDebateFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ELDebateFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4B23251EE547B400CE42DD /* ELDebateFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELDebateFramework.h; sourceTree = "<group>"; };
 		8C4B23261EE547B400CE42DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -446,7 +454,7 @@
 		8CF071D81ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowPayloadSpec.swift; sourceTree = "<group>"; };
 		8CFAC8541EE5A55C0086A976 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		996F3224CAB84F5F195967B0 /* Pods-FeatureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatureTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeatureTests/Pods-FeatureTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C8A7DAC3B246DF0E3D26F9E9 /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = Pods/EarlGrey/EarlGrey/EarlGrey.framework; sourceTree = SOURCE_ROOT; };
+		C4EF1B865EA02266DDB4F5E4 /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = Pods/EarlGrey/EarlGrey/EarlGrey.framework; sourceTree = SOURCE_ROOT; };
 		F279745FDA64037BEE9E67EC /* Pods-FeatureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatureTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatureTests/Pods-FeatureTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -586,6 +594,7 @@
 				8C364DEE1EDC52C7007D4EA6 /* AnswerType+RawType.swift */,
 				8CD5F64A1ECC85DC0067BFC7 /* Dictionary+Mapping.swift */,
 				6EADF55D1ECC843A00488057 /* Dictionary+Merging.swift */,
+				298381E41F70288400993B17 /* Dictionary+StringAny.swift */,
 				8C3E8F091ED836E3009DB7ED /* ForceCast.swift */,
 				6EF0365F1EC9A43D00198F01 /* Keychain+KeychainStoring.swift */,
 				8C364DE41EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift */,
@@ -953,8 +962,10 @@
 		8CCD73CD1EFD715000183DA0 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
+				5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */,
 				8CCD73D01EFD719E00183DA0 /* AlertConfiguration.swift */,
 				8CCD73CE1EFD716800183DA0 /* AlertFactory.swift */,
+				5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -974,6 +985,7 @@
 				8CBB569C1EFD33D100289066 /* AnswerTypeRawTypeSpec.swift */,
 				8CD5F64D1ECC86500067BFC7 /* DictionaryMappingSpec.swift */,
 				8CD5F64F1ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift */,
+				298784D51F70420A008A28CC /* Dictionary_StringAnySpec.swift */,
 				8CBB56A11EFD371F00289066 /* ForceCastSpec.swift */,
 			);
 			path = Extensions;
@@ -1051,7 +1063,7 @@
 				06DCA5AB659775BB4F7FD239 /* Pods_ELDebateTests.framework */,
 				26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */,
 				89394591D6E38BCF7121D02F /* Pods_ELDebateFramework.framework */,
-				C8A7DAC3B246DF0E3D26F9E9 /* EarlGrey.framework */,
+				C4EF1B865EA02266DDB4F5E4 /* EarlGrey.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1097,9 +1109,9 @@
 				BF521D377CA1F178E3C4E792 /* [CP] Check Pods Manifest.lock */,
 				8C1917F71EC356BA00519DC8 /* Sourcery Generate Mocks */,
 				8CAD34DB1EC34F5E00468C87 /* Sources */,
+				8C78D3FE1EC352AF00BDF7EB /* SwiftLint ELD */,
 				8CAD34DC1EC34F5E00468C87 /* Frameworks */,
 				8CAD34DD1EC34F5E00468C87 /* Resources */,
-				8C78D3FE1EC352AF00BDF7EB /* SwiftLint */,
 				38923F83422368976D5B85FD /* [CP] Embed Pods Frameworks */,
 				827448BEBEF799B2B69D5432 /* [CP] Copy Pods Resources */,
 				8C24463E1ECDE29A00E87DB1 /* Crashlytics */,
@@ -1121,6 +1133,7 @@
 			buildPhases = (
 				DFCF73244C21B9FBC21D0931 /* [CP] Check Pods Manifest.lock */,
 				8CB3AF4E1EC36E92005EEDC7 /* Sources */,
+				509296851F715613007642D7 /* SwiftLint ELDT */,
 				8CB3AF4F1EC36E92005EEDC7 /* Frameworks */,
 				8CB3AF501EC36E92005EEDC7 /* Resources */,
 				AC883875F718DCE5326FC678 /* [CP] Embed Pods Frameworks */,
@@ -1142,6 +1155,7 @@
 			buildPhases = (
 				131CBAB07B0D66F2BF69F388 /* [CP] Check Pods Manifest.lock */,
 				8CDF216F1ECAFB91002B4FA4 /* Sources */,
+				509296861F71562E007642D7 /* SwiftLint - FT */,
 				8CDF21701ECAFB91002B4FA4 /* Frameworks */,
 				8CDF21711ECAFB91002B4FA4 /* Resources */,
 				9C4DE1A546D513410B434565 /* EarlGrey Copy Files */,
@@ -1170,22 +1184,26 @@
 				TargetAttributes = {
 					8C4B23221EE547B400CE42DD = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
 					8CAD34DE1EC34F5E00468C87 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = H5QFB36W2F;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
 					8CB3AF511EC36E92005EEDC7 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = H5QFB36W2F;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8CAD34DE1EC34F5E00468C87;
 					};
 					8CDF21721ECAFB91002B4FA4 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = H5QFB36W2F;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8CAD34DE1EC34F5E00468C87;
 					};
@@ -1313,7 +1331,7 @@
 				"${BUILT_PRODUCTS_DIR}/Anchorage/Anchorage.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-8/iOS/RevealServer.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-11/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/SwinjectAutoregistration/SwinjectAutoregistration.framework",
 				"${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework",
@@ -1333,6 +1351,34 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		509296851F715613007642D7 /* SwiftLint ELDT */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint ELDT";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ “$CI” = “true” ]; then\necho “Skipping SwiftLint on CI”\nexit 0\nfi\n\ncd Tests; ${PODS_ROOT}/SwiftLint/swiftlint";
+		};
+		509296861F71562E007642D7 /* SwiftLint - FT */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint - FT";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ “$CI” = “true” ]; then\necho “Skipping SwiftLint on CI”\nexit 0\nfi\n\ncd FeatureTests; ${PODS_ROOT}/SwiftLint/swiftlint";
 		};
 		7A92494263709C0FA87BA8B3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1410,19 +1456,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 4fb6504551d9582cf1d2a1b3cd181e74a6b932fd a548a049d3e5ca6c1cea1bec687fa3d529d6e8189235c6b20e8b0d89f5910489";
 		};
-		8C78D3FE1EC352AF00BDF7EB /* SwiftLint */ = {
+		8C78D3FE1EC352AF00BDF7EB /* SwiftLint ELD */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = SwiftLint;
+			name = "SwiftLint ELD";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "if [ “$CI” = “true” ]; then\necho “Skipping SwiftLint on CI”\nexit 0\nfi\n\ncd Sources; ${PODS_ROOT}/SwiftLint/swiftlint";
 		};
 		AC883875F718DCE5326FC678 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1525,6 +1571,7 @@
 				8CC783D81EE6F43B00023EBF /* InputAlertPresenter.swift in Sources */,
 				8C4B236B1EE547FE00CE42DD /* Views.swift in Sources */,
 				8C4B236D1EE5480400CE42DD /* AttributesDescriptor.swift in Sources */,
+				5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */,
 				8C4B23651EE547FA00CE42DD /* CommentController.swift in Sources */,
 				8C6137F31EF1302C00E00700 /* PinCodeValidator.swift in Sources */,
 				8C4B23561EE547F100CE42DD /* NotificationCenter+Protocol.swift in Sources */,
@@ -1564,6 +1611,7 @@
 				8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */,
 				8CCD73D11EFD719E00183DA0 /* AlertConfiguration.swift in Sources */,
 				8C4B23491EE547E600CE42DD /* Router.swift in Sources */,
+				5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */,
 				8C4B233D1EE547D700CE42DD /* NotificationDescriptor.swift in Sources */,
 				8C4B23461EE547E100CE42DD /* DebateDeserializer.swift in Sources */,
 				8C4B23701EE5480400CE42DD /* ControllerFactory.swift in Sources */,
@@ -1572,6 +1620,7 @@
 				8C4B23531EE547F100CE42DD /* Dictionary+Merging.swift in Sources */,
 				8C4B23751EE5480400CE42DD /* TextStyleDescriptor.swift in Sources */,
 				8C4B235F1EE547F500CE42DD /* MainAssembly.swift in Sources */,
+				298784D91F70468B008A28CC /* Dictionary+StringAny.swift in Sources */,
 				8C4B23631EE547FA00CE42DD /* AnswerViewController.swift in Sources */,
 				8C4B23341EE547D100CE42DD /* ChatButtonView.swift in Sources */,
 				8C4B236E1EE5480400CE42DD /* AuthTokenStorage.swift in Sources */,
@@ -1663,6 +1712,7 @@
 				8CD5F64E1ECC86500067BFC7 /* DictionaryMappingSpec.swift in Sources */,
 				8CD094801EE87411006D46A5 /* LoginCredentialsStoreMock.swift in Sources */,
 				8C6DA0351EC5915800D31E76 /* NavigationControllerFactorySpec.swift in Sources */,
+				298784DB1F704749008A28CC /* Dictionary_StringAnySpec.swift in Sources */,
 				8CBB56A01EFD348900289066 /* Quick+SyntacticSugar.swift in Sources */,
 				8CCD73C81EFD66B200183DA0 /* DebateRunnerAssembly.swift in Sources */,
 				8C127C841EC49B2F00E9B5FD /* ControllerFactoryMock.swift in Sources */,
@@ -1758,7 +1808,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1784,7 +1835,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1838,6 +1890,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1882,6 +1935,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1905,7 +1959,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "34db88ae-3429-42fe-9e1a-8ce94f6825ab";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development pl.elpassion.ELDebate";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1926,7 +1981,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1956caa0-2fbf-4c5e-8961-99001ab6c31c";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore pl.elpassion.ELDebate";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1940,7 +1996,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.ELDebateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ELDebate.app/ELDebate";
 			};
 			name = Debug;
@@ -1955,7 +2012,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.ELDebateTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ELDebate.app/ELDebate";
 			};
 			name = Release;
@@ -1970,7 +2028,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.FeatureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ELDebate.app/ELDebate";
 			};
 			name = Debug;
@@ -1985,7 +2044,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elpassion.FeatureTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ELDebate.app/ELDebate";
 			};
 			name = Release;

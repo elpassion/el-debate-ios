@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 31.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebateFramework
 import Nimble
 import Quick
@@ -23,44 +18,44 @@ class AttributesDescriptorSpec: QuickSpec {
             }
 
             describe("build") {
-                var attributes: [String: AnyObject]!
+                var attributes: [NSAttributedStringKey: AnyObject]!
 
                 beforeEach {
                     attributes = sut.build()
                 }
 
                 it("should have correct line spacing set") {
-                    let paragraphStyle = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle
+                    let paragraphStyle = attributes[.paragraphStyle] as? NSParagraphStyle
 
                     expect(paragraphStyle?.lineSpacing) == CGFloat(20.0)
                 }
 
                 it("should have correct alignment set") {
-                    let paragraphStyle = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle
+                    let paragraphStyle = attributes[.paragraphStyle] as? NSParagraphStyle
 
                     expect(paragraphStyle?.alignment) == NSTextAlignment.justified
                 }
 
                 it("should have correct font name set") {
-                    let font = attributes[NSFontAttributeName] as? UIFont
+                    let font = attributes[.font] as? UIFont
 
                     expect(font?.fontName) == Font.regular.rawValue
                 }
 
                 it("should have correct font size set") {
-                    let font = attributes[NSFontAttributeName] as? UIFont
+                    let font = attributes[.font] as? UIFont
 
                     expect(font?.pointSize) == CGFloat(16.0)
                 }
 
                 it("should have correct kern set") {
-                    let kern = attributes[NSKernAttributeName] as? NSNumber
+                    let kern = attributes[.kern] as? NSNumber
 
                     expect(kern) == NSNumber(value: 4.0)
                 }
 
                 it("should have correct foreground color set") {
-                    let color = attributes[NSForegroundColorAttributeName] as? UIColor
+                    let color = attributes[.foregroundColor] as? UIColor
 
                     expect(color?.hexString()) == UIColor(predefined: .pin).hexString()
                 }

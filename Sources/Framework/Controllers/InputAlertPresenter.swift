@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 06.06.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import PromiseKit
 import UIKit
 
@@ -18,15 +13,16 @@ class InputAlertPresenter: InputAlertPresenting {
         return prompt(in: controller, with: configuration, alertFactory: AlertFactory.build())
     }
 
-    func prompt(in controller: UIViewController, with configuration: InputAlertConfiguration,
+    func prompt(in controller: UIViewController,
+                with configuration: InputAlertConfiguration,
                 alertFactory: AlertCreating) -> Promise<String?> {
         return Promise { fulfill, _ in
             var alert: UIAlertController?
 
             let cancelAction = AlertActionConfiguration(title: configuration.cancelTitle,
-                                                        style: .cancel) { _ in fulfill(nil) }
+                                                        style: .cancel) { fulfill(nil) }
             let sendAction = AlertActionConfiguration(title: configuration.okTitle,
-                                                      style: .default) { _ in
+                                                      style: .default) {
                 fulfill(alert?.textFields?.first?.text)
             }
 

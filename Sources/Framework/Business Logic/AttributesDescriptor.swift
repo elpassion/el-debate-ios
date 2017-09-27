@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 31.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import UIKit
 
 struct AttributesDescriptor {
@@ -36,16 +31,16 @@ struct AttributesDescriptor {
 
 extension AttributesDescriptor {
 
-    func build() -> [String: AnyObject] {
+    func build() -> [NSAttributedStringKey: AnyObject] {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment
         paragraphStyle.lineSpacing = lineSpacing
 
         return [
-            NSParagraphStyleAttributeName: paragraphStyle,
-            NSKernAttributeName: NSNumber(value: kern),
-            NSForegroundColorAttributeName: style.uiColor,
-            NSFontAttributeName: style.uiFont
+            NSAttributedStringKey.paragraphStyle: paragraphStyle,
+            NSAttributedStringKey.kern: NSNumber(value: kern),
+            NSAttributedStringKey.foregroundColor: style.uiColor,
+            NSAttributedStringKey.font: style.uiFont
         ]
     }
 

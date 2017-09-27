@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 19.06.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Swinject
 import SwinjectAutoregistration
 

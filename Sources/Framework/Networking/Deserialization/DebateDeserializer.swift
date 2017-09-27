@@ -1,11 +1,3 @@
-//
-//  DebateDeserializer.swift
-//  ELDebate
-//
-//  Created by Pawel Urbanek on 11/05/2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Foundation
 
 class DebateDeserializer: Deserializing {
@@ -34,7 +26,7 @@ class DebateDeserializer: Deserializing {
     }
 
     private func answersWithTypes(_ answersJSON: [String: [String: Any?]]) -> [[String: Any?]] {
-        let mappedAnswersJSON = answersJSON.mapDictionary { (typeKey, singleAnswerJSON) in
+        let mappedAnswersJSON = answersJSON.mapDictionary { typeKey, singleAnswerJSON in
             (typeKey, singleAnswerJSON.merge(["answer_type": typeKey]))
         }
 

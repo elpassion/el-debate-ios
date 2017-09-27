@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 31.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 enum AttributeStyle {
 
     case question

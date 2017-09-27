@@ -1,11 +1,3 @@
-//
-//  ApiClient.swift
-//  ELDebate
-//
-//  Created by Pawel Urbanek on 11/05/2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Alamofire
 import Foundation
 import PromiseKit
@@ -60,7 +52,7 @@ class ApiClient: APIProviding {
             headers: ["Authorization": authToken]
         )
 
-        return Promise(requestExecutor: response.maybeJson, processor: { _ in answer })
+        return Promise(requestExecutor: response.maybeJson) { _ in answer }
             .recover { error -> Promise<Answer> in
                 if case let AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: code)) = error,
                     code == 429 {
@@ -79,14 +71,14 @@ class ApiClient: APIProviding {
             headers: ["Authorization": voteContext.authToken]
         )
 
-        return Promise(requestExecutor: response.maybeJson, processor: { _ in true })
+        return Promise(requestExecutor: response.maybeJson) { _ in true }
     }
 
 }
 
 private func request<T>(with executor: @escaping (@escaping (ApiResponse) -> Void) -> Void,
                         deserializedBy deserializer: Deserializer<T>) -> Promise<T> {
-    return Promise(requestExecutor: executor, processor: { response in
+    return Promise(requestExecutor: executor) { response in
         try deserializer.deserialize(json: response.json)
-    })
+    }
 }

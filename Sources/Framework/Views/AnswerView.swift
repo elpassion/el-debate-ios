@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 12.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 import Anchorage
 import UIKit
 
@@ -98,7 +93,7 @@ class AnswerView: UIView, AnswerViewProviding {
         scrollView.edgeAnchors == edgeAnchors
 
         verticalStack.edgeAnchors == scrollView.edgeAnchors + stackInsets
-        verticalStack.widthAnchor == (widthAnchor - stackInsets.left - stackInsets.right) ~ .custom(999)
+        verticalStack.widthAnchor == (widthAnchor - stackInsets.left - stackInsets.right) ~ 999
 
         background.centerXAnchor == centerXAnchor
         background.bottomAnchor == bottomAnchor - 20

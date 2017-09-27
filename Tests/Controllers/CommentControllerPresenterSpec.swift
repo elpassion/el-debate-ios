@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 06.06.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebateFramework
 import Nimble
 import Nimble_Snapshots
@@ -11,7 +6,6 @@ import Quick
 
 class CommentControllerPresenterSpec: QuickSpec {
 
-    // swiftlint:disable function_body_length
     override func spec() {
         describe("CommentControllerPresenter") {
             var sut: CommentControllerPresenter!

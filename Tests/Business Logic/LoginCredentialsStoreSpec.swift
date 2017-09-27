@@ -1,15 +1,9 @@
-//
-//  Created by Jakub Turek on 07.06.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebateFramework
 import Nimble
 import Quick
 
 class LoginCredentialsStoreSpec: QuickSpec {
 
-    // swiftlint:disable function_body_length
     override func spec() {
         var userDefaults: UserDefaultsStoreMock!
         var sut: LoginCredentialsStore!

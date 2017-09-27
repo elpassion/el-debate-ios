@@ -1,8 +1,3 @@
-//
-//  Created by Jakub Turek on 12.05.2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebateFramework
 import Nimble
 import Quick
@@ -31,7 +26,7 @@ class NavigationControllerFactorySpec: QuickSpec {
                 it("should set title color") {
                     let attributes = navigationController.navigationBar.titleTextAttributes
 
-                    expect(attributes?[NSForegroundColorAttributeName] as? UIColor) == UIColor.white
+                    expect(attributes?[.foregroundColor] as? UIColor) == UIColor.white
                 }
 
                 it("should disable translucent navigation bar") {
