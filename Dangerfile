@@ -1,6 +1,6 @@
 APP_DIR = 'Sources'
 TESTS_DIR = 'Tests'
-TEST_SCHEME = 'ELDebate'
+APP_SCHEME = 'ELDebate'
 XC_WORKSPACE = 'ELDebate.xcworkspace'
 BASE_PATH = Dir.pwd
 
@@ -37,15 +37,17 @@ test_path = File.join(BASE_PATH, TESTS_DIR)
 files = (git.added_files + git.modified_files).map { |path| File.join(BASE_PATH, path) }
 app_files = files.select { |path| path.start_with?(app_path + '/') }
 test_files = files.select { |path| path.start_with?(test_path + '/') }
+
 swiftlint.directory = app_path
 swiftlint.lint_files(app_files, inline_mode: false)
+
 swiftlint.directory = test_path
 swiftlint.lint_files(test_files, inline_mode: false)
 
-# Generate code ceoverage report
+# Generate code coverage report
 xcov.report(
   workspace: File.join(BASE_PATH, XC_WORKSPACE),
-  scheme: TEST_SCHEME,
+  scheme: APP_SCHEME,
   only_project_targets: true,
   ignore_file_path: File.join(BASE_PATH, '.xcovignore'),
   minimum_coverage_percentage: 75.0
