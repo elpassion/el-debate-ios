@@ -9,7 +9,7 @@ public struct AlertConfiguration {
 
 }
 
-// MARK: - Equatables
+// MARK: - Equatable
 
 extension AlertConfiguration: Equatable {
 
