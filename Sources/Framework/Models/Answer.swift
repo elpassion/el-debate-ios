@@ -8,11 +8,9 @@ public enum AnswerType: String {
 
 }
 
-// swiftlint:disable no_extension_access_modifier
+extension AnswerType {
 
-public extension AnswerType {
-
-    static var allTypes: [AnswerType] {
+    public static var allTypes: [AnswerType] {
         return [
             .positive,
             .neutral,

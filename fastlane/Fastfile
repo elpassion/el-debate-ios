@@ -1,10 +1,10 @@
-fastlane_version "2.30.2"
+fastlane_version "2.59.0"
 
 default_platform :ios
 
 platform :ios do
   before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
     cocoapods
   end
 
@@ -53,7 +53,7 @@ platform :ios do
       )
 
       gym(scheme: "ELDebate", clean: true)
-      pilot
+      pilot(skip_waiting_for_build_processing: true)
       clean_build_artifacts
       slack(message: "Successfully deployed EL Debate iOS #{pr} to TestFlight")
     end

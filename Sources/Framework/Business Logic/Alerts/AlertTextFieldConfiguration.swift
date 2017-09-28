@@ -6,7 +6,7 @@ public struct AlertTextFieldConfiguration {
 
 }
 
-// MARK: - Equatables
+// MARK: - Equatable
 
 extension AlertTextFieldConfiguration: Equatable {
 
