@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0900"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "NO"
+            buildForProfiling = "YES"
             buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8CAD34DE1EC34F5E00468C87"
-               BuildableName = "ELDebate.app"
-               BlueprintName = "ELDebate"
+               BlueprintIdentifier = "8C4B23221EE547B400CE42DD"
+               BuildableName = "ELDebateFramework.framework"
+               BlueprintName = "ELDebateFramework"
                ReferencedContainer = "container:ELDebate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,46 +27,10 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = ""
-      shouldUseLaunchSchemeArgsEnv = "NO"
+      shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8CDF21721ECAFB91002B4FA4"
-               BuildableName = "FeatureTests.xctest"
-               BlueprintName = "FeatureTests"
-               ReferencedContainer = "container:ELDebate.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8CDF21721ECAFB91002B4FA4"
-            BuildableName = "FeatureTests.xctest"
-            BlueprintName = "FeatureTests"
-            ReferencedContainer = "container:ELDebate.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "DYLD_INSERT_LIBRARIES"
-            value = "@executable_path/EarlGrey.framework/EarlGrey"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "FB_REFERENCE_IMAGE_DIR"
-            value = "$(SOURCE_ROOT)/FeatureTests/ReferenceImages"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "IMAGE_DIFF_DIR"
-            value = "$(SOURCE_ROOT)/FeatureTests/FailureDiffs"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -84,9 +48,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8CAD34DE1EC34F5E00468C87"
-            BuildableName = "ELDebate.app"
-            BlueprintName = "ELDebate"
+            BlueprintIdentifier = "8C4B23221EE547B400CE42DD"
+            BuildableName = "ELDebateFramework.framework"
+            BlueprintName = "ELDebateFramework"
             ReferencedContainer = "container:ELDebate.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -102,9 +66,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8CAD34DE1EC34F5E00468C87"
-            BuildableName = "ELDebate.app"
-            BlueprintName = "ELDebate"
+            BlueprintIdentifier = "8C4B23221EE547B400CE42DD"
+            BuildableName = "ELDebateFramework.framework"
+            BlueprintName = "ELDebateFramework"
             ReferencedContainer = "container:ELDebate.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

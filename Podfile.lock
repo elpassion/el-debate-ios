@@ -76,7 +76,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Anchorage:
-    :commit: 3108a3741a4baf56e7669180e6212549a10712e7
+    :commit: d19d44762071947ef29572edb2803229ee86d890
     :git: https://github.com/Raizlabs/Anchorage.git
   Nimble-Snapshots:
     :commit: 88fd55d47f49895ded205da7391641744696de06
