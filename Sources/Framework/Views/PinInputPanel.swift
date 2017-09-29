@@ -41,8 +41,6 @@ class PinInputPanel: UIView {
     private func setUpSubviews() {
         codeInput.keyboardType = .numberPad
         codeInput.placeholder = "EL Debate PIN"
-
-        nameInput.placeholder = "Nickname"
     }
 
     private func addSubviews() {
