@@ -45,7 +45,6 @@ class PinInputPanel: UIView {
 
     private func addSubviews() {
         stack.addArrangedSubview(codeInput)
-        stack.addArrangedSubview(nameInput)
 
         addSubview(stack)
     }
