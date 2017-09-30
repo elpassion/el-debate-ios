@@ -29,7 +29,7 @@ class ApiClient: APIProviding {
     func login(credentials: LoginCredentials) -> Promise<String> {
         let jsonResponse = requestExecutor.post(
             url: "\(apiHost)/api/login",
-            body: ["code": credentials.pin, "username": credentials.username],
+            body: ["code": credentials.pin],
             headers: nil
         )
 
@@ -64,7 +64,7 @@ class ApiClient: APIProviding {
     }
 
     func comment(_ text: String, with voteContext: VoteContext) -> Promise<Bool> {
-        let username: String = voteContext.username ?? ""
+        let username: String = "test" ?? ""
         let response = requestExecutor.post(
             url: "\(apiHost)/api/comment",
             body: ["text": text, "username": username],

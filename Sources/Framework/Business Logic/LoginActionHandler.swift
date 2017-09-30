@@ -19,7 +19,7 @@ class LoginActionHandler: LoginActionHandling {
     }
 
     func login(with credentials: LoginCredentials) -> Promise<VoteContext> {
-        return formValidator.validate(username: credentials.username, pinCode: credentials.pin)
+        return formValidator.validate(pinCode: credentials.pin)
             .then { addingStoredToken(into: PartialContext(credentials: $0), from: self.tokenStorage) }
             .then { fetchingMissingToken(into: $0, using: self.apiClient, storedIn: self.tokenStorage) }
             .then { fetchingDebate(into: $0, using: self.apiClient) }

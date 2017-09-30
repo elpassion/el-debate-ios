@@ -33,10 +33,7 @@ class LoginCredentialsStore: LoginCredentialsStoring {
     // MARK: - Serialization / deserialization
 
     private func serialize(_ credentials: LoginCredentials) -> String? {
-        let dictionary: [String: String] = [
-            "pinCode": credentials.pin,
-            "username": credentials.username
-        ]
+        let dictionary: [String: String] = ["pinCode": credentials.pin]
 
         do {
             let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
@@ -55,11 +52,8 @@ class LoginCredentialsStore: LoginCredentialsStoring {
         guard let pin = json["pinCode"] else {
             return nil
         }
-        guard let username = json["username"] else {
-            return nil
-        }
 
-        return LoginCredentials(pin: pin, username: username)
+        return LoginCredentials(pin: pin)
     }
 
 }

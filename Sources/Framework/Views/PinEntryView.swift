@@ -27,11 +27,10 @@ class PinEntryView: UIView {
 
     var credentials: LoginCredentials {
         get {
-            return LoginCredentials(pin: pinInputView.pinCode, username: pinInputView.username)
+            return LoginCredentials(pin: pinInputView.pinCode)
         }
         set {
             pinInputView.pinCode = newValue.pin
-            pinInputView.username = newValue.username
         }
     }
 

@@ -39,7 +39,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
         title = "EL Debate"
         pinEntryView.onLoginButtonTapped = { [weak self] in self?.onLoginButtonTapped() }
-        pinEntryView.credentials = lastCredentialsStore.lastCredentials ?? LoginCredentials(pin: "", username: "")
+        pinEntryView.credentials = lastCredentialsStore.lastCredentials ?? LoginCredentials(pin: "")
         setUpKeyboardNotifications()
     }
 

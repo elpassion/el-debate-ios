@@ -6,7 +6,6 @@ class PinInputPanel: UIView {
     private let stack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                                  alignment: .fill, spacing: 25.0)
     private let codeInput: IconTextField = IconTextField(icon: .keyIcon)
-    private let nameInput: IconTextField = IconTextField(icon: .nameIcon)
 
     init() {
         super.init(frame: .zero)
@@ -24,15 +23,6 @@ class PinInputPanel: UIView {
         }
         set {
             codeInput.value = newValue
-        }
-    }
-
-    var username: String {
-        get {
-            return nameInput.value
-        }
-        set {
-            nameInput.value = newValue
         }
     }
 
