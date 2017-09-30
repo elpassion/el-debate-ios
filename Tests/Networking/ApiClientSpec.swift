@@ -26,7 +26,7 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("passes correct parameters to login service") {
-                        let credentials = LoginCredentials(pin: "90912", username: "user_")
+                        let credentials = LoginCredentials(pin: "90912")
 
                         _ = apiClient.login(credentials: credentials)
 
@@ -35,7 +35,7 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("returns the authToken") {
-                        let credentials = LoginCredentials(pin: "654321", username: "user_")
+                        let credentials = LoginCredentials(pin: "654321")
                         var authToken: String? = nil
 
                         _ = apiClient.login(credentials: credentials).then { authTokenResult in
@@ -52,7 +52,7 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("executes the only error block") {
-                        let credentials = LoginCredentials(pin: "654321", username: "user_")
+                        let credentials = LoginCredentials(pin: "654321")
                         var error: Error? = nil
 
                         apiClient.login(credentials: credentials).then { _ in
@@ -183,7 +183,7 @@ class ApiClientSpec: QuickSpec {
 
                 when("username is nil") {
                     it("performs a request with empty username") {
-                        let voteContext = VoteContext(debate: Debate.testDefault, authToken: "TOK", username: nil)
+                        let voteContext = VoteContext(debate: Debate.testDefault, authToken: "TOK")
 
                         _ = apiClient.comment("Comment", with: voteContext)
 

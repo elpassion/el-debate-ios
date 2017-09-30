@@ -35,7 +35,7 @@ class PinEntryViewControllerSpec: QuickSpec {
 
             describe("after view is loaded") {
                 beforeEach {
-                    store.lastCredentials = LoginCredentials(pin: "777", username: "Lucker")
+                    store.lastCredentials = LoginCredentials(pin: "777")
                     controller.viewDidLoad()
                 }
 
@@ -51,7 +51,6 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                 it("should set field values from login store") {
                     expect(controller.pinEntryView.credentials.pin) == "777"
-                    expect(controller.pinEntryView.credentials.username) == "Lucker"
                 }
 
                 context("when there are no credentials") {
@@ -62,7 +61,6 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                     it("should set empty pin and username") {
                         expect(controller.pinEntryView.credentials.pin) == ""
-                        expect(controller.pinEntryView.credentials.username) == ""
                     }
                 }
             }
@@ -88,14 +86,11 @@ class PinEntryViewControllerSpec: QuickSpec {
                 }
 
                 it("should pass form data from view") {
-                    controller.pinEntryView.credentials = LoginCredentials(pin: "99999", username: "I am the user")
+                    controller.pinEntryView.credentials = LoginCredentials(pin: "99999")
 
                     controller.pinEntryView.onLoginButtonTapped?()
 
                     expect(loginActionHandlingMock.loginReceivedCredentials?.pin).toEventually(equal("99999"))
-                    expect(loginActionHandlingMock.loginReceivedCredentials?.username).toEventually(
-                        equal("I am the user"))
-                }
 
                 context("action was successful") {
                     it("should trigger successful login callback with vote context from action") {
@@ -108,22 +103,20 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                         expect(fetchedVoteContext?.debate.topic).toEventually(equal("test_debate_topic"))
                         expect(fetchedVoteContext?.authToken).toEventually(equal("whatever"))
-                        expect(fetchedVoteContext?.username).toEventually(equal("some user"))
                     }
 
                     it("should store credentials in store") {
-                        controller.pinEntryView.credentials = LoginCredentials(pin: "9812367", username: "Teh Dev")
+                        controller.pinEntryView.credentials = LoginCredentials(pin: "9812367")
 
                         controller.pinEntryView.onLoginButtonTapped?()
 
                         expect(store.lastCredentials?.pin).toEventually(equal("9812367"))
-                        expect(store.lastCredentials?.username).toEventually(equal("Teh Dev"))
                     }
                 }
 
                 context("api client returns invalid response") {
                     beforeEach {
-                        store.lastCredentials = LoginCredentials(pin: "777", username: "Lucker")
+                        store.lastCredentials = LoginCredentials(pin: "777")
                         loginActionHandlingMock.loginReturnValue = Promise(
                             error: RequestError.apiError(statusCode: 500)
                         )
@@ -139,12 +132,11 @@ class PinEntryViewControllerSpec: QuickSpec {
                     }
 
                     it("should not store credentials in store") {
-                        controller.pinEntryView.credentials = LoginCredentials(pin: "9812367", username: "Teh Dev")
+                        controller.pinEntryView.credentials = LoginCredentials(pin: "9812367")
 
                         controller.pinEntryView.onLoginButtonTapped?()
 
                         expect(store.lastCredentials?.pin) == "777"
-                        expect(store.lastCredentials?.username) == "Lucker"
                     }
                 }
             }
@@ -171,5 +163,5 @@ class PinEntryViewControllerSpec: QuickSpec {
             }
         }
     }
-
+   }
 }
