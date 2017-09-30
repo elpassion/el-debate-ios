@@ -31,7 +31,6 @@ class ApiClientSpec: QuickSpec {
                         _ = apiClient.login(credentials: credentials)
 
                         expect(requestExecutor.postReceivedArguments?.body?["code"] as? String) == "90912"
-                        expect(requestExecutor.postReceivedArguments?.body?["username"] as? String) == "user_"
                     }
 
                     it("returns the authToken") {
@@ -148,7 +147,6 @@ class ApiClientSpec: QuickSpec {
                     _ = apiClient.comment("Hey", with: VoteContext.testDefault)
 
                     expect(requestExecutor.postReceivedArguments?.body?["text"] as? String) == "Hey"
-                    expect(requestExecutor.postReceivedArguments?.body?["username"] as? String) == "some user"
                     expect(requestExecutor.postReceivedArguments?.headers?["Authorization"]) == "whatever"
                 }
 

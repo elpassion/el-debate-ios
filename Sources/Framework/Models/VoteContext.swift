@@ -4,7 +4,7 @@ public struct VoteContext {
 
     let debate: Debate
     let authToken: String
-    
+
 }
 
 extension VoteContext {
