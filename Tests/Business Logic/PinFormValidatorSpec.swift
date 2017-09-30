@@ -22,27 +22,7 @@ internal class PinFormValidatorSpec: QuickSpec {
                 it("should invoke validators with correct parameters") {
                     _ = sut.validate(pinCode: "pinCode")
 
-                    expect(usernameValidator.receivedValue) == "username"
                     expect(pinCodeValidator.receivedValue) == "pinCode"
-                }
-
-                context("when username validation fails") {
-                    beforeEach {
-                        usernameValidator.error = UsernameValidatorError.missing
-                    }
-
-                    it("should rethrow the error") {
-                        var caughtError = false
-
-                        _ = sut.validate(pinCode: "pinCode")
-                            .catch { error in
-                                if case UsernameValidatorError.missing = error {
-                                    caughtError = true
-                                }
-                            }
-
-                        expect(caughtError).toEventually(beTrue())
-                    }
                 }
 
                 context("when pin code validation fails") {
@@ -72,7 +52,7 @@ internal class PinFormValidatorSpec: QuickSpec {
                             .then {
                                 formData = $0
                             }
-                        
+
                         expect(formData?.pin).toEventually(equal("pinCode"))
                     }
                 }

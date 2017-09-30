@@ -178,16 +178,6 @@ class ApiClientSpec: QuickSpec {
                         expect(error).toEventuallyNot(beNil())
                     }
                 }
-
-                when("username is nil") {
-                    it("performs a request with empty username") {
-                        let voteContext = VoteContext(debate: Debate.testDefault, authToken: "TOK")
-
-                        _ = apiClient.comment("Comment", with: voteContext)
-
-                        expect(requestExecutor.postReceivedArguments?.body?["username"] as? String) == ""
-                    }
-                }
             }
         }
 
