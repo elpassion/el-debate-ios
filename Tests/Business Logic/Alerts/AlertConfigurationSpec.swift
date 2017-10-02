@@ -63,8 +63,8 @@ internal class AlertConfigurationSpec: QuickSpec {
             describe("equality") {
                 when("titles differ") {
                     it("should return false") {
-                        let lhs = AlertConfiguration(title: "t1", message: "message", actions: [], textFields: [])
-                        let rhs = AlertConfiguration(title: "t2", message: "message", actions: [], textFields: [])
+                        let lhs = AlertConfiguration(title: "t1", message: "message", actions: [])
+                        let rhs = AlertConfiguration(title: "t2", message: "message", actions: [])
 
                         expect(lhs) != rhs
                     }
@@ -72,8 +72,8 @@ internal class AlertConfigurationSpec: QuickSpec {
 
                 when("messages differ") {
                     it("should return false") {
-                        let lhs = AlertConfiguration(title: "title", message: "m1", actions: [], textFields: [])
-                        let rhs = AlertConfiguration(title: "title", message: "m2", actions: [], textFields: [])
+                        let lhs = AlertConfiguration(title: "title", message: "m1", actions: [])
+                        let rhs = AlertConfiguration(title: "title", message: "m2", actions: [])
 
                         expect(lhs) != rhs
                     }
@@ -82,10 +82,8 @@ internal class AlertConfigurationSpec: QuickSpec {
                 when("actions differ") {
                     it("should return false") {
                         let action = AlertActionConfiguration(title: "action", style: .destructive, handler: nil)
-                        let lhs = AlertConfiguration(title: "title", message: "message",
-                                                     actions: [action], textFields: [])
-                        let rhs = AlertConfiguration(title: "title", message: "message",
-                                                     actions: [], textFields: [])
+                        let lhs = AlertConfiguration(title: "title", message: "message", actions: [action])
+                        let rhs = AlertConfiguration(title: "title", message: "message", actions: [])
 
                         expect(lhs) != rhs
                     }
@@ -93,11 +91,8 @@ internal class AlertConfigurationSpec: QuickSpec {
 
                 when("textfields differ") {
                     it("should return false") {
-                        let textField = AlertTextFieldConfiguration(placeholder: "placeholder")
-                        let lhs = AlertConfiguration(title: "title", message: "message",
-                                                     actions: [], textFields: [textField])
-                        let rhs = AlertConfiguration(title: "title", message: "message",
-                                                     actions: [], textFields: [])
+                        let lhs = AlertConfiguration(title: "title", message: "message", actions: [])
+                        let rhs = AlertConfiguration(title: "anotherTitle", message: "anotherMessage", actions: [])
 
                         expect(lhs) != rhs
                     }
@@ -106,11 +101,8 @@ internal class AlertConfigurationSpec: QuickSpec {
                 when("configurations are the same") {
                     it("should return false") {
                         let action = AlertActionConfiguration(title: "action", style: .destructive, handler: nil)
-                        let textField = AlertTextFieldConfiguration(placeholder: "placeholder")
-                        let lhs = AlertConfiguration(title: "title", message: "message",
-                                                     actions: [action], textFields: [textField])
-                        let rhs = AlertConfiguration(title: "title", message: "message",
-                                                     actions: [action], textFields: [textField])
+                        let lhs = AlertConfiguration(title: "title", message: "message", actions: [action])
+                        let rhs = AlertConfiguration(title: "title", message: "message", actions: [action])
 
                         expect(lhs) == rhs
                     }
