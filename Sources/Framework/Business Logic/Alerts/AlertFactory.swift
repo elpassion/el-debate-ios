@@ -21,12 +21,6 @@ public class AlertFactory: AlertCreating {
             controller.addAction(alertAction)
         }
 
-        for fieldConfiguration in configuration.textFields {
-            controller.addTextField { textField in
-                textField.placeholder = fieldConfiguration.placeholder
-            }
-        }
-
         return controller
     }
 
