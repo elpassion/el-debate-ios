@@ -92,6 +92,8 @@ class PinEntryViewControllerSpec: QuickSpec {
 
                     expect(loginActionHandlingMock.loginReceivedCredentials?.pin).toEventually(equal("99999"))
 
+                }
+
                 context("action was successful") {
                     it("should trigger successful login callback with vote context from action") {
                         var fetchedVoteContext: VoteContext?
@@ -163,5 +165,5 @@ class PinEntryViewControllerSpec: QuickSpec {
             }
         }
     }
-   }
+
 }

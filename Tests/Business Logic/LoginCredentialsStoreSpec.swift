@@ -47,24 +47,8 @@ class LoginCredentialsStoreSpec: QuickSpec {
                         expect(credentials).to(beNil())
                     }
 
-                    it("should return nil if there is no pinCode") {
-                        userDefaults.store = ["LastCredentials": "{\"username\":\"ME\"}"]
-
-                        let credentials = sut.lastCredentials
-
-                        expect(credentials).to(beNil())
-                    }
-
-                    it("should return nil if there is no username") {
-                        userDefaults.store = ["LastCredentials": "{\"pinCode\":\"123\"}"]
-
-                        let credentials = sut.lastCredentials
-
-                        expect(credentials).to(beNil())
-                    }
-
                     it("should return deserialized value if present") {
-                        userDefaults.store = ["LastCredentials": "{\"pinCode\":\"123\",\"username\":\"ME\"}"]
+                        userDefaults.store = ["LastCredentials": "{\"pinCode\":\"123\"}"]
 
                         let credentials = sut.lastCredentials
 
