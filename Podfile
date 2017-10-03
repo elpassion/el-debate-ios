@@ -6,7 +6,7 @@ def common_pods
   pod 'Anchorage', :git => 'https://github.com/Raizlabs/Anchorage.git', :branch => 'feature/xcode-9'
   pod 'KeychainAccess', '~> 3.1'
   pod 'PromiseKit', '~> 4.0'
-  pod 'Sourcery', '~> 0.6'
+  pod 'Sourcery', '~> 0.9'
   pod 'SwiftLint', '~> 0.22'
   pod 'Swinject', '~> 2.1.1'
   pod 'SwinjectAutoregistration', :git => 'https://github.com/Swinject/SwinjectAutoregistration.git', :branch => 'swift4'
@@ -32,7 +32,7 @@ target 'ELDebate' do
     inherit! :search_paths
 
     pod 'EarlGrey', '~> 1.9'
-    pod 'EarlGreySnapshots', '~> 0.0.3'
+    pod 'EarlGreySnapshots', '~> 0.0.4'
     pod 'FBSnapshotTestCase', '~> 2.1'
   end
 end
@@ -45,7 +45,7 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     case target.name
-      when 'EarlGrey', 'EarlGreySnapshots', 'KeychainAccess', 'Nimble', 'Nimble-Snapshots', 'Quick' 
+      when 'EarlGrey', 'KeychainAccess', 'Nimble', 'Nimble-Snapshots', 'Quick' 
         swift_version = '3.0'
       else
         swift_version = '4.0'
