@@ -137,49 +137,7 @@ class ApiClientSpec: QuickSpec {
                     }
                 }
             }
-
-            describe("comment") {
-                beforeEach {
-                    requestExecutor.postReturnValue = CommentResponseJSONMock()
-                }
-
-                it("should invoke request with correct parameters") {
-                    _ = apiClient.comment("Hey", with: VoteContext.testDefault)
-
-                    expect(requestExecutor.postReceivedArguments?.body?["text"] as? String) == "Hey"
-                    expect(requestExecutor.postReceivedArguments?.headers?["Authorization"]) == "whatever"
-                }
-
-                context("comment was submitted") {
-                    it("executes success callback") {
-                        var success: Bool?
-                        _ = apiClient.comment("Uważam że...", with: VoteContext.testDefault)
-                        .then { successValue in
-                            success = successValue
-                        }
-
-                        expect(success).toEventuallyNot(beNil())
-                    }
-                }
-
-                context("there was a problem submitting a comment") {
-                    beforeEach {
-                        requestExecutor.postReturnValue = CommentResponseErrorMock()
-                    }
-
-                    it("executes error callback") {
-                        var error: Error?
-
-                        apiClient.comment("Uważam że...", with: VoteContext.testDefault)
-                        .catch { errorValue in
-                            error = errorValue
-                        }
-
-                        expect(error).toEventuallyNot(beNil())
-                    }
-                }
-            }
         }
-
     }
+    
 }
