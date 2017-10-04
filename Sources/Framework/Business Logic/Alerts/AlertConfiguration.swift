@@ -13,8 +13,7 @@ public struct AlertConfiguration {
 extension AlertConfiguration: Equatable {
 
     public static func == (lhs: AlertConfiguration, rhs: AlertConfiguration) -> Bool {
-        return lhs.title == rhs.title && lhs.message == rhs.message &&
-            lhs.actions == rhs.actions
+        return lhs.title == rhs.title && lhs.message == rhs.message && lhs.actions == rhs.actions
     }
 
 }
