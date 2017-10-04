@@ -21,8 +21,8 @@ class PinEntryScreenTests: XCTestCase {
     }
 
     func testPinEntryScreenShouldDisplayLoginButton() {
-        EarlGrey.select(elementWithMatcher: grey_kindOfClass(UIButton.self))
-            .assert(grey_buttonTitle("Log in"))
+        EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
+            .assert(grey_sufficientlyVisible())
     }
 
     func testLoginWorks() {
