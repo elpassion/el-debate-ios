@@ -21,10 +21,9 @@ class CommentController: UIViewController, ControllerProviding {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        _ = inputAlertPresenter.prompt(in: self, with: inputAlertConfiguration)
-            .always { [weak self] in
+        _ = inputAlertPresenter.prompt(in: self, with: inputAlertConfiguration).always { [weak self] in
                 self?.doDismiss()
-            }
+        }
     }
 
     private var inputAlertConfiguration: InputAlertConfiguration {
