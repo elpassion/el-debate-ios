@@ -28,7 +28,6 @@ internal class ControllerFactorySpec: QuickSpec {
                 expect(controller).toNot(beNil())
                 expect(controller?.voteContext.authToken) == VoteContext.testDefault.authToken
                 expect(controller?.voteContext.debate.topic) == VoteContext.testDefault.debate.topic
-                expect(controller?.voteContext.username) == VoteContext.testDefault.username
             }
 
             it("should build comment controller passing vote context") {
@@ -39,7 +38,6 @@ internal class ControllerFactorySpec: QuickSpec {
                 expect(controller).toNot(beNil())
                 expect(controller?.voteContext.authToken) == VoteContext.testDefault.authToken
                 expect(controller?.voteContext.debate.topic) == VoteContext.testDefault.debate.topic
-                expect(controller?.voteContext.username) == VoteContext.testDefault.username
             }
         }
     }

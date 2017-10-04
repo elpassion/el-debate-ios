@@ -30,10 +30,6 @@ class PinEntryScreenTests: XCTestCase {
             .atIndex(1)
             .perform(grey_typeText(KeychainFixtures.testPinCode))
 
-        EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
-            .atIndex(0)
-            .perform(grey_typeText("Username"))
-
         EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
             .perform(grey_tap())
 

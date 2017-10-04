@@ -7,7 +7,6 @@ protocol APIProviding {
     func login(credentials: LoginCredentials) -> Promise<String>
     func fetchDebate(authToken: String) -> Promise<Debate>
     func vote(authToken: String, answer: Answer) -> Promise<Answer>
-    func comment(_ text: String, with voteContext: VoteContext) -> Promise<Bool>
 
 }
 
@@ -29,7 +28,7 @@ class ApiClient: APIProviding {
     func login(credentials: LoginCredentials) -> Promise<String> {
         let jsonResponse = requestExecutor.post(
             url: "\(apiHost)/api/login",
-            body: ["code": credentials.pin, "username": credentials.username],
+            body: ["code": credentials.pin],
             headers: nil
         )
 
@@ -61,17 +60,6 @@ class ApiClient: APIProviding {
                     return Promise(error: error)
                 }
             }
-    }
-
-    func comment(_ text: String, with voteContext: VoteContext) -> Promise<Bool> {
-        let username: String = voteContext.username ?? ""
-        let response = requestExecutor.post(
-            url: "\(apiHost)/api/comment",
-            body: ["text": text, "username": username],
-            headers: ["Authorization": voteContext.authToken]
-        )
-
-        return Promise(requestExecutor: response.maybeJson) { _ in true }
     }
 
 }

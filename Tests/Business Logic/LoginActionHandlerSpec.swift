@@ -31,7 +31,7 @@ class LoginActionHandlerSpec: QuickSpec {
                     it("should propagate the error") {
                         var errorPropagated = false
 
-                        _ = sut.login(with: LoginCredentials(pin: "pin", username: "user")).catch { error in
+                        _ = sut.login(with: LoginCredentials(pin: "pin")).catch { error in
                             if case PinCodeValidatorError.missing = error {
                                 errorPropagated = true
                             }
@@ -42,10 +42,9 @@ class LoginActionHandlerSpec: QuickSpec {
                 }
 
                 it("should pass correct arguments to a validator") {
-                    _ = sut.login(with: LoginCredentials(pin: "val_pin", username: "val_user"))
+                    _ = sut.login(with: LoginCredentials(pin: "val_pin"))
 
                     expect(formValidator.lastPin) == "val_pin"
-                    expect(formValidator.lastUsername) == "val_user"
                 }
 
                 context("when token for pin exists in storage") {
@@ -55,7 +54,7 @@ class LoginActionHandlerSpec: QuickSpec {
                     }
 
                     it("should use token from storage") {
-                        _ = sut.login(with: LoginCredentials(pin: "in_storage", username: "user"))
+                        _ = sut.login(with: LoginCredentials(pin: "in_storage"))
 
                         expect(apiProviderStub.debateAuthToken).toEventually(equal("auth_token_from_storage"))
                     }
@@ -68,23 +67,22 @@ class LoginActionHandlerSpec: QuickSpec {
                     }
 
                     it("should use token from service") {
-                        _ = sut.login(with: LoginCredentials(pin: "not_in_storage", username: "user"))
+                        _ = sut.login(with: LoginCredentials(pin: "not_in_storage"))
 
                         expect(apiProviderStub.debateAuthToken).toEventually(equal("auth_token_from_service"))
                     }
 
                     it("should store pin and auth code in storage") {
-                        _ = sut.login(with: LoginCredentials(pin: "not_in_storage", username: "user"))
+                        _ = sut.login(with: LoginCredentials(pin: "not_in_storage"))
 
                         expect(tokenStorage.lastSavedPin).toEventually(equal("not_in_storage"))
                         expect(tokenStorage.lastSavedToken).toEventually(equal("auth_token_from_service"))
                     }
 
                     it("should pass correct arguments to login method") {
-                        _ = sut.login(with: LoginCredentials(pin: "123", username: "qwerty"))
+                        _ = sut.login(with: LoginCredentials(pin: "123"))
 
                         expect(apiProviderStub.credentials?.pin).toEventually(equal("123"))
-                        expect(apiProviderStub.credentials?.username).toEventually(equal("qwerty"))
                     }
                 }
 
@@ -100,7 +98,7 @@ class LoginActionHandlerSpec: QuickSpec {
                     it("should propagate it") {
                         var error: Error?
 
-                        _ = sut.login(with: LoginCredentials(pin: "pin_code", username: "user")).catch { loginError in
+                        _ = sut.login(with: LoginCredentials(pin: "pin_code")).catch { loginError in
                             error = loginError
                         }
 
@@ -112,7 +110,7 @@ class LoginActionHandlerSpec: QuickSpec {
                     var voteContext: VoteContext?
 
                     beforeEach {
-                        _ = sut.login(with: LoginCredentials(pin: "pin_code", username: "TheUser")).then { result in
+                        _ = sut.login(with: LoginCredentials(pin: "pin_code")).then { result in
                             voteContext = result
                         }
                     }
@@ -122,10 +120,6 @@ class LoginActionHandlerSpec: QuickSpec {
                         expect(voteContext?.debate.positiveAnswer.identifier).toEventually(equal(1))
                         expect(voteContext?.debate.neutralAnswer.identifier).toEventually(equal(2))
                         expect(voteContext?.debate.negativeAnswer.identifier).toEventually(equal(3))
-                    }
-
-                    it("should have username passed with form data") {
-                        expect(voteContext?.username).toEventually(equal("TheUser"))
                     }
                 }
             }

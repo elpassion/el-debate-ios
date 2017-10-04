@@ -22,7 +22,7 @@ class AlertPresenter: AlertShowing {
               alertFactory: AlertCreating) -> Promise<Bool> {
         return Promise { fulfill, _ in
             let okAction = AlertActionConfiguration(title: "Ok", style: .default) { fulfill(true) }
-            let configuration = AlertConfiguration(title: title, message: message, actions: [okAction], textFields: [])
+            let configuration = AlertConfiguration(title: title, message: message, actions: [okAction])
 
             let alert = alertFactory.makeAlert(with: configuration)
 

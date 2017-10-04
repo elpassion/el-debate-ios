@@ -26,16 +26,15 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("passes correct parameters to login service") {
-                        let credentials = LoginCredentials(pin: "90912", username: "user_")
+                        let credentials = LoginCredentials(pin: "90912")
 
                         _ = apiClient.login(credentials: credentials)
 
                         expect(requestExecutor.postReceivedArguments?.body?["code"] as? String) == "90912"
-                        expect(requestExecutor.postReceivedArguments?.body?["username"] as? String) == "user_"
                     }
 
                     it("returns the authToken") {
-                        let credentials = LoginCredentials(pin: "654321", username: "user_")
+                        let credentials = LoginCredentials(pin: "654321")
                         var authToken: String? = nil
 
                         _ = apiClient.login(credentials: credentials).then { authTokenResult in
@@ -52,7 +51,7 @@ class ApiClientSpec: QuickSpec {
                     }
 
                     it("executes the only error block") {
-                        let credentials = LoginCredentials(pin: "654321", username: "user_")
+                        let credentials = LoginCredentials(pin: "654321")
                         var error: Error? = nil
 
                         apiClient.login(credentials: credentials).then { _ in
@@ -138,60 +137,7 @@ class ApiClientSpec: QuickSpec {
                     }
                 }
             }
-
-            describe("comment") {
-                beforeEach {
-                    requestExecutor.postReturnValue = CommentResponseJSONMock()
-                }
-
-                it("should invoke request with correct parameters") {
-                    _ = apiClient.comment("Hey", with: VoteContext.testDefault)
-
-                    expect(requestExecutor.postReceivedArguments?.body?["text"] as? String) == "Hey"
-                    expect(requestExecutor.postReceivedArguments?.body?["username"] as? String) == "some user"
-                    expect(requestExecutor.postReceivedArguments?.headers?["Authorization"]) == "whatever"
-                }
-
-                context("comment was submitted") {
-                    it("executes success callback") {
-                        var success: Bool?
-                        _ = apiClient.comment("Uważam że...", with: VoteContext.testDefault)
-                        .then { successValue in
-                            success = successValue
-                        }
-
-                        expect(success).toEventuallyNot(beNil())
-                    }
-                }
-
-                context("there was a problem submitting a comment") {
-                    beforeEach {
-                        requestExecutor.postReturnValue = CommentResponseErrorMock()
-                    }
-
-                    it("executes error callback") {
-                        var error: Error?
-
-                        apiClient.comment("Uważam że...", with: VoteContext.testDefault)
-                        .catch { errorValue in
-                            error = errorValue
-                        }
-
-                        expect(error).toEventuallyNot(beNil())
-                    }
-                }
-
-                when("username is nil") {
-                    it("performs a request with empty username") {
-                        let voteContext = VoteContext(debate: Debate.testDefault, authToken: "TOK", username: nil)
-
-                        _ = apiClient.comment("Comment", with: voteContext)
-
-                        expect(requestExecutor.postReceivedArguments?.body?["username"] as? String) == ""
-                    }
-                }
-            }
         }
-
     }
+    
 }

@@ -21,8 +21,7 @@ internal class AlertFactorySpec: QuickSpec {
                     let configuration = AlertConfiguration(
                         title: "Title",
                         message: "Message",
-                        actions: [],
-                        textFields: [])
+                        actions: [])
 
                     alert = sut.makeAlert(with: configuration)
                 }
@@ -46,8 +45,7 @@ internal class AlertFactorySpec: QuickSpec {
                     let otherAction = AlertActionConfiguration(title: "2", style: .cancel) {}
                     let configuration = AlertConfiguration(title: nil,
                                                            message: nil,
-                                                           actions: [action, otherAction],
-                                                           textFields: [])
+                                                           actions: [action, otherAction])
 
                     let alert = sut.makeAlert(with: configuration)
 
@@ -56,23 +54,6 @@ internal class AlertFactorySpec: QuickSpec {
                     expect(alert.actions.first?.style) == UIAlertActionStyle.default
                     expect(alert.actions.last?.title) == "2"
                     expect(alert.actions.last?.style) == UIAlertActionStyle.cancel
-                }
-            }
-
-            when("making an alert with textfields") {
-                it("should configure textfields") {
-                    let textField = AlertTextFieldConfiguration(placeholder: "P1")
-                    let otherTextField = AlertTextFieldConfiguration(placeholder: "P2")
-                    let configuration = AlertConfiguration(title: nil,
-                                                           message: nil,
-                                                           actions: [],
-                                                           textFields: [textField, otherTextField])
-
-                    let alert = sut.makeAlert(with: configuration)
-
-                    expect(alert.textFields?.count) == 2
-                    expect(alert.textFields?.first?.placeholder) == "P1"
-                    expect(alert.textFields?.last?.placeholder) == "P2"
                 }
             }
         }

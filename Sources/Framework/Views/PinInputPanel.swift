@@ -6,7 +6,6 @@ class PinInputPanel: UIView {
     private let stack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                                  alignment: .fill, spacing: 25.0)
     private let codeInput: IconTextField = IconTextField(icon: .keyIcon)
-    private let nameInput: IconTextField = IconTextField(icon: .nameIcon)
 
     init() {
         super.init(frame: .zero)
@@ -27,27 +26,15 @@ class PinInputPanel: UIView {
         }
     }
 
-    var username: String {
-        get {
-            return nameInput.value
-        }
-        set {
-            nameInput.value = newValue
-        }
-    }
-
     // MARK: - Subviews
 
     private func setUpSubviews() {
         codeInput.keyboardType = .numberPad
         codeInput.placeholder = "EL Debate PIN"
-
-        nameInput.placeholder = "Nickname"
     }
 
     private func addSubviews() {
         stack.addArrangedSubview(codeInput)
-        stack.addArrangedSubview(nameInput)
 
         addSubview(stack)
     }

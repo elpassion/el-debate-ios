@@ -12,7 +12,7 @@ class VoteContextSpec: QuickSpec {
 
                 beforeEach {
                     debate = Debate.testDefault
-                    sut = VoteContext(debate: debate, authToken: "auth_token_value", username: "Some username")
+                    sut = VoteContext(debate: debate, authToken: "auth_token_value")
                 }
 
                 it("returns the correct id for a given AnswerType") {

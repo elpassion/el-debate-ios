@@ -59,40 +59,10 @@ class AnswerScreenTests: XCTestCase {
             .assert(grey_verifyDeviceAgnosticSnapshot())
     }
 
-    func testChatButtonBringsUpAlert() {
-        EarlGrey.select(elementWithMatcher: grey_buttonTitle("Chat"))
-            .perform(grey_tap())
-
-        EarlGrey.select(elementWithMatcher: grey_text("Add a comment"))
-            .assert(grey_sufficientlyVisible())
-
-        EarlGrey.select(elementWithMatcher: grey_text("Cancel"))
-            .perform(grey_tap())
-    }
-
-    func testSendingChatMessage() {
-        EarlGrey.select(elementWithMatcher: grey_buttonTitle("Chat"))
-            .perform(grey_tap())
-
-        EarlGrey.select(elementWithMatcher: grey_hasPlaceholder("Comment"))
-            .atIndex(0)
-            .perform(grey_typeText("comment"))
-
-        EarlGrey.select(elementWithMatcher: grey_text("Send"))
-            .perform(grey_tap())
-
-        EarlGrey.select(elementWithMatcher: grey_text("Add a comment"))
-            .assert(grey_notVisible())
-    }
-
     private func navigateToAnswerScreen() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
-            .atIndex(1)
-            .perform(grey_typeText(KeychainFixtures.testPinCode))
-
-        EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
             .atIndex(0)
-            .perform(grey_typeText("Username"))
+            .perform(grey_typeText(KeychainFixtures.testPinCode))
 
         EarlGrey.select(elementWithMatcher: grey_buttonTitle("Log in"))
             .perform(grey_tap())

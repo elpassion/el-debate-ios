@@ -90,10 +90,6 @@ internal class AlertPresenterSpec: QuickSpec {
                     expect(action?.style) == UIAlertActionStyle.default
                 }
 
-                it("should create the alert with no textfields") {
-                    expect(alertFactory.lastConfiguration?.textFields.isEmpty) == true
-                }
-
                 it("should return a promise that returns true if ok is clicked") {
                     var okTriggered = false
                     _ = result.then { okTriggered = $0 }

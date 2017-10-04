@@ -21,17 +21,10 @@ class InputAlertPresenter: InputAlertPresenting {
 
             let cancelAction = AlertActionConfiguration(title: configuration.cancelTitle,
                                                         style: .cancel) { fulfill(nil) }
-            let sendAction = AlertActionConfiguration(title: configuration.okTitle,
-                                                      style: .default) {
-                fulfill(alert?.textFields?.first?.text)
-            }
-
-            let inputField = AlertTextFieldConfiguration(placeholder: configuration.inputPlaceholder)
 
             let alertConfiguration = AlertConfiguration(title: configuration.title,
                                                         message: configuration.message,
-                                                        actions: [cancelAction, sendAction],
-                                                        textFields: [inputField])
+                                                        actions: [cancelAction])
 
             alert = alertFactory.makeAlert(with: alertConfiguration)
 

@@ -22,6 +22,10 @@ xcuserdata/
 *.moved-aside
 *.xcuserstate
 
+## Sourcery
+
+default.profraw
+
 ## Obj-C/Swift specific
 *.hmap
 *.ipa

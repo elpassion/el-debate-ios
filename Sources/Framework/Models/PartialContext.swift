@@ -33,7 +33,7 @@ extension PartialContext {
             fatalError("Debate and/or auth token are missing")
         }
 
-        return VoteContext(debate: debate, authToken: authToken, username: credentials.username)
+        return VoteContext(debate: debate, authToken: authToken)
     }
 
 }

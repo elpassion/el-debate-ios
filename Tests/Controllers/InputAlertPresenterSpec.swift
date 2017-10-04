@@ -24,9 +24,7 @@ internal class InputAlertPresenterSpec: QuickSpec {
                 beforeEach {
                     let configuration = InputAlertConfiguration(title: "Prompt",
                                                                 message: "Body",
-                                                                cancelTitle: "Nope",
-                                                                okTitle: "Okay",
-                                                                inputPlaceholder: "Hold the place")
+                                                                cancelTitle: "Nope")
 
                     result = sut.prompt(in: controller, with: configuration, alertFactory: alertFactory)
                 }
@@ -41,16 +39,9 @@ internal class InputAlertPresenterSpec: QuickSpec {
                 }
 
                 it("should create an alert with two actions") {
-                    expect(alertFactory.lastConfiguration?.actions.count) == 2
+                    expect(alertFactory.lastConfiguration?.actions.count) == 1
                     expect(alertFactory.lastConfiguration?.actions.first?.title) == "Nope"
                     expect(alertFactory.lastConfiguration?.actions.first?.style) == UIAlertActionStyle.cancel
-                    expect(alertFactory.lastConfiguration?.actions.last?.title) == "Okay"
-                    expect(alertFactory.lastConfiguration?.actions.last?.style) == UIAlertActionStyle.default
-                }
-
-                it("should create an alert with a single placeholder") {
-                    expect(alertFactory.lastConfiguration?.textFields.count) == 1
-                    expect(alertFactory.lastConfiguration?.textFields.first?.placeholder) == "Hold the place"
                 }
 
                 when("cancel action is triggered") {
@@ -61,20 +52,6 @@ internal class InputAlertPresenterSpec: QuickSpec {
                         alertFactory.lastConfiguration?.actions.first?.handler?()
 
                         expect(receivedInput).toEventually(beNil())
-                    }
-                }
-
-                when("send action is triggered") {
-                    it("should return string from textfield input") {
-                        var receivedInput: String?
-                        _ = result.then { receivedInput = $0 }
-                        alertFactory.returnedAlert.addTextField { textField in
-                            textField.text = "The input"
-                        }
-
-                        alertFactory.lastConfiguration?.actions.last?.handler?()
-
-                        expect(receivedInput).toEventually(equal("The input"))
                     }
                 }
             }
