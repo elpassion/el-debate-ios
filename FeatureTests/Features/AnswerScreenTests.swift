@@ -59,6 +59,10 @@ class AnswerScreenTests: XCTestCase {
             .assert(grey_verifyDeviceAgnosticSnapshot())
     }
 
+    func testButtonResponsibilityAfterAlertDismiss() {
+        EarlGrey.select(elementWithMatcher: grey_text("Chat"))
+    }
+
     private func navigateToAnswerScreen() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
             .atIndex(0)
