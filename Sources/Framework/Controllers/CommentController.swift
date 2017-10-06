@@ -7,8 +7,8 @@ class CommentController: UIViewController, ControllerProviding {
     private let inputAlertPresenter: InputAlertPresenting
 
     lazy var doDismiss: () -> Void = { [weak self] in
-        self?.removeFromParentViewController()
         self?.view.removeFromSuperview()
+        self?.removeFromParentViewController()
     }
 
     init(voteContext: VoteContext, apiClient: APIProviding, inputAlertPresenter: InputAlertPresenting) {
