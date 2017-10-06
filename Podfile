@@ -23,7 +23,7 @@ target 'ELDebate' do
   target 'ELDebateTests' do
     inherit! :search_paths
 
-    pod 'Nimble-Snapshots', :git => 'https://github.com/ashfurrow/Nimble-Snapshots.git', :branch => 'xcode9-beta'
+    pod 'Nimble-Snapshots', '~> 6.3.0'
     pod 'Nimble', '~> 7.0'
     pod 'Quick', :git => 'https://github.com/Quick/Quick.git', :branch => 'xcode-9-fix'
   end
@@ -45,7 +45,7 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     case target.name
-      when 'KeychainAccess', 'Nimble', 'Nimble-Snapshots', 'Quick' 
+      when 'KeychainAccess', 'Nimble', 'Quick'
         swift_version = '3.0'
       else
         swift_version = '4.0'
