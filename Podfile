@@ -25,7 +25,7 @@ target 'ELDebate' do
 
     pod 'Nimble-Snapshots', '~> 6.3.0'
     pod 'Nimble', '~> 7.0'
-    pod 'Quick', :git => 'https://github.com/Quick/Quick.git', :branch => 'xcode-9-fix'
+    pod 'Quick', '~> 1.2'
   end
 
   target 'FeatureTests' do
@@ -41,18 +41,3 @@ target 'ELDebateFramework' do
   use_frameworks!
   common_pods
 end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    case target.name
-      when 'KeychainAccess', 'Nimble', 'Quick'
-        swift_version = '3.0'
-      else
-        swift_version = '4.0'
-    end
-      target.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = swift_version
-      end
-  end
-end
-
