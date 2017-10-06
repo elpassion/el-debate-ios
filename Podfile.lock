@@ -15,9 +15,9 @@ PODS:
     - FBSnapshotTestCase/Core
   - KeychainAccess (3.1.0)
   - Nimble (7.0.2)
-  - Nimble-Snapshots (6.2.2):
-    - Nimble-Snapshots/Core (= 6.2.2)
-  - Nimble-Snapshots/Core (6.2.2):
+  - Nimble-Snapshots (6.3.0):
+    - Nimble-Snapshots/Core (= 6.3.0)
+  - Nimble-Snapshots/Core (6.3.0):
     - FBSnapshotTestCase (~> 2.0)
     - Nimble (~> 7.0)
   - PromiseKit (4.4.0):
@@ -31,7 +31,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.4.0):
     - PromiseKit/CorePromise
-  - Quick (1.1.0)
+  - Quick (1.2.0)
   - Reveal-SDK (11)
   - Sourcery (0.9.0)
   - SwiftLint (0.23.0)
@@ -50,9 +50,9 @@ DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1)
   - KeychainAccess (~> 3.1)
   - Nimble (~> 7.0)
-  - Nimble-Snapshots (from `https://github.com/ashfurrow/Nimble-Snapshots.git`, branch `xcode9-beta`)
+  - Nimble-Snapshots (~> 6.3.0)
   - PromiseKit (~> 4.0)
-  - Quick (from `https://github.com/Quick/Quick.git`, branch `xcode-9-fix`)
+  - Quick (~> 1.2)
   - Reveal-SDK
   - Sourcery (~> 0.9)
   - SwiftLint (~> 0.22)
@@ -64,12 +64,6 @@ EXTERNAL SOURCES:
   Anchorage:
     :branch: feature/xcode-9
     :git: https://github.com/Raizlabs/Anchorage.git
-  Nimble-Snapshots:
-    :branch: xcode9-beta
-    :git: https://github.com/ashfurrow/Nimble-Snapshots.git
-  Quick:
-    :branch: xcode-9-fix
-    :git: https://github.com/Quick/Quick.git
   SwinjectAutoregistration:
     :branch: swift4
     :git: https://github.com/Swinject/SwinjectAutoregistration.git
@@ -78,12 +72,6 @@ CHECKOUT OPTIONS:
   Anchorage:
     :commit: d19d44762071947ef29572edb2803229ee86d890
     :git: https://github.com/Raizlabs/Anchorage.git
-  Nimble-Snapshots:
-    :commit: 88fd55d47f49895ded205da7391641744696de06
-    :git: https://github.com/ashfurrow/Nimble-Snapshots.git
-  Quick:
-    :commit: a3850d0ddc18cf1e6ef17b3078c660f46888deca
-    :git: https://github.com/Quick/Quick.git
   SwinjectAutoregistration:
     :commit: ef8574264926117c62d92c4cb2872649496f6c21
     :git: https://github.com/Swinject/SwinjectAutoregistration.git
@@ -98,9 +86,9 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
-  Nimble-Snapshots: f23ae8cb1d0f3c743b634d3cee3f7da2252cd40a
+  Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
-  Quick: 4700beb8056662b579facd79eaca7f04fb3d48e6
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   Reveal-SDK: 7fa13d04bb55db61ff2342a990cf731d5159361d
   Sourcery: e3829460a1fa0bcd3b689e6087a89cc063cd2289
   SwiftLint: 6ddf7d305644c2239cb768a11d97cce804816691
@@ -108,6 +96,6 @@ SPEC CHECKSUMS:
   SwinjectAutoregistration: 5923637a0f8c14c80f69e3301631c19abe9f29c7
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: acea5abe601fb6833fab5e0df223c0dfda83a0a2
+PODFILE CHECKSUM: d98b9a99a2b4714d7964bd997f09729edc3b4901
 
 COCOAPODS: 1.3.1
