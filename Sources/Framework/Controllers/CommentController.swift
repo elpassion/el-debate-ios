@@ -22,7 +22,7 @@ class CommentController: UIViewController, ControllerProviding {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         title = "Live Chat Feed"
     }
 
