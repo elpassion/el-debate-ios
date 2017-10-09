@@ -11,14 +11,11 @@ class CommentControllerSpec: QuickSpec {
         describe("CommentController") {
             var sut: CommentController!
             var apiClient: APIProviderStub!
-            var inputPresenter: InputAlertPresenterMock!
 
             beforeEach {
                 apiClient = APIProviderStub()
-                inputPresenter = InputAlertPresenterMock()
                 sut = CommentController(voteContext: VoteContext.testDefault,
-                                        apiClient: apiClient,
-                                        inputAlertPresenter: inputPresenter)
+                                        apiClient: apiClient)
             }
 
             describe("after view has appeared") {
@@ -26,9 +23,6 @@ class CommentControllerSpec: QuickSpec {
                     sut.viewDidAppear(true)
                 }
 
-                it("should show input alert") {
-                    expect(inputPresenter.receivedController) == sut
-                }
             }
         }
     }
