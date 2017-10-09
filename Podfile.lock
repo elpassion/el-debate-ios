@@ -36,7 +36,7 @@ PODS:
   - Sourcery (0.9.0)
   - SwiftLint (0.23.0)
   - Swinject (2.1.1)
-  - SwinjectAutoregistration (2.1.0):
+  - SwinjectAutoregistration (2.1.1):
     - Swinject (~> 2.1)
   - UIColor_Hex_Swift (3.0.2)
 
@@ -73,7 +73,7 @@ CHECKOUT OPTIONS:
     :commit: d19d44762071947ef29572edb2803229ee86d890
     :git: https://github.com/Raizlabs/Anchorage.git
   SwinjectAutoregistration:
-    :commit: ef8574264926117c62d92c4cb2872649496f6c21
+    :commit: 61f0d86186798a2875ae9264b34f8e9fb1443983
     :git: https://github.com/Swinject/SwinjectAutoregistration.git
 
 SPEC CHECKSUMS:
@@ -93,7 +93,7 @@ SPEC CHECKSUMS:
   Sourcery: e3829460a1fa0bcd3b689e6087a89cc063cd2289
   SwiftLint: 6ddf7d305644c2239cb768a11d97cce804816691
   Swinject: afea49fd95f392b41171669f165842879c48fad6
-  SwinjectAutoregistration: 5923637a0f8c14c80f69e3301631c19abe9f29c7
+  SwinjectAutoregistration: 3fbc422141fe6c7fdcb2d4dd6ad40c71016a3513
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
 PODFILE CHECKSUM: d98b9a99a2b4714d7964bd997f09729edc3b4901
