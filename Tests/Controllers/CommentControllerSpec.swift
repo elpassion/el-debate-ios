@@ -29,12 +29,6 @@ class CommentControllerSpec: QuickSpec {
                 it("should show input alert") {
                     expect(inputPresenter.receivedController) == sut
                 }
-
-                it("should show input alert with correct configuration") {
-                    expect(inputPresenter.receivedConfiguration?.title) == "Chat is not available"
-                    expect(inputPresenter.receivedConfiguration?.message) == "It will be fixed in next release, sorry :)"
-                    expect(inputPresenter.receivedConfiguration?.cancelTitle) == "Cancel"
-                }
             }
         }
     }
