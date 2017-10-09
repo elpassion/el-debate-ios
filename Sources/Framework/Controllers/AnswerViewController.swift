@@ -6,18 +6,15 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     let voteContext: VoteContext
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
-    private let commentPresenter: CommentControllerPresenting
 
     // MARK: - Initializer
 
     init(voteContext: VoteContext,
          apiClient: APIProviding,
-         alertView: AlertShowing,
-         commentPresenter: CommentControllerPresenting) {
+         alertView: AlertShowing) {
         self.voteContext = voteContext
         self.apiClient = apiClient
         self.alertPresenter = alertView
-        self.commentPresenter = commentPresenter
 
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -65,7 +62,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     }
 
     private func didTapChat() {
-        commentPresenter.present(in: self, with: voteContext)
+
     }
 
     private func selectInitialAnswer() {

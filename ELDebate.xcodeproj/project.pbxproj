@@ -19,6 +19,7 @@
 		5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */; };
 		5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */; };
 		50CB84461F8BAC71000A0D83 /* ChatFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* ChatFeedView.swift */; };
+		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		51757128F328010E2BC3E35A /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B514A80F4268B66CD30EE8B /* EarlGrey.framework */; };
 		6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */; };
 		6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */; };
@@ -182,7 +183,6 @@
 		8CD0947E1EE8726F006D46A5 /* UserDefaultsStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */; };
 		8CD094801EE87411006D46A5 /* LoginCredentialsStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0947F1EE87411006D46A5 /* LoginCredentialsStoreMock.swift */; };
 		8CD094821EE87935006D46A5 /* UserDefaultsFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD094811EE87935006D46A5 /* UserDefaultsFixtures.swift */; };
-		8CD496791EE6F8B8004046C7 /* CommentControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */; };
 		8CD4967E1EE6FBF9004046C7 /* CommentControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */; };
 		8CD496831EE7040A004046C7 /* ChildControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD496821EE7040A004046C7 /* ChildControllerSpy.swift */; };
 		8CD496851EE7044D004046C7 /* CommentControllerPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD496841EE7044D004046C7 /* CommentControllerPresenterSpec.swift */; };
@@ -262,6 +262,7 @@
 		5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionConfiguration.swift; sourceTree = "<group>"; };
 		5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTextFieldConfiguration.swift; sourceTree = "<group>"; };
 		50CB84451F8BAC71000A0D83 /* ChatFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFeedView.swift; sourceTree = "<group>"; };
+		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		5B514A80F4268B66CD30EE8B /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = "${SRCROOT}/Pods/EarlGrey/EarlGrey/EarlGrey.framework"; sourceTree = SRCROOT; };
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		5F67AEB94008F68BD181A24A /* Pods-ELDebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.release.xcconfig"; sourceTree = "<group>"; };
@@ -430,7 +431,6 @@
 		8CD0947F1EE87411006D46A5 /* LoginCredentialsStoreMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCredentialsStoreMock.swift; sourceTree = "<group>"; };
 		8CD094811EE87935006D46A5 /* UserDefaultsFixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsFixtures.swift; sourceTree = "<group>"; };
 		8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnswerView.swift; sourceTree = "<group>"; };
-		8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentControllerPresenter.swift; sourceTree = "<group>"; };
 		8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentControllerSpec.swift; sourceTree = "<group>"; };
 		8CD496821EE7040A004046C7 /* ChildControllerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildControllerSpy.swift; sourceTree = "<group>"; };
 		8CD496841EE7044D004046C7 /* CommentControllerPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentControllerPresenterSpec.swift; sourceTree = "<group>"; };
@@ -892,7 +892,7 @@
 				6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */,
 				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
 				6E1EA1051ECEDB98008C19EF /* CommentController.swift */,
-				8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */,
+				50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */,
 				8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */,
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
 			);
@@ -1543,7 +1543,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CD496791EE6F8B8004046C7 /* CommentControllerPresenter.swift in Sources */,
 				8C4B234F1EE547EC00CE42DD /* TextStyle.swift in Sources */,
 				8CD0947A1EE868D3006D46A5 /* UserDefaults+Protocol.swift in Sources */,
 				8C337A181EF91B6A007F82B4 /* UIView+Sizes.swift in Sources */,
@@ -1596,6 +1595,7 @@
 				8C4B23331EE547D100CE42DD /* AttributedLabel.swift in Sources */,
 				8C4B23441EE547E100CE42DD /* AnswerDeserializer.swift in Sources */,
 				8C4B23391EE547D100CE42DD /* QuestionFrameView.swift in Sources */,
+				50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */,
 				8C7322D61EF7DDB00067BC84 /* PartialContext.swift in Sources */,
 				8C4B23721EE5480400CE42DD /* LoginActionHandler.swift in Sources */,
 				8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */,

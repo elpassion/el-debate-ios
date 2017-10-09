@@ -9,12 +9,24 @@ class CommentController: UIViewController, ControllerProviding {
         self.voteContext = voteContext
 
         super.init(nibName: nil, bundle: nil)
+
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back to Voting",
+                                                                style: .plain,
+                                                                target: nil,
+                                                                action: nil)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
+    override func loadView() {
+        view = ChatFeedView()
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Live Chat Feed"
+    }
+
+     var chatFeedView: ChatFeedView { return forceCast(view) }
 
     // MARK: - ControllerProviding
 
