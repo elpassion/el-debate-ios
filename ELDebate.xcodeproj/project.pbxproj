@@ -18,6 +18,7 @@
 		501E951C7F5419BDDB3C45B8 /* Pods_ELDebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */; };
 		5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */; };
 		5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */; };
+		50CB84461F8BAC71000A0D83 /* ChatFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* ChatFeedView.swift */; };
 		51757128F328010E2BC3E35A /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B514A80F4268B66CD30EE8B /* EarlGrey.framework */; };
 		6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */; };
 		6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */; };
@@ -260,6 +261,7 @@
 		503584F6E31E132E68AE9835 /* Pods-ELDebateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.release.xcconfig"; sourceTree = "<group>"; };
 		5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionConfiguration.swift; sourceTree = "<group>"; };
 		5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTextFieldConfiguration.swift; sourceTree = "<group>"; };
+		50CB84451F8BAC71000A0D83 /* ChatFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFeedView.swift; sourceTree = "<group>"; };
 		5B514A80F4268B66CD30EE8B /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = "${SRCROOT}/Pods/EarlGrey/EarlGrey/EarlGrey.framework"; sourceTree = SRCROOT; };
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		5F67AEB94008F68BD181A24A /* Pods-ELDebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.release.xcconfig"; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				8C6127E81EC9BF8E003472A3 /* AnswersListView.swift */,
 				8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */,
 				8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */,
+				50CB84451F8BAC71000A0D83 /* ChatFeedView.swift */,
 				8CFAC8541EE5A55C0086A976 /* IconTextField.swift */,
 				8CDE55421EE5B68200A05902 /* LoginButtonView.swift */,
 				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
@@ -1572,6 +1575,7 @@
 				8C4B23381EE547D100CE42DD /* PinEntryWelcomeView.swift in Sources */,
 				8C87B8AB1EE9522300A243E2 /* UIImage+FromColor.swift in Sources */,
 				8C7322DB1EF81C160067BC84 /* Deserialization+CommonFunctions.swift in Sources */,
+				50CB84461F8BAC71000A0D83 /* ChatFeedView.swift in Sources */,
 				8C530B1F1EEFF77D00C9925B /* UINavigationController+Styling.swift in Sources */,
 				8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */,
 				8C4B233F1EE547DC00CE42DD /* ApiClient.swift in Sources */,
