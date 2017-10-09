@@ -6,11 +6,6 @@ class CommentController: UIViewController, ControllerProviding {
     let voteContext: VoteContext
     private let inputAlertPresenter: InputAlertPresenting
 
-    lazy var doDismiss: () -> Void = { [weak self] in
-        self?.view.removeFromSuperview()
-        self?.removeFromParentViewController()
-    }
-
     init(voteContext: VoteContext, apiClient: APIProviding, inputAlertPresenter: InputAlertPresenting) {
         self.voteContext = voteContext
         self.inputAlertPresenter = inputAlertPresenter
@@ -21,9 +16,6 @@ class CommentController: UIViewController, ControllerProviding {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        _ = inputAlertPresenter.prompt(in: self, with: inputAlertConfiguration).always { [weak self] in
-                self?.doDismiss()
-        }
     }
 
     private var inputAlertConfiguration: InputAlertConfiguration {
