@@ -17,7 +17,7 @@ class CommentController: UIViewController, ControllerProviding {
     }
 
     override func loadView() {
-        view = ChatFeedView()
+        view = ChatView()
     }
 
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class CommentController: UIViewController, ControllerProviding {
         title = "Live Chat Feed"
     }
 
-     var chatFeedView: ChatFeedView { return forceCast(view) }
+    var chatView: ChatView { return forceCast(view) }
 
     // MARK: - ControllerProviding
 

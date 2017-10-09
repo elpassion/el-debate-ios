@@ -1,9 +1,9 @@
 import Anchorage
 import UIKit
 
-class ChatFeedView: UIView {
+class ChatView: UIView {
 
-        private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
+    private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
 
     public init() {
         super.init(frame: .zero)
