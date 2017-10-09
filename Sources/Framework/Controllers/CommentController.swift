@@ -4,11 +4,9 @@ import UIKit
 class CommentController: UIViewController, ControllerProviding {
 
     let voteContext: VoteContext
-    private let inputAlertPresenter: InputAlertPresenting
 
-    init(voteContext: VoteContext, apiClient: APIProviding, inputAlertPresenter: InputAlertPresenting) {
+    init(voteContext: VoteContext, apiClient: APIProviding) {
         self.voteContext = voteContext
-        self.inputAlertPresenter = inputAlertPresenter
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -16,12 +14,6 @@ class CommentController: UIViewController, ControllerProviding {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-    }
-
-    private var inputAlertConfiguration: InputAlertConfiguration {
-        return InputAlertConfiguration(title: "Chat is not available",
-                                       message: "It will be fixed in next release, sorry :)",
-                                       cancelTitle: "Cancel")
     }
 
     // MARK: - ControllerProviding

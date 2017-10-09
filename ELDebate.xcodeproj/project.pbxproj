@@ -162,7 +162,6 @@
 		8CBB56A21EFD371F00289066 /* ForceCastSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB56A11EFD371F00289066 /* ForceCastSpec.swift */; };
 		8CBB56A41EFD481000289066 /* AlertPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB56A31EFD481000289066 /* AlertPresenterSpec.swift */; };
 		8CBB56A61EFD4BF700289066 /* AlertPresentingControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB56A51EFD4BF700289066 /* AlertPresentingControllerMock.swift */; };
-		8CC783D81EE6F43B00023EBF /* InputAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC783D61EE6F20300023EBF /* InputAlertPresenter.swift */; };
 		8CCD73C51EFD65D400183DA0 /* DebateRunnerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73C41EFD65D400183DA0 /* DebateRunnerSpec.swift */; };
 		8CCD73C81EFD66B200183DA0 /* DebateRunnerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73C71EFD66B200183DA0 /* DebateRunnerAssembly.swift */; };
 		8CCD73CA1EFD6CB700183DA0 /* AnswerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCD73C91EFD6CB700183DA0 /* AnswerSpec.swift */; };
@@ -184,7 +183,6 @@
 		8CD094801EE87411006D46A5 /* LoginCredentialsStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD0947F1EE87411006D46A5 /* LoginCredentialsStoreMock.swift */; };
 		8CD094821EE87935006D46A5 /* UserDefaultsFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD094811EE87935006D46A5 /* UserDefaultsFixtures.swift */; };
 		8CD496791EE6F8B8004046C7 /* CommentControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */; };
-		8CD4967C1EE6FA4A004046C7 /* InputAlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */; };
 		8CD4967E1EE6FBF9004046C7 /* CommentControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */; };
 		8CD496801EE6FD98004046C7 /* InputAlertPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD4967F1EE6FD98004046C7 /* InputAlertPresenterMock.swift */; };
 		8CD496831EE7040A004046C7 /* ChildControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD496821EE7040A004046C7 /* ChildControllerSpy.swift */; };
@@ -413,7 +411,6 @@
 		8CBB56A11EFD371F00289066 /* ForceCastSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForceCastSpec.swift; sourceTree = "<group>"; };
 		8CBB56A31EFD481000289066 /* AlertPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresenterSpec.swift; sourceTree = "<group>"; };
 		8CBB56A51EFD4BF700289066 /* AlertPresentingControllerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresentingControllerMock.swift; sourceTree = "<group>"; };
-		8CC783D61EE6F20300023EBF /* InputAlertPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAlertPresenter.swift; sourceTree = "<group>"; };
 		8CCD73C41EFD65D400183DA0 /* DebateRunnerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebateRunnerSpec.swift; sourceTree = "<group>"; };
 		8CCD73C71EFD66B200183DA0 /* DebateRunnerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebateRunnerAssembly.swift; sourceTree = "<group>"; };
 		8CCD73C91EFD6CB700183DA0 /* AnswerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerSpec.swift; sourceTree = "<group>"; };
@@ -435,7 +432,6 @@
 		8CD094811EE87935006D46A5 /* UserDefaultsFixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsFixtures.swift; sourceTree = "<group>"; };
 		8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleAnswerView.swift; sourceTree = "<group>"; };
 		8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentControllerPresenter.swift; sourceTree = "<group>"; };
-		8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAlertConfiguration.swift; sourceTree = "<group>"; };
 		8CD4967D1EE6FBF9004046C7 /* CommentControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentControllerSpec.swift; sourceTree = "<group>"; };
 		8CD4967F1EE6FD98004046C7 /* InputAlertPresenterMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAlertPresenterMock.swift; sourceTree = "<group>"; };
 		8CD496821EE7040A004046C7 /* ChildControllerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildControllerSpy.swift; sourceTree = "<group>"; };
@@ -579,7 +575,6 @@
 				6EA7E2991EC4AF09002DF55E /* Debate.swift */,
 				8CA6D8251EDF067D00A82CD2 /* Font.swift */,
 				8C127C8E1EC4A23D00E9B5FD /* Image.swift */,
-				8CD4967A1EE6FA05004046C7 /* InputAlertConfiguration.swift */,
 				8C6138051EF15A5D00E00700 /* LoginCredentials.swift */,
 				8C7322D31EF7DD890067BC84 /* PartialContext.swift */,
 				8C3155AE1EDF6358003F31D9 /* TextStyle.swift */,
@@ -901,7 +896,6 @@
 				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
 				6E1EA1051ECEDB98008C19EF /* CommentController.swift */,
 				8CD496771EE6F82B004046C7 /* CommentControllerPresenter.swift */,
-				8CC783D61EE6F20300023EBF /* InputAlertPresenter.swift */,
 				8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */,
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
 			);
@@ -1562,13 +1556,11 @@
 				8C4B233E1EE547D700CE42DD /* Notifications.swift in Sources */,
 				8C4B234A1EE547EC00CE42DD /* AttributeStyle.swift in Sources */,
 				8C4B234E1EE547EC00CE42DD /* Image.swift in Sources */,
-				8CD4967C1EE6FA4A004046C7 /* InputAlertConfiguration.swift in Sources */,
 				8C4B235B1EE547F100CE42DD /* UIView+Shadow.swift in Sources */,
 				8C4B235C1EE547F500CE42DD /* AnswerAssembly.swift in Sources */,
 				8C4B234D1EE547EC00CE42DD /* Font.swift in Sources */,
 				8C4B23581EE547F100CE42DD /* Promise+APIResponse.swift in Sources */,
 				8C6137FB1EF145F100E00700 /* UsernameValidator.swift in Sources */,
-				8CC783D81EE6F43B00023EBF /* InputAlertPresenter.swift in Sources */,
 				8C4B236B1EE547FE00CE42DD /* Views.swift in Sources */,
 				8C4B236D1EE5480400CE42DD /* AttributesDescriptor.swift in Sources */,
 				5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */,
