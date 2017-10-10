@@ -888,8 +888,8 @@
 				6EADF5551ECC48BB00488057 /* AlertPresenter.swift */,
 				6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */,
 				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
-				6E1EA1051ECEDB98008C19EF /* CommentViewController.swift */,
 				50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */,
+				6E1EA1051ECEDB98008C19EF /* CommentViewController.swift */,
 				8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */,
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
 			);

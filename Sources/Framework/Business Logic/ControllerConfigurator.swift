@@ -14,7 +14,7 @@ class ControllerConfigurator: ControllerConfiguring {
         }
 
         if let controller = controller as? CommentControllerProviding {
-            router.go(to: .comment)
+            controller.onChatButtonTapped = { router.go(to: .comment) }
         }
 
     }
