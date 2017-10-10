@@ -30,7 +30,7 @@ public class ControllerFactory: ControllerCreating {
         case let .answer(voteContext: voteContext):
             return resolver ~> (AnswerViewController.self, argument: voteContext)
         case .comment:
-            return resolver ~> CommentController.self
+            return resolver ~> CommentViewController.self
         }
     }
 

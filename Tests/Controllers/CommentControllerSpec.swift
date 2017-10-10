@@ -9,7 +9,7 @@ class CommentControllerSpec: QuickSpec {
     // swiftlint:disable function_body_length
     override func spec() {
         describe("CommentController") {
-            var sut: CommentController!
+            var sut: CommentViewController!
             var apiClient: APIProviderStub!
 
             beforeEach {

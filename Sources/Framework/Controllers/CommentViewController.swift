@@ -1,7 +1,7 @@
 import PromiseKit
 import UIKit
 
-class CommentController: UIViewController, ControllerProviding {
+class CommentViewController: UIViewController, ControllerProviding {
 
     let voteContext: VoteContext
 
