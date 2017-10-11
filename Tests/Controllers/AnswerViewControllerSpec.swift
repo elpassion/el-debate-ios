@@ -13,11 +13,10 @@ class AnswerViewControllerSpec: QuickSpec {
             var apiClient: APIProviderStub!
             var alertView: AlertViewMock!
 
-
             beforeEach {
                 apiClient = APIProviderStub()
                 alertView = AlertViewMock()
-                
+
                 controller = AnswerViewController(
                     voteContext: VoteContext.testDefault,
                     apiClient: apiClient,

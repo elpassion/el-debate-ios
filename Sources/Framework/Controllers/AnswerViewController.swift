@@ -7,7 +7,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
 
-    var onChatButtonTapped: (() -> Void)
+    var onChatButtonTapped: (() -> Void)?
 
     // MARK: - Initializer
 
@@ -17,7 +17,6 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
         self.voteContext = voteContext
         self.apiClient = apiClient
         self.alertPresenter = alertView
-        self.onChatButtonTapped = { }
 
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -32,7 +31,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        answerView.onChatButtonTapped = { [weak self] in self?.onChatButtonTapped() }
+        answerView.onChatButtonTapped = { [weak self] in self?.onChatButtonTapped?() }
         answerView.onAnswerSelected = { [weak self] in self?.didSelectAnswer(with: $0) }
 
         title = "EL Debate"

@@ -10,12 +10,9 @@ class CommentControllerSpec: QuickSpec {
     override func spec() {
         describe("CommentController") {
             var sut: CommentViewController!
-            var apiClient: APIProviderStub!
 
             beforeEach {
-                apiClient = APIProviderStub()
-                sut = CommentController(voteContext: VoteContext.testDefault,
-                                        apiClient: apiClient)
+                sut = CommentViewController()
             }
 
             describe("after view has appeared") {

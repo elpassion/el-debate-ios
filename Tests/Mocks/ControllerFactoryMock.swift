@@ -44,7 +44,7 @@ class AnswerControllerMockProvider: AnswerControllerProviding {
 
     let controller = UIViewController()
 
-    var onChatButtonTapped: ((String) -> Void)?
+    var onChatButtonTapped: (() -> Void)?
 
 }
 
