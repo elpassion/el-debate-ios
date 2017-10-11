@@ -58,6 +58,10 @@ class AnswerViewControllerSpec: QuickSpec {
                     controller.answerView.onChatButtonTapped?()
                 }
 
+                it("should show CommentController") {
+                    
+                }
+
             }
 
             describe("vote") {

@@ -9,17 +9,26 @@ class CommentControllerSpec: QuickSpec {
     // swiftlint:disable function_body_length
     override func spec() {
         describe("CommentController") {
-            var sut: CommentViewController!
+            var controller: CommentViewController!
 
             beforeEach {
-                sut = CommentViewController()
+                controller = CommentViewController()
             }
 
             describe("after view has appeared") {
                 beforeEach {
-                    sut.viewDidAppear(true)
+                    controller.viewDidLoad()
                 }
 
+                it("should set title") {
+                    expect(controller.title) == "Live Chat Feed"
+                }
+
+                it ("should have a valid snapshot") {
+                    controller.view.frame = UIScreen.main.bounds
+
+                    expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
+                }
             }
         }
     }
