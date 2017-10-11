@@ -3,10 +3,7 @@ import UIKit
 
 class CommentViewController: UIViewController, ControllerProviding {
 
-    let voteContext: VoteContext
-
-    init(voteContext: VoteContext, apiClient: APIProviding) {
-        self.voteContext = voteContext
+    init() {
 
         super.init(nibName: nil, bundle: nil)
 
