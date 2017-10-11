@@ -20,6 +20,7 @@
 		5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */; };
 		50CB84461F8BAC71000A0D83 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* ChatView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
+		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
 		51757128F328010E2BC3E35A /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B514A80F4268B66CD30EE8B /* EarlGrey.framework */; };
 		6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */; };
 		6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */; };
@@ -262,6 +263,7 @@
 		5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTextFieldConfiguration.swift; sourceTree = "<group>"; };
 		50CB84451F8BAC71000A0D83 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
+		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
 		5B514A80F4268B66CD30EE8B /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = "${SRCROOT}/Pods/EarlGrey/EarlGrey/EarlGrey.framework"; sourceTree = SRCROOT; };
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		5F67AEB94008F68BD181A24A /* Pods-ELDebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.release.xcconfig"; sourceTree = "<group>"; };
@@ -758,6 +760,7 @@
 			children = (
 				8C7322D71EF8182E0067BC84 /* APIAssembly.swift */,
 				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
+				50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */,
 				8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */,
 				8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */,
 				8C127C7C1EC4965E00E9B5FD /* PinEntryAssembly.swift */,
@@ -1545,6 +1548,7 @@
 				8C337A181EF91B6A007F82B4 /* UIView+Sizes.swift in Sources */,
 				8CD094781EE867EA006D46A5 /* LoginCredentialsStore.swift in Sources */,
 				8C6137F51EF1303500E00700 /* Validator.swift in Sources */,
+				50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */,
 				8CE0CD711EEFE87300B0B358 /* DebateRunner.swift in Sources */,
 				8C4B233E1EE547D700CE42DD /* Notifications.swift in Sources */,
 				8C4B234A1EE547EC00CE42DD /* AttributeStyle.swift in Sources */,
