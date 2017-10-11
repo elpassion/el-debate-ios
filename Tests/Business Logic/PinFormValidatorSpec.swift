@@ -8,12 +8,10 @@ internal class PinFormValidatorSpec: QuickSpec {
 
     override func spec() {
         describe("PinFormValidator") {
-            var usernameValidator: OptionalStringValidatorMock!
             var pinCodeValidator: OptionalStringValidatorMock!
             var sut: PinFormValidator!
 
             beforeEach {
-                usernameValidator = OptionalStringValidatorMock()
                 pinCodeValidator = OptionalStringValidatorMock()
                 sut = PinFormValidator(pinCodeValidator: AnyValidator(pinCodeValidator))
             }
