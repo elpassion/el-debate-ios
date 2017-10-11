@@ -1,3 +1,7 @@
 @testable import ELDebateFramework
 
-class AnswerViewControllerMock: AnswerViewController {}
+class AnswerViewControllerMock: AnswerViewController {
+
+    var chatButtonDidCall = true
+
+}

@@ -55,13 +55,14 @@ class AnswerViewControllerSpec: QuickSpec {
 
             describe("chat button tap") {
                 beforeEach {
-                    sut.answerView.onChatButtonTapped?()
+                    sut.answerView.onChatButtonTapped = {
+                        sut.chatButtonDidCall = true
+                    }
                 }
 
-                it("should show CommentController") {
-
+                it("invoke chatButton clousure") {
+                    expect(sut.chatButtonDidCall).to(beTrue())
                 }
-
             }
 
             describe("vote") {
