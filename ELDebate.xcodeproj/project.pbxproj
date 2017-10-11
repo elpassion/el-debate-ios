@@ -21,6 +21,7 @@
 		50CB84461F8BAC71000A0D83 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* ChatView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
+		50CB844D1F8E9124000A0D83 /* AnswerViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB844B1F8E90DE000A0D83 /* AnswerViewControllerMock.swift */; };
 		51757128F328010E2BC3E35A /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B514A80F4268B66CD30EE8B /* EarlGrey.framework */; };
 		6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */; };
 		6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */; };
@@ -264,6 +265,7 @@
 		50CB84451F8BAC71000A0D83 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
+		50CB844B1F8E90DE000A0D83 /* AnswerViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewControllerMock.swift; sourceTree = "<group>"; };
 		5B514A80F4268B66CD30EE8B /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = "${SRCROOT}/Pods/EarlGrey/EarlGrey/EarlGrey.framework"; sourceTree = SRCROOT; };
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		5F67AEB94008F68BD181A24A /* Pods-ELDebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.release.xcconfig"; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 				8C5B02D71EFD804900D405CA /* AlertFactoryMock.swift */,
 				8CBB56A51EFD4BF700289066 /* AlertPresentingControllerMock.swift */,
 				6EADF5571ECC491B00488057 /* AlertViewMock.swift */,
+				50CB844B1F8E90DE000A0D83 /* AnswerViewControllerMock.swift */,
 				8C6127F01EC9E8FF003472A3 /* AuthTokenStorageStub.swift */,
 				8C63FA111EC379F30080FFF9 /* AutoMockable.generated.swift */,
 				8CD496821EE7040A004046C7 /* ChildControllerSpy.swift */,
@@ -760,8 +763,8 @@
 			children = (
 				8C7322D71EF8182E0067BC84 /* APIAssembly.swift */,
 				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
-				50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */,
 				8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */,
+				50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */,
 				8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */,
 				8C127C7C1EC4965E00E9B5FD /* PinEntryAssembly.swift */,
 				8C6138101EF1848B00E00700 /* ValidatorAssembly.swift */,
@@ -1701,6 +1704,7 @@
 				8CD094801EE87411006D46A5 /* LoginCredentialsStoreMock.swift in Sources */,
 				8C6DA0351EC5915800D31E76 /* NavigationControllerFactorySpec.swift in Sources */,
 				298784DB1F704749008A28CC /* Dictionary_StringAnySpec.swift in Sources */,
+				50CB844D1F8E9124000A0D83 /* AnswerViewControllerMock.swift in Sources */,
 				8CBB56A01EFD348900289066 /* Quick+SyntacticSugar.swift in Sources */,
 				8CCD73C81EFD66B200183DA0 /* DebateRunnerAssembly.swift in Sources */,
 				8C127C841EC49B2F00E9B5FD /* ControllerFactoryMock.swift in Sources */,

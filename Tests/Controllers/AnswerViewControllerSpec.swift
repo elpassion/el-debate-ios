@@ -9,7 +9,7 @@ class AnswerViewControllerSpec: QuickSpec {
     // swiftlint:disable function_body_length
     override func spec() {
         describe("AnswerViewController") {
-            var controller: AnswerViewController!
+            var sut: AnswerViewControllerMock!
             var apiClient: APIProviderStub!
             var alertView: AlertViewMock!
 
@@ -17,7 +17,7 @@ class AnswerViewControllerSpec: QuickSpec {
                 apiClient = APIProviderStub()
                 alertView = AlertViewMock()
 
-                controller = AnswerViewController(
+                sut = AnswerViewControllerMock(
                     voteContext: VoteContext.testDefault,
                     apiClient: apiClient,
                     alertView: alertView
@@ -26,27 +26,27 @@ class AnswerViewControllerSpec: QuickSpec {
 
             describe("after view is loaded") {
                 beforeEach {
-                    controller.viewDidLoad()
+                    sut.viewDidLoad()
                 }
 
                 it("should set title") {
-                    expect(controller.title) == "EL Debate"
+                    expect(sut.title) == "EL Debate"
                 }
 
                 it("should have a valid snaphot") {
-                    controller.view.frame = UIScreen.main.bounds
+                    sut.view.frame = UIScreen.main.bounds
 
-                    expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
+                    expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
                 }
 
                 it("should select initial answer") {
-                    expect(controller.answerView.selectedAnswer) == AnswerType.negative
+                    expect(sut.answerView.selectedAnswer) == AnswerType.negative
                 }
             }
 
             describe("answer button tap") {
                 it("should invoke voting") {
-                    controller.answerView.onAnswerSelected?(.neutral)
+                    sut.answerView.onAnswerSelected?(.neutral)
 
                     expect(apiClient.votingAnswer?.identifier).toEventually(equal(2))
                     expect(apiClient.votingAuthToken).toEventually(equal("whatever"))
@@ -55,11 +55,11 @@ class AnswerViewControllerSpec: QuickSpec {
 
             describe("chat button tap") {
                 beforeEach {
-                    controller.answerView.onChatButtonTapped?()
+                    sut.answerView.onChatButtonTapped?()
                 }
 
                 it("should show CommentController") {
-                    
+
                 }
 
             }
@@ -69,7 +69,7 @@ class AnswerViewControllerSpec: QuickSpec {
                     it("should show an alert message") {
                         apiClient.voteResult = Promise(error: RequestError.apiError(statusCode: 404))
 
-                        controller.answerView.onAnswerSelected?(.negative)
+                        sut.answerView.onAnswerSelected?(.negative)
 
                         expect(alertView.title).toEventually(equal("Error"))
                         expect(alertView.message).toEventually(equal("There was a problem submitting your vote"))
@@ -80,7 +80,7 @@ class AnswerViewControllerSpec: QuickSpec {
                     it("should show a specific throttling alert") {
                         apiClient.voteResult = Promise(error: RequestError.throttling)
 
-                        controller.answerView.onAnswerSelected?(.positive)
+                        sut.answerView.onAnswerSelected?(.positive)
 
                         expect(alertView.title).toEventually(equal("Slow down"))
                         expect(alertView.message).toEventually(equal("You are voting too fast"))
