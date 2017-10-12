@@ -3,7 +3,8 @@ import UIKit
 
 class ChatView: UIView {
 
-    private let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
+    private let tableView = Factory.tableView()
+    private let background = Factory.background()
 
     public init() {
         super.init(frame: .zero)
@@ -19,6 +20,7 @@ class ChatView: UIView {
 
     private func addSubviews() {
         addSubview(background)
+        addSubview(tableView)
     }
 
     private func setUpLayout() {
@@ -33,4 +35,24 @@ class ChatView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+extension ChatView {
+
+    struct Factory {
+
+        static func tableView() -> UITableView {
+            let tableView = UITableView()
+            tableView.frame = UIScreen.main.bounds
+            tableView.backgroundColor = UIColor.clear
+            return tableView
+        }
+
+        static func background() -> UIImageView {
+            let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
+            return background
+        }
+
+    }
+
 }
