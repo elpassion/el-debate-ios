@@ -9,31 +9,25 @@ class CommentControllerSpec: QuickSpec {
     // swiftlint:disable function_body_length
     override func spec() {
         describe("CommentController") {
-            var sut: CommentController!
-            var apiClient: APIProviderStub!
-            var inputPresenter: InputAlertPresenterMock!
+            var controller: CommentViewController!
 
             beforeEach {
-                apiClient = APIProviderStub()
-                inputPresenter = InputAlertPresenterMock()
-                sut = CommentController(voteContext: VoteContext.testDefault,
-                                        apiClient: apiClient,
-                                        inputAlertPresenter: inputPresenter)
+                controller = CommentViewController()
             }
 
             describe("after view has appeared") {
                 beforeEach {
-                    sut.viewDidAppear(true)
+                    controller.viewDidLoad()
                 }
 
-                it("should show input alert") {
-                    expect(inputPresenter.receivedController) == sut
+                it("should set title") {
+                    expect(controller.title) == "Live Chat Feed"
                 }
 
-                it("should show input alert with correct configuration") {
-                    expect(inputPresenter.receivedConfiguration?.title) == "Chat is not available"
-                    expect(inputPresenter.receivedConfiguration?.message) == "It will be fixed in next release, sorry :)"
-                    expect(inputPresenter.receivedConfiguration?.cancelTitle) == "Cancel"
+                it ("should have a valid snapshot") {
+                    controller.view.frame = UIScreen.main.bounds
+
+                    expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
                 }
             }
         }

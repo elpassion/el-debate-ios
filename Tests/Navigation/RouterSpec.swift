@@ -72,6 +72,16 @@ class RouterSpec: QuickSpec {
                 }
             }
 
+            describe("routing to comment screen") {
+                it("should push comment controller on stack") {
+                    sut.go(to: .comment)
+
+                    expect(controllerConfigurator.configureReceivedArguments?.controller).to(be(
+                        controllerFactory.commentProvider))
+                    expect(controllerConfigurator.configureReceivedArguments?.router).to(be(sut))
+                }
+            }
+
             describe("reset") {
                 beforeEach {
                     let controllers: [UIViewController] = [UIViewController(), UIViewController(), UIViewController()]

@@ -30,15 +30,6 @@ internal class ControllerFactorySpec: QuickSpec {
                 expect(controller?.voteContext.debate.topic) == VoteContext.testDefault.debate.topic
             }
 
-            it("should build comment controller passing vote context") {
-                let type = ControllerType.comment(voteContext: VoteContext.testDefault)
-
-                let controller = sut.makeController(of: type) as? CommentController
-
-                expect(controller).toNot(beNil())
-                expect(controller?.voteContext.authToken) == VoteContext.testDefault.authToken
-                expect(controller?.voteContext.debate.topic) == VoteContext.testDefault.debate.topic
-            }
         }
     }
 

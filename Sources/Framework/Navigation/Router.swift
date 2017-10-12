@@ -42,6 +42,8 @@ public class Router: Routing {
             return makePinEntryProvider()
         case let .answer(voteContext):
             return makeAnswerProvider(for: voteContext)
+        case .comment:
+            return makeCommentEntryProvider()
         }
     }
 
@@ -54,6 +56,13 @@ public class Router: Routing {
 
     private func makeAnswerProvider(for voteContext: VoteContext) -> ControllerProviding {
         let provider = controllerFactory.makeController(of: .answer(voteContext: voteContext))
+        controllerConfigurator.configure(controller: provider, with: self)
+
+        return provider
+    }
+
+    private func makeCommentEntryProvider() -> ControllerProviding {
+        let provider = controllerFactory.makeController(of: .comment)
         controllerConfigurator.configure(controller: provider, with: self)
 
         return provider

@@ -59,54 +59,6 @@ class AnswerScreenTests: XCTestCase {
             .assert(grey_verifyDeviceAgnosticSnapshot())
     }
 
-    func testPositiveButtonResponseAfterAlertDismiss() {
-        EarlGrey.select(elementWithMatcher: grey_text("Chat"))
-            .perform(grey_tap())
-
-        EarlGrey.select(elementWithMatcher: grey_text("Cancel"))
-            .perform(grey_tap())
-
-        EarlGrey.select(elementWithMatcher: grey_text("Yes"))
-            .atIndex(0)
-            .perform(grey_tap())
-            .assert(grey_sufficientlyVisible())
-
-        EarlGrey.select(elementWithMatcher: grey_kindOfClass(AnswerPicker.self))
-            .assert(grey_verifyDeviceAgnosticSnapshot())
-    }
-
-    func testNegativeButtonResponseAfterAlertDismiss() {
-        EarlGrey.select(elementWithMatcher: grey_text("Chat"))
-            .perform(grey_tap())
-
-        EarlGrey.select(elementWithMatcher: grey_text("Cancel"))
-            .perform(grey_tap())
-
-        EarlGrey.select(elementWithMatcher: grey_text("No"))
-            .atIndex(1)
-            .perform(grey_tap())
-            .assert(grey_sufficientlyVisible())
-
-        EarlGrey.select(elementWithMatcher: grey_kindOfClass(AnswerPicker.self))
-            .assert(grey_verifyDeviceAgnosticSnapshot())
-    }
-
-    func testNeutralButtonResponseAfterAlertDismiss() {
-        EarlGrey.select(elementWithMatcher: grey_text("Chat"))
-            .perform(grey_tap())
-
-        EarlGrey.select(elementWithMatcher: grey_text("Cancel"))
-            .perform(grey_tap())
-
-        EarlGrey.select(elementWithMatcher: grey_text("Undecided"))
-            .atIndex(2)
-            .perform(grey_tap())
-            .assert(grey_sufficientlyVisible())
-
-        EarlGrey.select(elementWithMatcher: grey_kindOfClass(AnswerPicker.self))
-            .assert(grey_verifyDeviceAgnosticSnapshot())
-    }
-
     private func navigateToAnswerScreen() {
         EarlGrey.select(elementWithMatcher: grey_kindOfClass(UITextField.self))
             .atIndex(0)

@@ -19,8 +19,7 @@ class ControllerFactoryMock: ControllerCreating {
         case let .answer(voteContext: voteContext):
             lastContext = voteContext
             return answerProvider
-        case let .comment(voteContext: voteContext):
-            lastContext = voteContext
+        case .comment:
             return commentProvider
         }
     }
@@ -45,7 +44,7 @@ class AnswerControllerMockProvider: AnswerControllerProviding {
 
     let controller = UIViewController()
 
-    var onChatButtonTapped: ((String) -> Void)?
+    var onChatButtonTapped: (() -> Void)?
 
 }
 

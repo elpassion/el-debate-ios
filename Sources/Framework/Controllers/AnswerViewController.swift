@@ -6,18 +6,17 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     let voteContext: VoteContext
     private let apiClient: APIProviding
     let alertPresenter: AlertShowing
-    private let commentPresenter: CommentControllerPresenting
+
+    var onChatButtonTapped: (() -> Void)?
 
     // MARK: - Initializer
 
     init(voteContext: VoteContext,
          apiClient: APIProviding,
-         alertView: AlertShowing,
-         commentPresenter: CommentControllerPresenting) {
+         alertView: AlertShowing) {
         self.voteContext = voteContext
         self.apiClient = apiClient
         self.alertPresenter = alertView
-        self.commentPresenter = commentPresenter
 
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -32,7 +31,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        answerView.onChatButtonTapped = { [weak self] in self?.didTapChat() }
+        answerView.onChatButtonTapped = { [weak self] in self?.onChatButtonTapped?() }
         answerView.onAnswerSelected = { [weak self] in self?.didSelectAnswer(with: $0) }
 
         title = "EL Debate"
@@ -62,10 +61,6 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
                 self?.answerView.cancelAnimations()
                 self?.answerView.enabled = true
             }
-    }
-
-    private func didTapChat() {
-        commentPresenter.present(in: self, with: voteContext)
     }
 
     private func selectInitialAnswer() {

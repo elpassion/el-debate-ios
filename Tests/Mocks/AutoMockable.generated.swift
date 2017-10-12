@@ -32,23 +32,6 @@ showCalled
 showReturnValue
     }
 }
-class CommentControllerPresentingMock: CommentControllerPresenting {
-
-
-    //MARK: - present
-
-    var 
-presentCalled
- = false
-    var presentReceivedArguments: (controller: UIViewController, context: VoteContext)?
-
-    func present(in controller: UIViewController, with context: VoteContext) {
-
-presentCalled
- = true
-        presentReceivedArguments = (controller: controller, context: context)
-    }
-}
 class ControllerConfiguringMock: ControllerConfiguring {
 
 

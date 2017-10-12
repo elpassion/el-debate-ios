@@ -139,5 +139,5 @@ class ApiClientSpec: QuickSpec {
             }
         }
     }
-    
+
 }
