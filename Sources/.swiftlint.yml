@@ -32,7 +32,6 @@ opt_in_rules:
   - joined_default_parameter
   - strict_fileprivate
   - let_var_whitespace
-  - extension_access_modifier
 file_length:
   warning: 200
   error: 300
@@ -49,4 +48,5 @@ identifier_name:
   excluded:
     - ui
     - cg
+    - id
     
