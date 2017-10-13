@@ -13,11 +13,11 @@ class FetchCommentsService: FetchCommentsServiceProtocol {
     private let URLProvider: URLProviding
 
     init(requestExecutor: RequestExecuting,
-         commentsDeseliarizer: Deserializer<Comments>,
+         commentsDeserializer: Deserializer<Comments>,
          URLProvider: URLProvider) {
 
         self.requestExecutor = requestExecutor
-        self.commentsDeserializer = commentsDeseliarizer
+        self.commentsDeserializer = commentsDeserializer
         self.URLProvider = URLProvider
     }
 
@@ -30,10 +30,4 @@ class FetchCommentsService: FetchCommentsServiceProtocol {
         return request(with: jsonResponse.json, deserializedBy: self.commentsDeserializer)
     }
 
-    private func request<T>(with executor: @escaping (@escaping (ApiResponse) -> Void) -> Void,
-                            deserializedBy deserializer: Deserializer<T>) -> Promise<T> {
-        return Promise(requestExecutor: executor) { response in
-            try deserializer.deserialize(json: response.json)
-        }
-    }
 }
