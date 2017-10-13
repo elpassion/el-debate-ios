@@ -15,8 +15,8 @@ class ApiClientSpec: QuickSpec {
                 requestExecutor = RequestExecutingMock()
                 apiClient = ApiClient(requestExecutor: requestExecutor,
                                       authTokenDeserializer: Deserializer(AuthTokenDeserializer()),
-                                      debateDeserializer: DebateDeserializer.build()
-                )
+                                      debateDeserializer: DebateDeserializer.build(),
+                                      commentsDeserializer: Deserializer(CommentsDeserializer(jsonDecoder: JSONDecoder())))
             }
 
             describe("login") {
