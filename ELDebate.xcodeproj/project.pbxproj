@@ -27,6 +27,9 @@
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
 		50CB844D1F8E9124000A0D83 /* AnswerViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB844B1F8E90DE000A0D83 /* AnswerViewControllerMock.swift */; };
+		50D4DC711F91684900B3C901 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4DC701F91684900B3C901 /* LoginService.swift */; };
+		50D4DC731F91689200B3C901 /* FetchDebateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4DC721F91689200B3C901 /* FetchDebateService.swift */; };
+		50D4DC751F9168DD00B3C901 /* VoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4DC741F9168DD00B3C901 /* VoteService.swift */; };
 		51757128F328010E2BC3E35A /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B514A80F4268B66CD30EE8B /* EarlGrey.framework */; };
 		6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */; };
 		6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */; };
@@ -276,6 +279,9 @@
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
 		50CB844B1F8E90DE000A0D83 /* AnswerViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewControllerMock.swift; sourceTree = "<group>"; };
+		50D4DC701F91684900B3C901 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		50D4DC721F91689200B3C901 /* FetchDebateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDebateService.swift; sourceTree = "<group>"; };
+		50D4DC741F9168DD00B3C901 /* VoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteService.swift; sourceTree = "<group>"; };
 		5B514A80F4268B66CD30EE8B /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = "${SRCROOT}/Pods/EarlGrey/EarlGrey/EarlGrey.framework"; sourceTree = SRCROOT; };
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		5F67AEB94008F68BD181A24A /* Pods-ELDebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.release.xcconfig"; sourceTree = "<group>"; };
@@ -506,6 +512,9 @@
 			isa = PBXGroup;
 			children = (
 				296E84631F913E9F000E67C5 /* FetchCommentsService.swift */,
+				50D4DC721F91689200B3C901 /* FetchDebateService.swift */,
+				50D4DC701F91684900B3C901 /* LoginService.swift */,
+				50D4DC741F9168DD00B3C901 /* VoteService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1596,6 +1605,7 @@
 				8C4B236F1EE5480400CE42DD /* ControllerConfigurator.swift in Sources */,
 				8CCE0F551EE57A30001FD1D7 /* FontSizeCalculator.swift in Sources */,
 				8C4B235A1EE547F100CE42DD /* UIImage+Predefined.swift in Sources */,
+				50D4DC751F9168DD00B3C901 /* VoteService.swift in Sources */,
 				8C7322D81EF8182E0067BC84 /* APIAssembly.swift in Sources */,
 				294D39821F90D20F0015C54E /* Comment.swift in Sources */,
 				8C4B23521EE547F100CE42DD /* Dictionary+Mapping.swift in Sources */,
@@ -1648,10 +1658,12 @@
 				8C4B23711EE5480400CE42DD /* KeyboardWillShowHandler.swift in Sources */,
 				8C61380C1EF1608F00E00700 /* LoginCredentials.swift in Sources */,
 				8C4B233A1EE547D100CE42DD /* QuestionView.swift in Sources */,
+				50D4DC711F91684900B3C901 /* LoginService.swift in Sources */,
 				8C4B23511EE547F100CE42DD /* AnswerType+RawType.swift in Sources */,
 				296E84641F913E9F000E67C5 /* FetchCommentsService.swift in Sources */,
 				8CCE0F5C1EE58790001FD1D7 /* Display.swift in Sources */,
 				8C4B23741EE5480400CE42DD /* NavigationControllerFactory.swift in Sources */,
+				50D4DC731F91689200B3C901 /* FetchDebateService.swift in Sources */,
 				8C4B236A1EE547FE00CE42DD /* ControllerProviding.swift in Sources */,
 				8C4B23551EE547F100CE42DD /* Keychain+KeychainStoring.swift in Sources */,
 				8C4B236C1EE5480400CE42DD /* Answer.swift in Sources */,
