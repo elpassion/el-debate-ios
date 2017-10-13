@@ -10,10 +10,6 @@ protocol APIProviding {
 
 }
 
-protocol CommentsServiceProtocol {
-    func fetchComments() -> Promise<Comments>
-}
-
 class ApiClient: APIProviding {
 
     private let requestExecutor: RequestExecuting

@@ -12,6 +12,7 @@
 		294D39821F90D20F0015C54E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D39811F90D20F0015C54E /* Comment.swift */; };
 		294D39851F90EA9B0015C54E /* CommentsDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D39831F90EA750015C54E /* CommentsDeserializerSpec.swift */; };
 		296E84611F9136E0000E67C5 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296E84601F9136E0000E67C5 /* URLProvider.swift */; };
+		296E84641F913E9F000E67C5 /* FetchCommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296E84631F913E9F000E67C5 /* FetchCommentsService.swift */; };
 		298784D91F70468B008A28CC /* Dictionary+StringAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298381E41F70288400993B17 /* Dictionary+StringAny.swift */; };
 		298784DB1F704749008A28CC /* Dictionary_StringAnySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298784D51F70420A008A28CC /* Dictionary_StringAnySpec.swift */; };
 		326723424614E761B4834409 /* UsernameValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */; };
@@ -260,6 +261,7 @@
 		294D39811F90D20F0015C54E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		294D39831F90EA750015C54E /* CommentsDeserializerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsDeserializerSpec.swift; sourceTree = "<group>"; };
 		296E84601F9136E0000E67C5 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
+		296E84631F913E9F000E67C5 /* FetchCommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCommentsService.swift; sourceTree = "<group>"; };
 		298381E41F70288400993B17 /* Dictionary+StringAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+StringAny.swift"; sourceTree = "<group>"; };
 		298784D51F70420A008A28CC /* Dictionary_StringAnySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary_StringAnySpec.swift; sourceTree = "<group>"; };
 		326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorErrorSpec.swift; sourceTree = "<group>"; };
@@ -500,6 +502,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		296E84621F913E8B000E67C5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				296E84631F913E9F000E67C5 /* FetchCommentsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		32672B0AD29D2DBFC55D54EA /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +795,7 @@
 			isa = PBXGroup;
 			children = (
 				8C664A151EC48F240017687F /* Deserialization */,
+				296E84621F913E8B000E67C5 /* Services */,
 				6EA7E2901EC466E3002DF55E /* ApiClient.swift */,
 				6EF036641EC9BDAD00198F01 /* ApiResponse.swift */,
 				8C664A111EC45FFD0017687F /* JSONResponseProviding.swift */,
@@ -1638,6 +1649,7 @@
 				8C61380C1EF1608F00E00700 /* LoginCredentials.swift in Sources */,
 				8C4B233A1EE547D100CE42DD /* QuestionView.swift in Sources */,
 				8C4B23511EE547F100CE42DD /* AnswerType+RawType.swift in Sources */,
+				296E84641F913E9F000E67C5 /* FetchCommentsService.swift in Sources */,
 				8CCE0F5C1EE58790001FD1D7 /* Display.swift in Sources */,
 				8C4B23741EE5480400CE42DD /* NavigationControllerFactory.swift in Sources */,
 				8C4B236A1EE547FE00CE42DD /* ControllerProviding.swift in Sources */,

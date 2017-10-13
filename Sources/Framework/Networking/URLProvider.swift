@@ -4,6 +4,6 @@ protocol URLProviding {
 
 class URLProvider: URLProviding {
 
-    let url: String = "https://el-debate.herokuapp.com"
+    var url: String = "https://el-debate.herokuapp.com"
 
 }
