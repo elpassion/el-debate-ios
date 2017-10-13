@@ -14,11 +14,16 @@ class APIAssembly: Assembly {
             return DebateDeserializer.build()
         }
 
+        container.register(Deserializer<Comments>.self, name: "Comments") { _ in
+            return Deserializer(CommentsDeserializer(jsonDecoder: JSONDecoder()))
+        }
+
         container.register(APIProviding.self) { resolver in
             return ApiClient(
                 requestExecutor: resolver ~> RequestExecuting.self,
                 authTokenDeserializer: resolver ~> (Deserializer<String>.self, name: "AuthToken"),
-                debateDeserializer: resolver ~> (Deserializer<Debate>.self, name: "Debate")
+                debateDeserializer: resolver ~> (Deserializer<Debate>.self, name: "Debate"),
+                commentsDeserializer: resolver ~> (Deserializer<Comments>.self, name: "Comments")
             )
         }
     }

@@ -10,19 +10,36 @@ protocol APIProviding {
 
 }
 
+protocol URLProviding {
+    var url: String { get }
+}
+
+class URLProvider: URLProviding {
+
+    let url: String = "https://el-debate.herokuapp.com"
+
+}
+
+protocol CommentsServiceProtocol {
+    func fetchComments() -> Promise<Comments>
+}
+
 class ApiClient: APIProviding {
 
     private let requestExecutor: RequestExecuting
     private let authTokenDeserializer: Deserializer<String>
     private let debateDeserializer: Deserializer<Debate>
+    private let commentsDeserializer: Deserializer<Comments>
     private let apiHost: String = "https://el-debate.herokuapp.com"
 
     init(requestExecutor: RequestExecuting,
          authTokenDeserializer: Deserializer<String>,
-         debateDeserializer: Deserializer<Debate>) {
+         debateDeserializer: Deserializer<Debate>,
+         commentsDeserializer: Deserializer<Comments>) {
         self.requestExecutor = requestExecutor
         self.authTokenDeserializer = authTokenDeserializer
         self.debateDeserializer = debateDeserializer
+        self.commentsDeserializer = commentsDeserializer
     }
 
     func login(credentials: LoginCredentials) -> Promise<String> {
@@ -60,6 +77,15 @@ class ApiClient: APIProviding {
                     return Promise(error: error)
                 }
             }
+    }
+
+    func fetchComments(authToken: String) -> Promise<Comments> {
+        let jsonResponse = requestExecutor.get(
+            url: "\(apiHost)/api/comments",
+            headers: ["Authorization": authToken]
+        )
+
+        return request(with: jsonResponse.json, deserializedBy: self.commentsDeserializer)
     }
 
 }
