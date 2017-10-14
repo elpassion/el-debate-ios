@@ -3,15 +3,10 @@ import Foundation
 import PromiseKit
 
 protocol VoteServiceProtocol {
-
     func vote(authToken: String, answer: Answer) -> Promise<Answer>
-
 }
 
 class VoteService: VoteServiceProtocol {
-
-    private let requestExecutor: RequestExecuting
-    private let URLProvider: URLProviding
 
     init(requestExecutor: RequestExecuting,
          URLProvider: URLProviding) {
@@ -36,5 +31,10 @@ class VoteService: VoteServiceProtocol {
                 }
             }
     }
+
+    // MARK: - Private
+
+    private let requestExecutor: RequestExecuting
+    private let URLProvider: URLProviding
 
 }

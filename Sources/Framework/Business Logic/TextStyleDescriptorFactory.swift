@@ -17,7 +17,7 @@ class TextStyleDescriptorFactory: TextStyleDescriptorCreating {
     func make(for style: TextStyle) -> TextStyleDescriptor {
         switch style {
         case .answer:
-            return TextStyleDescriptor(font: .regular, size: size(24.0), color: .undecided)
+            return TextStyleDescriptor(font: .regular, size: size(24.0), color: .undecidedTint)
         case .description:
             return TextStyleDescriptor(font: .regular, size: size(12.0), color: .description)
         case .question:

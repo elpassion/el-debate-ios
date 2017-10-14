@@ -3,16 +3,10 @@ import Foundation
 import PromiseKit
 
 protocol FetchDebateServiceProtocol {
-
     func fetchDebate(authToken: String) -> Promise<Debate>
-
 }
 
 class FetchDebateService: FetchDebateServiceProtocol {
-
-    private let requestExecutor: RequestExecuting
-    private let debateDeserializer: Deserializer<Debate>
-    private let URLProvider: URLProviding
 
     init(requestExecutor: RequestExecuting,
          debateDeserializer: Deserializer<Debate>,
@@ -30,5 +24,11 @@ class FetchDebateService: FetchDebateServiceProtocol {
 
         return request(with: jsonResponse.json, deserializedBy: self.debateDeserializer)
     }
+
+    // MARK: - Private
+
+    private let requestExecutor: RequestExecuting
+    private let debateDeserializer: Deserializer<Debate>
+    private let URLProvider: URLProviding
 
 }

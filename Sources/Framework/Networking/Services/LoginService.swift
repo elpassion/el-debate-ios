@@ -3,16 +3,10 @@ import Foundation
 import PromiseKit
 
 protocol LoginServiceProtocol {
-
     func login(credentials: LoginCredentials) -> Promise<String>
-
 }
 
 class LoginService: LoginServiceProtocol {
-
-    private let requestExecutor: RequestExecuting
-    private let authTokenDeserializer: Deserializer<String>
-    private let URLProvider: URLProviding
 
     init(requestExecutor: RequestExecuting,
          authTokenDeserializer: Deserializer<String>,
@@ -34,4 +28,9 @@ class LoginService: LoginServiceProtocol {
         return request(with: jsonResponse.json, deserializedBy: self.authTokenDeserializer)
     }
 
+    // MARK: - Private
+
+    private let requestExecutor: RequestExecuting
+    private let authTokenDeserializer: Deserializer<String>
+    private let URLProvider: URLProviding
 }

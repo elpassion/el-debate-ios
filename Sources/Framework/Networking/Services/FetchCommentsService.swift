@@ -8,10 +8,6 @@ protocol FetchCommentsServiceProtocol {
 
 class FetchCommentsService: FetchCommentsServiceProtocol {
 
-    private let requestExecutor: RequestExecuting
-    private let commentsDeserializer: Deserializer<Comments>
-    private let URLProvider: URLProviding
-
     init(requestExecutor: RequestExecuting,
          commentsDeserializer: Deserializer<Comments>,
          URLProvider: URLProvider) {
@@ -29,5 +25,11 @@ class FetchCommentsService: FetchCommentsServiceProtocol {
 
         return request(with: jsonResponse.json, deserializedBy: self.commentsDeserializer)
     }
+
+    // MARK: - Private
+
+    private let requestExecutor: RequestExecuting
+    private let commentsDeserializer: Deserializer<Comments>
+    private let URLProvider: URLProviding
 
 }
