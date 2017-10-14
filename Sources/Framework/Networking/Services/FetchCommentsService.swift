@@ -10,8 +10,7 @@ class FetchCommentsService: FetchCommentsServiceProtocol {
 
     init(requestExecutor: RequestExecuting,
          commentsDeserializer: Deserializer<Comments>,
-         URLProvider: URLProvider) {
-
+         URLProvider: URLProviding) {
         self.requestExecutor = requestExecutor
         self.commentsDeserializer = commentsDeserializer
         self.URLProvider = URLProvider

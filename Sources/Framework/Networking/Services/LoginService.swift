@@ -10,8 +10,7 @@ class LoginService: LoginServiceProtocol {
 
     init(requestExecutor: RequestExecuting,
          authTokenDeserializer: Deserializer<String>,
-         commentsDeseliarizer: Deserializer<Comments>,
-         URLProvider: URLProvider) {
+         URLProvider: URLProviding) {
 
         self.requestExecutor = requestExecutor
         self.authTokenDeserializer = authTokenDeserializer
