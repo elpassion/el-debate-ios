@@ -15,6 +15,8 @@
 		296E84641F913E9F000E67C5 /* FetchCommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296E84631F913E9F000E67C5 /* FetchCommentsService.swift */; };
 		298784D91F70468B008A28CC /* Dictionary+StringAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298381E41F70288400993B17 /* Dictionary+StringAny.swift */; };
 		298784DB1F704749008A28CC /* Dictionary_StringAnySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298784D51F70420A008A28CC /* Dictionary_StringAnySpec.swift */; };
+		29C72CA91F9236AE003140E4 /* LoginServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C72CA81F9236AE003140E4 /* LoginServiceSpec.swift */; };
+		29C72CAB1F9238DC003140E4 /* LoginServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C72CAA1F9238DC003140E4 /* LoginServiceStub.swift */; };
 		326723424614E761B4834409 /* UsernameValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */; };
 		326723B8FDCF8C056AF26357 /* PinCodeValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */; };
 		32672746AB41975F44B887A7 /* UsernameValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */; };
@@ -268,6 +270,8 @@
 		296E84631F913E9F000E67C5 /* FetchCommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCommentsService.swift; sourceTree = "<group>"; };
 		298381E41F70288400993B17 /* Dictionary+StringAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+StringAny.swift"; sourceTree = "<group>"; };
 		298784D51F70420A008A28CC /* Dictionary_StringAnySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary_StringAnySpec.swift; sourceTree = "<group>"; };
+		29C72CA81F9236AE003140E4 /* LoginServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceSpec.swift; sourceTree = "<group>"; };
+		29C72CAA1F9238DC003140E4 /* LoginServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceStub.swift; sourceTree = "<group>"; };
 		326722F6E2F32B4FD3B8B5A7 /* UsernameValidatorErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorErrorSpec.swift; sourceTree = "<group>"; };
 		326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresentableError.swift; sourceTree = "<group>"; };
 		32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorError.swift; sourceTree = "<group>"; };
@@ -521,6 +525,23 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		29C72CA71F92367E003140E4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				29C72CA81F9236AE003140E4 /* LoginServiceSpec.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		29C72CAC1F923964003140E4 /* APIServicesStubs */ = {
+			isa = PBXGroup;
+			children = (
+				8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */,
+				29C72CAA1F9238DC003140E4 /* LoginServiceStub.swift */,
+			);
+			path = APIServicesStubs;
+			sourceTree = "<group>";
+		};
 		32672B0AD29D2DBFC55D54EA /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				8C664A1C1EC490A00017687F /* Deserialization */,
+				29C72CA71F92367E003140E4 /* Services */,
 				6EA7E2931EC466F6002DF55E /* ApiClientSpec.swift */,
 			);
 			path = Networking;
@@ -641,7 +663,7 @@
 		8C1917F81EC357CB00519DC8 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				8C6DA0471EC5AC6E00D31E76 /* APIProviderStub.swift */,
+				29C72CAC1F923964003140E4 /* APIServicesStubs */,
 				8C5B02D71EFD804900D405CA /* AlertFactoryMock.swift */,
 				8CBB56A51EFD4BF700289066 /* AlertPresentingControllerMock.swift */,
 				6EADF5571ECC491B00488057 /* AlertViewMock.swift */,
@@ -1745,6 +1767,7 @@
 				6EA7E2981EC46906002DF55E /* LoginResponseJSONMock.swift in Sources */,
 				8CD5F64E1ECC86500067BFC7 /* DictionaryMappingSpec.swift in Sources */,
 				8CD094801EE87411006D46A5 /* LoginCredentialsStoreMock.swift in Sources */,
+				29C72CA91F9236AE003140E4 /* LoginServiceSpec.swift in Sources */,
 				8C6DA0351EC5915800D31E76 /* NavigationControllerFactorySpec.swift in Sources */,
 				298784DB1F704749008A28CC /* Dictionary_StringAnySpec.swift in Sources */,
 				50CB844D1F8E9124000A0D83 /* AnswerViewControllerMock.swift in Sources */,
@@ -1770,6 +1793,7 @@
 				294D39851F90EA9B0015C54E /* CommentsDeserializerSpec.swift in Sources */,
 				326723424614E761B4834409 /* UsernameValidatorErrorSpec.swift in Sources */,
 				32672CD29AB24344404C2D44 /* PinCodeValidatorErrorSpec.swift in Sources */,
+				29C72CAB1F9238DC003140E4 /* LoginServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

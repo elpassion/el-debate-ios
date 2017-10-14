@@ -3,8 +3,6 @@ import PromiseKit
 
 class APIProviderStub: APIProviding {
 
-    var credentials: LoginCredentials?
-    var authenticationToken = "12"
     var debateAuthToken: String?
     var votingAuthToken: String?
     var votingAnswer: Answer?
@@ -15,11 +13,6 @@ class APIProviderStub: APIProviding {
     var voteResult: Promise<Answer> = Promise(value: Answer.testDefault)
 
     var commentReturnValue: Promise<Bool>?
-
-    func login(credentials: LoginCredentials) -> Promise<String> {
-        self.credentials = credentials
-        return Promise(value: authenticationToken)
-    }
 
     func fetchDebate(authToken: String) -> Promise<Debate> {
         debateAuthToken = authToken

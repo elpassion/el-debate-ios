@@ -8,16 +8,19 @@ class LoginActionHandlerSpec: QuickSpec {
     override func spec() {
         describe("LoginActionHandler") {
             var apiProviderStub: APIProviderStub!
+            var loginServiceStub: LoginServiceStub!
             var tokenStorage: AuthTokenStorageStub!
             var formValidator: PinFormValidatorMock!
             var sut: LoginActionHandler!
 
             beforeEach {
                 apiProviderStub = APIProviderStub()
-                apiProviderStub.authenticationToken = "auth_token_from_service"
+                loginServiceStub = LoginServiceStub()
+                loginServiceStub.authenticationToken = "auth_token_from_service"
                 tokenStorage = AuthTokenStorageStub()
                 formValidator = PinFormValidatorMock()
                 sut = LoginActionHandler(apiClient: apiProviderStub,
+                                         loginService: loginServiceStub,
                                          tokenStorage: tokenStorage,
                                          formValidator: formValidator)
             }
@@ -82,15 +85,16 @@ class LoginActionHandlerSpec: QuickSpec {
                     it("should pass correct arguments to login method") {
                         _ = sut.login(with: LoginCredentials(pin: "123"))
 
-                        expect(apiProviderStub.credentials?.pin).toEventually(equal("123"))
+                        expect(loginServiceStub.credentials?.pin).toEventually(equal("123"))
                     }
                 }
 
                 context("when token storage throws an exception") {
                     beforeEach {
-                        apiProviderStub = APIProviderStub()
-                        apiProviderStub.authenticationToken = "auth_token_from_service"
+                        loginServiceStub = LoginServiceStub()
+                        loginServiceStub.authenticationToken = "auth_token_from_service"
                         sut = LoginActionHandler(apiClient: apiProviderStub,
+                                                 loginService: loginServiceStub,
                                                  tokenStorage: ThrowingAuthTokenStorageStub(),
                                                  formValidator: formValidator)
                     }

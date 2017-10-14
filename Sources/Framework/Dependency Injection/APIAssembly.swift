@@ -5,6 +5,7 @@ class APIAssembly: Assembly {
 
     func assemble(container: Container) {
         container.autoregister(RequestExecuting.self, initializer: RequestExecutor.init)
+        container.autoregister(URLProviding.self, initializer: URLProvider.init)
 
         container.register(Deserializer<String>.self, name: "AuthToken") { _ in
             return Deserializer(AuthTokenDeserializer())
@@ -21,10 +22,15 @@ class APIAssembly: Assembly {
         container.register(APIProviding.self) { resolver in
             return ApiClient(
                 requestExecutor: resolver ~> RequestExecuting.self,
-                authTokenDeserializer: resolver ~> (Deserializer<String>.self, name: "AuthToken"),
                 debateDeserializer: resolver ~> (Deserializer<Debate>.self, name: "Debate"),
                 commentsDeserializer: resolver ~> (Deserializer<Comments>.self, name: "Comments")
             )
+        }
+
+        container.register(LoginServiceProtocol.self) { resolver in
+            return LoginService(requestExecutor: resolver ~> RequestExecuting.self,
+                                authTokenDeserializer: resolver ~> (Deserializer<String>.self, name: "AuthToken"),
+                                URLProvider: resolver ~> URLProviding.self)
         }
     }
 

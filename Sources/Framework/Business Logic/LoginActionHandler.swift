@@ -9,11 +9,16 @@ protocol LoginActionHandling: AutoMockable {
 class LoginActionHandler: LoginActionHandling {
 
     private let apiClient: APIProviding
+    private let loginService: LoginServiceProtocol
     private let tokenStorage: AuthTokenStoring
     private let formValidator: PinFormValidating
 
-    init(apiClient: APIProviding, tokenStorage: AuthTokenStoring, formValidator: PinFormValidating) {
+    init(apiClient: APIProviding,
+         loginService: LoginServiceProtocol,
+         tokenStorage: AuthTokenStoring,
+         formValidator: PinFormValidating) {
         self.apiClient = apiClient
+        self.loginService = loginService
         self.tokenStorage = tokenStorage
         self.formValidator = formValidator
     }
@@ -21,7 +26,7 @@ class LoginActionHandler: LoginActionHandling {
     func login(with credentials: LoginCredentials) -> Promise<VoteContext> {
         return formValidator.validate(pinCode: credentials.pin)
             .then { addingStoredToken(into: PartialContext(credentials: $0), from: self.tokenStorage) }
-            .then { fetchingMissingToken(into: $0, using: self.apiClient, storedIn: self.tokenStorage) }
+            .then { fetchingMissingToken(into: $0, using: self.loginService, storedIn: self.tokenStorage) }
             .then { fetchingDebate(into: $0, using: self.apiClient) }
             .then { $0.buildContext() }
     }
@@ -35,13 +40,13 @@ private func addingStoredToken(into context: PartialContext,
 }
 
 private func fetchingMissingToken(into context: PartialContext,
-                                  using apiClient: APIProviding,
+                                  using loginService: LoginServiceProtocol,
                                   storedIn storage: AuthTokenStoring) -> Promise<PartialContext> {
     guard context.authToken == nil else {
         return Promise(value: context)
     }
 
-    return apiClient.login(credentials: context.credentials).then { authToken in
+    return loginService.login(credentials: context.credentials).then { authToken in
         try storage.save(token: authToken, forPinCode: context.credentials.pin)
         return Promise(value: context.with(token: authToken))
     }
