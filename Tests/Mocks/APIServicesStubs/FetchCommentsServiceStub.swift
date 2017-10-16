@@ -7,7 +7,7 @@ class FetchCommentsServiceStub: FetchCommentsServiceProtocol {
 
     func fetchComments(authToken: String) -> Promise<Comments> {
         debateAuthToken = authToken
-        return Promise(Comments.testDefault)
+        return Promise(value: Comments.testDefault)
     }
 
 }

@@ -15,7 +15,7 @@ class FetchCommentsServiceSpec: QuickSpec {
                 requestExecutor = RequestExecutingMock()
                 URL = URLProvider()
                 fetchCommentsService = FetchCommentsService(requestExecutor: requestExecutor,
-                                                            commentsDeserializer: Deserializer(CommentsDeserializer(jsonDecoder:JSONDecoder())),
+                                                            commentsDeserializer: Deserializer(CommentsDeserializer(jsonDecoder: JSONDecoder())),
                                                             URLProvider: URL)
             }
 
@@ -24,7 +24,7 @@ class FetchCommentsServiceSpec: QuickSpec {
                 URL = nil
                 fetchCommentsService = nil
             }
-            
+
         }
     }
 }

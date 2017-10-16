@@ -15,6 +15,10 @@
 		2932C3351F94B69200B85B02 /* FetchDebateServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C32F1F948ED400B85B02 /* FetchDebateServiceStub.swift */; };
 		2932C3361F94B69700B85B02 /* VoteServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C32D1F948EB500B85B02 /* VoteServiceStub.swift */; };
 		2932C3381F94D97800B85B02 /* Comment+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3371F94D97800B85B02 /* Comment+Default.swift */; };
+		2932C33A1F94E04B00B85B02 /* FeatureTestsLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3391F94E04B00B85B02 /* FeatureTestsLoginService.swift */; };
+		2932C33C1F94E05E00B85B02 /* FeatureTestsFetchDebateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C33B1F94E05E00B85B02 /* FeatureTestsFetchDebateService.swift */; };
+		2932C33E1F94E08500B85B02 /* FeatureTestsVoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C33D1F94E08500B85B02 /* FeatureTestsVoteService.swift */; };
+		2932C3401F94E0A500B85B02 /* FeatureTestsFetchCommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C33F1F94E0A500B85B02 /* FeatureTestsFetchCommentsService.swift */; };
 		294D39801F90CF480015C54E /* CommentsDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D397F1F90CF480015C54E /* CommentsDeserializer.swift */; };
 		294D39821F90D20F0015C54E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D39811F90D20F0015C54E /* Comment.swift */; };
 		294D39851F90EA9B0015C54E /* CommentsDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D39831F90EA750015C54E /* CommentsDeserializerSpec.swift */; };
@@ -64,7 +68,6 @@
 		8C35DDB51EDD9F5900A26DD2 /* TestAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDB41EDD9F5900A26DD2 /* TestAssembly.swift */; };
 		8C35DDB71EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDB61EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift */; };
 		8C35DDB91EDD9FE800A26DD2 /* RouterFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDB81EDD9FE800A26DD2 /* RouterFixtures.swift */; };
-		8C35DDBB1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35DDBA1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift */; };
 		8C364DE91EDC1D82007D4EA6 /* NotificationManagingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */; };
 		8C364DEB1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DEA1EDC202C007D4EA6 /* KeyboardWillShowHandlerSpec.swift */; };
 		8C364DED1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C364DEC1EDC27F7007D4EA6 /* KeyboardWillShowHandlerMock.swift */; };
@@ -274,6 +277,10 @@
 		2932C32D1F948EB500B85B02 /* VoteServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteServiceStub.swift; sourceTree = "<group>"; };
 		2932C32F1F948ED400B85B02 /* FetchDebateServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDebateServiceStub.swift; sourceTree = "<group>"; };
 		2932C3371F94D97800B85B02 /* Comment+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+Default.swift"; sourceTree = "<group>"; };
+		2932C3391F94E04B00B85B02 /* FeatureTestsLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTestsLoginService.swift; sourceTree = "<group>"; };
+		2932C33B1F94E05E00B85B02 /* FeatureTestsFetchDebateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTestsFetchDebateService.swift; sourceTree = "<group>"; };
+		2932C33D1F94E08500B85B02 /* FeatureTestsVoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTestsVoteService.swift; sourceTree = "<group>"; };
+		2932C33F1F94E0A500B85B02 /* FeatureTestsFetchCommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTestsFetchCommentsService.swift; sourceTree = "<group>"; };
 		294D397F1F90CF480015C54E /* CommentsDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsDeserializer.swift; sourceTree = "<group>"; };
 		294D39811F90D20F0015C54E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		294D39831F90EA750015C54E /* CommentsDeserializerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsDeserializerSpec.swift; sourceTree = "<group>"; };
@@ -357,7 +364,6 @@
 		8C35DDB41EDD9F5900A26DD2 /* TestAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAssembly.swift; sourceTree = "<group>"; };
 		8C35DDB61EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assembler+TestAssembly.swift"; sourceTree = "<group>"; };
 		8C35DDB81EDD9FE800A26DD2 /* RouterFixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFixtures.swift; sourceTree = "<group>"; };
-		8C35DDBA1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureTestsAPIClient.swift; sourceTree = "<group>"; };
 		8C364DE41EDC1C55007D4EA6 /* NotificationCenter+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Protocol.swift"; sourceTree = "<group>"; };
 		8C364DE61EDC1D2D007D4EA6 /* KeyboardWillShowHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowHandler.swift; sourceTree = "<group>"; };
 		8C364DE81EDC1D82007D4EA6 /* NotificationManagingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagingMock.swift; sourceTree = "<group>"; };
@@ -522,6 +528,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2932C3411F94E3D700B85B02 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2932C33F1F94E0A500B85B02 /* FeatureTestsFetchCommentsService.swift */,
+				2932C33B1F94E05E00B85B02 /* FeatureTestsFetchDebateService.swift */,
+				2932C3391F94E04B00B85B02 /* FeatureTestsLoginService.swift */,
+				2932C33D1F94E08500B85B02 /* FeatureTestsVoteService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		296E84621F913E8B000E67C5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,7 +731,7 @@
 		8C35DDAC1EDD774A00A26DD2 /* Test Data */ = {
 			isa = PBXGroup;
 			children = (
-				8C35DDBA1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift */,
+				2932C3411F94E3D700B85B02 /* Services */,
 				8C35DDAE1EDD7D8600A26DD2 /* KeychainFixtures.swift */,
 				8C35DDB81EDD9FE800A26DD2 /* RouterFixtures.swift */,
 				8CD094811EE87935006D46A5 /* UserDefaultsFixtures.swift */,
@@ -1821,10 +1838,13 @@
 				8C35DDB21EDD9C2500A26DD2 /* HasAppeared.swift in Sources */,
 				8C6EC6451ECC422F009E0FBC /* AnswerScreenTests.swift in Sources */,
 				8C35DDAF1EDD7D8600A26DD2 /* KeychainFixtures.swift in Sources */,
+				2932C33E1F94E08500B85B02 /* FeatureTestsVoteService.swift in Sources */,
 				8CD094821EE87935006D46A5 /* UserDefaultsFixtures.swift in Sources */,
 				8C35DDB51EDD9F5900A26DD2 /* TestAssembly.swift in Sources */,
+				2932C33A1F94E04B00B85B02 /* FeatureTestsLoginService.swift in Sources */,
+				2932C33C1F94E05E00B85B02 /* FeatureTestsFetchDebateService.swift in Sources */,
 				8CDF21811ECB11EB002B4FA4 /* HasPlaceholder.swift in Sources */,
-				8C35DDBB1EDDB92300A26DD2 /* FeatureTestsAPIClient.swift in Sources */,
+				2932C3401F94E0A500B85B02 /* FeatureTestsFetchCommentsService.swift in Sources */,
 				8C35DDB71EDD9F7F00A26DD2 /* Assembler+TestAssembly.swift in Sources */,
 				8C35DDB91EDD9FE800A26DD2 /* RouterFixtures.swift in Sources */,
 				857114A6CA12F10D014D97B7 /* EarlGrey.swift in Sources */,
