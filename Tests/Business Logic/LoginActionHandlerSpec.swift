@@ -7,22 +7,30 @@ class LoginActionHandlerSpec: QuickSpec {
     // swiftlint:disable function_body_length
     override func spec() {
         describe("LoginActionHandler") {
-            var apiProviderStub: APIProviderStub!
+            var fetchDebateServiceStub: FetchDebateServiceStub!
             var loginServiceStub: LoginServiceStub!
             var tokenStorage: AuthTokenStorageStub!
             var formValidator: PinFormValidatorMock!
             var sut: LoginActionHandler!
 
             beforeEach {
-                apiProviderStub = APIProviderStub()
+                fetchDebateServiceStub = FetchDebateServiceStub()
                 loginServiceStub = LoginServiceStub()
                 loginServiceStub.authenticationToken = "auth_token_from_service"
                 tokenStorage = AuthTokenStorageStub()
                 formValidator = PinFormValidatorMock()
-                sut = LoginActionHandler(apiClient: apiProviderStub,
+                sut = LoginActionHandler(fetchDebateService: fetchDebateServiceStub,
                                          loginService: loginServiceStub,
                                          tokenStorage: tokenStorage,
                                          formValidator: formValidator)
+            }
+
+            afterEach {
+                fetchDebateServiceStub = nil
+                loginServiceStub = nil
+                tokenStorage = nil
+                formValidator = nil
+                sut = nil
             }
 
             describe("login") {
@@ -59,7 +67,7 @@ class LoginActionHandlerSpec: QuickSpec {
                     it("should use token from storage") {
                         _ = sut.login(with: LoginCredentials(pin: "in_storage"))
 
-                        expect(apiProviderStub.debateAuthToken).toEventually(equal("auth_token_from_storage"))
+                        expect(fetchDebateServiceStub.debateAuthToken).toEventually(equal("auth_token_from_storage"))
                     }
                 }
 
@@ -72,7 +80,7 @@ class LoginActionHandlerSpec: QuickSpec {
                     it("should use token from service") {
                         _ = sut.login(with: LoginCredentials(pin: "not_in_storage"))
 
-                        expect(apiProviderStub.debateAuthToken).toEventually(equal("auth_token_from_service"))
+                        expect(fetchDebateServiceStub.debateAuthToken).toEventually(equal("auth_token_from_service"))
                     }
 
                     it("should store pin and auth code in storage") {
@@ -93,7 +101,7 @@ class LoginActionHandlerSpec: QuickSpec {
                     beforeEach {
                         loginServiceStub = LoginServiceStub()
                         loginServiceStub.authenticationToken = "auth_token_from_service"
-                        sut = LoginActionHandler(apiClient: apiProviderStub,
+                        sut = LoginActionHandler(fetchDebateService: fetchDebateServiceStub,
                                                  loginService: loginServiceStub,
                                                  tokenStorage: ThrowingAuthTokenStorageStub(),
                                                  formValidator: formValidator)
