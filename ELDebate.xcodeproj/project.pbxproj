@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0F5311200D5341E956D16AC2 /* Pods_FeatureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */; };
-		2932C3261F948E2B00B85B02 /* FetchCommentsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3251F948E2B00B85B02 /* FetchCommentsServiceSpec.swift */; };
-		2932C3281F948E4000B85B02 /* FetchDebateServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3271F948E4000B85B02 /* FetchDebateServiceSpec.swift */; };
-		2932C32A1F948E5300B85B02 /* VoteServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3291F948E5300B85B02 /* VoteServiceSpec.swift */; };
 		2932C32C1F948E9F00B85B02 /* FetchCommentsServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C32B1F948E9F00B85B02 /* FetchCommentsServiceStub.swift */; };
 		2932C32E1F948EB500B85B02 /* VoteServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C32D1F948EB500B85B02 /* VoteServiceStub.swift */; };
 		2932C3301F948ED400B85B02 /* FetchDebateServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C32F1F948ED400B85B02 /* FetchDebateServiceStub.swift */; };
+		2932C3311F948F9600B85B02 /* FetchCommentsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3251F948E2B00B85B02 /* FetchCommentsServiceSpec.swift */; };
+		2932C3321F948F9900B85B02 /* FetchDebateServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3271F948E4000B85B02 /* FetchDebateServiceSpec.swift */; };
+		2932C3331F948FA500B85B02 /* VoteServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3291F948E5300B85B02 /* VoteServiceSpec.swift */; };
 		294D39801F90CF480015C54E /* CommentsDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D397F1F90CF480015C54E /* CommentsDeserializer.swift */; };
 		294D39821F90D20F0015C54E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D39811F90D20F0015C54E /* Comment.swift */; };
 		294D39851F90EA9B0015C54E /* CommentsDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D39831F90EA750015C54E /* CommentsDeserializerSpec.swift */; };
@@ -85,7 +85,6 @@
 		8C4B233C1EE547D700CE42DD /* KeyboardWillShowPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F0C1ED83934009DB7ED /* KeyboardWillShowPayload.swift */; };
 		8C4B233D1EE547D700CE42DD /* NotificationDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F0E1ED83A2A009DB7ED /* NotificationDescriptor.swift */; };
 		8C4B233E1EE547D700CE42DD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3E8F121ED83C22009DB7ED /* Notifications.swift */; };
-		8C4B233F1EE547DC00CE42DD /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA7E2901EC466E3002DF55E /* ApiClient.swift */; };
 		8C4B23401EE547DC00CE42DD /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF036641EC9BDAD00198F01 /* ApiResponse.swift */; };
 		8C4B23411EE547DC00CE42DD /* JSONResponseProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C664A111EC45FFD0017687F /* JSONResponseProviding.swift */; };
 		8C4B23421EE547DC00CE42DD /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C664A181EC48F7A0017687F /* RequestError.swift */; };
@@ -309,7 +308,6 @@
 		6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentResponseJSONMock.swift; sourceTree = "<group>"; };
 		6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerDeserializerSpec.swift; sourceTree = "<group>"; };
 		6E9119B71EC5B6F400B4B14B /* FetchDebateResponseJSONMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDebateResponseJSONMock.swift; sourceTree = "<group>"; };
-		6EA7E2901EC466E3002DF55E /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		6EA7E2931EC466F6002DF55E /* ApiClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientSpec.swift; sourceTree = "<group>"; };
 		6EA7E2961EC468FA002DF55E /* LoginResponseJSONMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponseJSONMock.swift; sourceTree = "<group>"; };
 		6EA7E2991EC4AF09002DF55E /* Debate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debate.swift; sourceTree = "<group>"; };
@@ -847,7 +845,6 @@
 			children = (
 				8C664A151EC48F240017687F /* Deserialization */,
 				296E84621F913E8B000E67C5 /* Services */,
-				6EA7E2901EC466E3002DF55E /* ApiClient.swift */,
 				6EF036641EC9BDAD00198F01 /* ApiResponse.swift */,
 				8C664A111EC45FFD0017687F /* JSONResponseProviding.swift */,
 				50D4DC761F916B2800B3C901 /* Request+Deserializer.swift */,
@@ -1660,7 +1657,6 @@
 				8C530B1F1EEFF77D00C9925B /* UINavigationController+Styling.swift in Sources */,
 				2932C32C1F948E9F00B85B02 /* FetchCommentsServiceStub.swift in Sources */,
 				8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */,
-				8C4B233F1EE547DC00CE42DD /* ApiClient.swift in Sources */,
 				296E84611F9136E0000E67C5 /* URLProvider.swift in Sources */,
 				8C4B23691EE547FE00CE42DD /* AutoMockable.swift in Sources */,
 				8C4B23611EE547FA00CE42DD /* AlertPresenter.swift in Sources */,
@@ -1679,7 +1675,6 @@
 				8C87B8B11EE98BD300A243E2 /* UIBezierPath+Lines.swift in Sources */,
 				8C4B23331EE547D100CE42DD /* AttributedLabel.swift in Sources */,
 				8C4B23441EE547E100CE42DD /* AnswerDeserializer.swift in Sources */,
-				2932C32A1F948E5300B85B02 /* VoteServiceSpec.swift in Sources */,
 				8C4B23391EE547D100CE42DD /* QuestionFrameView.swift in Sources */,
 				50D4DC771F916B2800B3C901 /* Request+Deserializer.swift in Sources */,
 				50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */,
@@ -1702,7 +1697,6 @@
 				8C4B23631EE547FA00CE42DD /* AnswerViewController.swift in Sources */,
 				8C4B23341EE547D100CE42DD /* ChatButtonView.swift in Sources */,
 				8C4B236E1EE5480400CE42DD /* AuthTokenStorage.swift in Sources */,
-				2932C3261F948E2B00B85B02 /* FetchCommentsServiceSpec.swift in Sources */,
 				8C6138121EF1848F00E00700 /* ValidatorAssembly.swift in Sources */,
 				8C4B23711EE5480400CE42DD /* KeyboardWillShowHandler.swift in Sources */,
 				8C61380C1EF1608F00E00700 /* LoginCredentials.swift in Sources */,
@@ -1724,7 +1718,6 @@
 				8C4B234C1EE547EC00CE42DD /* Debate.swift in Sources */,
 				8C4B23671EE547FA00CE42DD /* PinEntryControllerProviding.swift in Sources */,
 				8C4B23311EE547D100CE42DD /* AnswerView.swift in Sources */,
-				2932C3281F948E4000B85B02 /* FetchDebateServiceSpec.swift in Sources */,
 				8C4B235D1EE547F500CE42DD /* Assembler+Assemblies.swift in Sources */,
 				8C4B23621EE547FA00CE42DD /* AnswerControllerProviding.swift in Sources */,
 				8C4B23301EE547D100CE42DD /* AnswerPicker.swift in Sources */,
@@ -1751,6 +1744,7 @@
 			files = (
 				8C6127E51EC9AED9003472A3 /* AnswerViewControllerSpec.swift in Sources */,
 				8CCE0F501EE55EBA001FD1D7 /* TextStyleDescriptorFactorySpec.swift in Sources */,
+				2932C3331F948FA500B85B02 /* VoteServiceSpec.swift in Sources */,
 				8C5B02D91EFD804D00D405CA /* AlertFactoryMock.swift in Sources */,
 				8CBB56A61EFD4BF700289066 /* AlertPresentingControllerMock.swift in Sources */,
 				8CBB56A41EFD481000289066 /* AlertPresenterSpec.swift in Sources */,
@@ -1785,6 +1779,7 @@
 				8CCD73D51EFD73A400183DA0 /* AlertConfigurationSpec.swift in Sources */,
 				8C6137F91EF131A800E00700 /* PinCodeValidatorSpec.swift in Sources */,
 				8C6127ED1EC9E520003472A3 /* LoginActionHandlerSpec.swift in Sources */,
+				2932C3321F948F9900B85B02 /* FetchDebateServiceSpec.swift in Sources */,
 				8C61380A1EF15DDF00E00700 /* PinFormValidatorSpec.swift in Sources */,
 				8CF071D91ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift in Sources */,
 				6EDF434F1ECB186F004B92BD /* VoteContext+Default.swift in Sources */,
@@ -1806,6 +1801,7 @@
 				8CBB56A21EFD371F00289066 /* ForceCastSpec.swift in Sources */,
 				6E9119B91EC5B78800B4B14B /* FetchDebateResponseJSONMock.swift in Sources */,
 				6EF0365C1EC98F2A00198F01 /* AuthTokenStorageSpec.swift in Sources */,
+				2932C3311F948F9600B85B02 /* FetchCommentsServiceSpec.swift in Sources */,
 				6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */,
 				8CCE0F591EE57C84001FD1D7 /* FontSizeCalculatorMock.swift in Sources */,
 				8C35DDA81EDD68F600A26DD2 /* KeychainMock.swift in Sources */,

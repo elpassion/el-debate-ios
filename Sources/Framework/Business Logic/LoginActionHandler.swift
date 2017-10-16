@@ -8,16 +8,16 @@ protocol LoginActionHandling: AutoMockable {
 
 class LoginActionHandler: LoginActionHandling {
 
-    private let apiClient: APIProviding
+    private let fetchDebateService: FetchDebateServiceProtocol
     private let loginService: LoginServiceProtocol
     private let tokenStorage: AuthTokenStoring
     private let formValidator: PinFormValidating
 
-    init(apiClient: APIProviding,
+    init(fetchDebateService: FetchDebateServiceProtocol,
          loginService: LoginServiceProtocol,
          tokenStorage: AuthTokenStoring,
          formValidator: PinFormValidating) {
-        self.apiClient = apiClient
+        self.fetchDebateService = fetchDebateService
         self.loginService = loginService
         self.tokenStorage = tokenStorage
         self.formValidator = formValidator
@@ -27,7 +27,7 @@ class LoginActionHandler: LoginActionHandling {
         return formValidator.validate(pinCode: credentials.pin)
             .then { addingStoredToken(into: PartialContext(credentials: $0), from: self.tokenStorage) }
             .then { fetchingMissingToken(into: $0, using: self.loginService, storedIn: self.tokenStorage) }
-            .then { fetchingDebate(into: $0, using: self.apiClient) }
+            .then { fetchingDebate(into: $0, using: self.fetchDebateService) }
             .then { $0.buildContext() }
     }
 
@@ -52,12 +52,13 @@ private func fetchingMissingToken(into context: PartialContext,
     }
 }
 
-private func fetchingDebate(into context: PartialContext, using apiClient: APIProviding) -> Promise<PartialContext> {
+private func fetchingDebate(into context: PartialContext,
+                            using fetchDebateService: FetchDebateServiceProtocol) -> Promise<PartialContext> {
     guard let authToken = context.authToken else {
         fatalError("Debate should never be fetched without authentication token")
     }
 
-    return apiClient.fetchDebate(authToken: authToken).then { debate in
+    return fetchDebateService.fetchDebate(authToken: authToken).then { debate in
         context.with(debate: debate)
     }
 }

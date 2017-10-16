@@ -4,7 +4,7 @@ import UIKit
 class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPresentingController {
 
     let voteContext: VoteContext
-    private let apiClient: APIProviding
+    private let voteService: VoteServiceProtocol
     let alertPresenter: AlertShowing
 
     var onChatButtonTapped: (() -> Void)?
@@ -12,10 +12,10 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     // MARK: - Initializer
 
     init(voteContext: VoteContext,
-         apiClient: APIProviding,
+         voteService: VoteServiceProtocol,
          alertView: AlertShowing) {
         self.voteContext = voteContext
-        self.apiClient = apiClient
+        self.voteService = voteService
         self.alertPresenter = alertView
 
         super.init(nibName: nil, bundle: nil)
@@ -52,7 +52,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
         let answer = voteContext.answer(for: answerType)
         answerView.enabled = false
 
-        apiClient.vote(authToken: authToken, answer: answer)
+        voteService.vote(authToken: authToken, answer: answer)
             .then { [weak self] answer -> Void in
                 self?.answerView.selectAnswer(type: answer.type)
             }.catch { [weak self] error in
