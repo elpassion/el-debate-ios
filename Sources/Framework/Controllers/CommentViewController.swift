@@ -1,12 +1,10 @@
 import PromiseKit
 import UIKit
 
-class CommentViewController: UIViewController, ControllerProviding {
+class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ControllerProviding {
 
     init() {
-
         super.init(nibName: nil, bundle: nil)
-
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back to Voting",
                                                                 style: .plain,
                                                                 target: nil,
@@ -24,6 +22,17 @@ class CommentViewController: UIViewController, ControllerProviding {
     }
 
     var chatView: ChatView { return forceCast(view) }
+
+    // MARK: - TableView Configuration
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = SingleCommentView.self()
+        return cell
+    }
 
     // MARK: - ControllerProviding
 
