@@ -4,6 +4,7 @@ import UIKit
 class ChatView: UIView {
 
     private let tableView = Factory.tableView()
+    private let customCell = Factory.customCell
     private let background = Factory.background()
 
     public init() {
@@ -51,6 +52,11 @@ extension ChatView {
         static func background() -> UIImageView {
             let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
             return background
+        }
+
+        static func customCell() -> SingleCommentView {
+            let customCell = SingleCommentView()
+            return customCell
         }
 
     }
