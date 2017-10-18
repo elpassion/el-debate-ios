@@ -3,7 +3,11 @@ import UIKit
 
 class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ControllerProviding {
 
-    init() {
+    private let fetchCommentsService: FetchCommentsServiceProtocol
+
+    init(fetchCommentsService: FetchCommentsServiceProtocol) {
+        self.fetchCommentsService = fetchCommentsService
+
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back to Voting",
                                                                 style: .plain,
