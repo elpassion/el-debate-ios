@@ -667,7 +667,6 @@
 				8C464F091EC5E537009DD7BF /* AnswerView.swift */,
 				8C6127E81EC9BF8E003472A3 /* AnswersListView.swift */,
 				8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */,
-				294DA05F1F979E3D0016EF62 /* SingleCommentView.swift */,
 				8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */,
 				50CB84451F8BAC71000A0D83 /* CommentsView.swift */,
 				8CFAC8541EE5A55C0086A976 /* IconTextField.swift */,
@@ -680,6 +679,7 @@
 				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
 				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
 				294DA05D1F96501B0016EF62 /* SingleCommentCell.swift */,
+				294DA05F1F979E3D0016EF62 /* SingleCommentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
