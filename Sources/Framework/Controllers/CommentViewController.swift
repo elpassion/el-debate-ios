@@ -5,6 +5,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     private let fetchCommentsService: FetchCommentsServiceProtocol
 
+    var comments: Comments?
+
     var voteContext: VoteContext
 
     init(fetchCommentsService: FetchCommentsServiceProtocol,
@@ -20,26 +22,47 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     override func loadView() {
-        view = ChatView()
+        view = CommentsView()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fetchComments()
+        commentsView.commentsTableView.registerCell(SingleCommentCell.self)
+        commentsView.commentsTableView.dataSource = self
+
         title = "Live Chat Feed"
     }
 
-    var chatView: ChatView { return forceCast(view) }
+    var commentsView: CommentsView { return forceCast(view) }
 
-    // MARK: - TableView Configuration
+    // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        guard let commentsCount = comments?.comments.count else {
+            return 0 }
+        return commentsCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = SingleCommentView.self()
+        let rowNumber = indexPath.row
+        guard let commentBody = comments?.comments[rowNumber].content else {
+            fatalError("Comment list should not be nil") }
+
+        let cell = tableView.dequeueReusabelCell(SingleCommentCell.self, for: indexPath)
+
         return cell
+    }
+
+    // MARK: - Fetch Comments Servie
+
+    func fetchComments() {
+        let authToken = voteContext.authToken
+        fetchCommentsService.fetchComments(authToken: authToken).then { [weak self] comments -> Void in
+            self?.comments = comments
+            self?.commentsView.commentsTableView.reloadData()
+        }
     }
 
     // MARK: - ControllerProviding
