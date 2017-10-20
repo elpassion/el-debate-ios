@@ -31,7 +31,7 @@ internal class ControllerFactorySpec: QuickSpec {
             }
 
             it ("should build view controller for comments") {
-                let controller = sut.makeController(of: .comment)
+                let controller = sut.makeController(of: .comment(voteContext: VoteContext.testDefault))
 
                 expect(controller).to(beAKindOf(CommentViewController.self))
             }
