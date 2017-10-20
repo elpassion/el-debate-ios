@@ -20,16 +20,16 @@ PODS:
   - Nimble-Snapshots/Core (6.3.0):
     - FBSnapshotTestCase (~> 2.0)
     - Nimble (~> 7.0)
-  - PromiseKit (4.4.0):
-    - PromiseKit/Foundation (= 4.4.0)
-    - PromiseKit/QuartzCore (= 4.4.0)
-    - PromiseKit/UIKit (= 4.4.0)
-  - PromiseKit/CorePromise (4.4.0)
-  - PromiseKit/Foundation (4.4.0):
+  - PromiseKit (4.4.3):
+    - PromiseKit/Foundation (= 4.4.3)
+    - PromiseKit/QuartzCore (= 4.4.3)
+    - PromiseKit/UIKit (= 4.4.3)
+  - PromiseKit/CorePromise (4.4.3)
+  - PromiseKit/Foundation (4.4.3):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.4.0):
+  - PromiseKit/QuartzCore (4.4.3):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.4.0):
+  - PromiseKit/UIKit (4.4.3):
     - PromiseKit/CorePromise
   - Quick (1.2.0)
   - Reveal-SDK (11)
@@ -87,7 +87,7 @@ SPEC CHECKSUMS:
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
-  PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
+  PromiseKit: fbb52a0d154402c57eeb6eccd36dd7724fcf6117
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   Reveal-SDK: 7fa13d04bb55db61ff2342a990cf731d5159361d
   Sourcery: e3829460a1fa0bcd3b689e6087a89cc063cd2289
