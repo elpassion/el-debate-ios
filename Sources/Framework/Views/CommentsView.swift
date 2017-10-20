@@ -1,11 +1,10 @@
 import Anchorage
 import UIKit
 
-class ChatView: UIView {
+class CommentsView: UIView {
 
-    private let tableView = Factory.tableView()
-    private let customCell = Factory.customCell
-    private let background = Factory.background()
+    let commentsTableView: UITableView = Factory.commentsTableView()
+    private let background: UIImageView = Factory.background()
 
     public init() {
         super.init(frame: .zero)
@@ -21,7 +20,7 @@ class ChatView: UIView {
 
     private func addSubviews() {
         addSubview(background)
-        addSubview(tableView)
+        addSubview(commentsTableView)
     }
 
     private func setUpLayout() {
@@ -38,25 +37,21 @@ class ChatView: UIView {
     }
 }
 
-extension ChatView {
+extension CommentsView {
 
     struct Factory {
 
-        static func tableView() -> UITableView {
-            let tableView = UITableView()
-            tableView.frame = UIScreen.main.bounds
-            tableView.backgroundColor = UIColor.clear
-            return tableView
+        static func commentsTableView() -> UITableView {
+            let commentsTableView = UITableView()
+            commentsTableView.frame = UIScreen.main.bounds
+            commentsTableView.backgroundColor = UIColor.clear
+            commentsTableView.allowsSelection = false
+            return commentsTableView
         }
 
         static func background() -> UIImageView {
             let background: UIImageView = Views.image(image: .loginBackground, contentMode: .scaleAspectFit)
             return background
-        }
-
-        static func customCell() -> SingleCommentView {
-            let customCell = SingleCommentView()
-            return customCell
         }
 
     }

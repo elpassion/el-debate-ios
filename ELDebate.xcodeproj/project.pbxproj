@@ -42,7 +42,7 @@
 		501E951C7F5419BDDB3C45B8 /* Pods_ELDebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */; };
 		5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */; };
 		5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */; };
-		50CB84461F8BAC71000A0D83 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* ChatView.swift */; };
+		50CB84461F8BAC71000A0D83 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* CommentsView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
 		50CB844D1F8E9124000A0D83 /* AnswerViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB844B1F8E90DE000A0D83 /* AnswerViewControllerMock.swift */; };
@@ -310,7 +310,7 @@
 		503584F6E31E132E68AE9835 /* Pods-ELDebateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.release.xcconfig"; sourceTree = "<group>"; };
 		5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionConfiguration.swift; sourceTree = "<group>"; };
 		5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTextFieldConfiguration.swift; sourceTree = "<group>"; };
-		50CB84451F8BAC71000A0D83 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		50CB84451F8BAC71000A0D83 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
 		50CB844B1F8E90DE000A0D83 /* AnswerViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewControllerMock.swift; sourceTree = "<group>"; };
@@ -667,7 +667,7 @@
 				8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */,
 				294DA05F1F979E3D0016EF62 /* SingleCommentView.swift */,
 				8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */,
-				50CB84451F8BAC71000A0D83 /* ChatView.swift */,
+				50CB84451F8BAC71000A0D83 /* CommentsView.swift */,
 				8CFAC8541EE5A55C0086A976 /* IconTextField.swift */,
 				8CDE55421EE5B68200A05902 /* LoginButtonView.swift */,
 				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
@@ -1702,7 +1702,7 @@
 				8C4B23381EE547D100CE42DD /* PinEntryWelcomeView.swift in Sources */,
 				8C87B8AB1EE9522300A243E2 /* UIImage+FromColor.swift in Sources */,
 				8C7322DB1EF81C160067BC84 /* Deserialization+CommonFunctions.swift in Sources */,
-				50CB84461F8BAC71000A0D83 /* ChatView.swift in Sources */,
+				50CB84461F8BAC71000A0D83 /* CommentsView.swift in Sources */,
 				8C530B1F1EEFF77D00C9925B /* UINavigationController+Styling.swift in Sources */,
 				8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */,
 				296E84611F9136E0000E67C5 /* URLProvider.swift in Sources */,
