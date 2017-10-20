@@ -9,10 +9,15 @@ class CommentControllerSpec: QuickSpec {
     // swiftlint:disable function_body_length
     override func spec() {
 //        describe("CommentController") {
-//            var controller: CommentViewController!
+//            var controller: CommentViewControllerMock!
+//            var fetchCommentServiceStub: FetchCommentsServiceStub!
 //
 //            beforeEach {
-//                controller = CommentViewController()
+//                controller = CommentView
+//            }
+//
+//            afterEach {
+//                <#code#>
 //            }
 //
 //            describe("after view has appeared") {

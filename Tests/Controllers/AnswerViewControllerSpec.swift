@@ -24,7 +24,9 @@ class AnswerViewControllerSpec: QuickSpec {
             }
 
             afterEach {
-
+                sut = nil
+                voteServiceStub = nil
+                alertView = nil
             }
 
             describe("after view is loaded") {
