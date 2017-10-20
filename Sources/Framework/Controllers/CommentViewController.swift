@@ -5,8 +5,12 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     private let fetchCommentsService: FetchCommentsServiceProtocol
 
-    init(fetchCommentsService: FetchCommentsServiceProtocol) {
+    var voteContext: VoteContext
+
+    init(fetchCommentsService: FetchCommentsServiceProtocol,
+         voteContext: VoteContext) {
         self.fetchCommentsService = fetchCommentsService
+        self.voteContext = voteContext
 
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back to Voting",

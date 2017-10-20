@@ -7,7 +7,7 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     private let voteService: VoteServiceProtocol
     let alertPresenter: AlertShowing
 
-    var onChatButtonTapped: (() -> Void)?
+    var onChatButtonTapped: ((VoteContext) -> Void)?
 
     // MARK: - Initializer
 
@@ -31,7 +31,11 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        answerView.onChatButtonTapped = { [weak self] in self?.onChatButtonTapped?() }
+        answerView.onChatButtonTapped = { [weak self] in
+            guard let `self` = self else { return }
+
+            self.onChatButtonTapped?(self.voteContext)
+        }
         answerView.onAnswerSelected = { [weak self] in self?.didSelectAnswer(with: $0) }
 
         title = "EL Debate"
