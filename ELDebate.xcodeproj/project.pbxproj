@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0F5311200D5341E956D16AC2 /* Pods_FeatureTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */; };
+		14A018313B9DBD95E4A89213 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A011C08E8AD38EA16A17D9 /* UITableView+Reusable.swift */; };
+		14A01A7A61ACBB5D2A54003D /* UITableViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0165FF59144247BB970B1 /* UITableViewCell+Reusable.swift */; };
+		14A01C86A54B89F165CA840D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0136F735A6F80EAEFF7C0 /* Reusable.swift */; };
 		2932C3311F948F9600B85B02 /* FetchCommentsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3251F948E2B00B85B02 /* FetchCommentsServiceSpec.swift */; };
 		2932C3321F948F9900B85B02 /* FetchDebateServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3271F948E4000B85B02 /* FetchDebateServiceSpec.swift */; };
 		2932C3331F948FA500B85B02 /* VoteServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3291F948E5300B85B02 /* VoteServiceSpec.swift */; };
@@ -270,6 +273,9 @@
 
 /* Begin PBXFileReference section */
 		06DCA5AB659775BB4F7FD239 /* Pods_ELDebateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ELDebateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14A011C08E8AD38EA16A17D9 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
+		14A0136F735A6F80EAEFF7C0 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		14A0165FF59144247BB970B1 /* UITableViewCell+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reusable.swift"; sourceTree = "<group>"; };
 		19E287EA4ED2A64F83F5A9CB /* Pods-ELDebateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		275F10A50218847328F71153 /* Pods-ELDebateFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateFramework/Pods-ELDebateFramework.debug.xcconfig"; sourceTree = "<group>"; };
@@ -588,6 +594,16 @@
 				2932C32D1F948EB500B85B02 /* VoteServiceStub.swift */,
 			);
 			path = APIServicesStubs;
+			sourceTree = "<group>";
+		};
+		29CCC98E1F9AA33E00BAF624 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				14A0136F735A6F80EAEFF7C0 /* Reusable.swift */,
+				14A011C08E8AD38EA16A17D9 /* UITableView+Reusable.swift */,
+				14A0165FF59144247BB970B1 /* UITableViewCell+Reusable.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		32672B0AD29D2DBFC55D54EA /* Errors */ = {
@@ -994,6 +1010,7 @@
 		8CAD324B1EC36B5200830E72 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				29CCC98E1F9AA33E00BAF624 /* Extensions */,
 				6EADF5551ECC48BB00488057 /* AlertPresenter.swift */,
 				6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */,
 				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
@@ -1757,6 +1774,9 @@
 				326723B8FDCF8C056AF26357 /* PinCodeValidatorError.swift in Sources */,
 				32672746AB41975F44B887A7 /* UsernameValidatorError.swift in Sources */,
 				326728DEF33D4C6F923378A5 /* AlertPresentableError.swift in Sources */,
+				14A01C86A54B89F165CA840D /* Reusable.swift in Sources */,
+				14A01A7A61ACBB5D2A54003D /* UITableViewCell+Reusable.swift in Sources */,
+				14A018313B9DBD95E4A89213 /* UITableView+Reusable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
