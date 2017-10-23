@@ -9,6 +9,7 @@ class SingleCommentCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        backgroundColor = UIColor.clear
         addSubview(singleCommentView)
         singleCommentView.edgeAnchors == edgeAnchors
     }

@@ -46,6 +46,7 @@ extension CommentsView {
             commentsTableView.frame = UIScreen.main.bounds
             commentsTableView.backgroundColor = UIColor.clear
             commentsTableView.allowsSelection = false
+            commentsTableView.alwaysBounceVertical = false
             return commentsTableView
         }
 
