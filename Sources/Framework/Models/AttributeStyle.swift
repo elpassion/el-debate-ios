@@ -30,7 +30,7 @@ extension AttributeStyle {
         case .commentBody:
             return AttributesDescriptor(textStyle: .commentBody, alignment: .left, lineSpacing: 3.0)
         case .commentDate:
-            return AttributesDescriptor(textStyle: .commentDate)
+            return AttributesDescriptor(textStyle: .commentDate, alignment: .right)
         }
     }
 

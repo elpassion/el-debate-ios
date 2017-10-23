@@ -57,7 +57,7 @@ internal class SingleCommentView: UIView {
     }
 
     private func setupDateLabelLayout() {
-        dateLabel.widthAnchor == 40
+        dateLabel.widthAnchor == 30
         dateLabel.rightAnchor == rightAnchor - inset
         dateLabel.centerYAnchor == userAvatarView.centerYAnchor
     }

@@ -33,7 +33,7 @@ class TextStyleDescriptorFactory: TextStyleDescriptorCreating {
         case .commentBody:
             return TextStyleDescriptor(font: .regular, size: size(16.0), color: .question)
         case .commentDate:
-            return TextStyleDescriptor(font: .regular, size: size(14.0), color: .question)
+            return TextStyleDescriptor(font: .regular, size: size(12.0), color: .question)
         }
     }
 
