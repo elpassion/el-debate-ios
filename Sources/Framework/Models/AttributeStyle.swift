@@ -5,6 +5,9 @@ enum AttributeStyle {
     case answer
     case welcome
     case enterPin
+    case userName
+    case commentBody
+    case commentDate
 
 }
 
@@ -22,6 +25,12 @@ extension AttributeStyle {
             return AttributesDescriptor(textStyle: .welcome, alignment: .center)
         case .enterPin:
             return AttributesDescriptor(textStyle: .enterPin)
+        case .userName:
+            return AttributesDescriptor(textStyle: .userName)
+        case .commentBody:
+            return AttributesDescriptor(textStyle: .commentBody, alignment: .left, lineSpacing: 3.0)
+        case .commentDate:
+            return AttributesDescriptor(textStyle: .commentDate, alignment: .right)
         }
     }
 

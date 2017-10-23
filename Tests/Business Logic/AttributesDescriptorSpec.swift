@@ -65,7 +65,7 @@ class AttributesDescriptorSpec: QuickSpec {
                 var copy: AttributesDescriptor!
 
                 beforeEach {
-                    copy = sut.copy(with: .yes)
+                    copy = sut.copy(with: .positiveTint)
                 }
 
                 it("should be a different instance") {
@@ -78,7 +78,7 @@ class AttributesDescriptorSpec: QuickSpec {
                 }
 
                 it("should have yes text style color") {
-                    expect(copy.style.color.rawValue) == Color.yes.rawValue
+                    expect(copy.style.color.rawValue) == Color.positiveTint.rawValue
                 }
 
                 it("should have the same kern") {

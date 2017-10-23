@@ -2,6 +2,6 @@ public enum Route {
 
     case pinEntry
     case answer(voteContext: VoteContext)
-    case comment
+    case comment(voteContext: VoteContext)
 
 }

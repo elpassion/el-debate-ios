@@ -17,7 +17,7 @@ class TextStyleDescriptorFactory: TextStyleDescriptorCreating {
     func make(for style: TextStyle) -> TextStyleDescriptor {
         switch style {
         case .answer:
-            return TextStyleDescriptor(font: .regular, size: size(24.0), color: .undecided)
+            return TextStyleDescriptor(font: .regular, size: size(24.0), color: .undecidedTint)
         case .description:
             return TextStyleDescriptor(font: .regular, size: size(12.0), color: .description)
         case .question:
@@ -28,6 +28,12 @@ class TextStyleDescriptorFactory: TextStyleDescriptorCreating {
             return TextStyleDescriptor(font: .medium, size: size(20.0), color: .buttonTitle)
         case .enterPin:
             return TextStyleDescriptor(font: .regular, size: size(20.0), color: .pin)
+        case .userName:
+            return TextStyleDescriptor(font: .bold, size: size(14.0), color: .question)
+        case .commentBody:
+            return TextStyleDescriptor(font: .regular, size: size(16.0), color: .question)
+        case .commentDate:
+            return TextStyleDescriptor(font: .regular, size: size(12.0), color: .question)
         }
     }
 

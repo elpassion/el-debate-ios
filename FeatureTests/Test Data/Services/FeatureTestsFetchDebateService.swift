@@ -1,19 +1,7 @@
 @testable import ELDebateFramework
 import PromiseKit
 
-class FeatureTestsAPIClient: APIProviding {
-
-    func comment(_ text: String, with voteContext: VoteContext) -> Promise<Bool> {
-        return Promise(value: true)
-    }
-
-    func vote(authToken: String, answer: Answer) -> Promise<Answer> {
-        return Promise(value: answer)
-    }
-
-    func login(credentials: LoginCredentials) -> Promise<String> {
-        return Promise(value: "auth_token")
-    }
+class FeatureTestsFetchDebateService: FetchDebateServiceProtocol {
 
     func fetchDebate(authToken: String) -> Promise<Debate> {
         let debate = Debate(topic: "Party craft beer leggings Pitchfork VHS locavore?",

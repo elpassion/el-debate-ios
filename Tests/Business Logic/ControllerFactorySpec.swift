@@ -30,6 +30,12 @@ internal class ControllerFactorySpec: QuickSpec {
                 expect(controller?.voteContext.debate.topic) == VoteContext.testDefault.debate.topic
             }
 
+            it ("should build view controller for comments") {
+                let controller = sut.makeController(of: .comment(voteContext: VoteContext.testDefault))
+
+                expect(controller).to(beAKindOf(CommentViewController.self))
+            }
+
         }
     }
 

@@ -74,7 +74,7 @@ class RouterSpec: QuickSpec {
 
             describe("routing to comment screen") {
                 it("should push comment controller on stack") {
-                    sut.go(to: .comment)
+                    sut.go(to: .comment(voteContext: VoteContext.testDefault))
 
                     expect(controllerConfigurator.configureReceivedArguments?.controller).to(be(
                         controllerFactory.commentProvider))

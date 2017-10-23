@@ -6,9 +6,9 @@ public class AnswerPicker: UIView {
 
     private let verticalStack: UIStackView = Views.stack(axis: .vertical, distribution: .equalSpacing,
                                                          alignment: .fill, spacing: 14.0)
-    private let yesAnswer: SingleAnswerView = SingleAnswerView(color: .yes, image: .thumbsUp, type: .positive)
-    private let noAnswer: SingleAnswerView = SingleAnswerView(color: .no, image: .thumbsDown, type: .negative)
-    private let undecidedAnswer: SingleAnswerView = SingleAnswerView(color: .undecided, image: .handNeutral,
+    private let yesAnswer: SingleAnswerView = SingleAnswerView(color: .positiveTint, image: .thumbsUp, type: .positive)
+    private let noAnswer: SingleAnswerView = SingleAnswerView(color: .negativeTint, image: .thumbsDown, type: .negative)
+    private let undecidedAnswer: SingleAnswerView = SingleAnswerView(color: .undecidedTint, image: .handNeutral,
                                                                      type: .neutral)
     private let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
 

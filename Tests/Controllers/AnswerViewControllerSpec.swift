@@ -10,18 +10,23 @@ class AnswerViewControllerSpec: QuickSpec {
     override func spec() {
         describe("AnswerViewController") {
             var sut: AnswerViewControllerMock!
-            var apiClient: APIProviderStub!
+            var voteServiceStub: VoteServiceStub!
             var alertView: AlertViewMock!
 
             beforeEach {
-                apiClient = APIProviderStub()
+                voteServiceStub = VoteServiceStub()
                 alertView = AlertViewMock()
 
                 sut = AnswerViewControllerMock(
                     voteContext: VoteContext.testDefault,
-                    apiClient: apiClient,
-                    alertView: alertView
-                )
+                    voteService: voteServiceStub,
+                    alertView: alertView)
+            }
+
+            afterEach {
+                sut = nil
+                voteServiceStub = nil
+                alertView = nil
             }
 
             describe("after view is loaded") {
@@ -48,8 +53,8 @@ class AnswerViewControllerSpec: QuickSpec {
                 it("should invoke voting") {
                     sut.answerView.onAnswerSelected?(.neutral)
 
-                    expect(apiClient.votingAnswer?.identifier).toEventually(equal(2))
-                    expect(apiClient.votingAuthToken).toEventually(equal("whatever"))
+                    expect(voteServiceStub.votingAnswer?.identifier).toEventually(equal(2))
+                    expect(voteServiceStub.votingAuthToken).toEventually(equal("whatever"))
                 }
             }
 
@@ -68,7 +73,7 @@ class AnswerViewControllerSpec: QuickSpec {
             describe("vote") {
                 context("when failed") {
                     it("should show an alert message") {
-                        apiClient.voteResult = Promise(error: RequestError.apiError(statusCode: 404))
+                        voteServiceStub.voteResult = Promise(error: RequestError.apiError(statusCode: 404))
 
                         sut.answerView.onAnswerSelected?(.negative)
 
@@ -79,7 +84,7 @@ class AnswerViewControllerSpec: QuickSpec {
 
                 context("when failed because of throttling") {
                     it("should show a specific throttling alert") {
-                        apiClient.voteResult = Promise(error: RequestError.throttling)
+                        voteServiceStub.voteResult = Promise(error: RequestError.throttling)
 
                         sut.answerView.onAnswerSelected?(.positive)
 

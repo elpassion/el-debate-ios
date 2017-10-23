@@ -8,12 +8,17 @@ protocol LoginActionHandling: AutoMockable {
 
 class LoginActionHandler: LoginActionHandling {
 
-    private let apiClient: APIProviding
+    private let fetchDebateService: FetchDebateServiceProtocol
+    private let loginService: LoginServiceProtocol
     private let tokenStorage: AuthTokenStoring
     private let formValidator: PinFormValidating
 
-    init(apiClient: APIProviding, tokenStorage: AuthTokenStoring, formValidator: PinFormValidating) {
-        self.apiClient = apiClient
+    init(fetchDebateService: FetchDebateServiceProtocol,
+         loginService: LoginServiceProtocol,
+         tokenStorage: AuthTokenStoring,
+         formValidator: PinFormValidating) {
+        self.fetchDebateService = fetchDebateService
+        self.loginService = loginService
         self.tokenStorage = tokenStorage
         self.formValidator = formValidator
     }
@@ -21,8 +26,8 @@ class LoginActionHandler: LoginActionHandling {
     func login(with credentials: LoginCredentials) -> Promise<VoteContext> {
         return formValidator.validate(pinCode: credentials.pin)
             .then { addingStoredToken(into: PartialContext(credentials: $0), from: self.tokenStorage) }
-            .then { fetchingMissingToken(into: $0, using: self.apiClient, storedIn: self.tokenStorage) }
-            .then { fetchingDebate(into: $0, using: self.apiClient) }
+            .then { fetchingMissingToken(into: $0, using: self.loginService, storedIn: self.tokenStorage) }
+            .then { fetchingDebate(into: $0, using: self.fetchDebateService) }
             .then { $0.buildContext() }
     }
 
@@ -35,24 +40,25 @@ private func addingStoredToken(into context: PartialContext,
 }
 
 private func fetchingMissingToken(into context: PartialContext,
-                                  using apiClient: APIProviding,
+                                  using loginService: LoginServiceProtocol,
                                   storedIn storage: AuthTokenStoring) -> Promise<PartialContext> {
     guard context.authToken == nil else {
         return Promise(value: context)
     }
 
-    return apiClient.login(credentials: context.credentials).then { authToken in
+    return loginService.login(credentials: context.credentials).then { authToken in
         try storage.save(token: authToken, forPinCode: context.credentials.pin)
         return Promise(value: context.with(token: authToken))
     }
 }
 
-private func fetchingDebate(into context: PartialContext, using apiClient: APIProviding) -> Promise<PartialContext> {
+private func fetchingDebate(into context: PartialContext,
+                            using fetchDebateService: FetchDebateServiceProtocol) -> Promise<PartialContext> {
     guard let authToken = context.authToken else {
         fatalError("Debate should never be fetched without authentication token")
     }
 
-    return apiClient.fetchDebate(authToken: authToken).then { debate in
+    return fetchDebateService.fetchDebate(authToken: authToken).then { debate in
         context.with(debate: debate)
     }
 }

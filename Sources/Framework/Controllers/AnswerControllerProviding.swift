@@ -2,6 +2,6 @@ import UIKit
 
 protocol AnswerControllerProviding: class, ControllerProviding {
 
-    var onChatButtonTapped: (() -> Void)? { get set }
+    var onChatButtonTapped: ((VoteContext) -> Void)? { get set }
 
 }

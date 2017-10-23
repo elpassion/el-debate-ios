@@ -1,11 +1,3 @@
-//
-//  AnswerDeserializerSpec.swift
-//  ELDebate
-//
-//  Created by Pawel Urbanek on 12/05/2017.
-//  Copyright © 2017 EL Passion. All rights reserved.
-//
-
 @testable import ELDebateFramework
 import Nimble
 import Quick

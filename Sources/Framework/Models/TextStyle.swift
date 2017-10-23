@@ -8,6 +8,9 @@ enum TextStyle {
     case welcome
     case buttonTitle
     case enterPin
+    case userName
+    case commentBody
+    case commentDate
 
 }
 

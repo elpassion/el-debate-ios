@@ -5,7 +5,7 @@ public enum ControllerType {
 
     case pinEntry
     case answer(voteContext: VoteContext)
-    case comment
+    case comment(voteContext: VoteContext)
 
 }
 
@@ -29,8 +29,8 @@ public class ControllerFactory: ControllerCreating {
             return resolver ~> PinEntryViewController.self
         case let .answer(voteContext: voteContext):
             return resolver ~> (AnswerViewController.self, argument: voteContext)
-        case .comment:
-            return resolver ~> CommentViewController.self
+        case let .comment(voteContext: voteContext):
+            return resolver ~> (CommentViewController.self, argument: voteContext)
         }
     }
 

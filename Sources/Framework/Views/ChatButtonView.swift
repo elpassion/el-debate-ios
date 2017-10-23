@@ -20,7 +20,6 @@ class ChatButtonView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        //chatButton.dropShadow()
     }
 
     // MARK: - Subviews
