@@ -3,7 +3,7 @@ import Foundation
 import UIColor_Hex_Swift
 import UIKit
 
-class SingleCommentView: UIView {
+internal class SingleCommentView: UIView {
 
     public let userNameLabel: UILabel = UILabel()
     public let userAvatarView: UIView = UIView(frame: .zero)
@@ -15,16 +15,25 @@ class SingleCommentView: UIView {
         super.init(frame: .zero)
 
         setupSubviews()
-        addLayoutSubviews()
+        addSubviews()
+        setupLayout()
     }
 
     private func setupSubviews() {
-
+        userAvatarView.setRadius(radius: 90)
     }
 
-    private func addLayoutSubviews() {
-        addSubview(userInitialsLabel)
-        userInitialsLabel.centerAnchors == centerAnchors
+    private func addSubviews() {
+        userAvatarView.addSubview(userInitialsLabel)
+        addSubview(userAvatarView)
+        addSubview(userNameLabel)
+        addSubview(dateLabel)
+        addSubview(commentContextLabel)
+    }
+
+    private func setupLayout() {
+        userInitialsLabel.centerAnchors == userAvatarView.centerAnchors
+
     }
 
     // MARK: - Required initializer
@@ -34,3 +43,4 @@ class SingleCommentView: UIView {
     }
 
 }
+
