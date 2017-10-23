@@ -51,7 +51,7 @@ internal class SingleCommentView: UIView {
     }
 
     private func setupCommentContextLabelLayout() {
-        commentContextLabel.topAnchor == userNameLabel.bottomAnchor
+        commentContextLabel.topAnchor == userNameLabel.bottomAnchor + 2
         commentContextLabel.bottomAnchor == bottomAnchor - inset
         commentContextLabel.leftAnchor == userNameLabel.leftAnchor
         commentContextLabel.rightAnchor == dateLabel.leftAnchor
@@ -65,7 +65,7 @@ internal class SingleCommentView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        userAvatarView.rounded()
+        userAvatarView.applyRoundedCorners()
     }
 
     // MARK: - Required initializer

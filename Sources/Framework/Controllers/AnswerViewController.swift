@@ -31,9 +31,8 @@ class AnswerViewController: UIViewController, AnswerControllerProviding, AlertPr
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        answerView.onChatButtonTapped = { [weak self] in
-            guard let `self` = self else {
-                return }
+        answerView.onChatButtonTapped = { [weak self] in guard let `self` = self else {
+            return }
 
             self.onChatButtonTapped?(self.voteContext)
         }
