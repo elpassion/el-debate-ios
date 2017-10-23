@@ -28,7 +28,7 @@ extension AttributeStyle {
         case .userName:
             return AttributesDescriptor(textStyle: .userName)
         case .commentBody:
-            return AttributesDescriptor(textStyle: .enterPin, alignment: .left, lineSpacing: 3.0)
+            return AttributesDescriptor(textStyle: .commentBody, alignment: .left, lineSpacing: 3.0)
         case .commentDate:
             return AttributesDescriptor(textStyle: .enterPin)
         }
