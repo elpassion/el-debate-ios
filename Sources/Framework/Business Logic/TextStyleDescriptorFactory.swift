@@ -28,6 +28,8 @@ class TextStyleDescriptorFactory: TextStyleDescriptorCreating {
             return TextStyleDescriptor(font: .medium, size: size(20.0), color: .buttonTitle)
         case .enterPin:
             return TextStyleDescriptor(font: .regular, size: size(20.0), color: .pin)
+        case .userName:
+            return TextStyleDescriptor(font: .bold, size: size(12.0), color: .question)
         }
     }
 
