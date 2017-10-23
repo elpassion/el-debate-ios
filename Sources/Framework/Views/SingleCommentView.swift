@@ -51,6 +51,7 @@ internal class SingleCommentView: UIView {
     }
 
     private func setupCommentContextLabelLayout() {
+        commentContextLabel.topAnchor == userNameLabel.bottomAnchor
         commentContextLabel.bottomAnchor == bottomAnchor - inset
         commentContextLabel.leftAnchor == userNameLabel.leftAnchor
         commentContextLabel.rightAnchor == dateLabel.leftAnchor
