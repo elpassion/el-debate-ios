@@ -10,6 +10,7 @@ enum TextStyle {
     case enterPin
     case userName
     case commentBody
+    case commentDate
 
 }
 
