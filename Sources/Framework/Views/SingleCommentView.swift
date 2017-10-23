@@ -43,4 +43,3 @@ internal class SingleCommentView: UIView {
     }
 
 }
-

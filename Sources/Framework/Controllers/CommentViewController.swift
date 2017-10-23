@@ -47,10 +47,15 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let rowNumber = indexPath.row
-        guard let commentBody = comments?.comments[rowNumber].content else {
+        guard let commentBody = comments?.comments[rowNumber] else {
             fatalError("Comment list should not be nil") }
 
         let cell = tableView.dequeueReusabelCell(SingleCommentCell.self, for: indexPath)
+        cell.singleCommentView.commentContextLabel.text = commentBody.content
+        cell.singleCommentView.userNameLabel.text = commentBody.fullName
+        cell.singleCommentView.dateLabel.text = commentBody.createdAt.asTimeString()
+        cell.singleCommentView.userAvatarView.backgroundColor = UIColor(commentBody.userBackgroundColor)
+        cell.singleCommentView.userInitialsLabel.text = commentBody.usersInitials
 
         return cell
     }
