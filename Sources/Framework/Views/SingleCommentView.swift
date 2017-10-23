@@ -5,34 +5,52 @@ import UIKit
 
 internal class SingleCommentView: UIView {
 
-    public let userNameLabel: UILabel = UILabel()
-    public let userAvatarView: UIView = UIView(frame: .zero)
-    public let userInitialsLabel: UILabel = UILabel()
-    public let dateLabel: UILabel = UILabel()
-    public let commentContextLabel: UILabel = UILabel()
+    public let userAvatarView: UIView = Factory.userAvatarView()
+    public let userInitialsLabel: UILabel = Factory.userInitialsLabel()
+    public let userNameLabel: UILabel = Factory.userNameLabel()
+    public let commentContextLabel: UILabel = Factory.commentContextLabel()
+    public let dateLabel: UILabel = Factory.dateLabel()
 
     init() {
         super.init(frame: .zero)
 
-        setupSubviews()
         addSubviews()
         setupLayout()
-    }
-
-    private func setupSubviews() {
-        userAvatarView.setRadius(radius: 90)
     }
 
     private func addSubviews() {
         userAvatarView.addSubview(userInitialsLabel)
         addSubview(userAvatarView)
         addSubview(userNameLabel)
-        addSubview(dateLabel)
         addSubview(commentContextLabel)
+        addSubview(dateLabel)
     }
 
     private func setupLayout() {
+        setupAvatarLayout()
+        setupUsernameLabelLayout()
+        setupCommentContextLabelLayout()
+        setupDateLabelLayout()
+    }
+
+    private func setupAvatarLayout() {
         userInitialsLabel.centerAnchors == userAvatarView.centerAnchors
+        userAvatarView.heightAnchor == 40
+        userAvatarView.widthAnchor == 40
+        userAvatarView.leftAnchor == leftAnchor
+        userAvatarView.topAnchor == topAnchor
+        userAvatarView.bottomAnchor == bottomAnchor
+    }
+
+    private func setupUsernameLabelLayout() {
+
+    }
+
+    private func setupCommentContextLabelLayout() {
+
+    }
+
+    private func setupDateLabelLayout() {
 
     }
 

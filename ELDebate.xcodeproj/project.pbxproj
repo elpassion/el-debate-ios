@@ -42,9 +42,10 @@
 		32672CD29AB24344404C2D44 /* PinCodeValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */; };
 		501E951C7F5419BDDB3C45B8 /* Pods_ELDebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */; };
 		504C56151F9E087400FF8257 /* Int+AsTimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C56141F9E087400FF8257 /* Int+AsTimeString.swift */; };
+		504C561D1F9E15CD00FF8257 /* SingleCommentView+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */; };
 		5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */; };
 		5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */; };
-		507AFFD61F9DFE3C00BDC463 /* UIView+SetRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507AFFD51F9DFE3C00BDC463 /* UIView+SetRadius.swift */; };
+		507AFFD61F9DFE3C00BDC463 /* UIView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507AFFD51F9DFE3C00BDC463 /* UIView+Rounded.swift */; };
 		50CB84461F8BAC71000A0D83 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* CommentsView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
@@ -313,9 +314,10 @@
 		32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorError.swift; sourceTree = "<group>"; };
 		503584F6E31E132E68AE9835 /* Pods-ELDebateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.release.xcconfig"; sourceTree = "<group>"; };
 		504C56141F9E087400FF8257 /* Int+AsTimeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+AsTimeString.swift"; sourceTree = "<group>"; };
+		504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleCommentView+Factory.swift"; sourceTree = "<group>"; };
 		5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionConfiguration.swift; sourceTree = "<group>"; };
 		5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTextFieldConfiguration.swift; sourceTree = "<group>"; };
-		507AFFD51F9DFE3C00BDC463 /* UIView+SetRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SetRadius.swift"; sourceTree = "<group>"; };
+		507AFFD51F9DFE3C00BDC463 /* UIView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rounded.swift"; sourceTree = "<group>"; };
 		50CB84451F8BAC71000A0D83 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
@@ -623,7 +625,7 @@
 		504C56161F9E0B7500FF8257 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				507AFFD51F9DFE3C00BDC463 /* UIView+SetRadius.swift */,
+				507AFFD51F9DFE3C00BDC463 /* UIView+Rounded.swift */,
 				8CF071D51ED871A700F73D57 /* UIView+Shadow.swift */,
 				8C337A161EF91B63007F82B4 /* UIView+Sizes.swift */,
 			);
@@ -721,6 +723,7 @@
 				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
 				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
 				294DA05D1F96501B0016EF62 /* SingleCommentCell.swift */,
+				504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */,
 				294DA05F1F979E3D0016EF62 /* SingleCommentView.swift */,
 			);
 			path = Views;
@@ -1781,7 +1784,7 @@
 				8C4B23531EE547F100CE42DD /* Dictionary+Merging.swift in Sources */,
 				8C4B23751EE5480400CE42DD /* TextStyleDescriptor.swift in Sources */,
 				8C4B235F1EE547F500CE42DD /* MainAssembly.swift in Sources */,
-				507AFFD61F9DFE3C00BDC463 /* UIView+SetRadius.swift in Sources */,
+				507AFFD61F9DFE3C00BDC463 /* UIView+Rounded.swift in Sources */,
 				298784D91F70468B008A28CC /* Dictionary+StringAny.swift in Sources */,
 				8C4B23631EE547FA00CE42DD /* AnswerViewController.swift in Sources */,
 				8C4B23341EE547D100CE42DD /* ChatButtonView.swift in Sources */,
@@ -1808,6 +1811,7 @@
 				8C4B234C1EE547EC00CE42DD /* Debate.swift in Sources */,
 				8C4B23671EE547FA00CE42DD /* PinEntryControllerProviding.swift in Sources */,
 				8C4B23311EE547D100CE42DD /* AnswerView.swift in Sources */,
+				504C561D1F9E15CD00FF8257 /* SingleCommentView+Factory.swift in Sources */,
 				8C4B235D1EE547F500CE42DD /* Assembler+Assemblies.swift in Sources */,
 				8C4B23621EE547FA00CE42DD /* AnswerControllerProviding.swift in Sources */,
 				8C4B23301EE547D100CE42DD /* AnswerPicker.swift in Sources */,
