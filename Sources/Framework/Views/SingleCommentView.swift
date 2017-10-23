@@ -62,6 +62,11 @@ internal class SingleCommentView: UIView {
         dateLabel.centerYAnchor == userAvatarView.centerYAnchor
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        userAvatarView.rounded()
+    }
+
     // MARK: - Required initializer
 
     required init?(coder aDecoder: NSCoder) {

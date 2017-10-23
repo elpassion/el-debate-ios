@@ -4,7 +4,6 @@ extension SingleCommentView {
 
         static func userAvatarView() -> UIView {
             let userAvatarView = UIView(frame: .zero)
-            userAvatarView.rounded()
             return userAvatarView
         }
 

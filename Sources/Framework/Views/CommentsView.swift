@@ -28,6 +28,8 @@ class CommentsView: UIView {
         background.bottomAnchor == bottomAnchor - 20
         background.widthAnchor == widthAnchor * 0.95
         background.heightAnchor == background.widthAnchor * 0.75
+
+        commentsTableView.edgeAnchors == edgeAnchors
     }
 
     // MARK: - Required initializer
