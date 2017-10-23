@@ -1,12 +1,10 @@
 import PromiseKit
-import Starscream
+import PusherSwift
 import UIKit
 
 class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ControllerProviding {
 
     private let fetchCommentsService: FetchCommentsServiceProtocol
-
-    var socket = WebSocket(url: URL(string: "ws://el-debate.herokuapp.com/api/comments")!, protocols: [])
 
     var comments: Comments?
 
@@ -30,9 +28,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        socket.delegate = self
-        socket.connect()
 
         fetchComments()
         commentsView.commentsTableView.registerCell(SingleCommentCell.self)
@@ -85,32 +80,4 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    deinit {
-        socket.disconnect(forceTimeout: 0)
-        socket.delegate = nil
-    }
-}
-
-// MARK: - WebSocketDelegate
-extension CommentViewController: WebSocketDelegate {
-    func websocketDidConnect(socket: WebSocketClient) {
-        print("Succesfully connected to \(socket)!")
-    }
-
-    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
-        guard let error = error else {
-            return
-        }
-        print("Whoops, there is some error \(error)")
-    }
-
-    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("\(socket) sent message with text: \(text)!")
-    }
-
-    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("\(socket) sent message with some data: \(data)!")
-    }
-
 }
