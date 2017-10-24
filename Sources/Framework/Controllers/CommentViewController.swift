@@ -77,7 +77,8 @@ class CommentViewController: UIViewController,UITableViewDelegate, UITableViewDa
     func commentReceived(comment: Comment) {
         var updatedCommentList = self.comments?.comments
         updatedCommentList?.append(comment)
-        self.comments = self.comments?.copy(withNewComment: updatedCommentList!)
+        let sortedCommentsList = updatedCommentList?.sorted { ( $0.id > $1.id ) }
+        self.comments = self.comments?.copy(withNewComment: sortedCommentsList!)
         self.commentsView.commentsTableView.reloadData()
     }
 
