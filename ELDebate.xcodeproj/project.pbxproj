@@ -43,6 +43,7 @@
 		501E951C7F5419BDDB3C45B8 /* Pods_ELDebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */; };
 		502EA6561F9F5651003345C2 /* PusherConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502EA6551F9F5651003345C2 /* PusherConfigurationProvider.swift */; };
 		502EA6591F9F72B5003345C2 /* CommentDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502EA6581F9F72B5003345C2 /* CommentDeserializer.swift */; };
+		502EA65B1F9F8A7C003345C2 /* Comments+Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502EA65A1F9F8A7C003345C2 /* Comments+Copy.swift */; };
 		504C56151F9E087400FF8257 /* Int+AsTimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C56141F9E087400FF8257 /* Int+AsTimeString.swift */; };
 		504C561D1F9E15CD00FF8257 /* SingleCommentView+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */; };
 		5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */; };
@@ -317,6 +318,7 @@
 		32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorError.swift; sourceTree = "<group>"; };
 		502EA6551F9F5651003345C2 /* PusherConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherConfigurationProvider.swift; sourceTree = "<group>"; };
 		502EA6581F9F72B5003345C2 /* CommentDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDeserializer.swift; sourceTree = "<group>"; };
+		502EA65A1F9F8A7C003345C2 /* Comments+Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comments+Copy.swift"; sourceTree = "<group>"; };
 		503584F6E31E132E68AE9835 /* Pods-ELDebateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.release.xcconfig"; sourceTree = "<group>"; };
 		504C56141F9E087400FF8257 /* Int+AsTimeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+AsTimeString.swift"; sourceTree = "<group>"; };
 		504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleCommentView+Factory.swift"; sourceTree = "<group>"; };
@@ -773,6 +775,7 @@
 				504C561B1F9E0BCC00FF8257 /* UITableViewReusable */,
 				504C56161F9E0B7500FF8257 /* UIView */,
 				8C364DEE1EDC52C7007D4EA6 /* AnswerType+RawType.swift */,
+				502EA65A1F9F8A7C003345C2 /* Comments+Copy.swift */,
 				8C3E8F091ED836E3009DB7ED /* ForceCast.swift */,
 				504C56141F9E087400FF8257 /* Int+AsTimeString.swift */,
 				6EF0365F1EC9A43D00198F01 /* Keychain+KeychainStoring.swift */,
@@ -1731,6 +1734,7 @@
 			files = (
 				8C4B234F1EE547EC00CE42DD /* TextStyle.swift in Sources */,
 				294DA05E1F96501B0016EF62 /* SingleCommentCell.swift in Sources */,
+				502EA65B1F9F8A7C003345C2 /* Comments+Copy.swift in Sources */,
 				8CD0947A1EE868D3006D46A5 /* UserDefaults+Protocol.swift in Sources */,
 				8C337A181EF91B6A007F82B4 /* UIView+Sizes.swift in Sources */,
 				50785F9D1F9F3CDF00F2406C /* CommentsWebSocket.swift in Sources */,

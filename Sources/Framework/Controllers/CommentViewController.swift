@@ -75,7 +75,10 @@ class CommentViewController: UIViewController,UITableViewDelegate, UITableViewDa
     }
 
     func commentReceived(comment: Comment) {
-        print ("comment\(comment)")
+        var updatedCommentList = self.comments?.comments
+        updatedCommentList?.append(comment)
+        self.comments = self.comments?.copy(withNewComment: updatedCommentList!)
+        self.commentsView.commentsTableView.reloadData()
     }
 
     // MARK: - ControllerProviding
