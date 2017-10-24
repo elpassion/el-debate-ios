@@ -2,7 +2,7 @@ import PromiseKit
 import PusherSwift
 import UIKit
 
-class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ControllerProviding {
+class CommentViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, ControllerProviding, CommentsWebSocketDelegate {
 
     private let fetchCommentsService: FetchCommentsServiceProtocol
     private let commentsWebSocketService: CommentsWebSocketProtocol
@@ -36,7 +36,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         commentsView.commentsTableView.registerCell(SingleCommentCell.self)
         commentsView.commentsTableView.dataSource = self
 
-        commentsWebSocketService.startWebSocket()
+        commentsWebSocketService.startWebSocket(delegate: self)
         title = "Live Chat Feed"
     }
 
@@ -72,6 +72,10 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             self?.commentsView.commentsTableView.reloadData()
         }
 
+    }
+
+    func commentReceived(comment: Comment) {
+        print ("comment\(comment)")
     }
 
     // MARK: - ControllerProviding

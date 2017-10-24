@@ -1,39 +1,46 @@
+import Alamofire
 import Foundation
-import PromiseKit
 import PusherSwift
+
+protocol CommentsWebSocketDelegate {
+    func commentReceived(comment: Comment)
+}
 
 protocol CommentsWebSocketProtocol {
 
-    func startWebSocket()
+    func startWebSocket(delegate: CommentsWebSocketDelegate)
 
 }
 
 class CommentsWebSocket: CommentsWebSocketProtocol {
 
-    init(commentsDeserializer: Deserializer<Comments>,
-         URLProvider: URLProviding,
+    init(commentDeserializer: Deserializer<Comment>,
          pusher: Pusher) {
-        self.commentsDeserializer = commentsDeserializer
-        self.URLProvider = URLProvider
+        self.commentDeserializer = commentDeserializer
         self.pusher = pusher
     }
 
-    func startWebSocket() {
+    func startWebSocket(delegate: CommentsWebSocketDelegate) {
         pusher.connect()
-
-        let myChannel = pusher.subscribe("dashboard_channel_13160") //+ numer debaty
+        let myChannel = pusher.subscribe("dashboard_channel_13160")
 
         _ = myChannel.bind(eventName: "comment_added") { (data: Any?) -> Void in
-            if let data = data as? [String: AnyObject] {
-                print (data)
+
+            guard let data = data as? [String: AnyObject] else {
+                return
             }
+
+            guard let commentBody = try? self.commentDeserializer.deserialize(json: data) else {
+                return
+            }
+
+            delegate.commentReceived(comment: commentBody)
+
         }
     }
 
     // MARK: - Private
 
-    private let commentsDeserializer: Deserializer<Comments>
-    private let URLProvider: URLProviding
+    private let commentDeserializer: Deserializer<Comment>
     private let pusher: Pusher
-
 }

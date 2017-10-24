@@ -13,6 +13,10 @@ class APIAssembly: Assembly {
             return Deserializer(CommentsDeserializer(jsonDecoder: JSONDecoder()))
         }
 
+        container.register(Deserializer<Comment>.self, name: "Comment") { _ in
+            return Deserializer(CommentDeserializer(jsonDecoder: JSONDecoder()))
+        }
+
         container.register(Deserializer<Debate>.self, name: "Debate") { _ in
             return DebateDeserializer.build()
         }
@@ -44,9 +48,8 @@ class APIAssembly: Assembly {
         }
 
         container.register(CommentsWebSocketProtocol.self) { resolver in
-            return CommentsWebSocket(commentsDeserializer: resolver ~> (Deserializer<Comments>.self,
-                                                                          name: "Comments"),
-                                      URLProvider: resolver ~> URLProviding.self,
+            return CommentsWebSocket(commentDeserializer: resolver ~> (Deserializer<Comment>.self,
+                                                                          name: "Comment"),
                                       pusher: resolver ~> Pusher.self)
         }
 
