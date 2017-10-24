@@ -24,6 +24,13 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>Pusher</key>
+	<dict>
+		<key>APP_KEY</key>
+		<string></string>
+		<key>CLUSTER_KEY</key>
+		<string></string>
+	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
