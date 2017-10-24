@@ -41,9 +41,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let commentsCount = comments?.comments.count else {
-            return 0 }
-        return commentsCount
+        return comments?.comments.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,10 +63,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func fetchComments() {
         let authToken = voteContext.authToken
-        fetchCommentsService.fetchComments(authToken: authToken).then { [weak self] comments -> Void in
+        _ = fetchCommentsService.fetchComments(authToken: authToken).then { [weak self] comments -> Void in
             self?.comments = comments
             self?.commentsView.commentsTableView.reloadData()
         }
+
     }
 
     // MARK: - ControllerProviding
