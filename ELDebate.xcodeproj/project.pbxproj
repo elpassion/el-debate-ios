@@ -41,10 +41,12 @@
 		326728DEF33D4C6F923378A5 /* AlertPresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326726203A1ABA0F8B3F82C5 /* AlertPresentableError.swift */; };
 		32672CD29AB24344404C2D44 /* PinCodeValidatorErrorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */; };
 		501E951C7F5419BDDB3C45B8 /* Pods_ELDebate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7282E72B1080CDA9666AE0A9 /* Pods_ELDebate.framework */; };
+		502EA6561F9F5651003345C2 /* PusherConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502EA6551F9F5651003345C2 /* PusherConfigurationProvider.swift */; };
 		504C56151F9E087400FF8257 /* Int+AsTimeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C56141F9E087400FF8257 /* Int+AsTimeString.swift */; };
 		504C561D1F9E15CD00FF8257 /* SingleCommentView+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */; };
 		5056EC801F7280A700CC598B /* AlertActionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */; };
 		5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */; };
+		50785F9D1F9F3CDF00F2406C /* CommentsWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50785F9C1F9F3CDF00F2406C /* CommentsWebSocket.swift */; };
 		507AFFD61F9DFE3C00BDC463 /* UIView+RoundedCornes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507AFFD51F9DFE3C00BDC463 /* UIView+RoundedCornes.swift */; };
 		50CB84461F8BAC71000A0D83 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* CommentsView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
@@ -312,11 +314,13 @@
 		32672851D7C1A16E2432EDA3 /* UsernameValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameValidatorError.swift; sourceTree = "<group>"; };
 		32672A31A5E6F32D801EAD5B /* PinCodeValidatorErrorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorErrorSpec.swift; sourceTree = "<group>"; };
 		32672D54CE285DF98D7ADD62 /* PinCodeValidatorError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCodeValidatorError.swift; sourceTree = "<group>"; };
+		502EA6551F9F5651003345C2 /* PusherConfigurationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherConfigurationProvider.swift; sourceTree = "<group>"; };
 		503584F6E31E132E68AE9835 /* Pods-ELDebateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.release.xcconfig"; sourceTree = "<group>"; };
 		504C56141F9E087400FF8257 /* Int+AsTimeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+AsTimeString.swift"; sourceTree = "<group>"; };
 		504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SingleCommentView+Factory.swift"; sourceTree = "<group>"; };
 		5056EC7F1F7280A700CC598B /* AlertActionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionConfiguration.swift; sourceTree = "<group>"; };
 		5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTextFieldConfiguration.swift; sourceTree = "<group>"; };
+		50785F9C1F9F3CDF00F2406C /* CommentsWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsWebSocket.swift; sourceTree = "<group>"; };
 		507AFFD51F9DFE3C00BDC463 /* UIView+RoundedCornes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCornes.swift"; sourceTree = "<group>"; };
 		50CB84451F8BAC71000A0D83 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
@@ -578,6 +582,7 @@
 				50D4DC721F91689200B3C901 /* FetchDebateService.swift */,
 				50D4DC701F91684900B3C901 /* LoginService.swift */,
 				50D4DC741F9168DD00B3C901 /* VoteService.swift */,
+				50785F9C1F9F3CDF00F2406C /* CommentsWebSocket.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -943,6 +948,7 @@
 				8C664A181EC48F7A0017687F /* RequestError.swift */,
 				8C664A131EC464130017687F /* RequestExecuting.swift */,
 				296E84601F9136E0000E67C5 /* URLProvider.swift */,
+				502EA6551F9F5651003345C2 /* PusherConfigurationProvider.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1716,6 +1722,7 @@
 				294DA05E1F96501B0016EF62 /* SingleCommentCell.swift in Sources */,
 				8CD0947A1EE868D3006D46A5 /* UserDefaults+Protocol.swift in Sources */,
 				8C337A181EF91B6A007F82B4 /* UIView+Sizes.swift in Sources */,
+				50785F9D1F9F3CDF00F2406C /* CommentsWebSocket.swift in Sources */,
 				8CD094781EE867EA006D46A5 /* LoginCredentialsStore.swift in Sources */,
 				8C6137F51EF1303500E00700 /* Validator.swift in Sources */,
 				50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */,
@@ -1761,6 +1768,7 @@
 				8C4B233B1EE547D100CE42DD /* SingleAnswerView.swift in Sources */,
 				8C4B23431EE547DC00CE42DD /* RequestExecuting.swift in Sources */,
 				8C4B234B1EE547EC00CE42DD /* Color.swift in Sources */,
+				502EA6561F9F5651003345C2 /* PusherConfigurationProvider.swift in Sources */,
 				8C4B23681EE547FA00CE42DD /* PinEntryViewController.swift in Sources */,
 				8C4B23501EE547EC00CE42DD /* VoteContext.swift in Sources */,
 				8CB4CDE01EE5A5890055C50B /* IconTextField.swift in Sources */,

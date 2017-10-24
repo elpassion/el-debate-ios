@@ -1,3 +1,4 @@
+import PusherSwift
 import Swinject
 import SwinjectAutoregistration
 
@@ -30,6 +31,23 @@ class APIAssembly: Assembly {
                                         commentsDeserializer: resolver ~> (Deserializer<Comments>.self,
                                                                            name: "Comments"),
                                         URLProvider: resolver ~> URLProviding.self)
+        }
+
+        container.register(PusherConfigurationProviding.self) { _ in
+            return PusherConfigurationProvider(infoDictionary: Bundle.main.infoDictionary)
+        }
+
+        container.register(Pusher.self) { resolver in
+            let configuration = resolver ~> PusherConfigurationProviding.self
+            let options = PusherClientOptions(host: .cluster(configuration.clusterKey))
+            return Pusher(key: configuration.appKey, options: options)
+        }
+
+        container.register(CommentsWebSocketProtocol.self) { resolver in
+            return CommentsWebSocket(commentsDeserializer: resolver ~> (Deserializer<Comments>.self,
+                                                                          name: "Comments"),
+                                      URLProvider: resolver ~> URLProviding.self,
+                                      pusher: resolver ~> Pusher.self)
         }
 
         container.register(FetchDebateServiceProtocol.self) { resolver in

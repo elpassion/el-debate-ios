@@ -5,14 +5,17 @@ import UIKit
 class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ControllerProviding {
 
     private let fetchCommentsService: FetchCommentsServiceProtocol
+    private let commentsWebSocketService: CommentsWebSocketProtocol
 
     var comments: Comments?
 
     var voteContext: VoteContext
 
     init(fetchCommentsService: FetchCommentsServiceProtocol,
+         commentsWebSocketService: CommentsWebSocketProtocol,
          voteContext: VoteContext) {
         self.fetchCommentsService = fetchCommentsService
+        self.commentsWebSocketService = commentsWebSocketService
         self.voteContext = voteContext
 
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +36,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         commentsView.commentsTableView.registerCell(SingleCommentCell.self)
         commentsView.commentsTableView.dataSource = self
 
+        commentsWebSocketService.startWebSocket()
         title = "Live Chat Feed"
     }
 
