@@ -2,7 +2,8 @@ import PromiseKit
 import PusherSwift
 import UIKit
 
-class CommentViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, ControllerProviding, CommentsWebSocketDelegate {
+class CommentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
+                             ControllerProviding, CommentsWebSocketDelegate {
 
     private let fetchCommentsService: FetchCommentsServiceProtocol
     private let commentsWebSocketService: CommentsWebSocketProtocol

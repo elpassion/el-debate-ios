@@ -2,10 +2,8 @@ import Alamofire
 import Foundation
 import PusherSwift
 
-protocol CommentsWebSocketDelegate {
-
+protocol CommentsWebSocketDelegate: class {
     func commentReceived(comment: Comment)
-    
 }
 
 protocol CommentsWebSocketProtocol {
