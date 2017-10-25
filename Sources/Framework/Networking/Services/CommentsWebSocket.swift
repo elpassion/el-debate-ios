@@ -3,7 +3,9 @@ import Foundation
 import PusherSwift
 
 protocol CommentsWebSocketDelegate {
+
     func commentReceived(comment: Comment)
+    
 }
 
 protocol CommentsWebSocketProtocol {

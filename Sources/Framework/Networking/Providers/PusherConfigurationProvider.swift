@@ -15,23 +15,28 @@ class PusherConfigurationProvider: PusherConfigurationProviding {
 
     var appKey: String {
         guard let pusherDict = infoDictionary?["Pusher"] as? [String: Any] else {
-            return ""
+            fatalError("Couldn't unwrap infoDictionary")
         }
 
         guard let appKey = pusherDict["APP_KEY"] as? String else {
-            return ""
+            fatalError("Some error")
         }
+
+        if appKey.characters.isEmpty { fatalError("Please fill APP_KEY in info.plist") }
 
         return appKey
     }
+
     var clusterKey: String {
         guard let pusherDict = infoDictionary?["Pusher"] as? [String: Any] else {
-            return ""
+            fatalError("Couldn't unwrap infoDictionary")
         }
 
         guard let clusterKey = pusherDict["CLUSTER_KEY"] as? String else {
-            return ""
+           fatalError("Couldn't unwrap clusterKey")
         }
+
+        if clusterKey.characters.isEmpty { fatalError("Please fill CLUSTER_KEY in info.plist") }
 
         return clusterKey
     }
