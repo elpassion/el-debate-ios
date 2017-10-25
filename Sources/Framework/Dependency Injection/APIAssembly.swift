@@ -9,6 +9,8 @@ class APIAssembly: Assembly {
 
         container.autoregister(URLProviding.self, initializer: URLProvider.init)
 
+        container.autoregister(CommentPresenting.self, initializer: CommentPresenter.init)
+
         container.register(Deserializer<Comments>.self, name: "Comments") { _ in
             return Deserializer(CommentsDeserializer(jsonDecoder: JSONDecoder()))
         }
