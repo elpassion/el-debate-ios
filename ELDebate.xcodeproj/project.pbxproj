@@ -50,6 +50,8 @@
 		5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */; };
 		50785F9D1F9F3CDF00F2406C /* CommentsWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50785F9C1F9F3CDF00F2406C /* CommentsWebSocket.swift */; };
 		507AFFD61F9DFE3C00BDC463 /* UIView+RoundedCornes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507AFFD51F9DFE3C00BDC463 /* UIView+RoundedCornes.swift */; };
+		508C554D1FA0C9F600F14B97 /* UITableViewCell_ReusableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C554C1FA0C9F600F14B97 /* UITableViewCell_ReusableSpec.swift */; };
+		508C554F1FA0CBFE00F14B97 /* CommentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C554E1FA0CBFE00F14B97 /* CommentPresenter.swift */; };
 		50CB84461F8BAC71000A0D83 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* CommentsView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
@@ -326,6 +328,8 @@
 		5056EC811F7280C100CC598B /* AlertTextFieldConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTextFieldConfiguration.swift; sourceTree = "<group>"; };
 		50785F9C1F9F3CDF00F2406C /* CommentsWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsWebSocket.swift; sourceTree = "<group>"; };
 		507AFFD51F9DFE3C00BDC463 /* UIView+RoundedCornes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedCornes.swift"; sourceTree = "<group>"; };
+		508C554C1FA0C9F600F14B97 /* UITableViewCell_ReusableSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell_ReusableSpec.swift; sourceTree = "<group>"; };
+		508C554E1FA0CBFE00F14B97 /* CommentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPresenter.swift; sourceTree = "<group>"; };
 		50CB84451F8BAC71000A0D83 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
@@ -1079,6 +1083,7 @@
 				6E1EA10B1ECF0F26008C19EF /* AnswerControllerProviding.swift */,
 				8C0D63061EC5DD2E00421B89 /* AnswerViewController.swift */,
 				50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */,
+				508C554E1FA0CBFE00F14B97 /* CommentPresenter.swift */,
 				6E1EA1051ECEDB98008C19EF /* CommentViewController.swift */,
 				8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */,
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
@@ -1165,6 +1170,7 @@
 				8CD5F64F1ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift */,
 				298784D51F70420A008A28CC /* Dictionary_StringAnySpec.swift */,
 				8CBB56A11EFD371F00289066 /* ForceCastSpec.swift */,
+				508C554C1FA0C9F600F14B97 /* UITableViewCell_ReusableSpec.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1799,6 +1805,7 @@
 				294DA0601F979E3D0016EF62 /* SingleCommentView.swift in Sources */,
 				8CB4CDE21EE5A7910055C50B /* PinInputPanel.swift in Sources */,
 				8CCD73D11EFD719E00183DA0 /* AlertConfiguration.swift in Sources */,
+				508C554F1FA0CBFE00F14B97 /* CommentPresenter.swift in Sources */,
 				8C4B23491EE547E600CE42DD /* Router.swift in Sources */,
 				5056EC821F7280C100CC598B /* AlertTextFieldConfiguration.swift in Sources */,
 				8C4B233D1EE547D700CE42DD /* NotificationDescriptor.swift in Sources */,
@@ -1872,6 +1879,7 @@
 				8CBB56A61EFD4BF700289066 /* AlertPresentingControllerMock.swift in Sources */,
 				8CBB56A41EFD481000289066 /* AlertPresenterSpec.swift in Sources */,
 				8C6AF9751EFAAAA500D16EB8 /* DebateSpec.swift in Sources */,
+				508C554D1FA0C9F600F14B97 /* UITableViewCell_ReusableSpec.swift in Sources */,
 				8CCD73CC1EFD6F1D00183DA0 /* ControllerFactorySpec.swift in Sources */,
 				8CBB569D1EFD33D100289066 /* AnswerTypeRawTypeSpec.swift in Sources */,
 				8CCD73C51EFD65D400183DA0 /* DebateRunnerSpec.swift in Sources */,

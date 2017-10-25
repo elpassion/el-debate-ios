@@ -64,7 +64,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
 
-    // MARK: - Fetch Comments Servie
+    // MARK: - Fetch Comments Service
 
     func fetchComments() {
         let authToken = voteContext.authToken
