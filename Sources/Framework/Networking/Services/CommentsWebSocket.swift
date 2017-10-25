@@ -15,16 +15,25 @@ protocol CommentsWebSocketProtocol {
 class CommentsWebSocket: CommentsWebSocketProtocol {
 
     init(commentDeserializer: Deserializer<Comment>,
-         pusher: Pusher) {
+         pusher: Pusher,
+         lastCredentialsStore: LoginCredentialsStoring) {
         self.commentDeserializer = commentDeserializer
         self.pusher = pusher
+        self.lastCredentialsStore = lastCredentialsStore
     }
 
     func startWebSocket(delegate: CommentsWebSocketDelegate) {
-        pusher.connect()
-        let myChannel = pusher.subscribe("dashboard_channel_13160")
 
-        _ = myChannel.bind(eventName: "comment_added") { (data: Any?) -> Void in
+        guard let channelPin = lastCredentialsStore.lastCredentials?.pin else {
+            fatalError("Error retrieving Pin from Stored Credentuals")
+        }
+        let channelName = "dashboard_channel_"
+
+        pusher.connect()
+
+        let debateChannel = pusher.subscribe("\(channelName)\(channelPin)")
+
+        _ = debateChannel.bind(eventName: "comment_added") { (data: Any?) -> Void in
 
             guard let data = data as? [String: AnyObject] else {
                 return
@@ -42,5 +51,6 @@ class CommentsWebSocket: CommentsWebSocketProtocol {
     // MARK: - Private
 
     private let commentDeserializer: Deserializer<Comment>
+    private let lastCredentialsStore: LoginCredentialsStoring
     private let pusher: Pusher
 }

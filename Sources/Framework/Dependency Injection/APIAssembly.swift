@@ -11,6 +11,10 @@ class APIAssembly: Assembly {
 
         container.autoregister(CommentPresenting.self, initializer: CommentPresenter.init)
 
+        container.register(LoginCredentialsStoring.self, name: "LoginCredentials") { _ in
+            return LoginCredentialsStore(userDefaults: UserDefaults.standard)
+        }
+
         container.register(Deserializer<Comments>.self, name: "Comments") { _ in
             return Deserializer(CommentsDeserializer(jsonDecoder: JSONDecoder()))
         }
@@ -52,7 +56,9 @@ class APIAssembly: Assembly {
         container.register(CommentsWebSocketProtocol.self) { resolver in
             return CommentsWebSocket(commentDeserializer: resolver ~> (Deserializer<Comment>.self,
                                                                           name: "Comment"),
-                                      pusher: resolver ~> Pusher.self)
+                                     pusher: resolver ~> Pusher.self,
+                                     lastCredentialsStore: resolver ~> (LoginCredentialsStoring.self,
+                                                                        name: "LoginCredentials"))
         }
 
         container.register(FetchDebateServiceProtocol.self) { resolver in
