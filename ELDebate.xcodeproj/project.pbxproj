@@ -57,6 +57,7 @@
 		50BA69AC1FA22CE100C46E44 /* CommentsServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */; };
 		50BA69AE1FA22EDC00C46E44 /* PusherAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */; };
 		50BA69B01FA22F8500C46E44 /* VoteServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */; };
+		50BA69B21FA230E500C46E44 /* FetchDebateServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69B11FA230E500C46E44 /* FetchDebateServiceAssembly.swift */; };
 		50CB84461F8BAC71000A0D83 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* CommentsView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
@@ -340,6 +341,7 @@
 		50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsServicesAssembly.swift; sourceTree = "<group>"; };
 		50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherAssembly.swift; sourceTree = "<group>"; };
 		50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteServiceAssembly.swift; sourceTree = "<group>"; };
+		50BA69B11FA230E500C46E44 /* FetchDebateServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDebateServiceAssembly.swift; sourceTree = "<group>"; };
 		50CB84451F8BAC71000A0D83 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
@@ -965,6 +967,7 @@
 				50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */,
 				50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */,
 				50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */,
+				50BA69B11FA230E500C46E44 /* FetchDebateServiceAssembly.swift */,
 			);
 			path = "Dependency Injection";
 			sourceTree = "<group>";
@@ -1876,6 +1879,7 @@
 				326728DEF33D4C6F923378A5 /* AlertPresentableError.swift in Sources */,
 				14A01C86A54B89F165CA840D /* Reusable.swift in Sources */,
 				14A01A7A61ACBB5D2A54003D /* UITableViewCell+Reusable.swift in Sources */,
+				50BA69B21FA230E500C46E44 /* FetchDebateServiceAssembly.swift in Sources */,
 				14A018313B9DBD95E4A89213 /* UITableView+Reusable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
