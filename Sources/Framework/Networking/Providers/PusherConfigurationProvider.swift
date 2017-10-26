@@ -19,11 +19,11 @@ class PusherConfigurationProvider: PusherConfigurationProviding {
             fatalError("Either infoDictPath is wrong or file doesn't exist")
         }
 
-        guard let pusherKeysDictionaryFromPlist = NSDictionary(contentsOfFile: pusherPlistPath) as? [String: AnyObject] else {
+        guard let pusherKeysFromPlist = NSDictionary(contentsOfFile: pusherPlistPath) as? [String: AnyObject] else {
             fatalError("URL: Couldn't unwrap custom Plist properly - maybe it's Array and not Dictionary?")
         }
 
-        self.pusherKeysDictionary = pusherKeysDictionaryFromPlist
+        self.pusherKeysDictionary = pusherKeysFromPlist
     }
 
     // MARK: - PusherConfigurationProviding
