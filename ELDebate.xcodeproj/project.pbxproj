@@ -1043,8 +1043,8 @@
 				8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */,
 				8C47A1561EE5566400B7A525 /* Images.xcassets */,
 				8C85D84C1EC34FC100C5BAE7 /* Info.plist */,
-				50BA699C1FA1DE1900C46E44 /* PusherKeys.plist */,
 				8C85D8481EC34FC100C5BAE7 /* LaunchScreen.storyboard */,
+				50BA699C1FA1DE1900C46E44 /* PusherKeys.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
