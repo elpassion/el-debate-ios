@@ -2,7 +2,7 @@ import PusherSwift
 import Swinject
 import SwinjectAutoregistration
 
-class APIAssembly: Assembly {
+class LoginServiceAssembly: Assembly {
 
     func assemble(container: Container) {
 
