@@ -44,7 +44,7 @@ class APIAssembly: Assembly {
         }
 
         container.register(PusherConfigurationProviding.self) { _ in
-            return PusherConfigurationProvider(infoDictionary: Bundle.main.infoDictionary)
+            return PusherConfigurationProvider(pusherKeysDictionary: Bundle.main.infoDictionary)
         }
 
         container.register(Pusher.self) { resolver in

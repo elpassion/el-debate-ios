@@ -7,34 +7,29 @@ protocol PusherConfigurationProviding {
 
 class PusherConfigurationProvider: PusherConfigurationProviding {
 
-    private let infoDictionary: [String: Any]?
+    private let pusherKeysDictionary: [String: Any]?
 
-    init(infoDictionary: [String: Any]?) {
-        self.infoDictionary = infoDictionary
-        fromPath()
-    }
-
-    private func fromPath() {
+    init(pusherKeysDictionary: [String: Any]?) {
 
         let resource = "PusherKeys"
         let fileExtension = "plist"
 
-        guard let infoDictPath = Bundle.main.path(forResource: resource,
-                                                  ofType: fileExtension
-                                                  ) else {
+        guard let pusherPlistPath = Bundle.main.path(forResource: resource,
+                                                     ofType: fileExtension) else {
             fatalError("Either infoDictPath is wrong or file doesn't exist")
         }
 
-        guard let PusherKeys = NSDictionary(contentsOfFile: infoDictPath) as? [String: AnyObject] else {
+        guard let pusherKeysDictionaryFromPlist = NSDictionary(contentsOfFile: pusherPlistPath) as? [String: AnyObject] else {
             fatalError("URL: Couldn't unwrap custom Plist properly - maybe it's Array and not Dictionary?")
         }
 
+        self.pusherKeysDictionary = pusherKeysDictionaryFromPlist
     }
 
     // MARK: - PusherConfigurationProviding
 
     var appKey: String {
-        guard let pusherDict = infoDictionary?["Pusher"] as? [String: Any] else {
+        guard let pusherDict = pusherKeysDictionary?["Pusher"] as? [String: Any] else {
             fatalError("Couldn't unwrap infoDictionary")
         }
 
@@ -48,7 +43,7 @@ class PusherConfigurationProvider: PusherConfigurationProviding {
     }
 
     var clusterKey: String {
-        guard let pusherDict = infoDictionary?["Pusher"] as? [String: Any] else {
+        guard let pusherDict = pusherKeysDictionary?["Pusher"] as? [String: Any] else {
             fatalError("Couldn't unwrap infoDictionary")
         }
 
