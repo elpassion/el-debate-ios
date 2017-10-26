@@ -53,8 +53,5 @@ FailureDiffs/
 .setup_travis_deployment.sh
 .match_key
 
-## Pusher Keys
-Resources/PusherKeys.plist
-
 ## AppCode
 .idea/
