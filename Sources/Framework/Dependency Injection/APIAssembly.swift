@@ -5,10 +5,6 @@ import SwinjectAutoregistration
 class APIAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.autoregister(RequestExecuting.self, initializer: RequestExecutor.init)
-
-        container.autoregister(URLProviding.self, initializer: URLProvider.init)
-
         container.autoregister(CommentPresenting.self, initializer: CommentPresenter.init)
 
         container.register(LoginCredentialsStoring.self, name: "LoginCredentials") { _ in

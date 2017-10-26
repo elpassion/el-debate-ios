@@ -10,7 +10,7 @@ public extension Assembler {
 
     static var defaultAssemblies: [Assembly] {
         return [MainAssembly(), PinEntryAssembly(), AnswerAssembly(),
-                CommentAssembly(), ValidatorAssembly(), APIAssembly()]
+                CommentAssembly(), ValidatorAssembly(), APIAssembly(), ServiceHelpersAssembly()]
     }
 
 }
