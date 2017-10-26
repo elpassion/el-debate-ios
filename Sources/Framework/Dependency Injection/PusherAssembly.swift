@@ -16,5 +16,5 @@ class PusherAssembly: Assembly {
             return Pusher(key: configuration.appKey, options: options)
         }
     }
-    
+
 }
