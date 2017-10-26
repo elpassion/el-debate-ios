@@ -14,13 +14,6 @@ class APIAssembly: Assembly {
             return Deserializer(AuthTokenDeserializer())
         }
 
-        container.register(VoteServiceProtocol.self) { resolver in
-            return VoteService(requestExecutor: resolver ~> RequestExecuting.self,
-                               URLProvider: resolver ~> URLProviding.self)
-        }
-
-       
-
         container.register(FetchDebateServiceProtocol.self) { resolver in
             return FetchDebateService(requestExecutor: resolver ~> RequestExecuting.self,
                                       debateDeserializer: resolver ~> (Deserializer<Debate>.self,

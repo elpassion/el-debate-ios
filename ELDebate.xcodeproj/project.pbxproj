@@ -56,6 +56,7 @@
 		50BA69AA1FA22BE400C46E44 /* ServiceHelpersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */; };
 		50BA69AC1FA22CE100C46E44 /* CommentsServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */; };
 		50BA69AE1FA22EDC00C46E44 /* PusherAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */; };
+		50BA69B01FA22F8500C46E44 /* VoteServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */; };
 		50CB84461F8BAC71000A0D83 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* CommentsView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
@@ -338,6 +339,7 @@
 		50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHelpersAssembly.swift; sourceTree = "<group>"; };
 		50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsServicesAssembly.swift; sourceTree = "<group>"; };
 		50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherAssembly.swift; sourceTree = "<group>"; };
+		50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteServiceAssembly.swift; sourceTree = "<group>"; };
 		50CB84451F8BAC71000A0D83 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
@@ -962,6 +964,7 @@
 				50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */,
 				50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */,
 				50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */,
+				50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */,
 			);
 			path = "Dependency Injection";
 			sourceTree = "<group>";
@@ -1861,6 +1864,7 @@
 				8C4B23671EE547FA00CE42DD /* PinEntryControllerProviding.swift in Sources */,
 				8C4B23311EE547D100CE42DD /* AnswerView.swift in Sources */,
 				504C561D1F9E15CD00FF8257 /* SingleCommentView+Factory.swift in Sources */,
+				50BA69B01FA22F8500C46E44 /* VoteServiceAssembly.swift in Sources */,
 				8C4B235D1EE547F500CE42DD /* Assembler+Assemblies.swift in Sources */,
 				8C4B23621EE547FA00CE42DD /* AnswerControllerProviding.swift in Sources */,
 				8C4B23301EE547D100CE42DD /* AnswerPicker.swift in Sources */,
