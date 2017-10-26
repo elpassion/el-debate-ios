@@ -704,6 +704,23 @@
 			path = UITableViewReusable;
 			sourceTree = "<group>";
 		};
+		50BA69B31FA23B9D00C46E44 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
+				50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */,
+				50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */,
+				50BA69B11FA230E500C46E44 /* FetchDebateServiceAssembly.swift */,
+				8C7322D71EF8182E0067BC84 /* LoginServiceAssembly.swift */,
+				8C127C7C1EC4965E00E9B5FD /* PinEntryAssembly.swift */,
+				50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */,
+				50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */,
+				8C6138101EF1848B00E00700 /* ValidatorAssembly.swift */,
+				50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
 		6EA7E2921EC466EC002DF55E /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,18 +973,9 @@
 		8C63FA131EC37BE70080FFF9 /* Dependency Injection */ = {
 			isa = PBXGroup;
 			children = (
-				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
+				50BA69B31FA23B9D00C46E44 /* Assemblies */,
 				8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */,
-				50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */,
-				50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */,
-				50BA69B11FA230E500C46E44 /* FetchDebateServiceAssembly.swift */,
-				8C7322D71EF8182E0067BC84 /* LoginServiceAssembly.swift */,
 				8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */,
-				8C127C7C1EC4965E00E9B5FD /* PinEntryAssembly.swift */,
-				50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */,
-				50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */,
-				8C6138101EF1848B00E00700 /* ValidatorAssembly.swift */,
-				50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */,
 			);
 			path = "Dependency Injection";
 			sourceTree = "<group>";
