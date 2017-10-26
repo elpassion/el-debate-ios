@@ -55,6 +55,7 @@
 		50BA69A61FA20A9700C46E44 /* PusherKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50BA699C1FA1DE1900C46E44 /* PusherKeys.plist */; };
 		50BA69AA1FA22BE400C46E44 /* ServiceHelpersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */; };
 		50BA69AC1FA22CE100C46E44 /* CommentsServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */; };
+		50BA69AE1FA22EDC00C46E44 /* PusherAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */; };
 		50CB84461F8BAC71000A0D83 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* CommentsView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
@@ -336,6 +337,7 @@
 		50BA699C1FA1DE1900C46E44 /* PusherKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PusherKeys.plist; sourceTree = "<group>"; };
 		50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHelpersAssembly.swift; sourceTree = "<group>"; };
 		50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsServicesAssembly.swift; sourceTree = "<group>"; };
+		50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherAssembly.swift; sourceTree = "<group>"; };
 		50CB84451F8BAC71000A0D83 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
@@ -959,6 +961,7 @@
 				8C6138101EF1848B00E00700 /* ValidatorAssembly.swift */,
 				50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */,
 				50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */,
+				50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */,
 			);
 			path = "Dependency Injection";
 			sourceTree = "<group>";
@@ -1792,6 +1795,7 @@
 				8C530B1F1EEFF77D00C9925B /* UINavigationController+Styling.swift in Sources */,
 				8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */,
 				296E84611F9136E0000E67C5 /* URLProvider.swift in Sources */,
+				50BA69AE1FA22EDC00C46E44 /* PusherAssembly.swift in Sources */,
 				8C4B23691EE547FE00CE42DD /* AutoMockable.swift in Sources */,
 				8C4B23611EE547FA00CE42DD /* AlertPresenter.swift in Sources */,
 				8C4B23571EE547F100CE42DD /* NotificationCenter+StrongTyping.swift in Sources */,

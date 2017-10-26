@@ -19,15 +19,7 @@ class APIAssembly: Assembly {
                                URLProvider: resolver ~> URLProviding.self)
         }
 
-        container.register(PusherConfigurationProviding.self) { _ in
-            return PusherConfigurationProvider(pusherKeysDictionary: Bundle.main.infoDictionary)
-        }
-
-        container.register(Pusher.self) { resolver in
-            let configuration = resolver ~> PusherConfigurationProviding.self
-            let options = PusherClientOptions(host: .cluster(configuration.clusterKey))
-            return Pusher(key: configuration.appKey, options: options)
-        }
+       
 
         container.register(FetchDebateServiceProtocol.self) { resolver in
             return FetchDebateService(requestExecutor: resolver ~> RequestExecuting.self,
