@@ -53,6 +53,11 @@
 		508C554F1FA0CBFE00F14B97 /* CommentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508C554E1FA0CBFE00F14B97 /* CommentPresenter.swift */; };
 		50BA69A21FA1F4C900C46E44 /* PusherConfigurationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502EA6551F9F5651003345C2 /* PusherConfigurationProvider.swift */; };
 		50BA69A61FA20A9700C46E44 /* PusherKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50BA699C1FA1DE1900C46E44 /* PusherKeys.plist */; };
+		50BA69AA1FA22BE400C46E44 /* ServiceHelpersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */; };
+		50BA69AC1FA22CE100C46E44 /* CommentsServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */; };
+		50BA69AE1FA22EDC00C46E44 /* PusherAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */; };
+		50BA69B01FA22F8500C46E44 /* VoteServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */; };
+		50BA69B21FA230E500C46E44 /* FetchDebateServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA69B11FA230E500C46E44 /* FetchDebateServiceAssembly.swift */; };
 		50CB84461F8BAC71000A0D83 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84451F8BAC71000A0D83 /* CommentsView.swift */; };
 		50CB84481F8BC00D000A0D83 /* CommentControllerProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */; };
 		50CB844A1F8E46EE000A0D83 /* CommentAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */; };
@@ -184,7 +189,7 @@
 		8C6DA03B1EC599E300D31E76 /* PinEntryViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DA0391EC599DF00D31E76 /* PinEntryViewControllerSpec.swift */; };
 		8C6EC6451ECC422F009E0FBC /* AnswerScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6EC6441ECC422F009E0FBC /* AnswerScreenTests.swift */; };
 		8C7322D61EF7DDB00067BC84 /* PartialContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7322D31EF7DD890067BC84 /* PartialContext.swift */; };
-		8C7322D81EF8182E0067BC84 /* APIAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7322D71EF8182E0067BC84 /* APIAssembly.swift */; };
+		8C7322D81EF8182E0067BC84 /* LoginServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7322D71EF8182E0067BC84 /* LoginServiceAssembly.swift */; };
 		8C7322DB1EF81C160067BC84 /* Deserialization+CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7322D91EF81BFD0067BC84 /* Deserialization+CommonFunctions.swift */; };
 		8C85D8511EC34FC100C5BAE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */; };
 		8C85D8521EC34FC100C5BAE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C85D8471EC34FC100C5BAE7 /* Assets.xcassets */; };
@@ -332,6 +337,11 @@
 		508C554C1FA0C9F600F14B97 /* UITableViewCell_ReusableSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell_ReusableSpec.swift; sourceTree = "<group>"; };
 		508C554E1FA0CBFE00F14B97 /* CommentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPresenter.swift; sourceTree = "<group>"; };
 		50BA699C1FA1DE1900C46E44 /* PusherKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PusherKeys.plist; sourceTree = "<group>"; };
+		50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHelpersAssembly.swift; sourceTree = "<group>"; };
+		50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsServicesAssembly.swift; sourceTree = "<group>"; };
+		50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PusherAssembly.swift; sourceTree = "<group>"; };
+		50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteServiceAssembly.swift; sourceTree = "<group>"; };
+		50BA69B11FA230E500C46E44 /* FetchDebateServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDebateServiceAssembly.swift; sourceTree = "<group>"; };
 		50CB84451F8BAC71000A0D83 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		50CB84471F8BC00D000A0D83 /* CommentControllerProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerProviding.swift; sourceTree = "<group>"; };
 		50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAssembly.swift; sourceTree = "<group>"; };
@@ -460,7 +470,7 @@
 		8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinEntryControllerProviding.swift; sourceTree = "<group>"; };
 		8C6EC6441ECC422F009E0FBC /* AnswerScreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerScreenTests.swift; sourceTree = "<group>"; };
 		8C7322D31EF7DD890067BC84 /* PartialContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartialContext.swift; sourceTree = "<group>"; };
-		8C7322D71EF8182E0067BC84 /* APIAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIAssembly.swift; sourceTree = "<group>"; };
+		8C7322D71EF8182E0067BC84 /* LoginServiceAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServiceAssembly.swift; sourceTree = "<group>"; };
 		8C7322D91EF81BFD0067BC84 /* Deserialization+CommonFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Deserialization+CommonFunctions.swift"; sourceTree = "<group>"; };
 		8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		8C85D8461EC34FC100C5BAE7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -692,6 +702,23 @@
 				14A0165FF59144247BB970B1 /* UITableViewCell+Reusable.swift */,
 			);
 			path = UITableViewReusable;
+			sourceTree = "<group>";
+		};
+		50BA69B31FA23B9D00C46E44 /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
+				50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */,
+				50BA69AB1FA22CE100C46E44 /* CommentsServicesAssembly.swift */,
+				50BA69B11FA230E500C46E44 /* FetchDebateServiceAssembly.swift */,
+				8C7322D71EF8182E0067BC84 /* LoginServiceAssembly.swift */,
+				8C127C7C1EC4965E00E9B5FD /* PinEntryAssembly.swift */,
+				50BA69AD1FA22EDC00C46E44 /* PusherAssembly.swift */,
+				50BA69A91FA22BE400C46E44 /* ServiceHelpersAssembly.swift */,
+				8C6138101EF1848B00E00700 /* ValidatorAssembly.swift */,
+				50BA69AF1FA22F8500C46E44 /* VoteServiceAssembly.swift */,
+			);
+			path = Assemblies;
 			sourceTree = "<group>";
 		};
 		6EA7E2921EC466EC002DF55E /* Networking */ = {
@@ -946,13 +973,9 @@
 		8C63FA131EC37BE70080FFF9 /* Dependency Injection */ = {
 			isa = PBXGroup;
 			children = (
-				8C7322D71EF8182E0067BC84 /* APIAssembly.swift */,
-				8C0D63081EC5DD4100421B89 /* AnswerAssembly.swift */,
+				50BA69B31FA23B9D00C46E44 /* Assemblies */,
 				8C63FA141EC37BF90080FFF9 /* Assembler+Assemblies.swift */,
-				50CB84491F8E46EE000A0D83 /* CommentAssembly.swift */,
 				8C63FA161EC37C1D0080FFF9 /* MainAssembly.swift */,
-				8C127C7C1EC4965E00E9B5FD /* PinEntryAssembly.swift */,
-				8C6138101EF1848B00E00700 /* ValidatorAssembly.swift */,
 			);
 			path = "Dependency Injection";
 			sourceTree = "<group>";
@@ -1773,10 +1796,11 @@
 				8CCE0F551EE57A30001FD1D7 /* FontSizeCalculator.swift in Sources */,
 				8C4B235A1EE547F100CE42DD /* UIImage+Predefined.swift in Sources */,
 				50D4DC751F9168DD00B3C901 /* VoteService.swift in Sources */,
-				8C7322D81EF8182E0067BC84 /* APIAssembly.swift in Sources */,
+				8C7322D81EF8182E0067BC84 /* LoginServiceAssembly.swift in Sources */,
 				294D39821F90D20F0015C54E /* Comment.swift in Sources */,
 				50BA69A21FA1F4C900C46E44 /* PusherConfigurationProvider.swift in Sources */,
 				8C4B23521EE547F100CE42DD /* Dictionary+Mapping.swift in Sources */,
+				50BA69AA1FA22BE400C46E44 /* ServiceHelpersAssembly.swift in Sources */,
 				8CCD73D21EFD71A200183DA0 /* AlertFactory.swift in Sources */,
 				8C4B23381EE547D100CE42DD /* PinEntryWelcomeView.swift in Sources */,
 				8C87B8AB1EE9522300A243E2 /* UIImage+FromColor.swift in Sources */,
@@ -1785,6 +1809,7 @@
 				8C530B1F1EEFF77D00C9925B /* UINavigationController+Styling.swift in Sources */,
 				8CDE55441EE5B68500A05902 /* LoginButtonView.swift in Sources */,
 				296E84611F9136E0000E67C5 /* URLProvider.swift in Sources */,
+				50BA69AE1FA22EDC00C46E44 /* PusherAssembly.swift in Sources */,
 				8C4B23691EE547FE00CE42DD /* AutoMockable.swift in Sources */,
 				8C4B23611EE547FA00CE42DD /* AlertPresenter.swift in Sources */,
 				8C4B23571EE547F100CE42DD /* NotificationCenter+StrongTyping.swift in Sources */,
@@ -1797,6 +1822,7 @@
 				8C4B23681EE547FA00CE42DD /* PinEntryViewController.swift in Sources */,
 				8C4B23501EE547EC00CE42DD /* VoteContext.swift in Sources */,
 				8CB4CDE01EE5A5890055C50B /* IconTextField.swift in Sources */,
+				50BA69AC1FA22CE100C46E44 /* CommentsServicesAssembly.swift in Sources */,
 				8C4B23371EE547D100CE42DD /* PinEntryView.swift in Sources */,
 				8C87B8B11EE98BD300A243E2 /* UIBezierPath+Lines.swift in Sources */,
 				8C4B23331EE547D100CE42DD /* AttributedLabel.swift in Sources */,
@@ -1849,6 +1875,7 @@
 				8C4B23671EE547FA00CE42DD /* PinEntryControllerProviding.swift in Sources */,
 				8C4B23311EE547D100CE42DD /* AnswerView.swift in Sources */,
 				504C561D1F9E15CD00FF8257 /* SingleCommentView+Factory.swift in Sources */,
+				50BA69B01FA22F8500C46E44 /* VoteServiceAssembly.swift in Sources */,
 				8C4B235D1EE547F500CE42DD /* Assembler+Assemblies.swift in Sources */,
 				8C4B23621EE547FA00CE42DD /* AnswerControllerProviding.swift in Sources */,
 				8C4B23301EE547D100CE42DD /* AnswerPicker.swift in Sources */,
@@ -1860,6 +1887,7 @@
 				326728DEF33D4C6F923378A5 /* AlertPresentableError.swift in Sources */,
 				14A01C86A54B89F165CA840D /* Reusable.swift in Sources */,
 				14A01A7A61ACBB5D2A54003D /* UITableViewCell+Reusable.swift in Sources */,
+				50BA69B21FA230E500C46E44 /* FetchDebateServiceAssembly.swift in Sources */,
 				14A018313B9DBD95E4A89213 /* UITableView+Reusable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
