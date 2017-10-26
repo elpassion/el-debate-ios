@@ -1,3 +1,4 @@
+import PusherSwift
 import Swinject
 import SwinjectAutoregistration
 
@@ -8,8 +9,18 @@ class APIAssembly: Assembly {
 
         container.autoregister(URLProviding.self, initializer: URLProvider.init)
 
+        container.autoregister(CommentPresenting.self, initializer: CommentPresenter.init)
+
+        container.register(LoginCredentialsStoring.self, name: "LoginCredentials") { _ in
+            return LoginCredentialsStore(userDefaults: UserDefaults.standard)
+        }
+
         container.register(Deserializer<Comments>.self, name: "Comments") { _ in
             return Deserializer(CommentsDeserializer(jsonDecoder: JSONDecoder()))
+        }
+
+        container.register(Deserializer<Comment>.self, name: "Comment") { _ in
+            return Deserializer(CommentDeserializer(jsonDecoder: JSONDecoder()))
         }
 
         container.register(Deserializer<Debate>.self, name: "Debate") { _ in
@@ -30,6 +41,24 @@ class APIAssembly: Assembly {
                                         commentsDeserializer: resolver ~> (Deserializer<Comments>.self,
                                                                            name: "Comments"),
                                         URLProvider: resolver ~> URLProviding.self)
+        }
+
+        container.register(PusherConfigurationProviding.self) { _ in
+            return PusherConfigurationProvider(pusherKeysDictionary: Bundle.main.infoDictionary)
+        }
+
+        container.register(Pusher.self) { resolver in
+            let configuration = resolver ~> PusherConfigurationProviding.self
+            let options = PusherClientOptions(host: .cluster(configuration.clusterKey))
+            return Pusher(key: configuration.appKey, options: options)
+        }
+
+        container.register(CommentsWebSocketProtocol.self) { resolver in
+            return CommentsWebSocket(commentDeserializer: resolver ~> (Deserializer<Comment>.self,
+                                                                          name: "Comment"),
+                                     pusher: resolver ~> Pusher.self,
+                                     lastCredentialsStore: resolver ~> (LoginCredentialsStoring.self,
+                                                                        name: "LoginCredentials"))
         }
 
         container.register(FetchDebateServiceProtocol.self) { resolver in

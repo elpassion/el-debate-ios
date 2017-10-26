@@ -6,10 +6,11 @@ def common_pods
   pod 'Anchorage', :git => 'https://github.com/Raizlabs/Anchorage.git', :branch => 'feature/xcode-9'
   pod 'KeychainAccess', '~> 3.1'
   pod 'PromiseKit', '~> 4.0'
+  pod 'PusherSwift', '~> 5.0.1'
   pod 'Sourcery', '~> 0.9'
   pod 'SwiftLint', '~> 0.22'
   pod 'Swinject', '~> 2.1.1'
-  pod 'SwinjectAutoregistration', :git => 'https://github.com/Swinject/SwinjectAutoregistration.git', :branch => 'swift4'
+  pod 'SwinjectAutoregistration', '~> 2.1.1'
   pod 'UIColor_Hex_Swift', '~> 3.0.2'
 end
 
