@@ -4,6 +4,7 @@ import UIKit
 class CommentsView: UIView {
 
     let commentsTableView: UITableView = Factory.commentsTableView()
+    let commentInputView: UIView = Factory.commentInputView()
     private let background: UIImageView = Factory.background()
 
     public init() {
@@ -21,6 +22,7 @@ class CommentsView: UIView {
     private func addSubviews() {
         addSubview(background)
         addSubview(commentsTableView)
+        addSubview(commentInputView)
     }
 
     private func setUpLayout() {
@@ -29,7 +31,12 @@ class CommentsView: UIView {
         background.widthAnchor == widthAnchor * 0.95
         background.heightAnchor == background.widthAnchor * 0.75
 
-        commentsTableView.edgeAnchors == edgeAnchors
+        commentsTableView.topAnchor == topAnchor
+        commentsTableView.horizontalAnchors == horizontalAnchors
+        commentsTableView.bottomAnchor == commentInputView.topAnchor
+
+        commentInputView.horizontalAnchors == horizontalAnchors
+        commentInputView.bottomAnchor == bottomAnchor
     }
 
     // MARK: - Required initializer
@@ -50,6 +57,11 @@ extension CommentsView {
             commentsTableView.allowsSelection = false
             commentsTableView.alwaysBounceVertical = false
             return commentsTableView
+        }
+
+        static func commentInputView() -> UIView {
+            let commentInputView = CommentInputView()
+            return commentInputView
         }
 
         static func background() -> UIImageView {
