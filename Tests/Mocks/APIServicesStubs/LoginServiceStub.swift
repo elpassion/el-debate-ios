@@ -8,6 +8,7 @@ class LoginServiceStub: LoginServiceProtocol {
 
     func login(credentials: LoginCredentials) -> Promise<String> {
         self.credentials = credentials
+
         return Promise(value: authenticationToken)
     }
 }

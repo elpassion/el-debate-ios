@@ -8,34 +8,43 @@ class CommentControllerSpec: QuickSpec {
 
     // swiftlint:disable function_body_length
     override func spec() {
-//        describe("CommentController") {
-//            var controller: CommentViewControllerMock!
-//            var fetchCommentServiceStub: FetchCommentsServiceStub!
-//
-//            beforeEach {
-//                controller = CommentView
-//            }
-//
-//            afterEach {
-//                <#code#>
-//            }
-//
-//            describe("after view has appeared") {
-//                beforeEach {
-//                    controller.viewDidLoad()
-//                }
-//
-//                it("should set title") {
-//                    expect(controller.title) == "Live Chat Feed"
-//                }
-//
-//                it ("should have a valid snapshot") {
-//                    controller.view.frame = UIScreen.main.bounds
-//
-//                    expect(controller.view).to(haveValidDeviceAgnosticSnapshot())
-//                }
-//            }
-//        }
+        describe("CommentController") {
+            var sut: CommentViewControllerMock!
+            var fetchCommentServiceStub: FetchCommentsServiceStub!
+            var commentsWebSocketStub: CommentsWebSocketStub!
+            var commentPresenter: CommentPresenter!
+
+            beforeEach {
+                fetchCommentServiceStub = FetchCommentsServiceStub()
+                commentsWebSocketStub = CommentsWebSocketStub()
+                commentPresenter = CommentPresenter()
+
+                sut = CommentViewControllerMock(fetchCommentsService: fetchCommentServiceStub,
+                                                commentsWebSocketService: commentsWebSocketStub,
+                                                commentPresenter: commentPresenter,
+                                                voteContext: VoteContext.testDefault)
+            }
+
+            afterEach {
+
+            }
+
+            describe("after view has appeared") {
+                beforeEach {
+                    sut.viewDidLoad()
+                }
+
+                it("should set title") {
+                    expect(sut.title) == "Live Chat Feed"
+                }
+
+                it ("should have a valid snapshot") {
+                    sut.view.frame = UIScreen.main.bounds
+
+                    expect(sut.view).to(recordDeviceAgnosticSnapshot())
+                }
+            }
+        }
     }
 
 }
