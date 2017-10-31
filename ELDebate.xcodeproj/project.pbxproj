@@ -706,6 +706,46 @@
 			path = UITableViewReusable;
 			sourceTree = "<group>";
 		};
+		50838FE51FA8FB0400E88C49 /* PinInputView */ = {
+			isa = PBXGroup;
+			children = (
+				8CFAC8541EE5A55C0086A976 /* IconTextField.swift */,
+				8CDE55421EE5B68200A05902 /* LoginButtonView.swift */,
+				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
+				8C127C891EC4A0D100E9B5FD /* PinEntryWelcomeView.swift */,
+				8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */,
+			);
+			path = PinInputView;
+			sourceTree = "<group>";
+		};
+		50838FE61FA8FB1200E88C49 /* AnswerView */ = {
+			isa = PBXGroup;
+			children = (
+				8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */,
+				8C464F091EC5E537009DD7BF /* AnswerView.swift */,
+				8C6127E81EC9BF8E003472A3 /* AnswersListView.swift */,
+				8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */,
+				8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */,
+				8C87B8AC1EE974D100A243E2 /* ProgressView.swift */,
+				8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */,
+				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
+				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
+			);
+			path = AnswerView;
+			sourceTree = "<group>";
+		};
+		50838FE71FA8FB2300E88C49 /* CommentsView */ = {
+			isa = PBXGroup;
+			children = (
+				50838FE31FA8FA1400E88C49 /* CommentInputView.swift */,
+				50CB84451F8BAC71000A0D83 /* CommentsView.swift */,
+				294DA05D1F96501B0016EF62 /* SingleCommentCell.swift */,
+				504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */,
+				294DA05F1F979E3D0016EF62 /* SingleCommentView.swift */,
+			);
+			path = CommentsView;
+			sourceTree = "<group>";
+		};
 		50BA69B31FA23B9D00C46E44 /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,25 +800,9 @@
 		8C127C851EC4A06100E9B5FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8CB42CF01EC5F34F007E61F6 /* AnswerPicker.swift */,
-				8C464F091EC5E537009DD7BF /* AnswerView.swift */,
-				8C6127E81EC9BF8E003472A3 /* AnswersListView.swift */,
-				8C3155AB1EDF5D73003F31D9 /* AttributedLabel.swift */,
-				8CA6D82B1EDF22BC00A82CD2 /* ChatButtonView.swift */,
-				50838FE31FA8FA1400E88C49 /* CommentInputView.swift */,
-				50CB84451F8BAC71000A0D83 /* CommentsView.swift */,
-				8CFAC8541EE5A55C0086A976 /* IconTextField.swift */,
-				8CDE55421EE5B68200A05902 /* LoginButtonView.swift */,
-				8C127C861EC4A06C00E9B5FD /* PinEntryView.swift */,
-				8C127C891EC4A0D100E9B5FD /* PinEntryWelcomeView.swift */,
-				8CB4CDE11EE5A7910055C50B /* PinInputPanel.swift */,
-				8C87B8AC1EE974D100A243E2 /* ProgressView.swift */,
-				8C6127E61EC9BEA6003472A3 /* QuestionFrameView.swift */,
-				8C7E8D4A1EC9A17300B525C1 /* QuestionView.swift */,
-				8CD371A81EC5EAC500203620 /* SingleAnswerView.swift */,
-				294DA05D1F96501B0016EF62 /* SingleCommentCell.swift */,
-				504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */,
-				294DA05F1F979E3D0016EF62 /* SingleCommentView.swift */,
+				50838FE61FA8FB1200E88C49 /* AnswerView */,
+				50838FE71FA8FB2300E88C49 /* CommentsView */,
+				50838FE51FA8FB0400E88C49 /* PinInputView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
