@@ -5,5 +5,4 @@ class CommentsWebSocketStub: CommentsWebSocketProtocol {
     func startWebSocket(delegate: CommentsWebSocketDelegate) {
 
     }
-
 }

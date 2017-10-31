@@ -7,7 +7,6 @@ class FetchDebateServiceStub: FetchDebateServiceProtocol {
 
     func fetchDebate(authToken: String) -> Promise<Debate> {
         debateAuthToken = authToken
-
         return Promise(value: Debate.testDefault)
     }
 
