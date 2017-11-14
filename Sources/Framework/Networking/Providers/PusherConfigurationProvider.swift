@@ -37,7 +37,7 @@ class PusherConfigurationProvider: PusherConfigurationProviding {
             fatalError("Couldn't get appKey from Dictionary")
         }
 
-        if appKey.characters.isEmpty { fatalError("Please fill APP_KEY in PusherKeys.plist") }
+        if appKey.isEmpty { fatalError("Please fill APP_KEY in PusherKeys.plist") }
 
         return appKey
     }
@@ -51,7 +51,7 @@ class PusherConfigurationProvider: PusherConfigurationProviding {
            fatalError("Couldn't get clusterKey from Dictionary")
         }
 
-        if clusterKey.characters.isEmpty { fatalError("Please fill CLUSTER_KEY in PusherKeys.plist") }
+        if clusterKey.isEmpty { fatalError("Please fill CLUSTER_KEY in PusherKeys.plist") }
 
         return clusterKey
     }
