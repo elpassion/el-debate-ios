@@ -11,7 +11,7 @@ public class PinCodeValidator: Validator {
             throw PinCodeValidatorError.missing
         }
 
-        let charactersCount = value.characters.count
+        let charactersCount = value.count
 
         if charactersCount > validLength {
             throw PinCodeValidatorError.tooLong
