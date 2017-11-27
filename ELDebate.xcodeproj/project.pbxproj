@@ -68,6 +68,7 @@
 		50D4DC731F91689200B3C901 /* FetchDebateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4DC721F91689200B3C901 /* FetchDebateService.swift */; };
 		50D4DC751F9168DD00B3C901 /* VoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4DC741F9168DD00B3C901 /* VoteService.swift */; };
 		50D4DC771F916B2800B3C901 /* Request+Deserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D4DC761F916B2800B3C901 /* Request+Deserializer.swift */; };
+		50D925E81FBB64FF00F4B89D /* Int_AsTimeStringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D925E71FBB64FF00F4B89D /* Int_AsTimeStringSpec.swift */; };
 		51757128F328010E2BC3E35A /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B514A80F4268B66CD30EE8B /* EarlGrey.framework */; };
 		6E39C98F1ED2DBF400E2B096 /* CommentResponseJSONMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E39C98D1ED2DBF000E2B096 /* CommentResponseJSONMock.swift */; };
 		6E9119B61EC5B16400B4B14B /* AnswerDeserializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E9119B41EC5B01F00B4B14B /* AnswerDeserializerSpec.swift */; };
@@ -354,6 +355,7 @@
 		50D4DC721F91689200B3C901 /* FetchDebateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDebateService.swift; sourceTree = "<group>"; };
 		50D4DC741F9168DD00B3C901 /* VoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteService.swift; sourceTree = "<group>"; };
 		50D4DC761F916B2800B3C901 /* Request+Deserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Deserializer.swift"; sourceTree = "<group>"; };
+		50D925E71FBB64FF00F4B89D /* Int_AsTimeStringSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_AsTimeStringSpec.swift; sourceTree = "<group>"; };
 		5B514A80F4268B66CD30EE8B /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = "${SRCROOT}/Pods/EarlGrey/EarlGrey/EarlGrey.framework"; sourceTree = SRCROOT; };
 		5E731B8E095FCF71F2FAD8A0 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		5F67AEB94008F68BD181A24A /* Pods-ELDebate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebate.release.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebate/Pods-ELDebate.release.xcconfig"; sourceTree = "<group>"; };
@@ -1226,6 +1228,7 @@
 				8CD5F64F1ECC8D3E0067BFC7 /* DictionaryMergingSpec.swift */,
 				298784D51F70420A008A28CC /* Dictionary_StringAnySpec.swift */,
 				8CBB56A11EFD371F00289066 /* ForceCastSpec.swift */,
+				50D925E71FBB64FF00F4B89D /* Int_AsTimeStringSpec.swift */,
 				508C554C1FA0C9F600F14B97 /* UITableViewCell_ReusableSpec.swift */,
 			);
 			path = Extensions;
@@ -1940,6 +1943,7 @@
 				2932C3331F948FA500B85B02 /* VoteServiceSpec.swift in Sources */,
 				8C5B02D91EFD804D00D405CA /* AlertFactoryMock.swift in Sources */,
 				8CBB56A61EFD4BF700289066 /* AlertPresentingControllerMock.swift in Sources */,
+				50D925E81FBB64FF00F4B89D /* Int_AsTimeStringSpec.swift in Sources */,
 				8CBB56A41EFD481000289066 /* AlertPresenterSpec.swift in Sources */,
 				8C6AF9751EFAAAA500D16EB8 /* DebateSpec.swift in Sources */,
 				508C554D1FA0C9F600F14B97 /* UITableViewCell_ReusableSpec.swift in Sources */,
