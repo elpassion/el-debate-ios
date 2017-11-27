@@ -1,3 +1,3 @@
 import UIKit
 
-protocol CommentControllerProviding: class, ControllerProviding {}
+protocol CommentControllerProviding: ControllerProviding {}
