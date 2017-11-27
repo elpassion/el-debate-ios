@@ -5,9 +5,9 @@
 	<key>Pusher</key>
 	<dict>
 		<key>APP_KEY</key>
-		<string></string>
+		<string>fill_me</string>
 		<key>CLUSTER_KEY</key>
-		<string></string>
+		<string>fill_me</string>
 	</dict>
 </dict>
 </plist>
