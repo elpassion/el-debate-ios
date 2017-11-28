@@ -23,28 +23,17 @@ class CommentsWebSocket: CommentsWebSocketProtocol {
     }
 
     func startWebSocket(delegate: CommentsWebSocketDelegate) {
-
         guard let channelPin = lastCredentialsStore.lastCredentials?.pin else {
             fatalError("Error retrieving Pin from Stored Credentuals")
         }
-        let channelName = "dashboard_channel_"
 
         pusher.connect()
 
-        let debateChannel = pusher.subscribe("\(channelName)\(channelPin)")
-
-        _ = debateChannel.bind(eventName: "comment_added") { (data: Any?) -> Void in
-
-            guard let data = data as? [String: AnyObject] else {
-                return
-            }
-
-            guard let commentBody = try? self.commentDeserializer.deserialize(json: data) else {
-                return
-            }
+        pusher.subscribe("dashboard_channel_\(channelPin)").bind(eventName: "comment_added") { (data: Any?) -> Void in
+            guard let data = data as? [String: AnyObject] else { return }
+            guard let commentBody = try? self.commentDeserializer.deserialize(json: data) else { return }
 
             delegate.commentReceived(comment: commentBody)
-
         }
     }
 
