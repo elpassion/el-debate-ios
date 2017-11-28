@@ -35,6 +35,10 @@ class CommentsServicesAssembly: Assembly {
                                                                         name: "LoginCredentials"))
 
         }
+
+        container.register(VoteContextProvider.self) { resolver in
+            return VoteContextRepository()
+        }.inObjectScope(.container)
     }
 
 }
