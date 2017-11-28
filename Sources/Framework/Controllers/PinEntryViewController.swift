@@ -7,6 +7,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     let alertPresenter: AlertShowing
     private let keyboardHandling: KeyboardWillShowHandling
     private let lastCredentialsStore: LoginCredentialsStoring
+    private let voteContextProvider: VoteContextProvider
 
     var onVoteContextLoaded: ((VoteContext) -> Void)?
 
@@ -15,11 +16,14 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
     init(loginActionHandler: LoginActionHandling,
          alertView: AlertShowing,
          keyboardHandling: KeyboardWillShowHandling,
-         lastCredentialsStore: LoginCredentialsStoring) {
+         lastCredentialsStore: LoginCredentialsStoring,
+         voteContextProvider: VoteContextProvider
+         ) {
         self.loginActionHandler = loginActionHandler
         self.alertPresenter = alertView
         self.keyboardHandling = keyboardHandling
         self.lastCredentialsStore = lastCredentialsStore
+        self.voteContextProvider = voteContextProvider
 
         super.init(nibName: nil, bundle: nil)
 
@@ -64,6 +68,7 @@ class PinEntryViewController: UIViewController, PinEntryControllerProviding, Ale
 
     private func didFetchVoteContext(_ voteContext: VoteContext) {
         lastCredentialsStore.lastCredentials = pinEntryView.credentials
+        voteContextProvider.provide(voteContext: voteContext)
         view.endEditing(true)
         onVoteContextLoaded?(voteContext)
     }
