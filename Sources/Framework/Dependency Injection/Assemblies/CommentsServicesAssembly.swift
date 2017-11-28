@@ -34,6 +34,13 @@ class CommentsServicesAssembly: Assembly {
                                      lastCredentialsStore: resolver ~> (LoginCredentialsStoring.self,
                                                                         name: "LoginCredentials"))
 
+        container.register(NewCommentServiceProtocol.self) { resolver in
+            return NewCommentService(
+                    requestExecutor: resolver ~> RequestExecuting.self,
+                    URLProvider: resolver ~> URLProviding.self,
+                    commentDeserializer: resolver ~> (Deserializer<Comment>.self, name: "Comment"),
+                    voteContextProvider: resolver ~> VoteContextProvider.self
+            )
         }
 
         container.register(VoteContextProvider.self) { resolver in
