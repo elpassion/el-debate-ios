@@ -31,7 +31,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.4.3):
     - PromiseKit/CorePromise
-  - PusherSwift (5.0.1)
+  - PusherSwift (5.1.0)
   - Quick (1.2.0)
   - Reveal-SDK (11)
   - Sourcery (0.9.0)
@@ -53,7 +53,7 @@ DEPENDENCIES:
   - Nimble (~> 7.0)
   - Nimble-Snapshots (~> 6.3.0)
   - PromiseKit (~> 4.0)
-  - PusherSwift (~> 5.0.1)
+  - PusherSwift
   - Quick (~> 1.2)
   - Reveal-SDK
   - Sourcery (~> 0.9)
@@ -84,7 +84,7 @@ SPEC CHECKSUMS:
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   Nimble-Snapshots: f5459b5b091678dc942d03ec4741cacb58ba4a52
   PromiseKit: fbb52a0d154402c57eeb6eccd36dd7724fcf6117
-  PusherSwift: f2e209d3c88ab95153bdc1cdda7a3e5c892127f2
+  PusherSwift: ea736474a51f5e6764b252dfda14014cfa3e828f
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   Reveal-SDK: 7fa13d04bb55db61ff2342a990cf731d5159361d
   Sourcery: e3829460a1fa0bcd3b689e6087a89cc063cd2289
@@ -93,6 +93,6 @@ SPEC CHECKSUMS:
   SwinjectAutoregistration: d06b56bd8f912b9fb9c59c15181342558a734b1b
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: e9fb554791092ad7682778f386bb1585ff8304cf
+PODFILE CHECKSUM: 627238d6e073d2231aae098e199393255be5b011
 
 COCOAPODS: 1.3.1
