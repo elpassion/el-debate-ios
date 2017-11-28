@@ -13,10 +13,11 @@ class CommentsServicesAssembly: Assembly {
         }
 
         container.register(FetchCommentsServiceProtocol.self) { resolver in
-            return FetchCommentsService(requestExecutor: resolver ~> RequestExecuting.self,
-                                        commentsDeserializer: resolver ~> (Deserializer<Comments>.self,
-                                                                           name: "Comments"),
-                                        URLProvider: resolver ~> URLProviding.self)
+            return FetchCommentsService(
+                    requestExecutor: resolver ~> RequestExecuting.self,
+                    commentsDeserializer: resolver ~> (Deserializer<Comments>.self, name: "Comments"),
+                    URLProvider: resolver ~> URLProviding.self
+            )
         }
 
         container.register(Deserializer<Comments>.self, name: "Comments") { _ in
@@ -28,11 +29,12 @@ class CommentsServicesAssembly: Assembly {
         }
 
         container.register(CommentsWebSocketProtocol.self) { resolver in
-            return CommentsWebSocket(commentDeserializer: resolver ~> (Deserializer<Comment>.self,
-                                                                       name: "Comment"),
-                                     pusher: resolver ~> Pusher.self,
-                                     lastCredentialsStore: resolver ~> (LoginCredentialsStoring.self,
-                                                                        name: "LoginCredentials"))
+            return CommentsWebSocket(
+                    commentDeserializer: resolver ~> (Deserializer<Comment>.self, name: "Comment"),
+                    pusher: resolver ~> Pusher.self,
+                    lastCredentialsStore: resolver ~> (LoginCredentialsStoring.self, name: "LoginCredentials")
+            )
+        }
 
         container.register(NewCommentServiceProtocol.self) { resolver in
             return NewCommentService(
