@@ -5,14 +5,30 @@ default_platform :ios
 platform :ios do
   before_all do
     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
-    cocoapods
+    clear_derived_data
+    cocoapods(repo_update: true)
   end
 
   desc "Runs all the tests"
   lane :test do
     scan(
+      workspace: "ELDebate.xcworkspace",
+      scheme: "FeatureTests",
+      sdk: "iphonesimulator11.1",
+      device: 'iPhone SE (11.1)',
+      code_coverage: false,
+      xcargs: "ONLY_ACTIVE_ARCH=YES",
+      output_style: "rspec"
+    )
+
+    scan(
+      workspace: "ELDebate.xcworkspace",
       scheme: "ELDebate",
-      code_coverage: true
+      sdk: "iphonesimulator11.1",
+      device: 'iPhone SE (11.1)',
+      code_coverage: true,
+      xcargs: "ONLY_ACTIVE_ARCH=YES",
+      output_style: "rspec"
     )
   end
 
@@ -72,10 +88,3 @@ platform :ios do
     # )
   end
 end
-
-
-# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
-# All available actions: https://docs.fastlane.tools/actions
-
-# fastlane reports which actions are used. No personal data is recorded. 
-# Learn more at https://github.com/fastlane/fastlane#metrics

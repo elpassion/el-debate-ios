@@ -9,10 +9,12 @@ internal class Int_AsTimeStringSpec: QuickSpec {
 
         beforeEach {
             testedInteger = 1510681264000
+            NSTimeZone.default = NSTimeZone(abbreviation: "CET")! as TimeZone
         }
 
         afterEach {
             testedInteger = nil
+            NSTimeZone.resetSystemTimeZone()
         }
 
         describe("AsTimeString") {
