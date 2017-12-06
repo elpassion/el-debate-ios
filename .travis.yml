@@ -12,8 +12,7 @@ before_install:
 - pod repo update
 - pod install
 script:
-- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme FeatureTests -sdk iphonesimulator11.0 -destination 'name=iPhone SE,OS=11.0' -enableCodeCoverage NO ONLY_ACTIVE_ARCH=YES | xcpretty
-- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme ELDebate -sdk iphonesimulator11.0 -destination 'name=iPhone SE,OS=11.0' -enableCodeCoverage YES ONLY_ACTIVE_ARCH=YES | xcpretty
+- fastlane test
 - bundle exec danger
 notifications:
   slack:
