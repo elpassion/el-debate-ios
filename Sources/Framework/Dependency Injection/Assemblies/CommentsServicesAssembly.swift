@@ -45,6 +45,10 @@ class CommentsServicesAssembly: Assembly {
         container.register(VoteContextProvider.self) { resolver in
             return VoteContextRepository()
         }.inObjectScope(.container)
+
+        container.register(UserInfoRepository.self) { resolver in
+            return PersistentUserInfoRepository(userDefaults: UserDefaults.standard)
+        }
     }
 
 }

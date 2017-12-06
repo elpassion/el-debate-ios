@@ -3,7 +3,7 @@ import Foundation
 import PromiseKit
 
 protocol NewCommentServiceProtocol {
-    func create(comment: String) -> Promise<Comment>
+    func create(comment: String, name: String) -> Promise<Comment>
 }
 
 class NewCommentService: NewCommentServiceProtocol {
@@ -15,14 +15,14 @@ class NewCommentService: NewCommentServiceProtocol {
         self.voteContextProvider = voteContextProvider
     }
 
-    func create(comment: String) -> Promise<Comment> {
+    func create(comment: String, name: String) -> Promise<Comment> {
         guard let token = voteContextProvider.voteContext()?.authToken else {
             fatalError("Auth token needs to be created in order to send requests")
         }
 
         let response = requestExecutor.post(
                 url: "\(URLProvider.url)/api/comments",
-                body: ["text": comment],
+                body: ["text": comment, "first_name": name],
                 headers: ["Authorization": token]
         )
 
