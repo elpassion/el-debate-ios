@@ -236,6 +236,11 @@
 		8CE0CD711EEFE87300B0B358 /* DebateRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE0CD6F1EEFE7A500B0B358 /* DebateRunner.swift */; };
 		8CF071D91ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF071D81ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift */; };
 		AB2A8D469E4277C68D64F2AE /* Pods_ELDebateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06DCA5AB659775BB4F7FD239 /* Pods_ELDebateTests.framework */; };
+		BCE8D1787DA53707AF19A71A /* NewCommentToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE8DC8D1A896D73A75DE470 /* NewCommentToolbar.swift */; };
+		BCE8D2AD359D0899800B299B /* NewCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE8D1C494F52029BEE38DB1 /* NewCommentController.swift */; };
+		BCE8D5A15641B67C0D2D640C /* VoteContextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE8D19CF6BD75B20F11F8FC /* VoteContextProvider.swift */; };
+		BCE8D6E699CBD60B5E0C92F2 /* UserInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE8D51C6A7B2B86FE1E7A30 /* UserInfoRepository.swift */; };
+		BCE8DB3A62FFEB94FE8390DD /* NewCommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE8DE8772B0FD3CB095BBCA /* NewCommentService.swift */; };
 		DC4410E937280E6FA318F896 /* Pods_ELDebateFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89394591D6E38BCF7121D02F /* Pods_ELDebateFramework.framework */; };
 /* End PBXBuildFile section */
 
@@ -532,6 +537,11 @@
 		8CF071D81ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardWillShowPayloadSpec.swift; sourceTree = "<group>"; };
 		8CFAC8541EE5A55C0086A976 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		996F3224CAB84F5F195967B0 /* Pods-FeatureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatureTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FeatureTests/Pods-FeatureTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BCE8D19CF6BD75B20F11F8FC /* VoteContextProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteContextProvider.swift; sourceTree = "<group>"; };
+		BCE8D1C494F52029BEE38DB1 /* NewCommentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentController.swift; sourceTree = "<group>"; };
+		BCE8D51C6A7B2B86FE1E7A30 /* UserInfoRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoRepository.swift; sourceTree = "<group>"; };
+		BCE8DC8D1A896D73A75DE470 /* NewCommentToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentToolbar.swift; sourceTree = "<group>"; };
+		BCE8DE8772B0FD3CB095BBCA /* NewCommentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentService.swift; sourceTree = "<group>"; };
 		C4EF1B865EA02266DDB4F5E4 /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = Pods/EarlGrey/EarlGrey/EarlGrey.framework; sourceTree = SOURCE_ROOT; };
 		F279745FDA64037BEE9E67EC /* Pods-FeatureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeatureTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FeatureTests/Pods-FeatureTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -605,6 +615,7 @@
 				50D4DC721F91689200B3C901 /* FetchDebateService.swift */,
 				50D4DC701F91684900B3C901 /* LoginService.swift */,
 				50D4DC741F9168DD00B3C901 /* VoteService.swift */,
+				BCE8DE8772B0FD3CB095BBCA /* NewCommentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -778,6 +789,7 @@
 				294DA05D1F96501B0016EF62 /* SingleCommentCell.swift */,
 				504C561C1F9E15CD00FF8257 /* SingleCommentView+Factory.swift */,
 				294DA05F1F979E3D0016EF62 /* SingleCommentView.swift */,
+				BCE8DC8D1A896D73A75DE470 /* NewCommentToolbar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -958,6 +970,7 @@
 				8C6138031EF15A3C00E00700 /* PinFormValidator.swift */,
 				8CA6D8271EDF073000A82CD2 /* TextStyleDescriptor.swift */,
 				8C0AA2BA1EE55E4500F98074 /* TextStyleDescriptorFactory.swift */,
+				BCE8D32666FAAA67BA9E802E /* Repositories */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -1115,6 +1128,7 @@
 				6E1EA1051ECEDB98008C19EF /* CommentViewController.swift */,
 				8C6DA0451EC5AAAF00D31E76 /* PinEntryControllerProviding.swift */,
 				8CAD324C1EC36B5F00830E72 /* PinEntryViewController.swift */,
+				BCE8D1C494F52029BEE38DB1 /* NewCommentController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1267,6 +1281,15 @@
 				8CF071D81ED8795300F73D57 /* KeyboardWillShowPayloadSpec.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		BCE8D32666FAAA67BA9E802E /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				BCE8D19CF6BD75B20F11F8FC /* VoteContextProvider.swift */,
+				BCE8D51C6A7B2B86FE1E7A30 /* UserInfoRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		ECA6FADB8E61D4022744061E /* Frameworks */ = {
@@ -1892,6 +1915,11 @@
 				14A01A7A61ACBB5D2A54003D /* UITableViewCell+Reusable.swift in Sources */,
 				50BA69B21FA230E500C46E44 /* FetchDebateServiceAssembly.swift in Sources */,
 				14A018313B9DBD95E4A89213 /* UITableView+Reusable.swift in Sources */,
+				BCE8D2AD359D0899800B299B /* NewCommentController.swift in Sources */,
+				BCE8DB3A62FFEB94FE8390DD /* NewCommentService.swift in Sources */,
+				BCE8D1787DA53707AF19A71A /* NewCommentToolbar.swift in Sources */,
+				BCE8D5A15641B67C0D2D640C /* VoteContextProvider.swift in Sources */,
+				BCE8D6E699CBD60B5E0C92F2 /* UserInfoRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
