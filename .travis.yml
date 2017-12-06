@@ -1,23 +1,23 @@
 osx_image: xcode9
 language: objective-c
 rvm:
-- 2.4.1
+  - 2.4.1
 podfile: Podfile
 before_install:
-- openssl aes-256-cbc -K $encrypted_f2b541848a07_key -iv $encrypted_f2b541848a07_iv -in PusherKeys.plist.enc -out Resources/PusherKeys.plist -d
-- openssl aes-256-cbc -K $encrypted_bbdbf7e1c4b4_key -iv $encrypted_bbdbf7e1c4b4_iv -in .setup_travis_deployment.sh.enc -out setup_travis_deployment.sh -d
-- chmod +x setup_travis_deployment.sh
-- . ./setup_travis_deployment.sh
-- bundle install
-- pod repo update
-- pod install
+  - openssl aes-256-cbc -K $encrypted_f2b541848a07_key -iv $encrypted_f2b541848a07_iv -in PusherKeys.plist.enc -out Resources/PusherKeys.plist -d || true
+  - openssl aes-256-cbc -K $encrypted_bbdbf7e1c4b4_key -iv $encrypted_bbdbf7e1c4b4_iv -in .setup_travis_deployment.sh.enc -out setup_travis_deployment.sh -d || true
+  - chmod +x setup_travis_deployment.sh
+  - . ./setup_travis_deployment.sh
+  - bundle install
+  - pod repo update
+  - pod install
 script:
-- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme FeatureTests -sdk iphonesimulator11.0 -destination 'name=iPhone SE,OS=11.0' -enableCodeCoverage NO ONLY_ACTIVE_ARCH=YES | xcpretty
-- set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme ELDebate -sdk iphonesimulator11.0 -destination 'name=iPhone SE,OS=11.0' -enableCodeCoverage YES ONLY_ACTIVE_ARCH=YES | xcpretty
-- bundle exec danger
+  - set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme FeatureTests -sdk iphonesimulator11.0 -destination 'name=iPhone SE,OS=11.0' -enableCodeCoverage NO ONLY_ACTIVE_ARCH=YES | xcpretty
+  - set -o pipefail && xcodebuild test -workspace ELDebate.xcworkspace -scheme ELDebate -sdk iphonesimulator11.0 -destination 'name=iPhone SE,OS=11.0' -enableCodeCoverage YES ONLY_ACTIVE_ARCH=YES | xcpretty
+  - bundle exec danger
 notifications:
   slack:
     secure: k3/4ty4wXxeeDgWXTqGcWC26HvjUNLTdHIKyES34hX+mcSZdEht4V6zCOYjVdnSE+x4+TIz/7ZPKK+4SwGeh8n+foN2rtEKM/ZhbAy+lzIr4yuYQK1XBuw/c6WqGDm+LEbf2mlH4nXE0dBVsSBlDYJYX5QDCm+ANk9mFllMKX9QQoFlZswVjwmaEq5HsFEDXRc+DJuQK+fdTcixFbwWp/nxDcwNCjdhao1Bs4gFuDNEUUr0WWfLwZwhXbMB4XNqg1MxsPwgISI3c1/luOVVU4hJ5dO7X0lB4wUF46JJ6XMi1Dy3Ap2wghTbfNLSgNCX/LV7Fdmj3mRVi3c6QWgR4WQT5kodpDTUYzwzqUMdiMb59xC475GXRArmR5vwEYmcpN1dWfZeqWKx5/CYqc3GUgPaOi0dwRNbxTY52h1mQA3oD82zS3teazvlgRZbvk79kCXD0+SaUTAFCJ2FrP/euKR+rWdRJloA1CRTq95lecUDPbWUKaLfVKpTsep2K4YCU4KJzwcnXjAqzO1Kf5jmUB3vuPHRu7gVDBWQeONcdbF4P9DAhVCqSSGtG7fiYazkYNKIAcvDJ4cSHXy+WoZkHj9rqUqUpVfNcU58vKohV3wlOB7+teWSF7WyQRjnqeG2eCOjJrwXVaFA7aNvK7iVrXFz8TnqqMlo6M33E4+/ITF4=
 after_success:
-- bash <(curl -s https://codecov.io/bash) -J 'ELDebateFramework'
-- fastlane ios autodeploy
+  - bash <(curl -s https://codecov.io/bash) -J 'ELDebateFramework'
+  - fastlane ios autodeploy
