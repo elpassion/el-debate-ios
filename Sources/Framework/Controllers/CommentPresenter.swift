@@ -1,10 +1,4 @@
-protocol CommentPresenting {
-    func present(comment: Comment, in cell: SingleCommentCell)
-
-}
-
-class CommentPresenter: CommentPresenting {
-
+class CommentPresenter {
     func present(comment: Comment, in cell: SingleCommentCell) {
 
         cell.singleCommentView.commentContextLabel.text = comment.content
@@ -14,5 +8,4 @@ class CommentPresenter: CommentPresenting {
         cell.singleCommentView.userInitialsLabel.text = comment.usersInitials
 
     }
-
 }

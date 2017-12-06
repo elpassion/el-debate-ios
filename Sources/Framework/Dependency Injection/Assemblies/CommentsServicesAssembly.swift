@@ -5,9 +5,6 @@ import SwinjectAutoregistration
 class CommentsServicesAssembly: Assembly {
 
     func assemble(container: Container) {
-
-        container.autoregister(CommentPresenting.self, initializer: CommentPresenter.init)
-
         container.register(LoginCredentialsStoring.self, name: "LoginCredentials") { _ in
             return LoginCredentialsStore(userDefaults: UserDefaults.standard)
         }

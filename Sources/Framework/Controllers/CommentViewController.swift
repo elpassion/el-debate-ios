@@ -7,7 +7,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     private let fetchCommentsService: FetchCommentsServiceProtocol
     private let commentsWebSocketService: CommentsWebSocketProtocol
-    private let commentPresenter: CommentPresenting
+    private let commentPresenter = CommentPresenter()
 
     var comments: Comments?
 
@@ -15,11 +15,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     init(fetchCommentsService: FetchCommentsServiceProtocol,
          commentsWebSocketService: CommentsWebSocketProtocol,
-         commentPresenter: CommentPresenting,
          voteContext: VoteContext) {
         self.fetchCommentsService = fetchCommentsService
         self.commentsWebSocketService = commentsWebSocketService
-        self.commentPresenter = commentPresenter
         self.voteContext = voteContext
 
         super.init(nibName: nil, bundle: nil)
