@@ -14,16 +14,20 @@ class PinEntryViewControllerSpec: QuickSpec {
             var keyboardHandler: KeyboardWillShowHandlerMock!
             var store: LoginCredentialsStoreMock!
             var controller: PinEntryViewController!
+            var contextProvider: VoteContextProvider!
 
             beforeEach {
                 loginActionHandlingMock = LoginActionHandlingMock()
                 alertViewMock = AlertViewMock()
                 keyboardHandler = KeyboardWillShowHandlerMock()
                 store = LoginCredentialsStoreMock()
+                contextProvider = VoteContextProviderStub()
                 controller = PinEntryViewController(loginActionHandler: loginActionHandlingMock,
-                                                    alertView: alertViewMock,
-                                                    keyboardHandling: keyboardHandler,
-                                                    lastCredentialsStore: store)
+                                       alertView: alertViewMock,
+                                       keyboardHandling: keyboardHandler,
+                                       lastCredentialsStore: store,
+                                       voteContextProvider: contextProvider
+                )
             }
 
             it("should initialize back bar button item") {

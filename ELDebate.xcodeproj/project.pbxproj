@@ -11,6 +11,7 @@
 		14A018313B9DBD95E4A89213 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A011C08E8AD38EA16A17D9 /* UITableView+Reusable.swift */; };
 		14A01A7A61ACBB5D2A54003D /* UITableViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0165FF59144247BB970B1 /* UITableViewCell+Reusable.swift */; };
 		14A01C86A54B89F165CA840D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0136F735A6F80EAEFF7C0 /* Reusable.swift */; };
+		1D6C5ADC1FD8282800A3B9C6 /* VoteContextProviderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C5ADB1FD8282800A3B9C6 /* VoteContextProviderStub.swift */; };
 		290DFB0C1F9A37A800CFFE5A /* CommentControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290DFB0B1F9A37A800CFFE5A /* CommentControllerMock.swift */; };
 		2932C3311F948F9600B85B02 /* FetchCommentsServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3251F948E2B00B85B02 /* FetchCommentsServiceSpec.swift */; };
 		2932C3321F948F9900B85B02 /* FetchDebateServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2932C3271F948E4000B85B02 /* FetchDebateServiceSpec.swift */; };
@@ -299,6 +300,7 @@
 		14A0136F735A6F80EAEFF7C0 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		14A0165FF59144247BB970B1 /* UITableViewCell+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reusable.swift"; sourceTree = "<group>"; };
 		19E287EA4ED2A64F83F5A9CB /* Pods-ELDebateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateTests/Pods-ELDebateTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1D6C5ADB1FD8282800A3B9C6 /* VoteContextProviderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteContextProviderStub.swift; sourceTree = "<group>"; };
 		26CF685CFB8E6C77DF6684EB /* Pods_FeatureTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeatureTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		275F10A50218847328F71153 /* Pods-ELDebateFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ELDebateFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ELDebateFramework/Pods-ELDebateFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		290DFB0B1F9A37A800CFFE5A /* CommentControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentControllerMock.swift; sourceTree = "<group>"; };
@@ -859,6 +861,7 @@
 				8C5B02DA1EFD83B500D405CA /* PresentControllerSpy.swift */,
 				8C63FA181EC382820080FFF9 /* RouterMock.swift */,
 				8CD0947D1EE8726F006D46A5 /* UserDefaultsStoreMock.swift */,
+				1D6C5ADB1FD8282800A3B9C6 /* VoteContextProviderStub.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -2009,6 +2012,7 @@
 				8CD496831EE7040A004046C7 /* ChildControllerSpy.swift in Sources */,
 				8C0D63021EC5DAEB00421B89 /* ControllerConfiguratorSpec.swift in Sources */,
 				8C6137FD1EF1548100E00700 /* UsernameValidatorSpec.swift in Sources */,
+				1D6C5ADC1FD8282800A3B9C6 /* VoteContextProviderStub.swift in Sources */,
 				294D39851F90EA9B0015C54E /* CommentsDeserializerSpec.swift in Sources */,
 				326723424614E761B4834409 /* UsernameValidatorErrorSpec.swift in Sources */,
 				32672CD29AB24344404C2D44 /* PinCodeValidatorErrorSpec.swift in Sources */,
