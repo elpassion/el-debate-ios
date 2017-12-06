@@ -27,7 +27,6 @@ opt_in_rules:
   - single_test_class
   - quick_discouraged_call
   - pattern_matching_keywords
-  - no_extension_access_modifier
   - multiline_parameters
   - joined_default_parameter
   - strict_fileprivate
