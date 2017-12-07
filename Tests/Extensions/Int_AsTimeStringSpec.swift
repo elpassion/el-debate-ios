@@ -17,8 +17,8 @@ internal class Int_AsTimeStringSpec: QuickSpec {
 
         describe("AsTimeString") {
             it("should convert timestamp from API to proper value") {
-                let output = testedInteger.asTimeString()
-                expect(output) == "18:41"
+                let output = testedInteger.asTimeStringWithZone(zone: TimeZone(identifier: "GMT")!)
+                expect(output) == "17:41"
             }
         }
     }
