@@ -87,7 +87,13 @@ class PinEntryView: UIView {
         background.heightAnchor == background.widthAnchor * 0.75
 
         loginButton.centerXAnchor == centerXAnchor
-        loginButtonBottomConstraint = loginButton.bottomAnchor == bottomAnchor + loginButtonBottomSpacing
+
+        if #available(iOS 11, *) {
+            loginButtonBottomConstraint = loginButton.bottomAnchor == self.safeAreaLayoutGuide.bottomAnchor
+        } else {
+            loginButtonBottomConstraint = loginButton.bottomAnchor == bottomAnchor + loginButtonBottomSpacing
+        }
+
         loginButton.widthAnchor == widthAnchor * 0.9
         loginButton.heightAnchor == heightAnchor * 0.08
 
