@@ -1,9 +1,9 @@
-import UIKit
 import Anchorage
+import UIKit
 
 class NewCommentToolbar: UIView {
-    let textField = NewCommentToolbar.createTextField()
-    let button = NewCommentToolbar.createButton()
+    let textField: UITextField = NewCommentToolbar.createTextField()
+    let button: UIButton = NewCommentToolbar.createButton()
 
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 49))
@@ -48,4 +48,3 @@ private extension NewCommentToolbar {
         return button
     }
 }
-

@@ -8,8 +8,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     private let fetchCommentsService: FetchCommentsServiceProtocol
     private let commentsWebSocketService: CommentsWebSocketProtocol
-    private let commentPresenter = CommentPresenter()
-    private let newCommentToolbar = NewCommentToolbar()
+    private let commentPresenter: CommentPresenter = CommentPresenter()
+    private let newCommentToolbar: NewCommentToolbar = NewCommentToolbar()
 
     private let newCommentController: NewCommentControllerProtocol
 
@@ -18,9 +18,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     var voteContext: VoteContext
 
     init(fetchCommentsService: FetchCommentsServiceProtocol,
-            commentsWebSocketService: CommentsWebSocketProtocol,
-            voteContext: VoteContext,
-            newCommentController: NewCommentControllerProtocol) {
+         commentsWebSocketService: CommentsWebSocketProtocol,
+         voteContext: VoteContext,
+         newCommentController: NewCommentControllerProtocol) {
 
         self.fetchCommentsService = fetchCommentsService
         self.commentsWebSocketService = commentsWebSocketService

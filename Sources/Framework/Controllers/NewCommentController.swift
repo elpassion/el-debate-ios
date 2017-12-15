@@ -1,5 +1,5 @@
-import UIKit
 import Anchorage
+import UIKit
 
 protocol NewCommentControllerProtocol {
     func attachTo(toolbar: NewCommentToolbar, viewController: UIViewController)
@@ -37,7 +37,8 @@ class NewCommentController: NSObject, NewCommentControllerProtocol, UITextFieldD
         return true
     }
 
-    @objc func buttonAction(sender: Any?) {
+    @objc
+    func buttonAction(sender: Any?) {
         guard let toolbar = toolbar else { return }
 
         execute(text: toolbar.textField.text ?? "")
@@ -47,7 +48,7 @@ class NewCommentController: NSObject, NewCommentControllerProtocol, UITextFieldD
         toolbar?.textField.resignFirstResponder()
         toolbar?.textField.text = ""
 
-        if (text.isEmpty) { return }
+        if text.isEmpty { return }
 
         if let name = repository.name() {
             _ = service.create(comment: text, name: name)
@@ -57,7 +58,9 @@ class NewCommentController: NSObject, NewCommentControllerProtocol, UITextFieldD
     }
 
     private func executeSetNameFlow() {
-        let controller = UIAlertController(title: "Your name", message: "Please choose your name", preferredStyle: .alert)
+        let controller = UIAlertController(title: "Your name",
+                                           message: "Please choose your name",
+                                           preferredStyle: .alert)
         controller.addTextField()
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         controller.addAction(UIAlertAction(title: "Set", style: .default) { action in

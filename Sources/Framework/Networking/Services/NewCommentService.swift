@@ -8,7 +8,10 @@ protocol NewCommentServiceProtocol {
 
 class NewCommentService: NewCommentServiceProtocol {
 
-    init(requestExecutor: RequestExecuting, URLProvider: URLProviding, commentDeserializer: Deserializer<Comment>, voteContextProvider: VoteContextProvider) {
+    init(requestExecutor: RequestExecuting,
+         URLProvider: URLProviding,
+         commentDeserializer: Deserializer<Comment>,
+         voteContextProvider: VoteContextProvider) {
         self.requestExecutor = requestExecutor
         self.URLProvider = URLProvider
         self.commentDeserializer = commentDeserializer
