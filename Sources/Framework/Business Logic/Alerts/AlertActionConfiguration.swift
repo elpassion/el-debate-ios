@@ -3,7 +3,7 @@ import UIKit
 public struct AlertActionConfiguration {
 
     let title: String
-    let style: UIAlertActionStyle
+    let style: UIAlertAction.Style
     let handler: (() -> Void)?
 
 }

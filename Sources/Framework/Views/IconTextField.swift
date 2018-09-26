@@ -45,7 +45,7 @@ class IconTextField: UIView {
 
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        textField.defaultTextAttributes = AttributeStyle.enterPin.attributes.build().stringAny
+        textField.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(AttributeStyle.enterPin.attributes.build().stringAny)
     }
 
     private func addSubviews() {
@@ -78,4 +78,9 @@ class IconTextField: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

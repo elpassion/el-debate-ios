@@ -6,15 +6,15 @@ class ChildControllerSpy: UIViewController {
     var willMoveCalledTo: UIViewController?
     var didMoveCalledTo: UIViewController?
 
-    override func addChildViewController(_ childController: UIViewController) {
+    override func addChild(_ childController: UIViewController) {
         addedChild = childController
     }
 
-    override func willMove(toParentViewController parent: UIViewController?) {
+    override func willMove(toParent parent: UIViewController?) {
         willMoveCalledTo = parent
     }
 
-    override func didMove(toParentViewController parent: UIViewController?) {
+    override func didMove(toParent parent: UIViewController?) {
         didMoveCalledTo = parent
     }
 

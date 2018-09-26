@@ -22,13 +22,13 @@ class KeyboardWillShowHandlerSpec: QuickSpec {
             describe("initializer") {
                 it("should register sut to keyboard will show notification") {
                     expect(notificationManager.observedNotifications).to(containElementSatisfying({ notification in
-                        notification == Notification.Name.UIKeyboardWillShow
+                        notification == UIResponder.keyboardWillShowNotification
                     }))
                 }
 
                 it("should register sut to keyboard will hide notification") {
                     expect(notificationManager.observedNotifications).to(containElementSatisfying({ notification in
-                        notification == Notification.Name.UIKeyboardWillHide
+                        notification == UIResponder.keyboardWillHideNotification
                     }))
                 }
             }
@@ -50,21 +50,21 @@ class KeyboardWillShowHandlerSpec: QuickSpec {
                 }
 
                 it("should be triggered with keyboard height when keyboard shows") {
-                    let notification = Notification(name: .UIKeyboardWillShow,
+                    let notification = Notification(name: UIResponder.keyboardWillShowNotification,
                                                     object: nil,
                                                     userInfo: keyboardUserInfo(height: 200.0))
 
-                    notificationManager.callbacks[Notification.Name.UIKeyboardWillShow]?(notification)
+                    notificationManager.callbacks[UIResponder.keyboardWillShowNotification]?(notification)
 
                     expect(keyboardHeight).toEventually(equal(CGFloat(200.0)))
                 }
 
                 it("should be triggered with zero when keyboard hides") {
-                    let notification = Notification(name: .UIKeyboardWillHide,
+                    let notification = Notification(name: UIResponder.keyboardWillHideNotification,
                                                     object: nil,
                                                     userInfo: keyboardUserInfo(height: 200.0))
 
-                    notificationManager.callbacks[Notification.Name.UIKeyboardWillHide]?(notification)
+                    notificationManager.callbacks[UIResponder.keyboardWillHideNotification]?(notification)
 
                     expect(keyboardHeight).toEventually(equal(CGFloat(0.0)))
                 }

@@ -1,8 +1,8 @@
 struct TypedNotification {
 
     static let keyboardWillShow: NotificationDescriptor =
-        NotificationDescriptor(name: .UIKeyboardWillShow, parser: KeyboardWillShowPayload.init)
+        NotificationDescriptor(name: UIResponder.keyboardWillShowNotification, parser: KeyboardWillShowPayload.init)
 
     static let keyboardWillHide: NotificationDescriptor =
-        NotificationDescriptor(name: .UIKeyboardWillHide, parser: KeyboardWillShowPayload.init)
+        NotificationDescriptor(name: UIResponder.keyboardWillHideNotification, parser: KeyboardWillShowPayload.init)
 }

@@ -31,16 +31,16 @@ struct AttributesDescriptor {
 
 extension AttributesDescriptor {
 
-    func build() -> [NSAttributedStringKey: AnyObject] {
+    func build() -> [NSAttributedString.Key: AnyObject] {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment
         paragraphStyle.lineSpacing = lineSpacing
 
         return [
-            NSAttributedStringKey.paragraphStyle: paragraphStyle,
-            NSAttributedStringKey.kern: NSNumber(value: kern),
-            NSAttributedStringKey.foregroundColor: style.uiColor,
-            NSAttributedStringKey.font: style.uiFont
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+            NSAttributedString.Key.kern: NSNumber(value: kern),
+            NSAttributedString.Key.foregroundColor: style.uiColor,
+            NSAttributedString.Key.font: style.uiFont
         ]
     }
 

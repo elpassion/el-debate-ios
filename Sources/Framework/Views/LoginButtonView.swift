@@ -5,7 +5,7 @@ class LoginButtonView: UIView {
 
     private let loginButton: UIButton = Views.button(style: .buttonTitle, backgroundColor: .navigationBar,
                                                      cornerRadius: 3.0, title: "Log in")
-    private let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    private let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .white)
 
     var onLoginButtonTapped: (() -> Void)?
 

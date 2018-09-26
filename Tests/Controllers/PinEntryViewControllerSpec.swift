@@ -28,7 +28,7 @@ class PinEntryViewControllerSpec: QuickSpec {
 
             it("should initialize back bar button item") {
                 expect(controller.navigationItem.backBarButtonItem?.title) == ""
-                expect(controller.navigationItem.backBarButtonItem?.style) == UIBarButtonItemStyle.plain
+                expect(controller.navigationItem.backBarButtonItem?.style) == UIBarButtonItem.Style.plain
                 expect(controller.navigationItem.backBarButtonItem?.action).to(beNil())
                 expect(controller.navigationItem.backBarButtonItem?.target).to(beNil())
             }

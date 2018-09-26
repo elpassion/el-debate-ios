@@ -2,9 +2,9 @@ import UIKit
 
 struct Views {
 
-    static func stack(axis: UILayoutConstraintAxis,
-                      distribution: UIStackViewDistribution,
-                      alignment: UIStackViewAlignment,
+    static func stack(axis: NSLayoutConstraint.Axis,
+                      distribution: UIStackView.Distribution,
+                      alignment: UIStackView.Alignment,
                       spacing: CGFloat) -> UIStackView {
         let stackView = UIStackView(frame: .zero)
         stackView.alignment = alignment
@@ -25,8 +25,8 @@ struct Views {
     }
 
     static func image(image: Image,
-                      contentMode: UIViewContentMode,
-                      renderingMode: UIImageRenderingMode? = nil) -> UIImageView {
+                      contentMode: UIView.ContentMode,
+                      renderingMode: UIImage.RenderingMode? = nil) -> UIImageView {
         let imageView = UIImageView(frame: .zero)
         imageView.clipsToBounds = true
         imageView.contentMode = contentMode

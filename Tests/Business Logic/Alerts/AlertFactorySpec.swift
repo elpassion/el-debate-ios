@@ -35,7 +35,7 @@ internal class AlertFactorySpec: QuickSpec {
                 }
 
                 it("should set preferred style to alert") {
-                    expect(alert.preferredStyle) == UIAlertControllerStyle.alert
+                    expect(alert.preferredStyle) == UIAlertController.Style.alert
                 }
             }
 
@@ -51,9 +51,9 @@ internal class AlertFactorySpec: QuickSpec {
 
                     expect(alert.actions.count) == 2
                     expect(alert.actions.first?.title) == "1"
-                    expect(alert.actions.first?.style) == UIAlertActionStyle.default
+                    expect(alert.actions.first?.style) == UIAlertAction.Style.default
                     expect(alert.actions.last?.title) == "2"
-                    expect(alert.actions.last?.style) == UIAlertActionStyle.cancel
+                    expect(alert.actions.last?.style) == UIAlertAction.Style.cancel
                 }
             }
         }

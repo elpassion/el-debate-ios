@@ -87,7 +87,7 @@ internal class AlertPresenterSpec: QuickSpec {
 
                     expect(alertFactory.lastConfiguration?.actions.count) == 1
                     expect(action?.title) == "Ok"
-                    expect(action?.style) == UIAlertActionStyle.default
+                    expect(action?.style) == UIAlertAction.Style.default
                 }
 
                 it("should return a promise that returns true if ok is clicked") {

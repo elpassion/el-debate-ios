@@ -18,7 +18,7 @@ class AttributesDescriptorSpec: QuickSpec {
             }
 
             describe("build") {
-                var attributes: [NSAttributedStringKey: AnyObject]!
+                var attributes: [NSAttributedString.Key: AnyObject]!
 
                 beforeEach {
                     attributes = sut.build()
