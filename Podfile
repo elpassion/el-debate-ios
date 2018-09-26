@@ -3,7 +3,7 @@ inhibit_all_warnings!
 
 def common_pods
   pod 'Alamofire', '~> 4.4'
-  pod 'Anchorage', :git => 'https://github.com/Raizlabs/Anchorage.git', :branch => 'feature/xcode-9'
+  pod 'Anchorage', '~> 4.3'
   pod 'KeychainAccess', '~> 3.1'
   pod 'PromiseKit', '~> 4.0'
   pod 'PusherSwift', '~> 5.0.1'
@@ -11,7 +11,7 @@ def common_pods
   pod 'SwiftLint', '~> 0.22'
   pod 'Swinject', '~> 2.1.1'
   pod 'SwinjectAutoregistration', '~> 2.1.1'
-  pod 'UIColor_Hex_Swift', '~> 3.0.2'
+  pod 'UIColor_Hex_Swift', '~> 4.2'
 end
 
 target 'ELDebate' do
@@ -25,7 +25,7 @@ target 'ELDebate' do
     inherit! :search_paths
 
     pod 'Nimble-Snapshots', '~> 6.3.0'
-    pod 'Nimble', '~> 7.0'
+    pod 'Nimble', '~> 7.3'
     pod 'Quick', '~> 1.2'
   end
 
